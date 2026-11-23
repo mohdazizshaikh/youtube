@@ -1,3 +1,16 @@
+# ViralOS M2.4 / M3.2 / M4 Engineering Increment — 23 November 2026
+
+**Status:** Implemented and locally tested code increment, **NOT** live-account/production acceptance. The repository was recovered from archived sources without accessing the suspended former account. Original releases remain in `recovery/original-artifacts/`.
+
+- [M2.4 offline Hindi/English CTC alignment + owner review, M3.2 read-only private YouTube verification and Windows acceptance instructions](docs/M24_M32_ENGINEERING_HANDOFF.md)
+- [Exact completed, planned and blocked work](docs/PRIORITY_TRACKER_2026-11-23.md)
+- M2.4 backend: `app/m24_audio.py`, `app/m24_routes.py`, `sql/009_m24_alignment.sql`, optional `tools/m24_align_local.py` and `tools/m24_voice_preflight.py`; **no pretrained model included**.
+- M3.2 read-only owner tool: `tools/m32_private_acceptance.py`. It cannot upload or publish video and requires separate owner OAuth on the owner's machine.
+- Windows read-only preflight `tools/windows_acceptance.ps1`; local-only verified SQLite/outputs backup `tools/offline_backup_restore.py`.
+- `python -m pytest -q` and `python tools/verify_package.py` check the new package. `BUILD_REPORT.json` is retained as an older historical checkpoint; new evidence in `ENGINEERING_REPORT_2026-11-23.json`.
+
+---
+
 # ViralOS Launch M0–M3 + M2.2 / M3 Private Upload v0.5
 
 This ZIP contains **runnable Python/FastAPI application code** plus the canonical Launch v3 specification snapshot, Windows scripts, optional research and narration connectors, a diagnostic dashboard, SQL migrations, private export workflow and tests.

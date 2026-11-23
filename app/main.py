@@ -363,3 +363,6 @@ from .creative_m22 import register_creative_m22
 register_creative_m22(app)
 from .youtube_private import register_youtube_private
 register_youtube_private(app)
+
+from .m24_routes import register_m24_audio
+register_m24_audio(app)

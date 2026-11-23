@@ -5,3 +5,14 @@ data/
 outputs/*
 !outputs/.gitkeep
 *.pyc
+
+# Owner-only acceptance evidence, secrets, models and local offline backups
+reports/
+local-evidence/
+models/
+*.client_secret.json
+client_secret*.json
+*.credentials.json
+*.oauth.json
+*.keyring-export
+*.viralbackup.zip

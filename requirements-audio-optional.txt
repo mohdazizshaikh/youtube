@@ -1,0 +1,4 @@
+# Opt-in local CPU CTC acoustic alignment. Install on owner machine only;
+# model files are never downloaded by ViralOS and must be independently licensed.
+torch>=2.6,<3
+transformers>=4.46,<6

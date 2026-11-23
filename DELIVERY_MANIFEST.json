@@ -1,0 +1,21 @@
+{
+  "name": "ViralOS Launch — M2.1 Automated Creative Director",
+  "version": "0.4.0-dev",
+  "release_gate": "NOT_PUBLICATION_READY",
+  "file_count_hashed": 270,
+  "verification": "python tools/verify_package.py && python -m pytest -q",
+  "features": [
+    "deterministic script-derived shot drafts",
+    "measured WAV narration segments and SRT",
+    "human-reviewed language variants",
+    "opt-in Piper adapter",
+    "immutable project-bound voice"
+  ],
+  "no_claims": [
+    "automatic translation",
+    "forced word-level ASR",
+    "real Piper model tested",
+    "public-ready video",
+    "YouTube upload enabled"
+  ]
+}

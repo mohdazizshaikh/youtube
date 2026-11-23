@@ -1,0 +1,6 @@
+# Install only to connect your own YouTube channel (READ-ONLY analytics).
+# No upload scope and no upload implementation are enabled in this edition.
+google-api-python-client>=2,<3
+google-auth-oauthlib>=1,<2
+google-auth-httplib2>=0.2,<1
+keyring>=25,<30

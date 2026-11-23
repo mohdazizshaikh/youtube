@@ -1,0 +1,3331 @@
+{
+  "as_of": "2026-11-21",
+  "platform": "ViralOS / YouTube Automation Platform",
+  "source_integrity": {
+    "github_original_suspended": true,
+    "no_git_remote_operations": true,
+    "latest_archived_code_date": "2026-11-12",
+    "later_continuation_unverified": true
+  },
+  "statuses": {
+    "SPECIFIED": "design only",
+    "IMPLEMENTED-IN-ARCHIVE": "dated source evidence",
+    "MOCK/LOCAL-TESTED": "development tests only",
+    "EXTERNAL-UNVERIFIED": "owner environment/account/API missing"
+  },
+  "profiles": {
+    "launch": "CPU-first own-channel workflows",
+    "ultimate": "twelve-domain specialist federation and optional GPU",
+    "combined": "same product with flags"
+  },
+  "registry": {
+    "engines_count": 144,
+    "engines": [
+      {
+        "engine_id": "shared.connector_registry",
+        "owner_module": "connector_registry",
+        "domain_id": null,
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "core/11_CONNECTORS_AND_INTEGRATIONS.md",
+        "purpose": "source connectors and permitted provider quotas",
+        "input_contract": "core contract: source versions/channel/project/job refs",
+        "output_contract": "versioned core record, review gate or asset ref",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-L-003"
+      },
+      {
+        "engine_id": "shared.trend_observatory",
+        "owner_module": "trend_engine",
+        "domain_id": null,
+        "pipeline_stage": "LEARN",
+        "algorithm_spec": "core/04_TREND_DISCOVERY_AND_OPPORTUNITY.md",
+        "purpose": "topic time series, source coverage and lifecycle",
+        "input_contract": "core contract: source versions/channel/project/job refs",
+        "output_contract": "versioned core record, review gate or asset ref",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-L-004"
+      },
+      {
+        "engine_id": "shared.opportunity_score",
+        "owner_module": "trend_engine",
+        "domain_id": null,
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "core/04_TREND_DISCOVERY_AND_OPPORTUNITY.md",
+        "purpose": "source-backed explainable recommendation score",
+        "input_contract": "core contract: source versions/channel/project/job refs",
+        "output_contract": "versioned core record, review gate or asset ref",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-L-004"
+      },
+      {
+        "engine_id": "shared.research_planner",
+        "owner_module": "research_engine",
+        "domain_id": null,
+        "pipeline_stage": "CREATE",
+        "algorithm_spec": "core/05_EVIDENCE_RESEARCH_AND_VERIFICATION.md",
+        "purpose": "research questions, stopping criteria and budget",
+        "input_contract": "core contract: source versions/channel/project/job refs",
+        "output_contract": "versioned core record, review gate or asset ref",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-L-019"
+      },
+      {
+        "engine_id": "shared.source_version_store",
+        "owner_module": "evidence_service",
+        "domain_id": null,
+        "pipeline_stage": "INVESTIGATE",
+        "algorithm_spec": "core/02_STORAGE_AND_DATA_LIFECYCLE.md",
+        "purpose": "immutable evidence captures and hashes",
+        "input_contract": "core contract: source versions/channel/project/job refs",
+        "output_contract": "versioned core record, review gate or asset ref",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-L-005"
+      },
+      {
+        "engine_id": "shared.evidence_graph",
+        "owner_module": "evidence_service",
+        "domain_id": null,
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "core/05_EVIDENCE_RESEARCH_AND_VERIFICATION.md",
+        "purpose": "atomic claims and source passage edges",
+        "input_contract": "core contract: source versions/channel/project/job refs",
+        "output_contract": "versioned core record, review gate or asset ref",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-L-005"
+      },
+      {
+        "engine_id": "shared.source_independence",
+        "owner_module": "evidence_service",
+        "domain_id": null,
+        "pipeline_stage": "INVESTIGATE",
+        "algorithm_spec": "core/05_EVIDENCE_RESEARCH_AND_VERIFICATION.md",
+        "purpose": "syndication groups and provenance relations",
+        "input_contract": "core contract: source versions/channel/project/job refs",
+        "output_contract": "versioned core record, review gate or asset ref",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-L-005"
+      },
+      {
+        "engine_id": "shared.adversarial_challenger",
+        "owner_module": "research_engine",
+        "domain_id": null,
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "core/05_EVIDENCE_RESEARCH_AND_VERIFICATION.md",
+        "purpose": "strongest opposing evidence and open questions",
+        "input_contract": "core contract: source versions/channel/project/job refs",
+        "output_contract": "versioned core record, review gate or asset ref",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-L-019"
+      },
+      {
+        "engine_id": "shared.research_completeness",
+        "owner_module": "research_engine",
+        "domain_id": null,
+        "pipeline_stage": "INVESTIGATE",
+        "algorithm_spec": "core/05_EVIDENCE_RESEARCH_AND_VERIFICATION.md",
+        "purpose": "unanswered question and coverage auditor",
+        "input_contract": "core contract: source versions/channel/project/job refs",
+        "output_contract": "versioned core record, review gate or asset ref",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-L-019"
+      },
+      {
+        "engine_id": "shared.domain_router",
+        "owner_module": "domain_router",
+        "domain_id": null,
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "core/00_SYSTEM_ARCHITECTURE.md",
+        "purpose": "domain plugin selection, relevance and different angles",
+        "input_contract": "core contract: source versions/channel/project/job refs",
+        "output_contract": "versioned core record, review gate or asset ref",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-L-006"
+      },
+      {
+        "engine_id": "shared.editorial_decision_council",
+        "owner_module": "editorial_council",
+        "domain_id": null,
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "core/03_WORKFLOWS_AND_ERRORS.md",
+        "purpose": "risk policy, resource allocation and human gate",
+        "input_contract": "core contract: source versions/channel/project/job refs",
+        "output_contract": "versioned core record, review gate or asset ref",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-L-009"
+      },
+      {
+        "engine_id": "shared.narrative_director",
+        "owner_module": "creator_studio",
+        "domain_id": null,
+        "pipeline_stage": "CREATE",
+        "algorithm_spec": "core/06_AUDIENCE_CREATOR_AND_LEARNING.md",
+        "purpose": "honest hooks, intent and original source-backed story",
+        "input_contract": "core contract: source versions/channel/project/job refs",
+        "output_contract": "versioned core record, review gate or asset ref",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-L-017"
+      },
+      {
+        "engine_id": "shared.portfolio_optimizer",
+        "owner_module": "creator_studio",
+        "domain_id": null,
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "core/06_AUDIENCE_CREATOR_AND_LEARNING.md",
+        "purpose": "content balance, fatigue and duplicate prevention",
+        "input_contract": "core contract: source versions/channel/project/job refs",
+        "output_contract": "versioned core record, review gate or asset ref",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-L-017"
+      },
+      {
+        "engine_id": "shared.creator_strategy_analyzer",
+        "owner_module": "creator_studio",
+        "domain_id": null,
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "core/06_AUDIENCE_CREATOR_AND_LEARNING.md",
+        "purpose": "public technique analysis without copying",
+        "input_contract": "core contract: source versions/channel/project/job refs",
+        "output_contract": "versioned core record, review gate or asset ref",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-L-017"
+      },
+      {
+        "engine_id": "shared.script_to_scene_planner",
+        "owner_module": "creator_studio",
+        "domain_id": null,
+        "pipeline_stage": "CREATE",
+        "algorithm_spec": "core/07_CREATIVE_MEDIA_AND_PROMPT_ENGINE.md",
+        "purpose": "structured SceneSpecs sourced to script and claims",
+        "input_contract": "core contract: source versions/channel/project/job refs",
+        "output_contract": "versioned core record, review gate or asset ref",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-L-020"
+      },
+      {
+        "engine_id": "shared.rights_and_originality",
+        "owner_module": "asset_rights",
+        "domain_id": null,
+        "pipeline_stage": "VERIFY",
+        "algorithm_spec": "core/09_YOUTUBE_COMPLIANCE_PUBLISHING_REVENUE.md",
+        "purpose": "license, original value and reused media gates",
+        "input_contract": "core contract: source versions/channel/project/job refs",
+        "output_contract": "versioned core record, review gate or asset ref",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-L-008"
+      },
+      {
+        "engine_id": "shared.cpu_media_renderer",
+        "owner_module": "media_pipeline",
+        "domain_id": null,
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "core/07_CREATIVE_MEDIA_AND_PROMPT_ENGINE.md",
+        "purpose": "diagrams, TTS, subtitles, FFmpeg CPU outputs",
+        "input_contract": "core contract: source versions/channel/project/job refs",
+        "output_contract": "versioned core record, review gate or asset ref",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-L-007"
+      },
+      {
+        "engine_id": "shared.cinematic_prompt_compiler",
+        "owner_module": "creator_studio",
+        "domain_id": null,
+        "pipeline_stage": "CREATE",
+        "algorithm_spec": "core/07_CREATIVE_MEDIA_AND_PROMPT_ENGINE.md",
+        "purpose": "model-specific shot prompt with model evidence",
+        "input_contract": "core contract: source versions/channel/project/job refs",
+        "output_contract": "versioned core record, review gate or asset ref",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-C07"
+      },
+      {
+        "engine_id": "shared.motion_continuity",
+        "owner_module": "creator_studio",
+        "domain_id": null,
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "core/07_CREATIVE_MEDIA_AND_PROMPT_ENGINE.md",
+        "purpose": "character, prop, location and motion reference control",
+        "input_contract": "core contract: source versions/channel/project/job refs",
+        "output_contract": "versioned core record, review gate or asset ref",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-C07"
+      },
+      {
+        "engine_id": "shared.temporal_visual_qa",
+        "owner_module": "media_pipeline",
+        "domain_id": null,
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "core/07_CREATIVE_MEDIA_AND_PROMPT_ENGINE.md",
+        "purpose": "flicker, identity drift, scientific and factual scene checks",
+        "input_contract": "core contract: source versions/channel/project/job refs",
+        "output_contract": "versioned core record, review gate or asset ref",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-C10"
+      },
+      {
+        "engine_id": "shared.compute_scheduler",
+        "owner_module": "compute_scheduler",
+        "domain_id": null,
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "core/08_COMPUTE_MODELS_AND_SCALE.md",
+        "purpose": "CPU/CUDA/hybrid/remote admission and reservations",
+        "input_contract": "core contract: source versions/channel/project/job refs",
+        "output_contract": "versioned core record, review gate or asset ref",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-L-013"
+      },
+      {
+        "engine_id": "shared.model_registry",
+        "owner_module": "compute_scheduler",
+        "domain_id": null,
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "core/08_COMPUTE_MODELS_AND_SCALE.md",
+        "purpose": "model digest, license, hardware and capabilities",
+        "input_contract": "core contract: source versions/channel/project/job refs",
+        "output_contract": "versioned core record, review gate or asset ref",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-C08"
+      },
+      {
+        "engine_id": "shared.publishing_director",
+        "owner_module": "publication_service",
+        "domain_id": null,
+        "pipeline_stage": "CREATE",
+        "algorithm_spec": "core/09_YOUTUBE_COMPLIANCE_PUBLISHING_REVENUE.md",
+        "purpose": "metadata, approval and official authorized publishing",
+        "input_contract": "core contract: source versions/channel/project/job refs",
+        "output_contract": "versioned core record, review gate or asset ref",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-L-021"
+      },
+      {
+        "engine_id": "shared.analytics_learning",
+        "owner_module": "analytics_service",
+        "domain_id": null,
+        "pipeline_stage": "LEARN",
+        "algorithm_spec": "core/06_AUDIENCE_CREATOR_AND_LEARNING.md",
+        "purpose": "authentic analytics, experiments and corrections",
+        "input_contract": "core contract: source versions/channel/project/job refs",
+        "output_contract": "versioned core record, review gate or asset ref",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-L-011"
+      },
+      {
+        "engine_id": "shared.revenue_gpu_fund",
+        "owner_module": "revenue_ledger",
+        "domain_id": null,
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "core/09_YOUTUBE_COMPLIANCE_PUBLISHING_REVENUE.md",
+        "purpose": "actual earnings minus costs and savings towards GPU",
+        "input_contract": "core contract: source versions/channel/project/job refs",
+        "output_contract": "versioned core record, review gate or asset ref",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-L-012"
+      },
+      {
+        "engine_id": "shared.job_recovery",
+        "owner_module": "audit_backup",
+        "domain_id": null,
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "core/03_WORKFLOWS_AND_ERRORS.md",
+        "purpose": "state transitions, retries, checkpoint, backup and diagnostics",
+        "input_contract": "core contract: source versions/channel/project/job refs",
+        "output_contract": "versioned core record, review gate or asset ref",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-L-014"
+      },
+      {
+        "engine_id": "newsroom.event_verification",
+        "owner_module": "domain_router",
+        "domain_id": "newsroom",
+        "pipeline_stage": "DISCOVER",
+        "algorithm_spec": "domains/newsroom.md",
+        "purpose": "event verification",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D01"
+      },
+      {
+        "engine_id": "newsroom.full_speech_parser",
+        "owner_module": "domain_router",
+        "domain_id": "newsroom",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/newsroom.md",
+        "purpose": "full speech parser",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D01"
+      },
+      {
+        "engine_id": "newsroom.claim_atomizer",
+        "owner_module": "domain_router",
+        "domain_id": "newsroom",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/newsroom.md",
+        "purpose": "claim atomizer",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D01"
+      },
+      {
+        "engine_id": "newsroom.historical_statement_memory",
+        "owner_module": "domain_router",
+        "domain_id": "newsroom",
+        "pipeline_stage": "INVESTIGATE",
+        "algorithm_spec": "domains/newsroom.md",
+        "purpose": "historical statement memory",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D01"
+      },
+      {
+        "engine_id": "newsroom.consistency_contradiction",
+        "owner_module": "domain_router",
+        "domain_id": "newsroom",
+        "pipeline_stage": "VERIFY",
+        "algorithm_spec": "domains/newsroom.md",
+        "purpose": "consistency contradiction",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D01"
+      },
+      {
+        "engine_id": "newsroom.policy_action_outcome",
+        "owner_module": "domain_router",
+        "domain_id": "newsroom",
+        "pipeline_stage": "LEARN",
+        "algorithm_spec": "domains/newsroom.md",
+        "purpose": "policy action outcome",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D01"
+      },
+      {
+        "engine_id": "newsroom.perspective_counterevidence",
+        "owner_module": "domain_router",
+        "domain_id": "newsroom",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/newsroom.md",
+        "purpose": "perspective counterevidence",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D01"
+      },
+      {
+        "engine_id": "newsroom.media_ownership_influence_graph",
+        "owner_module": "domain_router",
+        "domain_id": "newsroom",
+        "pipeline_stage": "INVESTIGATE",
+        "algorithm_spec": "domains/newsroom.md",
+        "purpose": "media ownership influence graph",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D01"
+      },
+      {
+        "engine_id": "newsroom.right_of_reply",
+        "owner_module": "domain_router",
+        "domain_id": "newsroom",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/newsroom.md",
+        "purpose": "right of reply",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "HUMAN_REVIEW_REQUIRED",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D01"
+      },
+      {
+        "engine_id": "newsroom.investigative_memory",
+        "owner_module": "domain_router",
+        "domain_id": "newsroom",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/newsroom.md",
+        "purpose": "investigative memory",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D01"
+      },
+      {
+        "engine_id": "newsroom.newsroom_visual_policy",
+        "owner_module": "domain_router",
+        "domain_id": "newsroom",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/newsroom.md",
+        "purpose": "newsroom visual policy",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D01"
+      },
+      {
+        "engine_id": "newsroom.newsroom_legal_review",
+        "owner_module": "domain_router",
+        "domain_id": "newsroom",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/newsroom.md",
+        "purpose": "newsroom legal review",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "HUMAN_REVIEW_REQUIRED",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D01"
+      },
+      {
+        "engine_id": "science.paper_discovery",
+        "owner_module": "domain_router",
+        "domain_id": "science",
+        "pipeline_stage": "DISCOVER",
+        "algorithm_spec": "domains/science.md",
+        "purpose": "paper discovery",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D02"
+      },
+      {
+        "engine_id": "science.methods_examiner",
+        "owner_module": "domain_router",
+        "domain_id": "science",
+        "pipeline_stage": "VERIFY",
+        "algorithm_spec": "domains/science.md",
+        "purpose": "methods examiner",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D02"
+      },
+      {
+        "engine_id": "science.quantitative_calculator",
+        "owner_module": "domain_router",
+        "domain_id": "science",
+        "pipeline_stage": "VERIFY",
+        "algorithm_spec": "domains/science.md",
+        "purpose": "quantitative calculator",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D02"
+      },
+      {
+        "engine_id": "science.replication_consensus",
+        "owner_module": "domain_router",
+        "domain_id": "science",
+        "pipeline_stage": "VERIFY",
+        "algorithm_spec": "domains/science.md",
+        "purpose": "replication consensus",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D02"
+      },
+      {
+        "engine_id": "science.mechanism_explainer",
+        "owner_module": "domain_router",
+        "domain_id": "science",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/science.md",
+        "purpose": "mechanism explainer",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D02"
+      },
+      {
+        "engine_id": "science.retraction_monitor",
+        "owner_module": "domain_router",
+        "domain_id": "science",
+        "pipeline_stage": "DISCOVER",
+        "algorithm_spec": "domains/science.md",
+        "purpose": "retraction monitor",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D02"
+      },
+      {
+        "engine_id": "science.scientific_visualizer",
+        "owner_module": "domain_router",
+        "domain_id": "science",
+        "pipeline_stage": "CREATE",
+        "algorithm_spec": "domains/science.md",
+        "purpose": "scientific visualizer",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D02"
+      },
+      {
+        "engine_id": "science.adversarial_scientific_review",
+        "owner_module": "domain_router",
+        "domain_id": "science",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/science.md",
+        "purpose": "adversarial scientific review",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D02"
+      },
+      {
+        "engine_id": "technology.release_monitor",
+        "owner_module": "domain_router",
+        "domain_id": "technology",
+        "pipeline_stage": "DISCOVER",
+        "algorithm_spec": "domains/technology.md",
+        "purpose": "release monitor",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D03"
+      },
+      {
+        "engine_id": "technology.vendor_claims_extractor",
+        "owner_module": "domain_router",
+        "domain_id": "technology",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/technology.md",
+        "purpose": "vendor claims extractor",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D03"
+      },
+      {
+        "engine_id": "technology.reproducible_test_harness",
+        "owner_module": "domain_router",
+        "domain_id": "technology",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/technology.md",
+        "purpose": "reproducible test harness",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D03"
+      },
+      {
+        "engine_id": "technology.benchmark_normalizer",
+        "owner_module": "domain_router",
+        "domain_id": "technology",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/technology.md",
+        "purpose": "benchmark normalizer",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D03"
+      },
+      {
+        "engine_id": "technology.security_privacy_examiner",
+        "owner_module": "domain_router",
+        "domain_id": "technology",
+        "pipeline_stage": "VERIFY",
+        "algorithm_spec": "domains/technology.md",
+        "purpose": "security privacy examiner",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D03"
+      },
+      {
+        "engine_id": "technology.cost_license_analyzer",
+        "owner_module": "domain_router",
+        "domain_id": "technology",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/technology.md",
+        "purpose": "cost license analyzer",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D03"
+      },
+      {
+        "engine_id": "technology.tutorial_compiler",
+        "owner_module": "domain_router",
+        "domain_id": "technology",
+        "pipeline_stage": "CREATE",
+        "algorithm_spec": "domains/technology.md",
+        "purpose": "tutorial compiler",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D03"
+      },
+      {
+        "engine_id": "technology.version_drift_monitor",
+        "owner_module": "domain_router",
+        "domain_id": "technology",
+        "pipeline_stage": "DISCOVER",
+        "algorithm_spec": "domains/technology.md",
+        "purpose": "version drift monitor",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D03"
+      },
+      {
+        "engine_id": "business.filing_intake",
+        "owner_module": "domain_router",
+        "domain_id": "business",
+        "pipeline_stage": "DISCOVER",
+        "algorithm_spec": "domains/business.md",
+        "purpose": "filing intake",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D04"
+      },
+      {
+        "engine_id": "business.financial_normalizer",
+        "owner_module": "domain_router",
+        "domain_id": "business",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/business.md",
+        "purpose": "financial normalizer",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D04"
+      },
+      {
+        "engine_id": "business.arithmetic_auditor",
+        "owner_module": "domain_router",
+        "domain_id": "business",
+        "pipeline_stage": "VERIFY",
+        "algorithm_spec": "domains/business.md",
+        "purpose": "arithmetic auditor",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D04"
+      },
+      {
+        "engine_id": "business.ownership_influence",
+        "owner_module": "domain_router",
+        "domain_id": "business",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/business.md",
+        "purpose": "ownership influence",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D04"
+      },
+      {
+        "engine_id": "business.unit_economics",
+        "owner_module": "domain_router",
+        "domain_id": "business",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/business.md",
+        "purpose": "unit economics",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D04"
+      },
+      {
+        "engine_id": "business.competitive_landscape",
+        "owner_module": "domain_router",
+        "domain_id": "business",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/business.md",
+        "purpose": "competitive landscape",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D04"
+      },
+      {
+        "engine_id": "business.forecast_sensitivity",
+        "owner_module": "domain_router",
+        "domain_id": "business",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/business.md",
+        "purpose": "forecast sensitivity",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D04"
+      },
+      {
+        "engine_id": "business.governance_adversarial_review",
+        "owner_module": "domain_router",
+        "domain_id": "business",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/business.md",
+        "purpose": "governance adversarial review",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "HUMAN_REVIEW_REQUIRED",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D04"
+      },
+      {
+        "engine_id": "gaming.game_patch_monitor",
+        "owner_module": "domain_router",
+        "domain_id": "gaming",
+        "pipeline_stage": "DISCOVER",
+        "algorithm_spec": "domains/gaming.md",
+        "purpose": "game patch monitor",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D05"
+      },
+      {
+        "engine_id": "gaming.mechanics_knowledge",
+        "owner_module": "domain_router",
+        "domain_id": "gaming",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/gaming.md",
+        "purpose": "mechanics knowledge",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D05"
+      },
+      {
+        "engine_id": "gaming.replay_ingest",
+        "owner_module": "domain_router",
+        "domain_id": "gaming",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/gaming.md",
+        "purpose": "replay ingest",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D05"
+      },
+      {
+        "engine_id": "gaming.highlight_selector",
+        "owner_module": "domain_router",
+        "domain_id": "gaming",
+        "pipeline_stage": "CREATE",
+        "algorithm_spec": "domains/gaming.md",
+        "purpose": "highlight selector",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D05"
+      },
+      {
+        "engine_id": "gaming.strategy_evaluator",
+        "owner_module": "domain_router",
+        "domain_id": "gaming",
+        "pipeline_stage": "LEARN",
+        "algorithm_spec": "domains/gaming.md",
+        "purpose": "strategy evaluator",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D05"
+      },
+      {
+        "engine_id": "gaming.community_question_miner",
+        "owner_module": "domain_router",
+        "domain_id": "gaming",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/gaming.md",
+        "purpose": "community question miner",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D05"
+      },
+      {
+        "engine_id": "gaming.gameplay_storyteller",
+        "owner_module": "domain_router",
+        "domain_id": "gaming",
+        "pipeline_stage": "CREATE",
+        "algorithm_spec": "domains/gaming.md",
+        "purpose": "gameplay storyteller",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D05"
+      },
+      {
+        "engine_id": "gaming.publisher_rights_checker",
+        "owner_module": "domain_router",
+        "domain_id": "gaming",
+        "pipeline_stage": "VERIFY",
+        "algorithm_spec": "domains/gaming.md",
+        "purpose": "publisher rights checker",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D05"
+      },
+      {
+        "engine_id": "history.archive_explorer",
+        "owner_module": "domain_router",
+        "domain_id": "history",
+        "pipeline_stage": "INVESTIGATE",
+        "algorithm_spec": "domains/history.md",
+        "purpose": "archive explorer",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D06"
+      },
+      {
+        "engine_id": "history.provenance_authenticity",
+        "owner_module": "domain_router",
+        "domain_id": "history",
+        "pipeline_stage": "VERIFY",
+        "algorithm_spec": "domains/history.md",
+        "purpose": "provenance authenticity",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D06"
+      },
+      {
+        "engine_id": "history.chronology_builder",
+        "owner_module": "domain_router",
+        "domain_id": "history",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/history.md",
+        "purpose": "chronology builder",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D06"
+      },
+      {
+        "engine_id": "history.historical_geography",
+        "owner_module": "domain_router",
+        "domain_id": "history",
+        "pipeline_stage": "INVESTIGATE",
+        "algorithm_spec": "domains/history.md",
+        "purpose": "historical geography",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D06"
+      },
+      {
+        "engine_id": "history.historiography_challenger",
+        "owner_module": "domain_router",
+        "domain_id": "history",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/history.md",
+        "purpose": "historiography challenger",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D06"
+      },
+      {
+        "engine_id": "history.myth_checker",
+        "owner_module": "domain_router",
+        "domain_id": "history",
+        "pipeline_stage": "VERIFY",
+        "algorithm_spec": "domains/history.md",
+        "purpose": "myth checker",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D06"
+      },
+      {
+        "engine_id": "history.translation_reviewer",
+        "owner_module": "domain_router",
+        "domain_id": "history",
+        "pipeline_stage": "VERIFY",
+        "algorithm_spec": "domains/history.md",
+        "purpose": "translation reviewer",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D06"
+      },
+      {
+        "engine_id": "history.reconstruction_director",
+        "owner_module": "domain_router",
+        "domain_id": "history",
+        "pipeline_stage": "CREATE",
+        "algorithm_spec": "domains/history.md",
+        "purpose": "reconstruction director",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D06"
+      },
+      {
+        "engine_id": "space.mission_monitor",
+        "owner_module": "domain_router",
+        "domain_id": "space",
+        "pipeline_stage": "DISCOVER",
+        "algorithm_spec": "domains/space.md",
+        "purpose": "mission monitor",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D07"
+      },
+      {
+        "engine_id": "space.observation_paper_research",
+        "owner_module": "domain_router",
+        "domain_id": "space",
+        "pipeline_stage": "INVESTIGATE",
+        "algorithm_spec": "domains/space.md",
+        "purpose": "observation paper research",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D07"
+      },
+      {
+        "engine_id": "space.orbital_unit_validator",
+        "owner_module": "domain_router",
+        "domain_id": "space",
+        "pipeline_stage": "VERIFY",
+        "algorithm_spec": "domains/space.md",
+        "purpose": "orbital unit validator",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D07"
+      },
+      {
+        "engine_id": "space.cosmic_scale_graphics",
+        "owner_module": "domain_router",
+        "domain_id": "space",
+        "pipeline_stage": "CREATE",
+        "algorithm_spec": "domains/space.md",
+        "purpose": "cosmic scale graphics",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D07"
+      },
+      {
+        "engine_id": "space.imaging_provenance",
+        "owner_module": "domain_router",
+        "domain_id": "space",
+        "pipeline_stage": "VERIFY",
+        "algorithm_spec": "domains/space.md",
+        "purpose": "imaging provenance",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D07"
+      },
+      {
+        "engine_id": "space.space_myth_checker",
+        "owner_module": "domain_router",
+        "domain_id": "space",
+        "pipeline_stage": "VERIFY",
+        "algorithm_spec": "domains/space.md",
+        "purpose": "space myth checker",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D07"
+      },
+      {
+        "engine_id": "space.mission_timeline_director",
+        "owner_module": "domain_router",
+        "domain_id": "space",
+        "pipeline_stage": "CREATE",
+        "algorithm_spec": "domains/space.md",
+        "purpose": "mission timeline director",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D07"
+      },
+      {
+        "engine_id": "space.physics_critic",
+        "owner_module": "domain_router",
+        "domain_id": "space",
+        "pipeline_stage": "VERIFY",
+        "algorithm_spec": "domains/space.md",
+        "purpose": "physics critic",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D07"
+      },
+      {
+        "engine_id": "learning.objective_decomposer",
+        "owner_module": "domain_router",
+        "domain_id": "learning",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/learning.md",
+        "purpose": "objective decomposer",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D08"
+      },
+      {
+        "engine_id": "learning.prerequisite_mapper",
+        "owner_module": "domain_router",
+        "domain_id": "learning",
+        "pipeline_stage": "INVESTIGATE",
+        "algorithm_spec": "domains/learning.md",
+        "purpose": "prerequisite mapper",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D08"
+      },
+      {
+        "engine_id": "learning.misconception_finder",
+        "owner_module": "domain_router",
+        "domain_id": "learning",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/learning.md",
+        "purpose": "misconception finder",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D08"
+      },
+      {
+        "engine_id": "learning.lesson_planner",
+        "owner_module": "domain_router",
+        "domain_id": "learning",
+        "pipeline_stage": "CREATE",
+        "algorithm_spec": "domains/learning.md",
+        "purpose": "lesson planner",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D08"
+      },
+      {
+        "engine_id": "learning.example_generator",
+        "owner_module": "domain_router",
+        "domain_id": "learning",
+        "pipeline_stage": "CREATE",
+        "algorithm_spec": "domains/learning.md",
+        "purpose": "example generator",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D08"
+      },
+      {
+        "engine_id": "learning.assessment_builder",
+        "owner_module": "domain_router",
+        "domain_id": "learning",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/learning.md",
+        "purpose": "assessment builder",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D08"
+      },
+      {
+        "engine_id": "learning.explanation_critic",
+        "owner_module": "domain_router",
+        "domain_id": "learning",
+        "pipeline_stage": "VERIFY",
+        "algorithm_spec": "domains/learning.md",
+        "purpose": "explanation critic",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D08"
+      },
+      {
+        "engine_id": "learning.accessibility_layout_director",
+        "owner_module": "domain_router",
+        "domain_id": "learning",
+        "pipeline_stage": "CREATE",
+        "algorithm_spec": "domains/learning.md",
+        "purpose": "accessibility layout director",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D08"
+      },
+      {
+        "engine_id": "learning.learning_outcome_reviewer",
+        "owner_module": "domain_router",
+        "domain_id": "learning",
+        "pipeline_stage": "VERIFY",
+        "algorithm_spec": "domains/learning.md",
+        "purpose": "learning outcome reviewer",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D08"
+      },
+      {
+        "engine_id": "sports.event_calendar",
+        "owner_module": "domain_router",
+        "domain_id": "sports",
+        "pipeline_stage": "DISCOVER",
+        "algorithm_spec": "domains/sports.md",
+        "purpose": "event calendar",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D09"
+      },
+      {
+        "engine_id": "sports.entity_resolver",
+        "owner_module": "domain_router",
+        "domain_id": "sports",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/sports.md",
+        "purpose": "entity resolver",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D09"
+      },
+      {
+        "engine_id": "sports.stat_validator",
+        "owner_module": "domain_router",
+        "domain_id": "sports",
+        "pipeline_stage": "VERIFY",
+        "algorithm_spec": "domains/sports.md",
+        "purpose": "stat validator",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D09"
+      },
+      {
+        "engine_id": "sports.performance_trend",
+        "owner_module": "domain_router",
+        "domain_id": "sports",
+        "pipeline_stage": "LEARN",
+        "algorithm_spec": "domains/sports.md",
+        "purpose": "performance trend",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D09"
+      },
+      {
+        "engine_id": "sports.tactics_board",
+        "owner_module": "domain_router",
+        "domain_id": "sports",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/sports.md",
+        "purpose": "tactics board",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D09"
+      },
+      {
+        "engine_id": "sports.injury_roster_monitor",
+        "owner_module": "domain_router",
+        "domain_id": "sports",
+        "pipeline_stage": "DISCOVER",
+        "algorithm_spec": "domains/sports.md",
+        "purpose": "injury roster monitor",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D09"
+      },
+      {
+        "engine_id": "sports.match_storyline",
+        "owner_module": "domain_router",
+        "domain_id": "sports",
+        "pipeline_stage": "CREATE",
+        "algorithm_spec": "domains/sports.md",
+        "purpose": "match storyline",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D09"
+      },
+      {
+        "engine_id": "sports.rights_safe_footage_planner",
+        "owner_module": "domain_router",
+        "domain_id": "sports",
+        "pipeline_stage": "VERIFY",
+        "algorithm_spec": "domains/sports.md",
+        "purpose": "rights safe footage planner",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D09"
+      },
+      {
+        "engine_id": "sports.sports_community_questions",
+        "owner_module": "domain_router",
+        "domain_id": "sports",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/sports.md",
+        "purpose": "sports community questions",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D09"
+      },
+      {
+        "engine_id": "sports.seasonality_planner",
+        "owner_module": "domain_router",
+        "domain_id": "sports",
+        "pipeline_stage": "CREATE",
+        "algorithm_spec": "domains/sports.md",
+        "purpose": "seasonality planner",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D09"
+      },
+      {
+        "engine_id": "sports.cricket_fixture_score_intake",
+        "owner_module": "domain_router",
+        "domain_id": "sports",
+        "pipeline_stage": "DISCOVER",
+        "algorithm_spec": "domains/sports.md",
+        "purpose": "cricket fixture score intake",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D09"
+      },
+      {
+        "engine_id": "sports.cricket_score_semantics",
+        "owner_module": "domain_router",
+        "domain_id": "sports",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/sports.md",
+        "purpose": "cricket score semantics",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D09"
+      },
+      {
+        "engine_id": "sports.cricket_tactical_graphics",
+        "owner_module": "domain_router",
+        "domain_id": "sports",
+        "pipeline_stage": "CREATE",
+        "algorithm_spec": "domains/sports.md",
+        "purpose": "cricket tactical graphics",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D09"
+      },
+      {
+        "engine_id": "sports.cricket_editorial_angles",
+        "owner_module": "domain_router",
+        "domain_id": "sports",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/sports.md",
+        "purpose": "cricket editorial angles",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D09"
+      },
+      {
+        "engine_id": "sports.cricket_rights",
+        "owner_module": "domain_router",
+        "domain_id": "sports",
+        "pipeline_stage": "VERIFY",
+        "algorithm_spec": "domains/sports.md",
+        "purpose": "cricket rights",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D09"
+      },
+      {
+        "engine_id": "sports.nfl_schedule_status",
+        "owner_module": "domain_router",
+        "domain_id": "sports",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/sports.md",
+        "purpose": "nfl schedule status",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D09"
+      },
+      {
+        "engine_id": "sports.nfl_play_state_parser",
+        "owner_module": "domain_router",
+        "domain_id": "sports",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/sports.md",
+        "purpose": "nfl play state parser",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D09"
+      },
+      {
+        "engine_id": "sports.nfl_tactics_animator",
+        "owner_module": "domain_router",
+        "domain_id": "sports",
+        "pipeline_stage": "CREATE",
+        "algorithm_spec": "domains/sports.md",
+        "purpose": "nfl tactics animator",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D09"
+      },
+      {
+        "engine_id": "sports.nfl_performance_analysis",
+        "owner_module": "domain_router",
+        "domain_id": "sports",
+        "pipeline_stage": "LEARN",
+        "algorithm_spec": "domains/sports.md",
+        "purpose": "nfl performance analysis",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D09"
+      },
+      {
+        "engine_id": "sports.nfl_rights",
+        "owner_module": "domain_router",
+        "domain_id": "sports",
+        "pipeline_stage": "VERIFY",
+        "algorithm_spec": "domains/sports.md",
+        "purpose": "nfl rights",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D09"
+      },
+      {
+        "engine_id": "sports.mlb_innings_stats",
+        "owner_module": "domain_router",
+        "domain_id": "sports",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/sports.md",
+        "purpose": "mlb innings stats",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D09"
+      },
+      {
+        "engine_id": "sports.mlb_pitcher_hitter",
+        "owner_module": "domain_router",
+        "domain_id": "sports",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/sports.md",
+        "purpose": "mlb pitcher hitter",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D09"
+      },
+      {
+        "engine_id": "sports.mlb_strike_zone_diagram",
+        "owner_module": "domain_router",
+        "domain_id": "sports",
+        "pipeline_stage": "CREATE",
+        "algorithm_spec": "domains/sports.md",
+        "purpose": "mlb strike zone diagram",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D09"
+      },
+      {
+        "engine_id": "sports.mlb_offseason_planner",
+        "owner_module": "domain_router",
+        "domain_id": "sports",
+        "pipeline_stage": "CREATE",
+        "algorithm_spec": "domains/sports.md",
+        "purpose": "mlb offseason planner",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D09"
+      },
+      {
+        "engine_id": "sports.nba_possession_metrics",
+        "owner_module": "domain_router",
+        "domain_id": "sports",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/sports.md",
+        "purpose": "nba possession metrics",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D09"
+      },
+      {
+        "engine_id": "sports.nba_tactics_visualizer",
+        "owner_module": "domain_router",
+        "domain_id": "sports",
+        "pipeline_stage": "CREATE",
+        "algorithm_spec": "domains/sports.md",
+        "purpose": "nba tactics visualizer",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D09"
+      },
+      {
+        "engine_id": "sports.soccer_xg_provenance",
+        "owner_module": "domain_router",
+        "domain_id": "sports",
+        "pipeline_stage": "VERIFY",
+        "algorithm_spec": "domains/sports.md",
+        "purpose": "soccer xg provenance",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D09"
+      },
+      {
+        "engine_id": "sports.soccer_formations",
+        "owner_module": "domain_router",
+        "domain_id": "sports",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/sports.md",
+        "purpose": "soccer formations",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D09"
+      },
+      {
+        "engine_id": "career.labor_demand_radar",
+        "owner_module": "domain_router",
+        "domain_id": "career",
+        "pipeline_stage": "DISCOVER",
+        "algorithm_spec": "domains/career.md",
+        "purpose": "labor demand radar",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D10"
+      },
+      {
+        "engine_id": "career.salary_context_validator",
+        "owner_module": "domain_router",
+        "domain_id": "career",
+        "pipeline_stage": "VERIFY",
+        "algorithm_spec": "domains/career.md",
+        "purpose": "salary context validator",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D10"
+      },
+      {
+        "engine_id": "career.skill_graph",
+        "owner_module": "domain_router",
+        "domain_id": "career",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/career.md",
+        "purpose": "skill graph",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D10"
+      },
+      {
+        "engine_id": "career.credential_verifier",
+        "owner_module": "domain_router",
+        "domain_id": "career",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/career.md",
+        "purpose": "credential verifier",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D10"
+      },
+      {
+        "engine_id": "career.practical_project_lab",
+        "owner_module": "domain_router",
+        "domain_id": "career",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/career.md",
+        "purpose": "practical project lab",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D10"
+      },
+      {
+        "engine_id": "career.interview_resume_coach",
+        "owner_module": "domain_router",
+        "domain_id": "career",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/career.md",
+        "purpose": "interview resume coach",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D10"
+      },
+      {
+        "engine_id": "career.career_risk_reviewer",
+        "owner_module": "domain_router",
+        "domain_id": "career",
+        "pipeline_stage": "VERIFY",
+        "algorithm_spec": "domains/career.md",
+        "purpose": "career risk reviewer",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "HUMAN_REVIEW_REQUIRED",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D10"
+      },
+      {
+        "engine_id": "productivity.workflow_recorder",
+        "owner_module": "domain_router",
+        "domain_id": "productivity",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/productivity.md",
+        "purpose": "workflow recorder",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D11"
+      },
+      {
+        "engine_id": "productivity.bottleneck_finder",
+        "owner_module": "domain_router",
+        "domain_id": "productivity",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/productivity.md",
+        "purpose": "bottleneck finder",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D11"
+      },
+      {
+        "engine_id": "productivity.automation_planner",
+        "owner_module": "domain_router",
+        "domain_id": "productivity",
+        "pipeline_stage": "CREATE",
+        "algorithm_spec": "domains/productivity.md",
+        "purpose": "automation planner",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D11"
+      },
+      {
+        "engine_id": "productivity.before_after_evaluator",
+        "owner_module": "domain_router",
+        "domain_id": "productivity",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/productivity.md",
+        "purpose": "before after evaluator",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D11"
+      },
+      {
+        "engine_id": "productivity.template_designer",
+        "owner_module": "domain_router",
+        "domain_id": "productivity",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/productivity.md",
+        "purpose": "template designer",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D11"
+      },
+      {
+        "engine_id": "productivity.tool_comparator",
+        "owner_module": "domain_router",
+        "domain_id": "productivity",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/productivity.md",
+        "purpose": "tool comparator",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D11"
+      },
+      {
+        "engine_id": "productivity.habit_evidence_reviewer",
+        "owner_module": "domain_router",
+        "domain_id": "productivity",
+        "pipeline_stage": "VERIFY",
+        "algorithm_spec": "domains/productivity.md",
+        "purpose": "habit evidence reviewer",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D11"
+      },
+      {
+        "engine_id": "culture.trend_origin_tracker",
+        "owner_module": "domain_router",
+        "domain_id": "culture",
+        "pipeline_stage": "DISCOVER",
+        "algorithm_spec": "domains/culture.md",
+        "purpose": "trend origin tracker",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D12"
+      },
+      {
+        "engine_id": "culture.diffusion_map",
+        "owner_module": "domain_router",
+        "domain_id": "culture",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/culture.md",
+        "purpose": "diffusion map",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D12"
+      },
+      {
+        "engine_id": "culture.cultural_context_analyzer",
+        "owner_module": "domain_router",
+        "domain_id": "culture",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/culture.md",
+        "purpose": "cultural context analyzer",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D12"
+      },
+      {
+        "engine_id": "culture.myth_misinformation_critic",
+        "owner_module": "domain_router",
+        "domain_id": "culture",
+        "pipeline_stage": "VERIFY",
+        "algorithm_spec": "domains/culture.md",
+        "purpose": "myth misinformation critic",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D12"
+      },
+      {
+        "engine_id": "culture.creator_attribution_rights",
+        "owner_module": "domain_router",
+        "domain_id": "culture",
+        "pipeline_stage": "VERIFY",
+        "algorithm_spec": "domains/culture.md",
+        "purpose": "creator attribution rights",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D12"
+      },
+      {
+        "engine_id": "culture.harassment_privacy_gate",
+        "owner_module": "domain_router",
+        "domain_id": "culture",
+        "pipeline_stage": "REASON",
+        "algorithm_spec": "domains/culture.md",
+        "purpose": "harassment privacy gate",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D12"
+      },
+      {
+        "engine_id": "culture.internet_story_director",
+        "owner_module": "domain_router",
+        "domain_id": "culture",
+        "pipeline_stage": "CREATE",
+        "algorithm_spec": "domains/culture.md",
+        "purpose": "internet story director",
+        "input_contract": "DomainContext + canonical SourceVersion/ResearchPlan/SceneSpec refs",
+        "output_contract": "OperationResult + domain-typed verified/reviewed artifact refs",
+        "automation_level": "BOUNDED_AUTOMATIC",
+        "fail_closed": true,
+        "status": "SPECIFIED",
+        "test_ref": "T-U-D12"
+      }
+    ],
+    "creative_ops_count": 18,
+    "creative_ops": [
+      {
+        "id": "CV3-01",
+        "short_name": "BRIEF",
+        "owner_service": "creative_director",
+        "input_contract": "ChannelProfile + ResearchDossier + BrandPack",
+        "output_contract": "CreativeBrief",
+        "algorithm": "Provenance-aware question and original angle; reject unrelated or near-duplicate video concept.",
+        "failure_code": "NO_ORIGINAL_VALUE",
+        "gate": "LOW_RISK_AUTO",
+        "depends_on": [],
+        "conditional_on": "ALWAYS",
+        "implementation_status": "SPECIFIED_NOT_IMPLEMENTED",
+        "test_id": "T-CV3-01"
+      },
+      {
+        "id": "CV3-02",
+        "short_name": "CLAIM_LOCK",
+        "owner_service": "research_engine",
+        "input_contract": "ResearchDossier + Claims + EvidenceEdges",
+        "output_contract": "ResearchDossier (v2: immutable verified revision + evidence/source IDs)",
+        "algorithm": "Freeze permitted factual claims; missing critical source blocks production.",
+        "failure_code": "EVIDENCE_UNAVAILABLE",
+        "gate": "REVIEW_WHEN_DISPUTED",
+        "depends_on": [
+          "CV3-01"
+        ],
+        "conditional_on": "ALWAYS",
+        "implementation_status": "SPECIFIED_NOT_IMPLEMENTED",
+        "test_id": "T-CV3-02"
+      },
+      {
+        "id": "CV3-03",
+        "short_name": "DOMAIN_STYLE",
+        "owner_service": "domain_router",
+        "input_contract": "CreativeBrief + domain creative profile",
+        "output_contract": "DomainCreativeProfile",
+        "algorithm": "Load real domain visual/voice rules; no generic theme swap or disabled domain.",
+        "failure_code": "DOMAIN_NOT_ENABLED",
+        "gate": "AUTOMATIC",
+        "depends_on": [
+          "CV3-01"
+        ],
+        "conditional_on": "ALWAYS",
+        "implementation_status": "SPECIFIED_NOT_IMPLEMENTED",
+        "test_id": "T-CV3-03"
+      },
+      {
+        "id": "CV3-04",
+        "short_name": "BEAT_PLAN",
+        "owner_service": "creative_director",
+        "input_contract": "CreativeBrief + evidence lock",
+        "output_contract": "TimedBeatGraph",
+        "algorithm": "Ask/promise, evidence, uncertainty, payoff, and duration ranges; mark claims by ID.",
+        "failure_code": "UNSUPPORTED_BEAT",
+        "gate": "AUTOMATIC_WITH_REVIEW",
+        "depends_on": [
+          "CV3-02",
+          "CV3-03"
+        ],
+        "conditional_on": "ALWAYS",
+        "implementation_status": "SPECIFIED_NOT_IMPLEMENTED",
+        "test_id": "T-CV3-04"
+      },
+      {
+        "id": "CV3-05",
+        "short_name": "SHOT_PLAN",
+        "owner_service": "shot_planner",
+        "input_contract": "TimedBeatGraph + domain/format pack",
+        "output_contract": "ShotPlan",
+        "algorithm": "Visual class, permitted source, image/video overlay, speech cue, motion, source & rights dependencies.",
+        "failure_code": "UNEXPLAINED_SHOT",
+        "gate": "AUTOMATIC_WITH_REVIEW",
+        "depends_on": [
+          "CV3-04"
+        ],
+        "conditional_on": "ALWAYS",
+        "implementation_status": "SPECIFIED_NOT_IMPLEMENTED",
+        "test_id": "T-CV3-05"
+      },
+      {
+        "id": "CV3-06",
+        "short_name": "RIGHTS_CHECK",
+        "owner_service": "asset_service",
+        "input_contract": "ShotPlan + AssetRights + source versions",
+        "output_contract": "AssetRights (v2) + reviewed ShotPlan rights IDs",
+        "algorithm": "Delegate adjudication to existing rights service, unknown legal basis -> HOLD.",
+        "failure_code": "UNKNOWN_RIGHTS",
+        "gate": "HUMAN_FOR_THIRD_PARTY",
+        "depends_on": [
+          "CV3-05"
+        ],
+        "conditional_on": "ALWAYS",
+        "implementation_status": "SPECIFIED_NOT_IMPLEMENTED",
+        "test_id": "T-CV3-06"
+      },
+      {
+        "id": "CV3-07",
+        "short_name": "SOURCE_CLIP_REVIEW",
+        "owner_service": "reaction_director",
+        "input_contract": "Original source context + documented rights + commentary",
+        "output_contract": "ReactionClipMap",
+        "algorithm": "Require real new independent critique and source-to-commentary link. No generic green-screen license. When source clips are absent, record NOT_APPLICABLE as a durable guard result; downstream stages must not treat a skipped required guard as approval.",
+        "failure_code": "REUPLOAD_NOT_AUTHORIZED",
+        "gate": "HUMAN_FOR_SOURCE_CLIPS",
+        "depends_on": [
+          "CV3-06"
+        ],
+        "conditional_on": "HAS_THIRD_PARTY_CLIP",
+        "implementation_status": "SPECIFIED_NOT_IMPLEMENTED",
+        "test_id": "T-CV3-07"
+      },
+      {
+        "id": "CV3-08",
+        "short_name": "ASSET_BUILD",
+        "owner_service": "asset_service",
+        "input_contract": "Rights-approved shots + compute capability",
+        "output_contract": "ShotPlan",
+        "algorithm": "Generate original diagrams or use authorized assets; GPU only if tested/available. Mandatory clip-review guard returns signed NOT_APPLICABLE if no third-party clips; otherwise requires reviewed ReactionClipMap.",
+        "failure_code": "MEDIA_OR_CAPABILITY_MISSING",
+        "gate": "AUTOMATIC_WHEN_ALLOWED",
+        "depends_on": [
+          "CV3-06",
+          "CV3-07"
+        ],
+        "conditional_on": "ALWAYS",
+        "implementation_status": "SPECIFIED_NOT_IMPLEMENTED",
+        "test_id": "T-CV3-08"
+      },
+      {
+        "id": "CV3-09",
+        "short_name": "SPEECH_BUILD",
+        "owner_service": "voice_service",
+        "input_contract": "Locked script + locale + licensed voice",
+        "output_contract": "SpeechSegment",
+        "algorithm": "Synth/import voice, measure speech segment duration and align real timing.",
+        "failure_code": "VOICE_RIGHTS_OR_ALIGNMENT_FAIL",
+        "gate": "HUMAN_PRONUNCIATION_REVIEW",
+        "depends_on": [
+          "CV3-04"
+        ],
+        "conditional_on": "ALWAYS",
+        "implementation_status": "SPECIFIED_NOT_IMPLEMENTED",
+        "test_id": "T-CV3-09"
+      },
+      {
+        "id": "CV3-10",
+        "short_name": "LOCALE_BUILD",
+        "owner_service": "localization_service",
+        "input_contract": "Master story + source-verified claim set + locale profile",
+        "output_contract": "LocalizationVariant",
+        "algorithm": "Meaning-preserving adaptation, region-safe numbers/names; regenerate text/audio/timing.",
+        "failure_code": "LOCALIZATION_CLAIM_DRIFT",
+        "gate": "HUMAN_LOCALE_REVIEW",
+        "depends_on": [
+          "CV3-09",
+          "CV3-02"
+        ],
+        "conditional_on": "ALWAYS",
+        "implementation_status": "SPECIFIED_NOT_IMPLEMENTED",
+        "test_id": "T-CV3-10"
+      },
+      {
+        "id": "CV3-11",
+        "short_name": "TEXT_OVERLAYS",
+        "owner_service": "overlay_service",
+        "input_contract": "ShotPlan + localized speech/caption text",
+        "output_contract": "OverlaySpec",
+        "algorithm": "Native-script caption and semantic text tracks; collision, safe box and contrast checks.",
+        "failure_code": "TEXT_OVERFLOW_OR_BAD_SOURCE",
+        "gate": "AUTOMATIC_WITH_REVIEW",
+        "depends_on": [
+          "CV3-05",
+          "CV3-10"
+        ],
+        "conditional_on": "ALWAYS",
+        "implementation_status": "SPECIFIED_NOT_IMPLEMENTED",
+        "test_id": "T-CV3-11"
+      },
+      {
+        "id": "CV3-12",
+        "short_name": "AUDIO_MIX",
+        "owner_service": "audio_mixer",
+        "input_contract": "Speech segments + permitted music/SFX/ambience",
+        "output_contract": "SoundMixSpec",
+        "algorithm": "Track-based mix, speech-first intelligibility, loudness evidence and rights.",
+        "failure_code": "AUDIO_OR_LICENSE_FAIL",
+        "gate": "HUMAN_LISTEN_REVIEW",
+        "depends_on": [
+          "CV3-09",
+          "CV3-10"
+        ],
+        "conditional_on": "ALWAYS",
+        "implementation_status": "SPECIFIED_NOT_IMPLEMENTED",
+        "test_id": "T-CV3-12"
+      },
+      {
+        "id": "CV3-13",
+        "short_name": "TIMELINE",
+        "owner_service": "timeline_compiler",
+        "input_contract": "Shots + overlays + aligned speech + mix + locale",
+        "output_contract": "VideoTimeline",
+        "algorithm": "Immutable half-open millisecond interval graph, source/rights hashes, scene continuity.",
+        "failure_code": "TIMELINE_INVALID",
+        "gate": "AUTOMATIC_WITH_REVIEW",
+        "depends_on": [
+          "CV3-08",
+          "CV3-11",
+          "CV3-12"
+        ],
+        "conditional_on": "ALWAYS",
+        "implementation_status": "SPECIFIED_NOT_IMPLEMENTED",
+        "test_id": "T-CV3-13"
+      },
+      {
+        "id": "CV3-14",
+        "short_name": "RENDER",
+        "owner_service": "render_service",
+        "input_contract": "Validated VideoTimeline + worker capability",
+        "output_contract": "RenderManifest (v2) + output media checksum",
+        "algorithm": "CPU FFmpeg or optional GPU provider, reproducible render manifest and bounded retry.",
+        "failure_code": "RENDER_FAILED",
+        "gate": "AUTOMATIC_BOUNDED",
+        "depends_on": [
+          "CV3-13"
+        ],
+        "conditional_on": "ALWAYS",
+        "implementation_status": "SPECIFIED_NOT_IMPLEMENTED",
+        "test_id": "T-CV3-14"
+      },
+      {
+        "id": "CV3-15",
+        "short_name": "TECHNICAL_QC",
+        "owner_service": "creative_qc",
+        "input_contract": "Actual rendered file + source and rights hashes",
+        "output_contract": "CreativeQualityReport",
+        "algorithm": "Frame/audio/aspect/safe-zone/caption/source/factual validity checks.",
+        "failure_code": "QC_FAILED",
+        "gate": "AUTOMATIC_WITH_HUMAN_GATE",
+        "depends_on": [
+          "CV3-14"
+        ],
+        "conditional_on": "ALWAYS",
+        "implementation_status": "SPECIFIED_NOT_IMPLEMENTED",
+        "test_id": "T-CV3-15"
+      },
+      {
+        "id": "CV3-16",
+        "short_name": "HUMAN_PREVIEW",
+        "owner_service": "editorial_council",
+        "input_contract": "Actual final rendered revision + QC + rights status",
+        "output_contract": "ApprovalRecord (v2) + updated CreativeQualityReport",
+        "algorithm": "Manual full watch-through; content-specific acceptance, material edits void approval.",
+        "failure_code": "APPROVAL_REQUIRED",
+        "gate": "HUMAN_REQUIRED",
+        "depends_on": [
+          "CV3-15"
+        ],
+        "conditional_on": "ALWAYS",
+        "implementation_status": "SPECIFIED_NOT_IMPLEMENTED",
+        "test_id": "T-CV3-16"
+      },
+      {
+        "id": "CV3-17",
+        "short_name": "EXPORT_PUBLISH",
+        "owner_service": "publication_service",
+        "input_contract": "Approved final revision + outbound intent",
+        "output_contract": "PublicationStatus",
+        "algorithm": "Private export always supported; upload only after correct credentials/policy. Studio dubbing manual handoff.",
+        "failure_code": "UPLOAD_NOT_AUTHORIZED",
+        "gate": "HUMAN_OR_EXPLICIT_BOUNDED",
+        "depends_on": [
+          "CV3-16"
+        ],
+        "conditional_on": "ALWAYS",
+        "implementation_status": "SPECIFIED_NOT_IMPLEMENTED",
+        "test_id": "T-CV3-17"
+      },
+      {
+        "id": "CV3-18",
+        "short_name": "OWN_ANALYTICS",
+        "owner_service": "analytics_service",
+        "input_contract": "Authorized publication IDs + account metrics",
+        "output_contract": "AnalyticsObservation",
+        "algorithm": "Use actual owner observations only, compare matched cohorts with uncertainty.",
+        "failure_code": "METRICS_NOT_AVAILABLE",
+        "gate": "BOUNDED_AUTOMATIC",
+        "depends_on": [
+          "CV3-17"
+        ],
+        "conditional_on": "ALWAYS",
+        "implementation_status": "SPECIFIED_NOT_IMPLEMENTED",
+        "test_id": "T-CV3-18"
+      }
+    ],
+    "domains": {
+      "contract_version": "2.0.0",
+      "domains": [
+        {
+          "domain_id": "newsroom",
+          "dossier": "domains/newsroom.md",
+          "owner_module": "domain_router",
+          "launch_status": "DEFERRED",
+          "ultimate_status": "PLANNED",
+          "specialization_required": true
+        },
+        {
+          "domain_id": "science",
+          "dossier": "domains/science.md",
+          "owner_module": "domain_router",
+          "launch_status": "DEFERRED",
+          "ultimate_status": "PLANNED",
+          "specialization_required": true
+        },
+        {
+          "domain_id": "technology",
+          "dossier": "domains/technology.md",
+          "owner_module": "domain_router",
+          "launch_status": "OPTIONAL",
+          "ultimate_status": "PLANNED",
+          "specialization_required": true
+        },
+        {
+          "domain_id": "business",
+          "dossier": "domains/business.md",
+          "owner_module": "domain_router",
+          "launch_status": "DEFERRED",
+          "ultimate_status": "PLANNED",
+          "specialization_required": true
+        },
+        {
+          "domain_id": "gaming",
+          "dossier": "domains/gaming.md",
+          "owner_module": "domain_router",
+          "launch_status": "DEFERRED",
+          "ultimate_status": "PLANNED",
+          "specialization_required": true
+        },
+        {
+          "domain_id": "history",
+          "dossier": "domains/history.md",
+          "owner_module": "domain_router",
+          "launch_status": "DEFERRED",
+          "ultimate_status": "PLANNED",
+          "specialization_required": true
+        },
+        {
+          "domain_id": "space",
+          "dossier": "domains/space.md",
+          "owner_module": "domain_router",
+          "launch_status": "DEFERRED",
+          "ultimate_status": "PLANNED",
+          "specialization_required": true
+        },
+        {
+          "domain_id": "learning",
+          "dossier": "domains/learning.md",
+          "owner_module": "domain_router",
+          "launch_status": "DEFERRED",
+          "ultimate_status": "PLANNED",
+          "specialization_required": true
+        },
+        {
+          "domain_id": "sports",
+          "dossier": "domains/sports.md",
+          "owner_module": "domain_router",
+          "launch_status": "ENABLED",
+          "ultimate_status": "PLANNED",
+          "specialization_required": true
+        },
+        {
+          "domain_id": "career",
+          "dossier": "domains/career.md",
+          "owner_module": "domain_router",
+          "launch_status": "DEFERRED",
+          "ultimate_status": "PLANNED",
+          "specialization_required": true
+        },
+        {
+          "domain_id": "productivity",
+          "dossier": "domains/productivity.md",
+          "owner_module": "domain_router",
+          "launch_status": "DEFERRED",
+          "ultimate_status": "PLANNED",
+          "specialization_required": true
+        },
+        {
+          "domain_id": "culture",
+          "dossier": "domains/culture.md",
+          "owner_module": "domain_router",
+          "launch_status": "DEFERRED",
+          "ultimate_status": "PLANNED",
+          "specialization_required": true
+        }
+      ],
+      "sports_subadapters": [
+        "cricket",
+        "nfl",
+        "mlb",
+        "nba",
+        "soccer"
+      ]
+    },
+    "creative_profile_matrix": {
+      "spec_revision": "3.0",
+      "profile": "COMBINED",
+      "active_domains": [
+        "sports"
+      ],
+      "optional_domains": [
+        "technology"
+      ],
+      "documented_deferred_domains": [
+        "business",
+        "career",
+        "culture",
+        "gaming",
+        "history",
+        "learning",
+        "newsroom",
+        "productivity",
+        "science",
+        "space"
+      ],
+      "available_creative_director_specs": [
+        "sports",
+        "newsroom",
+        "science",
+        "technology",
+        "business",
+        "gaming",
+        "history",
+        "space",
+        "learning",
+        "career",
+        "productivity",
+        "culture"
+      ],
+      "available_format_specs": [
+        "SHORT_EXPLAINER",
+        "LONG_DOCUMENTARY",
+        "TACTICAL_ANALYSIS",
+        "BREAKING_BRIEF",
+        "DEMO_REVIEW",
+        "STEP_LESSON",
+        "REACTION_REVIEW",
+        "CASE_STUDY",
+        "GAMEPLAY_ANALYSIS"
+      ],
+      "publication_default": "MANUAL",
+      "compute_default": "AUTO_CPU_WITH_CAPABILITY_CHECK",
+      "language_variant_default": "ONE_PRIMARY_PER_CHANNEL",
+      "rights_policy": "FAIL_CLOSED_ON_UNLICENSED_VIDEO",
+      "v3_status": "SPECIFIED_NOT_IMPLEMENTED"
+    },
+    "workflow": {
+      "contract_version": "2.0.0",
+      "spec_revision": "2.1",
+      "states": [
+        "QUEUED",
+        "RUNNING",
+        "RETRY_WAIT",
+        "BLOCKED",
+        "WAITING_FOR_APPROVAL",
+        "WAITING_FOR_CAPABILITY",
+        "SUCCEEDED",
+        "FAILED",
+        "CANCELLED"
+      ],
+      "default_publication_policy": "MANUAL",
+      "triggers": [
+        {
+          "id": "TR-001",
+          "name": "scheduled_discovery",
+          "event": "owner_enabled_poll_window",
+          "schedule": "OWNER_CONFIGURED_NO_FORCED_CADENCE",
+          "requires": [
+            "permitted_connector",
+            "quota_budget"
+          ],
+          "dedupe": "provider+market+locale+query+observation_window",
+          "job": "SOURCE_QUALIFICATION_AND_TREND_DISCOVERY"
+        },
+        {
+          "id": "TR-002",
+          "name": "live_sports_revision",
+          "event": "permitted_provider_new_score_version",
+          "schedule": "EVENT_DRIVEN",
+          "requires": [
+            "verified_source_version"
+          ],
+          "dedupe": "event_id+provider_version_hash",
+          "job": "INVALIDATE_DEPENDENT_CLAIMS_AND_RECHECK"
+        },
+        {
+          "id": "TR-003",
+          "name": "topic_research",
+          "event": "approved_or_auto_low_risk_topic_decision",
+          "schedule": "EVENT_DRIVEN",
+          "requires": [
+            "topic_id",
+            "channel_policy"
+          ],
+          "dedupe": "topic_id+channel_id+research_depth",
+          "job": "RESEARCH_DOSSIER"
+        },
+        {
+          "id": "TR-004",
+          "name": "draft_production",
+          "event": "research_sufficient_for_draft",
+          "schedule": "EVENT_DRIVEN",
+          "requires": [
+            "claim_links",
+            "rights_plan"
+          ],
+          "dedupe": "project_id+revision+production_profile",
+          "job": "SCRIPT_SCENE_RENDER_QA"
+        },
+        {
+          "id": "TR-005",
+          "name": "editorial_review",
+          "event": "gates_complete_or_sensitive",
+          "schedule": "EVENT_DRIVEN",
+          "requires": [
+            "current_risk_snapshot",
+            "technical_QA"
+          ],
+          "dedupe": "project_id+revision+risk_snapshot_hash",
+          "job": "WAITING_FOR_APPROVAL"
+        },
+        {
+          "id": "TR-006",
+          "name": "upload",
+          "event": "approved_publish_intent",
+          "schedule": "OWNER_AUTHORIZED_TIME",
+          "requires": [
+            "channel_oauth",
+            "content_hash_approval",
+            "no_rights_gaps",
+            "visibility_permission"
+          ],
+          "dedupe": "channel_id+payload_hash+intent_id",
+          "job": "UPLOAD_WITH_REMOTE_RECONCILIATION"
+        },
+        {
+          "id": "TR-007",
+          "name": "analytics_import",
+          "event": "publication_confirmed_and_owner_auth",
+          "schedule": "OWNER_CONFIGURED_POST_PUBLISH_WINDOWS",
+          "requires": [
+            "owner_oauth",
+            "analytics_scope"
+          ],
+          "dedupe": "publication_id+metric_set+observation_window",
+          "job": "OBSERVED_ANALYTICS_ONLY"
+        },
+        {
+          "id": "TR-008",
+          "name": "source_correction",
+          "event": "source_version_changed_or_correction",
+          "schedule": "EVENT_DRIVEN",
+          "requires": [
+            "source_version_id",
+            "dependent_edges"
+          ],
+          "dedupe": "source_id+new_version_hash",
+          "job": "INVALIDATE_DOWNSTREAM_AND_PROPOSE_CORRECTION"
+        },
+        {
+          "id": "TR-009",
+          "name": "capability_arrived",
+          "event": "gpu_worker_heartbeat_capability_change",
+          "schedule": "EVENT_DRIVEN",
+          "requires": [
+            "model_license",
+            "driver_benchmark",
+            "free_vram"
+          ],
+          "dedupe": "worker_id+capability_hash",
+          "job": "RECONSIDER_WAITING_JOBS"
+        }
+      ],
+      "pipeline_steps": [
+        {
+          "id": "01_QUALIFY_SOURCES",
+          "depends_on": [],
+          "side_effect": "PERMITTED_READ",
+          "approval": "AUTOMATIC"
+        },
+        {
+          "id": "02_DISCOVER_TOPIC",
+          "depends_on": [
+            "01_QUALIFY_SOURCES"
+          ],
+          "side_effect": "NONE",
+          "approval": "AUTOMATIC"
+        },
+        {
+          "id": "03_RESEARCH_PLAN",
+          "depends_on": [
+            "02_DISCOVER_TOPIC"
+          ],
+          "side_effect": "NONE",
+          "approval": "AUTOMATIC"
+        },
+        {
+          "id": "04_GATHER_EVIDENCE",
+          "depends_on": [
+            "03_RESEARCH_PLAN"
+          ],
+          "side_effect": "PERMITTED_READ",
+          "approval": "AUTOMATIC"
+        },
+        {
+          "id": "05_VERIFY_CHALLENGE",
+          "depends_on": [
+            "04_GATHER_EVIDENCE"
+          ],
+          "side_effect": "NONE",
+          "approval": "CONDITIONAL_HIGH_RISK"
+        },
+        {
+          "id": "06_SCRIPT_STORYBOARD",
+          "depends_on": [
+            "05_VERIFY_CHALLENGE"
+          ],
+          "side_effect": "LOCAL_WRITE",
+          "approval": "AUTOMATIC_DRAFT_ONLY"
+        },
+        {
+          "id": "07_LICENSE_ASSET",
+          "depends_on": [
+            "06_SCRIPT_STORYBOARD"
+          ],
+          "side_effect": "LOCAL_WRITE",
+          "approval": "BLOCK_UNLICENSED"
+        },
+        {
+          "id": "08_COMPUTE_RESERVE",
+          "depends_on": [
+            "07_LICENSE_ASSET"
+          ],
+          "side_effect": "LOCAL_WRITE",
+          "approval": "CAPABILITY_GATE"
+        },
+        {
+          "id": "09_RENDER",
+          "depends_on": [
+            "08_COMPUTE_RESERVE"
+          ],
+          "side_effect": "LOCAL_WRITE",
+          "approval": "AUTOMATIC"
+        },
+        {
+          "id": "10_TECH_FACT_RIGHTS_QA",
+          "depends_on": [
+            "09_RENDER"
+          ],
+          "side_effect": "NONE",
+          "approval": "AUTOMATIC_PLUS_HUMAN_AS_NEEDED"
+        },
+        {
+          "id": "11_OWNER_APPROVAL",
+          "depends_on": [
+            "10_TECH_FACT_RIGHTS_QA"
+          ],
+          "side_effect": "NONE",
+          "approval": "HUMAN_DEFAULT"
+        },
+        {
+          "id": "12_EXPORT",
+          "depends_on": [
+            "11_OWNER_APPROVAL"
+          ],
+          "side_effect": "LOCAL_WRITE",
+          "approval": "AUTOMATIC_AFTER_GATES"
+        },
+        {
+          "id": "13_PUBLISH",
+          "depends_on": [
+            "11_OWNER_APPROVAL",
+            "12_EXPORT"
+          ],
+          "side_effect": "EXTERNAL_UPLOAD",
+          "approval": "EXPLICIT_OPT_IN_LOW_RISK_ELSE_HUMAN"
+        },
+        {
+          "id": "14_ANALYTICS",
+          "depends_on": [
+            "13_PUBLISH"
+          ],
+          "side_effect": "PERMITTED_READ",
+          "approval": "AUTHORIZED_OAUTH"
+        },
+        {
+          "id": "15_LEARN",
+          "depends_on": [
+            "14_ANALYTICS"
+          ],
+          "side_effect": "LOCAL_WRITE",
+          "approval": "AUTOMATIC_NO_POLICY_SELF_MODIFICATION"
+        }
+      ]
+    }
+  },
+  "archived_2026_11_12": {
+    "source_zip": "ViralOS_Launch_M2_2_M3_v0_5_Working_Source.zip",
+    "test_report_json": "ViralOS_M2_2_M3_BUILD_REPORT.json",
+    "report": {
+      "release": "ViralOS Launch M2.2 + M3 private, v0.5",
+      "date": "2026-11-12",
+      "source": "Previous ViralOS M2.1 working source ZIP (incremental)",
+      "previous_migrations_preserved": [
+        "001",
+        "002",
+        "003",
+        "004",
+        "005",
+        "006"
+      ],
+      "new_migrations": [
+        "007",
+        "008"
+      ],
+      "automated_tests_last_run": 51,
+      "tested_in": "Linux container, local FFmpeg/FFprobe, pytest, synthetic eSpeak voice",
+      "live_youtube_oauth_upload_tested": false,
+      "live_youtube_analytics_tested": false,
+      "windows_i7_8thgen_32gb_tested": false,
+      "natural_quality_voice_tested": false,
+      "live_gpu_tested": false,
+      "claim_independently_verified": false,
+      "production_quality_guarantee": false,
+      "public_auto_publish": false,
+      "only_eligible_network_upload": "Opt-in explicitly owner approved PRIVATE upload to owned channel",
+      "run_tests": [
+        "python -m pytest -q",
+        "python tools/verify_package.py",
+        "node --check app/static/app.js"
+      ],
+      "note": "Tests verify code paths and local CPU render, not real YouTube credentials or copyright clearances."
+    },
+    "source_modules": {
+      "__init__.py": 1,
+      "creative_m22.py": 281,
+      "db.py": 67,
+      "director_m21.py": 343,
+      "expansion.py": 334,
+      "intelligence.py": 85,
+      "main.py": 365,
+      "renderer.py": 106,
+      "source_connectors.py": 58,
+      "studio_contracts.py": 81,
+      "studio_render.py": 318,
+      "studio_routes.py": 250,
+      "tts.py": 34,
+      "youtube_analytics.py": 72,
+      "youtube_private.py": 176
+    },
+    "sql_migrations": [
+      "001_schema.sql",
+      "002_controls.sql",
+      "003_creative.sql",
+      "004_m1_m3.sql",
+      "005_studio.sql",
+      "006_m21_director.sql",
+      "007_m22_creative.sql",
+      "008_m3_publishing.sql"
+    ],
+    "tests": [
+      "test_launch.py",
+      "test_m1_m3.py",
+      "test_m21_director.py",
+      "test_m22_m3_private.py",
+      "test_m2_studio.py"
+    ],
+    "api_routes": [
+      {
+        "method": "GET",
+        "path": "/api/m22/creative-policies",
+        "module": "creative_m22.py"
+      },
+      {
+        "method": "GET",
+        "path": "/api/projects/{project_id}/m22/creative-audit/{render_id}",
+        "module": "creative_m22.py"
+      },
+      {
+        "method": "POST",
+        "path": "/api/projects/{project_id}/m22/plans/{plan_id}/words",
+        "module": "creative_m22.py"
+      },
+      {
+        "method": "GET",
+        "path": "/api/projects/{project_id}/m22/plans/{plan_id}/words.vtt",
+        "module": "creative_m22.py"
+      },
+      {
+        "method": "POST",
+        "path": "/api/projects/{project_id}/m22/studio/renders/{render_id}/review-final",
+        "module": "creative_m22.py"
+      },
+      {
+        "method": "POST",
+        "path": "/api/projects/{project_id}/m22/reviews/{review_id}/export-final",
+        "module": "creative_m22.py"
+      },
+      {
+        "method": "GET",
+        "path": "/api/m22/final-exports/{export_id}/download",
+        "module": "creative_m22.py"
+      },
+      {
+        "method": "GET",
+        "path": "/api/director/capabilities",
+        "module": "director_m21.py"
+      },
+      {
+        "method": "POST",
+        "path": "/api/projects/{project_id}/director/drafts",
+        "module": "director_m21.py"
+      },
+      {
+        "method": "GET",
+        "path": "/api/projects/{project_id}/director/drafts/{draft_id}",
+        "module": "director_m21.py"
+      },
+      {
+        "method": "GET",
+        "path": "/api/projects/{project_id}/director/plans/{plan_id}/captions.srt",
+        "module": "director_m21.py"
+      },
+      {
+        "method": "POST",
+        "path": "/api/projects/{project_id}/director/drafts/{draft_id}/voice/{segment_index}",
+        "module": "director_m21.py"
+      },
+      {
+        "method": "POST",
+        "path": "/api/projects/{project_id}/director/drafts/{draft_id}/synthesize-piper",
+        "module": "director_m21.py"
+      },
+      {
+        "method": "POST",
+        "path": "/api/projects/{project_id}/director/drafts/{draft_id}/assemble",
+        "module": "director_m21.py"
+      },
+      {
+        "method": "POST",
+        "path": "/api/projects/{project_id}/bind-source",
+        "module": "expansion.py"
+      },
+      {
+        "method": "POST",
+        "path": "/api/projects/{project_id}/rss-import",
+        "module": "expansion.py"
+      },
+      {
+        "method": "GET",
+        "path": "/api/research/approved-feeds",
+        "module": "expansion.py"
+      },
+      {
+        "method": "POST",
+        "path": "/api/projects/{project_id}/feeds/sync/{feed_key}",
+        "module": "expansion.py"
+      },
+      {
+        "method": "GET",
+        "path": "/api/voice/piper-capabilities",
+        "module": "expansion.py"
+      },
+      {
+        "method": "POST",
+        "path": "/api/projects/{project_id}/voice/opt-in-piper",
+        "module": "expansion.py"
+      },
+      {
+        "method": "GET",
+        "path": "/api/projects/{project_id}/research-audit",
+        "module": "expansion.py"
+      },
+      {
+        "method": "POST",
+        "path": "/api/projects/{project_id}/story-plan",
+        "module": "expansion.py"
+      },
+      {
+        "method": "GET",
+        "path": "/api/projects/{project_id}/story-plan",
+        "module": "expansion.py"
+      },
+      {
+        "method": "POST",
+        "path": "/api/projects/{project_id}/locales",
+        "module": "expansion.py"
+      },
+      {
+        "method": "GET",
+        "path": "/api/projects/{project_id}/captions/{locale}",
+        "module": "expansion.py"
+      },
+      {
+        "method": "POST",
+        "path": "/api/projects/{project_id}/review-video",
+        "module": "expansion.py"
+      },
+      {
+        "method": "POST",
+        "path": "/api/projects/{project_id}/export-review-packet",
+        "module": "expansion.py"
+      },
+      {
+        "method": "GET",
+        "path": "/api/review-packets/{export_id}",
+        "module": "expansion.py"
+      },
+      {
+        "method": "POST",
+        "path": "/api/analytics/owner-entry",
+        "module": "expansion.py"
+      },
+      {
+        "method": "GET",
+        "path": "/api/analytics/{channel_id}",
+        "module": "expansion.py"
+      },
+      {
+        "method": "GET",
+        "path": "/api/projects/{project_id}/quality-report",
+        "module": "expansion.py"
+      },
+      {
+        "method": "POST",
+        "path": "/api/youtube/analytics/sync",
+        "module": "expansion.py"
+      },
+      {
+        "method": "GET",
+        "path": "/api/youtube/capabilities",
+        "module": "expansion.py"
+      },
+      {
+        "method": "POST",
+        "path": "/api/youtube/upload",
+        "module": "expansion.py"
+      },
+      {
+        "method": "GET",
+        "path": "/",
+        "module": "main.py"
+      },
+      {
+        "method": "GET",
+        "path": "/health",
+        "module": "main.py"
+      },
+      {
+        "method": "GET",
+        "path": "/api/capabilities",
+        "module": "main.py"
+      },
+      {
+        "method": "GET",
+        "path": "/api/channels",
+        "module": "main.py"
+      },
+      {
+        "method": "POST",
+        "path": "/api/channels",
+        "module": "main.py"
+      },
+      {
+        "method": "GET",
+        "path": "/api/projects",
+        "module": "main.py"
+      },
+      {
+        "method": "POST",
+        "path": "/api/projects",
+        "module": "main.py"
+      },
+      {
+        "method": "GET",
+        "path": "/api/projects/{project_id}",
+        "module": "main.py"
+      },
+      {
+        "method": "POST",
+        "path": "/api/projects/{project_id}/sources",
+        "module": "main.py"
+      },
+      {
+        "method": "POST",
+        "path": "/api/projects/{project_id}/claims",
+        "module": "main.py"
+      },
+      {
+        "method": "POST",
+        "path": "/api/claims/{claim_id}/review",
+        "module": "main.py"
+      },
+      {
+        "method": "POST",
+        "path": "/api/projects/{project_id}/script",
+        "module": "main.py"
+      },
+      {
+        "method": "POST",
+        "path": "/api/projects/{project_id}/scenes",
+        "module": "main.py"
+      },
+      {
+        "method": "POST",
+        "path": "/api/projects/{project_id}/voice",
+        "module": "main.py"
+      },
+      {
+        "method": "POST",
+        "path": "/api/projects/{project_id}/queue-preview",
+        "module": "main.py"
+      },
+      {
+        "method": "GET",
+        "path": "/api/jobs",
+        "module": "main.py"
+      },
+      {
+        "method": "POST",
+        "path": "/api/jobs/run-next",
+        "module": "main.py"
+      },
+      {
+        "method": "GET",
+        "path": "/api/previews/{render_id}",
+        "module": "main.py"
+      },
+      {
+        "method": "POST",
+        "path": "/api/jobs/{job_id}/retry",
+        "module": "main.py"
+      },
+      {
+        "method": "GET",
+        "path": "/api/editions",
+        "module": "main.py"
+      },
+      {
+        "method": "GET",
+        "path": "/api/studio/capabilities",
+        "module": "studio_routes.py"
+      },
+      {
+        "method": "POST",
+        "path": "/api/projects/{project_id}/studio/assets/still",
+        "module": "studio_routes.py"
+      },
+      {
+        "method": "POST",
+        "path": "/api/projects/{project_id}/studio/assets/music",
+        "module": "studio_routes.py"
+      },
+      {
+        "method": "GET",
+        "path": "/api/projects/{project_id}/studio/assets",
+        "module": "studio_routes.py"
+      },
+      {
+        "method": "GET",
+        "path": "/api/projects/{project_id}/studio/example",
+        "module": "studio_routes.py"
+      },
+      {
+        "method": "POST",
+        "path": "/api/projects/{project_id}/studio/plans",
+        "module": "studio_routes.py"
+      },
+      {
+        "method": "GET",
+        "path": "/api/projects/{project_id}/studio/plan",
+        "module": "studio_routes.py"
+      },
+      {
+        "method": "POST",
+        "path": "/api/projects/{project_id}/studio/queue",
+        "module": "studio_routes.py"
+      },
+      {
+        "method": "POST",
+        "path": "/api/studio/run-next",
+        "module": "studio_routes.py"
+      },
+      {
+        "method": "GET",
+        "path": "/api/studio/reports/{render_id}",
+        "module": "studio_routes.py"
+      },
+      {
+        "method": "GET",
+        "path": "/api/studio/previews/{render_id}",
+        "module": "studio_routes.py"
+      },
+      {
+        "method": "GET",
+        "path": "/api/projects/{project_id}/studio/renders",
+        "module": "studio_routes.py"
+      },
+      {
+        "method": "GET",
+        "path": "/api/m3/private-upload/capabilities",
+        "module": "youtube_private.py"
+      },
+      {
+        "method": "POST",
+        "path": "/api/m3/private-upload/intents",
+        "module": "youtube_private.py"
+      },
+      {
+        "method": "GET",
+        "path": "/api/m3/private-upload/intents/{intent_id}",
+        "module": "youtube_private.py"
+      },
+      {
+        "method": "POST",
+        "path": "/api/m3/private-upload/intents/{intent_id}/execute",
+        "module": "youtube_private.py"
+      }
+    ]
+  },
+  "pending_priority_gates": [
+    "M2.4 Professional Audio & Multilingual Director: real voices/word alignment/dubbing/local overlays",
+    "M3.2 Real Account Acceptance: supervised PRIVATE owned-channel upload and genuine Analytics with rollback",
+    "Crash recovery and backup/restore on owner Windows",
+    "Domain specialist golden videos and tests",
+    "GPU adapters and benchmarks",
+    "Optional SaaS deferred"
+  ],
+  "production_gaps": [
+    {
+      "id": "CP-001",
+      "requirement": "Audience promise and narrative beats tied to timed evidence/visual timeline",
+      "owner": "`creative/narrative_director`",
+      "gate": "Each key beat has purpose, facts, payoff and shots"
+    },
+    {
+      "id": "CP-002",
+      "requirement": "Typed `VideoTimeline`, lanes, transitions, compositing, safe zones",
+      "owner": "`creative/timeline_compiler`",
+      "gate": "deterministic scene duration/overlap test"
+    },
+    {
+      "id": "CP-003",
+      "requirement": "Overlay animation geometry/typography and text hierarchy",
+      "owner": "`creative/overlay_director`",
+      "gate": "mobile legibility, occlusion and glyph test"
+    },
+    {
+      "id": "CP-004",
+      "requirement": "Word/phrase narration alignment and subtitle profiles",
+      "owner": "`creative/speech_alignment`",
+      "gate": "measured speech-to-caption sync"
+    },
+    {
+      "id": "CP-005",
+      "requirement": "Region-localization package with dubbing, text, graphics and title versions",
+      "owner": "`localization/variant_builder`",
+      "gate": "locale review and no source-claim mutation"
+    },
+    {
+      "id": "CP-006",
+      "requirement": "Human review for names, quotes, idioms, native terms and AI-dub errors",
+      "owner": "`localization/linguistic_qc`",
+      "gate": "approval before exporting sensitive locale"
+    },
+    {
+      "id": "CP-007",
+      "requirement": "Speech style, pronunciations, voice identity rights and mixing",
+      "owner": "`audio/voice_director`",
+      "gate": "pronunciation and intelligibility listening test"
+    },
+    {
+      "id": "CP-008",
+      "requirement": "Music/SFX selection, sidechain ducking and audio rights",
+      "owner": "`audio/sound_director`",
+      "gate": "rights and loudness QA"
+    },
+    {
+      "id": "CP-009",
+      "requirement": "Third-party clip rights, reuse originality, and official remix status",
+      "owner": "`media/clip_rights_adjudicator`",
+      "gate": "BLOCK until lawful basis and independent monetization review"
+    },
+    {
+      "id": "CP-010",
+      "requirement": "Clip transcript/context, critique mapping, source link, substantive transformation",
+      "owner": "`creative/commentary_clip_director`",
+      "gate": "owner review of actual transformed output"
+    },
+    {
+      "id": "CP-011",
+      "requirement": "Category-specific VIDEO director profiles, not just research playbooks",
+      "owner": "`domains/*/visual_policy`",
+      "gate": "12 visual golden samples"
+    },
+    {
+      "id": "CP-012",
+      "requirement": "Format grammar: news brief / sports reaction / lesson / documentary / review",
+      "owner": "`creative/format_director`",
+      "gate": "at least one approved sample each"
+    },
+    {
+      "id": "CP-013",
+      "requirement": "Visual coverage ratio: shot backed by spoken claim/context, not random stock b-roll",
+      "owner": "`creative/evidence_visual_matcher`",
+      "gate": "unsupported illustrative-shot flag"
+    },
+    {
+      "id": "CP-014",
+      "requirement": "Vertical and horizontal reframe with faces, scoreboards and subtitles",
+      "owner": "`creative/reframe_director`",
+      "gate": "device viewport safe zone snapshot QA"
+    },
+    {
+      "id": "CP-015",
+      "requirement": "Prompt-to-asset fallback for CPU now; GPU/video generation later",
+      "owner": "existing `compute + creative/prompt_compiler`",
+      "gate": "no unsupported claim of photorealistic output"
+    },
+    {
+      "id": "CP-016",
+      "requirement": "Fact/correction dependency chain across every locale & render variant",
+      "owner": "existing `evidence/invalidator`",
+      "gate": "corrected fact invalidates localized dubbing/overlays"
+    },
+    {
+      "id": "CP-017",
+      "requirement": "Scene-by-scene engagement diagnostics and creative hypothesis registry",
+      "owner": "`audience/creative_lab`",
+      "gate": "only observed analytics; control for uncertainty"
+    },
+    {
+      "id": "CP-018",
+      "requirement": "Storytelling ending and next-video handoff, platform end screens",
+      "owner": "`creative/ending_director`",
+      "gate": "payoff answered, outro not deceptive"
+    },
+    {
+      "id": "CP-019",
+      "requirement": "Explicit video-level content novelty assessment across channels",
+      "owner": "existing `audience/portfolio`",
+      "gate": "near-duplicate review; no mass templating"
+    },
+    {
+      "id": "CP-020",
+      "requirement": "Distinct `audio-language track` vs localized separate videos strategy",
+      "owner": "`publishing/localization_adapter`",
+      "gate": "account feature capability check; no imaginary API endpoint"
+    },
+    {
+      "id": "CP-021",
+      "requirement": "Accessibility: caption readability, color contrast, audio description needs",
+      "owner": "`creative/accessibility_qc`",
+      "gate": "sample caption/audio review"
+    },
+    {
+      "id": "CP-022",
+      "requirement": "Clip remix attribution and original deletion/restriction lifecycle",
+      "owner": "`publishing/remix_status_tracker`",
+      "gate": "manual/source-tool status and update notice"
+    },
+    {
+      "id": "CP-023",
+      "requirement": "Audio-video render approval by full watch-through, not just ffprobe",
+      "owner": "`creative/editorial_preview`",
+      "gate": "owner approves actual final file"
+    },
+    {
+      "id": "CP-024",
+      "requirement": "Source-led shot storyboard not derivable from a single generic prompt",
+      "owner": "`creative/shot_director`",
+      "gate": "each shot has evidence/illustration class"
+    },
+    {
+      "id": "CP-025",
+      "requirement": "Detailed release/profile feature flags prevent partial v2.2 from being claimed implemented",
+      "owner": "`core/release_controller`",
+      "gate": "feature is SPECIFIED until tested"
+    }
+  ]
+}

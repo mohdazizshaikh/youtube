@@ -1,3 +1,11 @@
+# ViralOS — Phase 6: offline narration-in-render integrity & localhost browser boundary
+
+The bilingual owner-delivery audit now compares decoded MP4 audio with each **hash-bound, reviewed source WAV** using bounded correlation, and fails closed if audio is absent or inconsistent. AAC/mixing may cause false negatives: **this does not recognize speech, certify a speaker, prove every word, or replace human listening**. The local-only FastAPI UI also rejects DNS-rebound Host headers and foreign browser Origin/Fetch-Metadata requests. These are safety controls, not a password/authentication system against local malware.
+
+See [Phase 6 implementation and test limits](docs/PHASE6_MEDIA_AUDIO_AND_LOCALHOST_SECURITY_2026-11-24.md) and [remaining engineering gates](docs/PRIORITY_TRACKER_2026-11-24_PHASE6.md). No external YouTube upload or voice-model download was performed. The suspended GitHub account remains untouched.
+
+---
+
 # ViralOS — 24 November 2026 Phase 5: owner-only acceptance evidence
 
 **Active repository:** `mohdazizshaikh/youtube`, not the suspended former account. Phase 5 adds **offline** voice listening self-attestation, bilingual original-video artifact inspection, and read-only PRIVATE YouTube Studio evidence linkage, plus strict SRT timing and exact voice-to-reviewed-script checks. These are **technical operator gates, not independent proof of real human review, voice licensing, live OAuth, or permission to upload**. Source records, licenses, models, reviewer notes and account secrets must remain outside Git and outside any public report.

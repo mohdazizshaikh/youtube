@@ -54,6 +54,9 @@ async def lifespan(app):
 
 app=FastAPI(title='ViralOS Launch — CPU Vertical Slice',version='0.5.0',lifespan=lifespan)
 app.mount('/static', StaticFiles(directory=str(STATIC)),name='static')
+# No cross-site forms or DNS-rebound Host access to localhost stateful APIs.
+from .local_http_guard import local_http_guard
+app.middleware('http')(local_http_guard)
 
 class ChannelIn(BaseModel):
     name:str=Field(min_length=2,max_length=100)

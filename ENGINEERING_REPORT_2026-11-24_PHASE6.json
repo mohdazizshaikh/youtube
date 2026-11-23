@@ -1,0 +1,44 @@
+{
+  "phase": "6",
+  "date": "2026-11-24",
+  "repository": "mohdazizshaikh/youtube",
+  "base_commit": "387dd30e18dea36e52ddbf05df99f4123701df61",
+  "focus": "M2.5 decoded MP4 narration conformance and local HTTP browser boundary",
+  "local_validation": {
+    "pytest_passed": 166,
+    "pytest_failed": 0,
+    "pytest_warnings": 1,
+    "source_test_fixture_type": "synthetic owner evidence, mock OAuth, real FFmpeg synthetic MP4",
+    "fresh_local_ffmpeg_media_tests_passed": true,
+    "studio_smoke_render_passed": true,
+    "human_listening_independently_verified": false,
+    "youtube_live_private_upload_performed": false
+  },
+  "engineering": {
+    "m25_decoded_audio_against_reviewed_wav": "SAMPLED_PCM_CORRELATION_WITH_CONSERVATIVE_FALSE_NEGATIVE_POSSIBILITY",
+    "m25_wrong_audio_stream_regression": "FAILED_CLOSED_AS_EXPECTED",
+    "localhost_loopback_host_browser_origin_fetch_site": "REJECTS_FOREIGN_ORIGIN_AND_DNS_REBINDING_PATTERNS",
+    "smtp_credentials_or_network_access": "NONE",
+    "owner_data_read": "NONE",
+    "ffmpeg_non_network_protocol_whitelist": "FILE_PIPE_ONLY"
+  },
+  "non_accepted": [
+    "Nov_13_20_offline_owner_backup_missing",
+    "real_licensed_Hindi_English_natural_voice_models_and_native_speaker_listening",
+    "human_annotated_CTC_alignment_benchmarks_on_owner_CPU",
+    "automatic_multilingual_dubbing_and_final_two_real_films",
+    "authorized_owner_channel_private_upload_and_real_analytics",
+    "physical_Windows_i7_32GB_installation_render_and_owner_dataset_restore",
+    "independent_copyright_research_originality_legal_acceptance",
+    "12_fully_autonomous_specialist_systems_and_24_production_videos",
+    "real_GPU_generation_and_real_retention_revenue_experimentation"
+  ],
+  "safety": {
+    "suspended_old_account_accessed": false,
+    "original_archives_preserved": true,
+    "public_or_private_upload_performed": false,
+    "voice_licensing_certified": false,
+    "release_ready": false,
+    "testserver_is_allowed_only_under_explicit_synthetic_test_context": true
+  }
+}

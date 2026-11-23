@@ -15,6 +15,7 @@ def post(client,path,data):
 if __name__=='__main__':
     with tempfile.TemporaryDirectory() as d:
         os.environ['VIRALOS_DB']=str(Path(d)/'viralos.sqlite')
+        os.environ['VIRALOS_INTERNAL_TEST_CLIENT']='1'  # TestClient synthetic Host only
         with TestClient(app) as client:
             ch=post(client,'/api/channels',{'name':'Local Smoke Channel','sport_id':'cricket','locale':'en-US','market':'India','timezone':'Asia/Kolkata'})
             p=post(client,'/api/projects',{'channel_id':ch['channel_id'],'title':'Original cricket field overview','original_angle':'Explain a field diagram without any copyrighted game footage','format':'SHORT'})

@@ -14,6 +14,7 @@ import subprocess
 from pathlib import Path, PurePosixPath
 
 from .m24_audio import wav_audio_qa
+from .m25_audio_conformance import compare_narration_to_video
 
 SHA = re.compile(r'^[0-9a-f]{64}$')
 CAPTION_CLOCK = re.compile(r'^(\d{2}):(\d{2}):(\d{2}),(\d{3}) --> (\d{2}):(\d{2}):(\d{2}),(\d{3})$')
@@ -95,7 +96,8 @@ def _probe_mp4(path:Path, ffprobe:str|None) -> tuple[int,list[str]]:
         raise ValueError('Installed FFprobe required for technical video inspection')
     try:
         proc=subprocess.run([str(executable),'-v','error','-show_entries',
-                             'format=duration:stream=codec_name,codec_type','-of','json',str(path)],
+                             'format=duration:stream=codec_name,codec_type','-of','json',
+                             '-protocol_whitelist','file,pipe',str(path)],
                             capture_output=True,timeout=30,check=False)
     except (OSError,subprocess.TimeoutExpired) as ex:
         raise ValueError('FFprobe inspection failed') from ex
@@ -117,7 +119,7 @@ def _probe_mp4(path:Path, ffprobe:str|None) -> tuple[int,list[str]]:
     return duration,codecs
 
 
-def evaluate_bilingual_delivery(package:dict,root:Path,*,ffprobe:str|None=None) -> dict:
+def evaluate_bilingual_delivery(package:dict,root:Path,*,ffprobe:str|None=None,ffmpeg:str|None=None) -> dict:
     if not isinstance(package,dict) or set(package)!= {'schema','format','source_script_sha256',
                                                          'source_dependency_sha256','variants'}:
         raise ValueError('Exact bilingual delivery V1 schema required')
@@ -151,6 +153,9 @@ def evaluate_bilingual_delivery(package:dict,root:Path,*,ffprobe:str|None=None) 
         qa=wav_audio_qa(paths['voice'])
         if qa['technical_flags']:blockers += [loc+':AUDIO_'+x for x in qa['technical_flags']]
         dur,codecs=_probe_mp4(paths['video'],ffprobe)
+        conformance=compare_narration_to_video(paths['voice'],paths['video'],ffmpeg=ffmpeg)
+        if not conformance['acoustically_consistent']:
+            blockers.append(loc+':MP4_AUDIO_NOT_CONSISTENT_WITH_REVIEWED_NARRATION')
         caption_text, caption_cues = _caption_text(paths['captions'], dur)
         if ' '.join(contents.split()).casefold() != ' '.join(caption_text.split()).casefold():
             raise ValueError('Exact localized transcript and SRT text disagree')
@@ -187,7 +192,8 @@ def evaluate_bilingual_delivery(package:dict,root:Path,*,ffprobe:str|None=None) 
                           'video_codecs':codecs,'script_sha256':variant['script']['sha256'],
                           'video_sha256':variant['video']['sha256'],'voice_sha256':qa['audio_sha256'],
                           'caption_sha256':variant['captions']['sha256'],
-                          'caption_cues_structurally_verified':caption_cues})
+                          'caption_cues_structurally_verified':caption_cues,
+                          'mp4_narration_audio_conformance':conformance})
     if len(script_digests)!=2 or len(voice_digests)!=2 or len(video_digests)!=2:
         blockers.append('LANGUAGES_REUSE_IDENTICAL_SCRIPT_VOICE_OR_VIDEO')
     return {'schema':'VIRALOS_M25_BILINGUAL_DELIVERY_AUDIT_V1',
@@ -196,6 +202,7 @@ def evaluate_bilingual_delivery(package:dict,root:Path,*,ffprobe:str|None=None) 
             'source_dependency_sha256':package['source_dependency_sha256'],
             'technical_results':technical,'blockers':sorted(set(blockers)),
             'local_artifact_hashes_verified':True,'video_audio_contains_exact_reviewed_voice_proven':False,
+            'sampled_mp4_audio_consistency_checked':True,
             'all_sources_independently_fact_checked_by_tool':False,
             'human_review_identity_independently_authenticated':False,
             'media_rights_legally_certified':False,

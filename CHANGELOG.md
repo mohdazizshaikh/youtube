@@ -1,3 +1,10 @@
+## 2026-11-24 Phase 6 — MP4 narration conformance and localhost browser isolation
+
+- Added bounded first-audio-track FFmpeg decode + distributed sampled PCM correlation against owner-reviewed narration WAV; wrong-track swaps now block bilingual delivery, even if MP4 hash and FFprobe metadata were updated. This is a conservative signal comparison, not speech recognition or professional review.
+- Added same-origin/loopback HTTP guard to protect the local app from off-host Host requests, cross-site forms, browser Origin abuse and basic DNS rebinding. The bundled synthetic TestClient smoke opts into synthetic test host explicitly.
+- Added adversarial regression tests and included local host guard in Windows CI contracts.
+- Continued retaining all earlier source snapshots and recovery artifacts. Real OAuth, actual licensed models, target Windows PC and expert rights reviews remain external blockers.
+
 ## 2026-11-24 — Phase 5: private owner acceptance evidence (NOT external acceptance)
 
 - M2.4: offline hash-bound two-person native-language listening self-attestation against an actual local Piper WAV draft, with technical QA and no reviewer notes exposed in output. **Identity, rights, quality and listening are not independently authenticated.**

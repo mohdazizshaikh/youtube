@@ -186,3 +186,39 @@ def test_bilingual_rejects_bad_caption_timing_or_structure(tmp_path, srt):
     entry['sha256'] = _file(tmp_path, entry['path'], srt)['sha256']
     with pytest.raises(ValueError, match='SRT'):
         evaluate_bilingual_delivery(manifest, tmp_path)
+
+@pytest.mark.skipif(not FFTOOLS, reason='Real FFmpeg required for decoded audio integrity check')
+def test_bilingual_rejects_correct_length_mp4_with_different_audio_track(tmp_path):
+    """Adversarial media swap must not pass merely because metadata and hashes updated."""
+    m = _manifest(tmp_path)
+    entry = m['variants'][0]
+    video = tmp_path / entry['video']['path']
+    other_voice = tmp_path / 'other.wav'
+    fake_voice(other_voice, freq=330, seconds=1.25)
+    replacement = tmp_path / 'replaced.mp4'
+    done = subprocess.run(['ffmpeg','-nostdin','-hide_banner','-loglevel','error','-y',
+                           '-i',str(video),'-i',str(other_voice),'-map','0:v:0','-map','1:a:0',
+                           '-c:v','copy','-c:a','aac','-shortest',str(replacement)],
+                          capture_output=True,timeout=30)
+    assert done.returncode == 0, done.stderr
+    video.write_bytes(replacement.read_bytes())
+    entry['video']['sha256'] = SHA(video.read_bytes())
+    result = evaluate_bilingual_delivery(m, tmp_path)
+    assert 'hi-IN:MP4_AUDIO_NOT_CONSISTENT_WITH_REVIEWED_NARRATION' in result['blockers']
+    assert result['status'] == 'BLOCKED'
+    assert not result['publish_ready']
+    check = next(t for t in result['technical_results'] if t['locale']=='hi-IN')
+    assert not check['mp4_narration_audio_conformance']['acoustically_consistent']
+
+
+@pytest.mark.skipif(not FFTOOLS, reason='Real FFmpeg required for decoded audio integrity check')
+def test_bilingual_acoustic_match_is_evidence_not_exact_voice_proof(tmp_path):
+    m = _manifest(tmp_path)
+    report = evaluate_bilingual_delivery(m, tmp_path)
+    for row in report['technical_results']:
+        checked = row['mp4_narration_audio_conformance']
+        assert checked['acoustically_consistent'] is True
+        assert checked['max_normalized_correlation'] >= 0.65
+        assert checked['human_listening_still_required'] is True
+        assert checked['exact_reviewed_voice_proven'] is False
+    assert report['video_audio_contains_exact_reviewed_voice_proven'] is False

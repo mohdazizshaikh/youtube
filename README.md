@@ -1,3 +1,11 @@
+# ViralOS — 24 November 2026 Phase 5: owner-only acceptance evidence
+
+**Active repository:** `mohdazizshaikh/youtube`, not the suspended former account. Phase 5 adds **offline** voice listening self-attestation, bilingual original-video artifact inspection, and read-only PRIVATE YouTube Studio evidence linkage, plus strict SRT timing and exact voice-to-reviewed-script checks. These are **technical operator gates, not independent proof of real human review, voice licensing, live OAuth, or permission to upload**. Source records, licenses, models, reviewer notes and account secrets must remain outside Git and outside any public report.
+
+Read [Phase 5 owner instructions](docs/PHASE5_OWNER_AUDIO_BILINGUAL.md), [acceptance evidence guide](docs/PHASE5_EVIDENCE_AND_LIMITATIONS_2026-11-24.md) and [updated priority tracker](docs/PRIORITY_TRACKER_2026-11-24_PHASE5.md). Run `python -m pytest -q` and `python tools/verify_package.py` after extraction.
+
+---
+
 # ViralOS — 24 November 2026 Phase 3: CTC provenance, timing benchmark & no-duplicate upload recovery
 
 **New repo only:** `mohdazizshaikh/youtube`; older suspended account never accessed. This is an incremental engineering checkpoint built on 634-file Phase 2. Real voice/acoustic models, owner Windows machine and owner YouTube OAuth are **NOT provided**; no live publishing, automatic Hindi/English dubbing or GPU inference is claimed.

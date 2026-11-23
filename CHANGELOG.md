@@ -1,3 +1,11 @@
+## 2026-11-24 — Phase 5: private owner acceptance evidence (NOT external acceptance)
+
+- M2.4: offline hash-bound two-person native-language listening self-attestation against an actual local Piper WAV draft, with technical QA and no reviewer notes exposed in output. **Identity, rights, quality and listening are not independently authenticated.**
+- M2.5: exact local SHA-256 audit of distinct Hindi and English script, captions, narration WAV, H.264 video, rights metadata and listening receipt, with no publishing authorization. Fail-closed SRT cue structure, chronological timing and per-video duration checks; narration review `text_sha256` must match exact localized script bytes. Video audio identity remains unproven by this technical audit.
+- M3.2: offline binding of existing owner OAuth read-only PRIVATE-video report, channel/video identity hashes, Analytics-observed state and human Studio checklist; it cannot authenticate API data or perform account write actions.
+- Operator CLIs are no-overwrite and private by default; separate Windows contract tests; actual models, owner Windows machine, Google OAuth and private upload remain external/blocked acceptance dependencies.
+- Only **new-repository** development is performed. Unavailable 13–20 Nov source history remains unrecovered.
+
 # ViralOS Engineering Changelog
 
 ## 2026-11-24 — Phase 4 (recoverable owner-local voice)

@@ -1,0 +1,39 @@
+{
+  "phase": "5",
+  "date": "2026-11-24",
+  "new_repository": "mohdazizshaikh/youtube",
+  "base_commit": "81613d8bd8e657a261c7156cf0e669e25db0c44c",
+  "focus": "Operator-only voice, bilingual artifact, and Studio read-only evidence gates with fail-closed SRT and script binding",
+  "local_validation": {
+    "python_pytest_passed": 145,
+    "python_pytest_failed": 0,
+    "evidence_type": "Synthetic local fixtures only",
+    "srt_timing_tested": true,
+    "voice_script_byte_hash_binding_tested": true,
+    "private_account_network_calls": false
+  },
+  "implemented": {
+    "m24_two_native_listener_declarations": "OFFLINE_SOFTWARE_SELF_ATTESTATION_ONLY",
+    "m25_bilingual_video_artifact_hash_and_ffprobe": "OFFLINE_TECHNICAL_GATE",
+    "m25_srt_all_cues_and_script_binding": "OFFLINE_FAIL_CLOSED",
+    "m32_google_studio_owner_receipt": "OFFLINE_INPUT_REPORT_AND_DECLARATION_ONLY"
+  },
+  "not_accepted": [
+    "unavailable_November_13_to_20_owner_source",
+    "real_licensed_Hindi_English_voice_model_inference_and_listening",
+    "real_CTC_models_and_reference_corpus_acceptance",
+    "two_independently_reviewed_complete_original_bilingual_films",
+    "real_authenticated_owner_youtube_private_upload_and_analytics",
+    "physical_Windows_i7_32GB_install_restore_and_playback",
+    "independent_fact_copyright_originality_acceptance",
+    "twelve_fully_implemented_specialist_domain_directors",
+    "licensed_GPU_generation_and_real_experiment_optimization"
+  ],
+  "safety": {
+    "old_suspended_account_accessed": false,
+    "copyright_rights_independently_certified": false,
+    "human_reviewers_independently_authenticated": false,
+    "live_YouTube_account_access_in_this_phase": false,
+    "automatic_public_or_private_upload_enabled_by_new_tools": false
+  }
+}

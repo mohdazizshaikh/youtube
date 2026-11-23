@@ -119,3 +119,37 @@ def test_hindi_latin_fallback_font_is_rejected(monkeypatch):
         require_devanagari_font('hi-IN')
     assert ex.value.status_code==409
     require_devanagari_font('en-IN')
+
+
+def test_owner_confirmed_scene_cue_retime_real_cpu_preview(client):
+    if not shutil.which('ffmpeg') or not shutil.which('ffprobe'):
+        pytest.skip('FFmpeg required for localized preview')
+    pid,vid,plan=make_variant(client)
+    assert approval(client,pid,vid).status_code==200
+    # The owner manually checks scene boundaries against the 2.8-second WAV.
+    # Timed caption remains tied to actual narration, never scaled by script length.
+    plan['captions'][1]['start_ms']=1600
+    payload={'plan_json':json.dumps(plan),'owner_voice_rights_attested':'true',
+             'voice_origin':'Owner-recorded synthetic lab narration sample (NOT professional voice)',
+             'scene_end_ms_json':json.dumps([1600,2800]),
+             'owner_verified_scene_boundaries':'true'}
+    r=client.post(f'/api/projects/{pid}/m25/localizations/{vid}/studio-preview',data=payload,
+                  files={'file':('owner.wav',wav_voice(),'audio/wav')})
+    assert r.status_code==200,r.text
+    d=r.json()
+    assert d['scene_retiming']['adjusted_scene_durations_ms']==[1600,1200]
+    assert d['scene_retiming']['caption_timestamps_guessed'] is False
+    assert d['youtube_upload_eligible'] is False
+    assert client.get(d['download_url']).status_code==200
+
+
+def test_unreviewed_scene_cues_block_before_render(client):
+    pid,vid,plan=make_variant(client)
+    assert approval(client,pid,vid).status_code==200
+    payload={'plan_json':json.dumps(plan),'owner_voice_rights_attested':'true',
+             'voice_origin':'Local offline owner-supplied audio recording',
+             'scene_end_ms_json':json.dumps([1600,2800]),
+             'owner_verified_scene_boundaries':'false'}
+    r=client.post(f'/api/projects/{pid}/m25/localizations/{vid}/studio-preview',data=payload,
+                  files={'file':('owner.wav',wav_voice(),'audio/wav')})
+    assert r.status_code==409

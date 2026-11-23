@@ -1,3 +1,11 @@
+# ViralOS Engineering Changelog
+
+## 2026-11-24 — Phase 4 (recoverable owner-local voice)
+
+- Added owner-supplied Piper CLI *actual subprocess* synthesis adapter, with SHA-256 model/config/binary checks, strict rights attestation, bound input/timeout/output, FFmpeg 16kHz PCM conversion and listening-required reports; no model bundles or network downloads.
+- Added optional owner-confirmed scene-cue retimer for M2.5 localized CPU previews, with measured WAV duration, unchanged owner subtitle timestamps and fail-closed validation.
+- Added contract, error, tamper and FFmpeg integration tests plus operator guide. No natural voice, automatic dubbing, owner Windows install, rights clearance or real YouTube acceptance claimed.
+
 # ViralOS engineering changelog
 
 ## 2026-11-24 — Phase 3: acoustic-model proof and no-duplicate private reconciliation

@@ -1,0 +1,33 @@
+{
+  "phase": "4",
+  "date": "2026-11-24",
+  "repository": "mohdazizshaikh/youtube",
+  "base_commit": "8d649692dd8166c185c5450532a31dfeecdd7fe9",
+  "feature_gates": {
+    "m24_owner_local_piper_binary_voice_model_config_hash_verified": "IMPLEMENTED_FAKE_EXECUTABLE_TESTED",
+    "m24_piper_subprocess_to_wav_ffmpeg_qa": "IMPLEMENTED_WITH_SYNTHETIC_TEST_AUDIO",
+    "m25_owner_audio_cue_scene_retime": "IMPLEMENTED_WITH_SYNTHETIC_FFMPEG_PREVIEW",
+    "m24_professional_hindi_english_voices": "NOT_ACCEPTED_OWNER_LICENSED_MODEL_MISSING",
+    "m24_real_ctc_acoustic_alignment_model_acceptance": "NOT_ACCEPTED_OWNER_MODEL_AND_CORPUS_MISSING",
+    "m32_real_youtube_private_upload_and_analytics": "NOT_TESTED_OWNER_ACCOUNT_REQUIRED",
+    "owner_windows_i7_32gb_acceptance": "NOT_TESTED_HARDWARE_UNAVAILABLE",
+    "source_recovery_13_to_20_nov": "UNRECOVERED_OWNER_HELD_SOURCE_REQUIRED",
+    "12_domains_full_specialist_os": "NOT_COMPLETE",
+    "licensed_gpu_video_generation": "NOT_TESTED_GPU_UNAVAILABLE"
+  },
+  "validation": {
+    "local_tests_expected_minimum": 125,
+    "voice_test_executable": "FAKE_LOCAL_BINARY",
+    "voice_test_audio": "SYNTHETIC_TONE_NOT_PROFESSIONAL",
+    "actual_voice_model_inference": false,
+    "external_network_upload": false,
+    "automatic_publishing": false,
+    "real_owner_windows_acceptance": false
+  },
+  "safety": {
+    "suspended_sahilk267_account_contacted": false,
+    "local_only_asset_loading": true,
+    "third_party_executable_network_isolation_guaranteed": false,
+    "voice_license_independently_certified": false
+  }
+}

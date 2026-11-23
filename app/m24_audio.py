@@ -223,9 +223,15 @@ def validate_voice_profile(profile: dict, locale: str) -> dict:
     if profile.get('cloned_voice') is True and profile.get('speaker_consent') is not True:
         raise ValueError('Voice clone requires speaker consent')
     model = Path(str(profile.get('model_file', ''))).expanduser()
-    if model.suffix != '.onnx' or not model.is_file() or model.stat().st_size < 16:
-        raise ValueError('Existing local Piper .onnx model required')
-    digest = hashlib.sha256(model.read_bytes()).hexdigest()
+    if (model.is_symlink() or model.suffix != '.onnx' or not model.is_file() or
+            not 16 <= model.stat().st_size <= 4 * 1024**3):
+        raise ValueError('Existing bounded, non-symlink local Piper .onnx model required')
+    # A full voice model can be gigabytes; never load it entirely into RAM.
+    hasher = hashlib.sha256()
+    with model.open('rb') as stream:
+        for block in iter(lambda: stream.read(1024 * 1024), b''):
+            hasher.update(block)
+    digest = hasher.hexdigest()
     if profile.get('sha256') != digest:
         raise ValueError('Local voice model SHA-256 differs from registered voice profile')
     return {'available': True, 'backend': 'piper', 'locale': locale,

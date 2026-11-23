@@ -95,6 +95,7 @@ def register_localized_preview(app):
     def capabilities():
         return {'cpu_render':True,'owner_supplied_narration_pcm16_16khz':True,
                 'owner_timed_captions':True,'localized_headlines_bound_to_review':True,
+                'owner_verified_scene_retiming':True,'automatic_scene_retiming':False,
                 'format_limit_ms':90000,'automatic_translation':False,
                 'automatic_dubbing_or_tts':False,'automatic_word_alignment':False,
                 'copyright_certified':False,'upload_eligible':False,
@@ -103,13 +104,23 @@ def register_localized_preview(app):
     @app.post('/api/projects/{project_id}/m25/localizations/{variant_id}/studio-preview')
     async def preview(project_id: str, variant_id: str, file: UploadFile = File(...),
                       plan_json: str = Form(...), owner_voice_rights_attested: bool = Form(...),
-                      voice_origin: str = Form(...)):
+                      voice_origin: str = Form(...), scene_end_ms_json: str | None = Form(None),
+                      owner_verified_scene_boundaries: bool = Form(False)):
         if not owner_voice_rights_attested or len(voice_origin.strip()) < 8 or len(voice_origin) > 500:
             raise HTTPException(422, 'Owner must attest local narration provenance and permitted voice rights')
         with db.read() as c:
             project,variant,content = reviewed_variant(c,project_id,variant_id)
-            plan = validated_plan(plan_json,variant,content)
-            require_devanagari_font(plan['locale'])
+            # Optional retiming is applied after the real audio duration is measured.
+            if scene_end_ms_json is None:
+                plan = validated_plan(plan_json,variant,content)
+            else:
+                if len(plan_json)>MAX_PLAN_CHARS:
+                    raise HTTPException(422,'Localized plan too large')
+                try:plan = json.loads(plan_json)
+                except (TypeError,ValueError):raise HTTPException(422,'Invalid localized plan JSON')
+                if not isinstance(plan,dict) or plan.get('locale')!=variant['locale']:
+                    raise HTTPException(409,'Locale mismatch before scene retiming')
+            require_devanagari_font(variant['locale'])
             sport = project['sport_id'];fmt=project['format']
             source_hash=variant['dependency_sha256'];content_hash=variant['content_sha256']
         raw = await file.read(MAX_VOICE_BYTES + 1)
@@ -121,6 +132,16 @@ def register_localized_preview(app):
         wav.write_bytes(raw)
         try:
             audio = wav_audio_qa(wav)
+            retime_info = None
+            if scene_end_ms_json is not None:
+                if not owner_verified_scene_boundaries or len(scene_end_ms_json)>1000:
+                    raise HTTPException(409,'Owner must attest scene timing against the local narration WAV')
+                from .m25_dub_retime import retime_reviewed_plan
+                try:
+                    plan,retime_info=retime_reviewed_plan(plan,json.loads(scene_end_ms_json),audio['duration_ms'])
+                except (ValueError,TypeError,KeyError) as ex:
+                    raise HTTPException(422,'Localized scene retiming refused: '+str(ex)[:250]) from ex
+                plan=validated_plan(json.dumps(plan),variant,content)
             if audio['technical_flags']:
                 raise HTTPException(409, 'Narration technical QA failed: ' + ', '.join(audio['technical_flags']))
             try:
@@ -147,7 +168,8 @@ def register_localized_preview(app):
                     'sha256':digest,'duration_ms':manifest['total_duration_ms'],
                     'locale':plan['locale'],'audio_qa':audio,'automated_quality':quality['status'],
                     'translated_by_model':False,'narration_generated_by_model':False,
-                    'word_alignment_performed':False,'owner_final_approval':False,
+                    'word_alignment_performed':False,'scene_retiming':retime_info,
+                    'owner_final_approval':False,
                     'youtube_upload_eligible':False}
         except Exception:
             shutil.rmtree(folder,ignore_errors=True)

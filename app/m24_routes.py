@@ -75,6 +75,8 @@ def register_m24_audio(app):
                 'automatic_translation': False,
                 'professional_voice_quality_certified': False,
                 'offline_piper_optional': True,
+                'owner_local_piper_cli_draft_synthesis': True,
+                'bundled_professional_voice_models': False,
                 'local_ctc_model_bundled': False,
                 'model_auto_download': False,
                 'supported_locales': sorted(SUPPORTED_LOCALES),

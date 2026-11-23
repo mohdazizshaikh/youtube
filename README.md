@@ -89,3 +89,7 @@ No model is bundled or downloaded automatically. The app will refuse synthesis i
 Read **[docs/M2_2_AND_M3_PRIVATE_IMPLEMENTATION.md](docs/M2_2_AND_M3_PRIVATE_IMPLEMENTATION.md)**. This update adds source/shot creative QA, original CPU tactical-motion graphics, per-word **owner-reviewed timestamp** VTT import (NOT automated alignment), human-approved final video exports, and optional strictly PRIVATE YouTube upload with separate OAuth desktop CLI. Default upload state OFF. Existing source/evidence research, video studio and read-only analytics remain intact.
 
 Run `python -m pytest -q`, then `python tools/verify_package.py`. Production approval, copyrighted footage clearance and YouTube monetization are **not** guaranteed.
+
+## Phase 4 operator-only Piper/scene retiming
+
+See `docs/PHASE4_PIPER_AND_SCENE_RETIME_2026-11-24.md` for the new licensed local Piper voice draft CLI and owner-verified scene retiming route. No voice model is bundled; synthetic test audio is not natural speech, and no publish action is automatically authorized.

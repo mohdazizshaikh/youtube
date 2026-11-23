@@ -6,7 +6,6 @@ on:
   workflow_dispatch:
 
 env:
-  VIRALOS_DB: ${{ runner.temp }}/viral-synthetic-test.sqlite
   VIRALOS_ENABLE_PRIVATE_UPLOAD: '0'
   HF_HUB_OFFLINE: '1'
   TRANSFORMERS_OFFLINE: '1'
@@ -17,6 +16,8 @@ permissions:
 jobs:
   cpu-baseline:
     runs-on: ubuntu-24.04
+    env:
+      VIRALOS_DB: /tmp/viral-ci-synthetic-test.sqlite
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
@@ -42,6 +43,7 @@ jobs:
     runs-on: windows-2022
     timeout-minutes: 20
     env:
+      VIRALOS_DB: viral-ci-synthetic-test.sqlite
       VIRALOS_ENABLE_PRIVATE_UPLOAD: '0'
       HF_HUB_OFFLINE: '1'
       TRANSFORMERS_OFFLINE: '1'

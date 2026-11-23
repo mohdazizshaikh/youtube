@@ -345,14 +345,24 @@
       "sha256": "12ca83e2149f8760f63cc3eb684fde65c3006396bff4f238cfd193dd47851cae"
     },
     {
+      "path": "recovery/ORIGINAL_ARCHIVE_INDEX.md",
+      "bytes": 3991,
+      "sha256": "642bbded887350d7e7452a5c0cbcaf48d80290564cff439a1a792223f42bd278"
+    },
+    {
       "path": "recovery/RECOVERY_STATUS.md",
-      "bytes": 2751,
-      "sha256": "07b47786482e25756a5bb6133a55d5ca9c9bee5e56852732782aee3f4d82ca7f"
+      "bytes": 3093,
+      "sha256": "f501272294c9183b90c0418ac092a9fed2902137d00696f83cbcf5a5d07b0dd4"
     },
     {
       "path": "recovery/original-artifacts/ViralOS_AgentReady_Complete_v2.zip",
       "bytes": 394854,
       "sha256": "7bf53207c3d35c371ad5ee065de554b961aad8502b17c0c14234c9a429d8298e"
+    },
+    {
+      "path": "recovery/original-artifacts/ViralOS_COMPLETE_AI_AGENT_HANDOFF_2026-11-21.zip",
+      "bytes": 43131,
+      "sha256": "37bb8dd9be9e2edf6ba8360e8626a92b86a9471892b4498e71b1f428ca036913"
     },
     {
       "path": "recovery/original-artifacts/ViralOS_CPU_Preview_Demo.mp4",
@@ -420,6 +430,11 @@
       "sha256": "5754cde54c6651d383464d04eaf5f44eff4a96e67dae767cd0e6ec0fcba621d2"
     },
     {
+      "path": "recovery/original-artifacts/ViralOS_M2_1_Demo_QC.json",
+      "bytes": 3451,
+      "sha256": "703543023accdad1d4aa03ee290a55e232d9e7e817ca06c970b8ec05d678b891"
+    },
+    {
       "path": "recovery/original-artifacts/ViralOS_M2_1_Spoken_Demo.mp4",
       "bytes": 440494,
       "sha256": "4ba009d7eae0e6910236c4c234b9fa92ce14348d60be6682749ef9cf87e6b179"
@@ -450,6 +465,11 @@
       "sha256": "823f715762993ce48917f22d72e82a4bc6b0eac133ee048fdbf3c06b4570a278"
     },
     {
+      "path": "recovery/original-artifacts/ViralOS_M2_Studio_Frame(1).png",
+      "bytes": 95897,
+      "sha256": "8c77652787c2140312ebc9d04e33427d564f92f93a69bf59b8c5f449001a73b4"
+    },
+    {
       "path": "recovery/original-artifacts/ViralOS_M2_Studio_Frame.png",
       "bytes": 95897,
       "sha256": "8c77652787c2140312ebc9d04e33427d564f92f93a69bf59b8c5f449001a73b4"
@@ -458,6 +478,16 @@
       "path": "recovery/original-artifacts/ViralOS_M2_Studio_QC.json",
       "bytes": 995,
       "sha256": "bce611bcafcdc610c1db7218881e5c83d0d53d25d2c9e8df355c56e630a4dead"
+    },
+    {
+      "path": "recovery/original-artifacts/ViralOS_Two_Project_Blueprints.zip",
+      "bytes": 17955,
+      "sha256": "9ed3af83ce5b7f18352bf0fa739f6203a0eae491c05afffd375ee0922acad664"
+    },
+    {
+      "path": "recovery/original-artifacts/ViralOS_Two_Project_Blueprints_v1_1.zip",
+      "bytes": 25252,
+      "sha256": "59da82e600fc40a22f32e8cd30effa01d81c39455ea7d9c3b7e03ce0f8fdce72"
     },
     {
       "path": "recovery/original-artifacts/ViralOS_Ultimate.zip",
@@ -473,6 +503,16 @@
       "path": "recovery/original-artifacts/ViralOS_Ultimate_v3.zip",
       "bytes": 402629,
       "sha256": "e3d914a9a04f643f8f011241f0ff2f349029187fa6eec9c9ff9029eaa89c934c"
+    },
+    {
+      "path": "recovery/original-artifacts/ViralOS_Windows_Phase1_Phase2.zip",
+      "bytes": 9862,
+      "sha256": "694524fa671aad8eed16f7c9c1449f58ffbef63d84a60bf5c24e1cd97216ba48"
+    },
+    {
+      "path": "recovery/original-artifacts/viral_os_mvp_starter.zip",
+      "bytes": 4094,
+      "sha256": "adf88d38c9c78a2a8d95e0a67d6a9b587739e64690cf1176e3d231932bf203a0"
     },
     {
       "path": "requirements-youtube-optional.txt",

@@ -35,3 +35,7 @@
 - Gate M2.4 professional offline voices, true word-level alignment, multilingual script/dubbing/local graphics.
 - Gate M3.2 supervised, owner-authorized PRIVATE upload + real Analytics + recovery and incident testing.
 - Add reproducible Windows setup/CI and backed-up migration test results; keep versioned status table per module.
+
+## Early historical checkpoints preserved
+
+Baseline MVP and early Windows Phase1/Phase2 starter ZIPs, 2-project blueprint archives v1/v1.1, Combined/Launch/Ultimate packs, source checkpoints, demo footage and later 2026-11-21 handoff ZIP are retained under `recovery/original-artifacts/` with hashes in `recovery/ORIGINAL_ARCHIVE_INDEX.md`.

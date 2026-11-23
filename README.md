@@ -1,3 +1,13 @@
+# ViralOS — 24 November 2026 Phase 3: CTC provenance, timing benchmark & no-duplicate upload recovery
+
+**New repo only:** `mohdazizshaikh/youtube`; older suspended account never accessed. This is an incremental engineering checkpoint built on 634-file Phase 2. Real voice/acoustic models, owner Windows machine and owner YouTube OAuth are **NOT provided**; no live publishing, automatic Hindi/English dubbing or GPU inference is claimed.
+
+New offline-only code: verify SHA-256 and explicit owner-rights declarations for **every local CTC model file** before optional inference; measure real/reference word alignment *when owner supplies both sets of timestamps*; reconcile a `REMOTE_UNKNOWN` PRIVATE upload only after exact read-only owner-channel verification plus Studio confirmation (never re-upload); harden backup ZIP extraction against unsafe Windows device/ADS paths. Additive SQLite migration `013`, without modifying older SQL.
+
+Read [M2.4 model and benchmark guide](docs/M24_CTC_PROVENANCE_AND_BENCHMARK.md), [M3.2 remote-unknown recovery](docs/M32_REMOTE_UNKNOWN_RECOVERY.md) and [Phase 3 engineering gates](docs/PHASE3_ENGINEERING_GATES_2026-11-24.md).
+
+---
+
 # ViralOS — 24 November 2026 Phase 2: Offline Production Safety & Localized CPU Preview
 
 **Safe destination:** `mohdazizshaikh/youtube` only; no operations involving the old suspended GitHub account. **Owner real-account, licensed models and target Windows PC still NOT accepted.**

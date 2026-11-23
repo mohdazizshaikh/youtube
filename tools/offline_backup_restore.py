@@ -16,6 +16,8 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import re
+import stat
 import shutil
 import sqlite3
 import sys
@@ -94,13 +96,29 @@ def make_backup(archive:Path, source_db:Path, outputs:Path) -> dict:
         except Exception:
             archive.unlink(missing_ok=True)
             raise
-    verify_backup(archive)
+    try:
+        verify_backup(archive)
+    except Exception:
+        # A changed live output during ZIP creation must not leave a seemingly
+        # usable but corrupt snapshot behind for the owner to trust.
+        archive.unlink(missing_ok=True)
+        raise
     return {'archive':str(archive),'file_count':len(files),'migrations':versions}
 
 
 def _safe_name(name:str)->bool:
     p=PurePosixPath(name)
-    return bool(name) and '\\' not in name and not p.is_absolute() and '..' not in p.parts and name==str(p)
+    if not isinstance(name,str) or not name or '\\' in name or p.is_absolute() or '..' in p.parts or name!=str(p):
+        return False
+    # On Windows, NTFS alternate streams, device names and trailing dots/spaces
+    # must never be restored from an archive even when created on Linux.
+    reserved={'CON','PRN','AUX','NUL'} | {f'COM{i}' for i in range(1,10)} | {f'LPT{i}' for i in range(1,10)}
+    for part in p.parts:
+        if part.rstrip(' .')!=part or any(ord(x)<32 or x in '<>:"|?*' for x in part):
+            return False
+        if part.split('.')[0].upper() in reserved:
+            return False
+    return True
 
 
 def verify_backup(archive:Path) -> dict:
@@ -110,13 +128,19 @@ def verify_backup(archive:Path) -> dict:
             raise ValueError('Invalid or duplicate backup manifest entries')
         if any(not _safe_name(x) for x in names):
             raise ValueError('Unsafe relative file path in backup archive')
+        for info in z.infolist():
+            mode=(info.external_attr >> 16)&0o170000
+            if info.is_dir() or mode == stat.S_IFLNK or (info.flag_bits & 1):
+                raise ValueError('Directory, symlink or encrypted backup entry prohibited')
+        if z.getinfo('manifest.json').file_size>5*1024*1024:
+            raise ValueError('Backup manifest too large')
         manifest=json.loads(z.read('manifest.json'))
         if manifest.get('schema')!='VIRALOS_LOCAL_BACKUP_V1':
             raise ValueError('Unknown backup schema')
         files=manifest.get('entries')
         if not isinstance(files,dict) or set(names)-{'manifest.json'} != set(files):
             raise ValueError('Backup manifest does not match archive files')
-        if 'data/viral.db' not in files or any(not p.startswith(('outputs/','data/viral.db')) for p in files):
+        if 'data/viral.db' not in files or any(p!='data/viral.db' and not p.startswith('outputs/') for p in files):
             raise ValueError('Backup must contain the correct DB and outputs only')
         total=sum(z.getinfo(n).file_size for n in names if n!='manifest.json')
         if total>MAX_UNCOMPRESSED:

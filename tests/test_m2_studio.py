@@ -49,7 +49,7 @@ def wav(seconds=4):
 
 def test_migration_and_capability_scope(client):
     with db.read() as c:
-        assert {r['version'] for r in db.many(c,'SELECT version FROM schema_migrations')}=={'001','002','003','004','005','006','007','008','009','010','011','012'}
+        assert {r['version'] for r in db.many(c,'SELECT version FROM schema_migrations')}=={'001','002','003','004','005','006','007','008','009','010','011','012','013'}
     cap=client.get('/api/studio/capabilities').json()
     assert cap['timed_overlays'] and cap['youtube_upload'] is False and cap['forced_alignment'] is False
 

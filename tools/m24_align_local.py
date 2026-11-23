@@ -8,7 +8,8 @@ reviewed by the owner before importing to M2.2 word timing API.
 
 Example (model files provided by owner):
   python tools/m24_align_local.py --wav narration.wav --transcript captions.txt \
-    --model-dir C:/models/approved-hi-ctc --locale hi-IN --output draft.json
+    --model-dir C:/models/approved-hi-ctc --model-manifest C:/Private/ctc-model-manifest.json \
+    --locale hi-IN --output C:/Private/draft.json
 """
 from __future__ import annotations
 import argparse
@@ -22,13 +23,15 @@ import wave
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from app.m24_audio import (ctc_viterbi, prefix_token_groups, split_words,
                            word_intervals, wav_audio_qa, SUPPORTED_LOCALES)
+from app.m24_provenance import inspect_ctc_model
 
 
-def align_local(wav: Path, transcript: str, model_dir: Path, locale: str) -> dict:
+def align_local(wav: Path, transcript: str, model_dir: Path, locale: str, model_manifest: Path) -> dict:
     if locale not in SUPPORTED_LOCALES:
         raise ValueError('Supported locales: en-US, en-IN, hi-IN')
     if not model_dir.is_dir():
         raise ValueError('Local CTC model folder missing; network download not allowed')
+    provenance = inspect_ctc_model(model_dir, model_manifest, locale)
     qa = wav_audio_qa(wav)
     if qa['technical_flags']:
         raise ValueError('Narration fails technical audio QA: ' + ', '.join(qa['technical_flags']))
@@ -77,7 +80,10 @@ def align_local(wav: Path, transcript: str, model_dir: Path, locale: str) -> dic
     result = word_intervals(words, groups, spans, qa['duration_ms'], len(compact))
     return {'m24_alignment_version': '0.1', 'status': 'DRAFT_OWNER_REVIEW_REQUIRED',
             'locale': locale, 'method': 'OFFLINE_CTC_VITERBI_FORCED_ALIGNMENT',
-            'model_directory_name': model_dir.name, 'voice_audio_sha256': qa['audio_sha256'],
+            'model_directory_name': model_dir.name,
+            'model_manifest_sha256': provenance['manifest_sha256'],
+            'model_id': provenance['model_id'],
+            'voice_audio_sha256': qa['audio_sha256'],
             'acoustic_frames': len(compact), 'audio_qa': qa,
             'words': result, 'owner_reviewed': False,
             'warning': 'Forced alignment does not verify transcript accuracy, pronunciation, translation, facts or rights. '
@@ -89,15 +95,21 @@ def main(argv=None):
     ap.add_argument('--wav', type=Path, required=True)
     ap.add_argument('--transcript', type=Path, required=True)
     ap.add_argument('--model-dir', type=Path, required=True)
+    ap.add_argument('--model-manifest', type=Path, required=True,
+                    help='Owner-provided local license/hash inventory outside the model directory')
     ap.add_argument('--locale', choices=sorted(SUPPORTED_LOCALES), required=True)
     ap.add_argument('--output', type=Path, required=True)
     args = ap.parse_args(argv)
     transcript = args.transcript.read_text(encoding='utf-8')
-    result = align_local(args.wav, transcript, args.model_dir, args.locale)
-    if args.output.resolve() == args.transcript.resolve():
-        ap.error('Output must not overwrite the original transcript')
+    output = args.output.resolve()
+    root = Path(__file__).resolve().parent.parent
+    if output in (args.transcript.resolve(), args.wav.resolve(), args.model_manifest.resolve()) or output.is_relative_to(root) or output.exists():
+        ap.error('Use a NEW output path outside the source repository and model evidence')
+    result = align_local(args.wav, transcript, args.model_dir, args.locale, args.model_manifest)
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding='utf-8')
+    with args.output.open('x',encoding='utf8') as f:
+        json.dump(result, f, ensure_ascii=False, indent=2)
+        f.write('\n')
     print('Offline CTC word alignment DRAFT generated. Owner listening/review REQUIRED.')
     print('Output:', args.output, 'Words:', len(result['words']))
 

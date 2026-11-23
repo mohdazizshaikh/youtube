@@ -1,5 +1,13 @@
 # ViralOS engineering changelog
 
+## 2026-11-24 — Phase 3: acoustic-model proof and no-duplicate private reconciliation
+
+- M2.4: strict offline CTC model inventory with byte-level SHA-256 of all model files, owner license/locale attestation and fail-closed CLI requirement. Model inference stays optional and **unverified without owner model**.
+- M2.4: real-reference word-timing diagnostic over caller-provided corpus (median/p95 boundary error, mismatches, minimum sample-size guard); never auto-certifies model, speech quality or voice rights.
+- M3.2: owner-supervised read-only recovery of REMOTE_UNKNOWN video into UPLOADED_PRIVATE on exact authenticated/private/channel/metadata match, append-only event table migration 013; no blind retry, new upload or publication acceptance.
+- M4: refuse NTFS alternate streams and reserved device names in backups, reject unsafe ZIP types and delete failed backup snapshots.
+- All prior code, recorded history, manual approval boundaries, rights checks and original archives remain preserved.
+
 ## 2026-11-24 — Phase 2: safe-release gate and real localized technical preview
 
 - PRIVATE upload execute is blocked until **current M2.6 owner/editorial attestation**, with a read-only, no-network readiness endpoint. No automatic retry or public publishing.

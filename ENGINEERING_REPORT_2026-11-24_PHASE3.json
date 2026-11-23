@@ -1,0 +1,32 @@
+{
+  "release": "VIRALOS_OFFLINE_ENGINEERING_PHASE3_2026-11-24",
+  "source_baseline_github_commit": "38fe899064033ce89a99a01f9b7fad5a095feb14",
+  "target_repository": "mohdazizshaikh/youtube",
+  "suspended_account_accessed": false,
+  "new_features": [
+    "strict_local_ctc_model_file_hash_and_owner_rights_manifest_validation",
+    "offline_human_reference_word_alignment_error_scoring",
+    "owner_supervised_readonly_remote_unknown_private_video_reconciliation",
+    "windows_safe_backup_archive_filename_hardening"
+  ],
+  "new_additive_sqlite_migration": "013_remote_unknown_reconciliation.sql",
+  "prior_12_migrations_preserved": true,
+  "local_automated_tests_passed": 107,
+  "local_test_warnings": ["Intentional malformed-archive fixture raises duplicate ZIP entry warning"],
+  "local_ffmpeg_integration_tests_included": true,
+  "synthetic_sqlite_backup_restore_migrations": 13,
+  "synthetic_backup_restore_status": "PASSED",
+  "external_ctc_acoustic_model_loaded": false,
+  "professional_hindi_english_voices_tested": false,
+  "real_youtube_oauth_contacted": false,
+  "real_youtube_upload_performed": false,
+  "real_youtube_analytics_verified": false,
+  "owner_windows_i7_32gb_accepted": false,
+  "licensed_external_media_independently_cleared": false,
+  "12_specialist_domain_systems_fully_autonomous": false,
+  "gpu_generation_tested": false,
+  "public_or_scheduled_upload_enabled": false,
+  "production_release_accepted": false,
+  "remote_ci_result": "NOT_YET_VERIFIED_AT_REPORT_CREATION",
+  "quality_gate_note": "Automated tests use synthetic fixtures and cannot substitute for owner credentials, licensed acoustic model, real human annotations, physical Windows hardware or legal/editorial judgement."
+}

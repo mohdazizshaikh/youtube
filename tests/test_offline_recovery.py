@@ -45,3 +45,14 @@ def test_tampered_backup_and_zip_slip_fail_before_restore(tmp_path,monkeypatch):
         z.writestr('../evil.txt',b'bad')
     with pytest.raises(ValueError):
         restore_backup(unsafe,tmp_path/'new')
+
+
+def test_offline_restore_refuses_windows_alternate_streams_and_device_paths():
+    from tools.offline_backup_restore import _safe_name
+    for dangerous in ('outputs/CON.txt','outputs/a:secrets.txt',
+                      'outputs/end.','outputs/trailing ','outputs/../../steal',
+                      'outputs/x\\evil','outputs/AUX','outputs/path/COM1.cfg',
+                      'outputs/hidden\nname'):
+        assert not _safe_name(dangerous), dangerous
+    assert _safe_name('outputs/हिंदी/valid-captions.srt')
+    assert _safe_name('data/viral.db')

@@ -53,6 +53,18 @@ def review_and_export(c,pid,rid):
         'notes':'Reviewed original diagram, narrated script, source context, caption safety and media rights manually.'})
     return post(c,f"/api/projects/{pid}/m22/reviews/{response['review_id']}/export-final",{})
 
+def editorial_signoff(c,pid,eid):
+    """Test-only simulated owner sign-off; actual user must review real content."""
+    return post(c,f'/api/projects/{pid}/m26/editorial-owner-review',{
+        'final_export_id':eid,'auditor':'Mock test owner',
+        'notes':'Mock: verified original diagram, script and rights for this simulated upload.',
+        'checked_full_final_video':True,
+        'checked_every_material_claim_and_original_source':True,
+        'independently_checked_asset_and_music_rights':True,
+        'reviewed_originality_and_transformative_value':True,
+        'reviewed_ai_disclosure_and_sensitive_subjects':True})
+
+
 def test_schemas_policies_baseline(client):
     with db.read() as c:
         assert {x['version'] for x in db.many(c,'SELECT version FROM schema_migrations')}.issuperset({'007','008'})
@@ -138,6 +150,15 @@ def test_private_upload_flow_mock_auth_and_unknown_no_retry(client,monkeypatch):
         seen['metadata']=metadata
         return {'id':'PRIVATE_TEST_ID','privacyStatus':'private'}
     monkeypatch.setattr(youtube_private,'upload_private_video',mock_upload)
+    # Fail closed: even with valid OAuth/account, no network without M2.6 approval.
+    preflight=client.get(f'/api/m3/private-upload/intents/{iid}/readiness').json()
+    assert not preflight['ready_for_EXPLICIT_PRIVATE_action']
+    assert 'CURRENT_OWNER_EDITORIAL_REVIEW_MISSING_OR_STALE' in preflight['blockers']
+    assert client.post(f'/api/m3/private-upload/intents/{iid}/execute',json={'confirmation':'UPLOAD_PRIVATE_NOW'}).status_code==409
+    assert client.get(f'/api/m3/private-upload/intents/{iid}').json()['state']=='PREPARED'
+    assert seen=={}
+    editorial_signoff(client,pid,eid)
+    assert client.get(f'/api/m3/private-upload/intents/{iid}/readiness').json()['ready_for_EXPLICIT_PRIVATE_action']
     result=post(client,f'/api/m3/private-upload/intents/{iid}/execute',{'confirmation':'UPLOAD_PRIVATE_NOW'})
     assert result['state']=='UPLOADED_PRIVATE' and result['published_public'] is False
     assert seen['metadata']['title']==body['title']
@@ -159,6 +180,7 @@ def test_private_upload_remote_unknown_no_auto_retry(client,monkeypatch):
     monkeypatch.setattr(youtube_private,'verify_owned_channel',lambda c,id:{'id':id})
     def fail(*args):raise OSError('network ambiguous')
     monkeypatch.setattr(youtube_private,'upload_private_video',fail)
+    editorial_signoff(client,pid,eid)
     url=f"/api/m3/private-upload/intents/{prepared['intent_id']}/execute"
     assert client.post(url,json={'confirmation':'UPLOAD_PRIVATE_NOW'}).status_code==503
     assert client.get(f"/api/m3/private-upload/intents/{prepared['intent_id']}").json()['state']=='REMOTE_UNKNOWN'

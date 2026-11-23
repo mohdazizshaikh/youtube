@@ -373,6 +373,9 @@ from .localization_review import register_localization
 register_localization(app)
 from .editorial_evidence import register_editorial
 register_editorial(app)
+
+from .localized_preview import register_localized_preview
+register_localized_preview(app)
 from .compute_capabilities import register_compute
 register_compute(app)
 from .audience_scene_audit import register_audience_scene_audit

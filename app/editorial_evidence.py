@@ -85,6 +85,32 @@ def snapshot(c,project_id):
     return result,script
 
 
+
+def release_readiness(c, export_id: str) -> dict:
+    """Read-only, fail-closed M2.6 approval gate for a specific M2.2 final export.
+
+    Owner attestations document a human review, *not* legal clearance.
+    The review is valid only while the exact evidence snapshot is unchanged.
+    The upload handler independently checks the MP4/final-render fingerprint.
+    """
+    export=db.one(c,'SELECT export_id,project_id FROM m22_final_exports WHERE export_id=?',(export_id,))
+    if not export:
+        return {'ready':False,'blockers':['FINAL_EXPORT_MISSING'],'human_attestation_only':True}
+    report,_=snapshot(c,export['project_id'])
+    blockers=list(report['blockers'])
+    review=db.one(c,'SELECT review_id,auditor,created_at FROM m26_editorial_reviews '
+                  'WHERE project_id=? AND final_export_id=? AND dependency_sha256=? '
+                  "AND decision='OWNER_REVIEWED_NOT_LEGALLY_CERTIFIED' "
+                  'ORDER BY created_at DESC LIMIT 1',
+                  (export['project_id'],export_id,report['snapshot_sha256']))
+    if not review:
+        blockers.append('CURRENT_OWNER_EDITORIAL_REVIEW_MISSING_OR_STALE')
+    return {'ready':not blockers,'blockers':blockers,
+            'snapshot_sha256':report['snapshot_sha256'],
+            'review_id':review['review_id'] if review else None,
+            'human_attestation_only':True,'copyright_legality_certified':False,
+            'automatic_publishing_permitted':False}
+
 def register_editorial(app):
     from . import main as m
     @app.get('/api/projects/{project_id}/m26/editorial-audit')

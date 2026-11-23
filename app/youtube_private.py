@@ -113,7 +113,8 @@ def register_youtube_private(app):
                 'public_upload':False,'scheduling':False,
                 'oauth':'OWNER_DESKTOP_CLI_SECURE_OS_KEYRING',
                 'status_on_network_failure':'REMOTE_UNKNOWN_NO_AUTORETRY',
-                'actual_youtube_upload_tested':False}
+                'actual_youtube_upload_tested':False,
+                'current_m26_editorial_review_required_at_execution':True}
 
     @app.post('/api/m3/private-upload/intents')
     def prepare(body:PreparePrivate):
@@ -141,6 +142,28 @@ def register_youtube_private(app):
             if not row:raise HTTPException(404,'Upload intent not found')
             return row
 
+    @app.get('/api/m3/private-upload/intents/{intent_id}/readiness')
+    def readiness(intent_id:str):
+        """Network-free check; the execute action re-checks within its transaction."""
+        from .editorial_evidence import release_readiness
+        with db.read() as c:
+            row=db.one(c,'SELECT * FROM m3_private_upload_intents WHERE intent_id=?',(intent_id,))
+            if not row:raise HTTPException(404,'Upload intent not found')
+            try:
+                resolve_export(c,row['export_id'])
+                export_valid=True
+            except HTTPException:
+                export_valid=False
+            checks=release_readiness(c,row['export_id'])
+            blockers=list(checks['blockers'])
+            if not export_valid:blockers.append('FINAL_EXPORT_INVALID_OR_STALE')
+            if row['state']!='PREPARED':blockers.append('INTENT_NOT_PREPARED')
+            if os.getenv('VIRALOS_ENABLE_PRIVATE_UPLOAD')!='1':
+                blockers.append('LOCAL_UPLOAD_OPT_IN_DISABLED')
+            return {'intent_id':intent_id,'ready_for_EXPLICIT_PRIVATE_action':not blockers,
+                    'blockers':blockers,'editorial':checks,
+                    'outbound_network_request_performed':False,'public_upload_allowed':False}
+
     @app.post('/api/m3/private-upload/intents/{intent_id}/execute')
     def execute(intent_id:str,body:ExecutePrivate):
         if os.getenv('VIRALOS_ENABLE_PRIVATE_UPLOAD')!='1':
@@ -150,6 +173,10 @@ def register_youtube_private(app):
             if not row:raise HTTPException(404,'Intent not found')
             if row['state']!='PREPARED':raise HTTPException(409,'Upload already started/completed; never automatically retry possibly duplicated upload')
             e,p,video=resolve_export(c,row['export_id'])
+            from .editorial_evidence import release_readiness
+            gate=release_readiness(c,row['export_id'])
+            if not gate['ready']:
+                raise HTTPException(409,'PRIVATE upload blocked by current editorial gate: '+', '.join(gate['blockers'])[:500])
             acct=db.one(c,'SELECT * FROM m3_upload_accounts WHERE local_channel_id=?',(row['local_channel_id'],))
             if not acct or acct['remote_channel_id']!=row['remote_channel_id'] or p['channel_id']!=row['local_channel_id']:
                 raise HTTPException(409,'Wrong account/channel or missing verified upload permission')

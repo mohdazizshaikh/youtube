@@ -1,3 +1,13 @@
+# ViralOS — 24 November 2026 Phase 2: Offline Production Safety & Localized CPU Preview
+
+**Safe destination:** `mohdazizshaikh/youtube` only; no operations involving the old suspended GitHub account. **Owner real-account, licensed models and target Windows PC still NOT accepted.**
+
+New: *real CPU-rendered* multilingual technical MP4 preview from a human-reviewed localized script, owner-attested WAV, exact matching localized on-screen headings and owner-timed captions; SQLite migration `012`. **Not automatic TTS/dubbing or publication.** PRIVATE YouTube upload execution now requires a *current M2.6 editorial signoff*, even with OAuth and opt-in enabled. Isolated no-network backup/restore drills, Windows owner-run acceptance harness, Windows CI contract job, and a 24-video twelve-domain acceptance matrix are included.
+
+Read [Phase 2 engineering evidence](docs/ENGINEERING_GATES_2026-11-24_PHASE2.md), [Phase 2 remaining-work tracker](docs/PRIORITY_TRACKER_2026-11-24_PHASE2.md), and [24-domain-video acceptance matrix](docs/DOMAIN_24_VIDEO_RELEASE_MATRIX.json). These are bounded tested increments, **not** complete professional voices, 12 full autonomous domain systems, real YouTube uploads, or licensed GPU video generation.
+
+---
+
 # ViralOS — 24 November 2026 Offline Engineering Update
 
 **New repo only:** `mohdazizshaikh/youtube`. The suspended previous account was never contacted.

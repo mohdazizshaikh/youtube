@@ -1,3 +1,13 @@
+# ViralOS — 24 November 2026 Offline Engineering Update
+
+**New repo only:** `mohdazizshaikh/youtube`. The suspended previous account was never contacted.
+
+New code adds **12 domain-specific research metadata adapters**, **human-reviewed Hindi/English/Hinglish localization records**, an **independent source/media/editorial checklist**, **offline owner-backup reconciliation**, **GPU model routing contract (dry-run only)** and **observational retention-to-scene mapping**. See [November 24 Engineering Gates](docs/ENGINEERING_GATES_2026-11-24.md), [priority tracker](docs/PRIORITY_TRACKER_2026-11-24.md) and [changelog](CHANGELOG.md).
+
+**Not production-complete:** no full natural voice or translation system, no real local GPU generation, no live YouTube private upload or owner-Windows validation, no demonstrated 144 runnable AI experts. The additional review layers do not bypass existing source, rights, voice, final-render or upload approval gates. A locally declared Analytics source is not independently authenticated.
+
+---
+
 # ViralOS M2.4 / M3.2 / M4 Engineering Increment — 23 November 2026
 
 **Status:** Implemented and locally tested code increment, **NOT** live-account/production acceptance. The repository was recovered from archived sources without accessing the suspended former account. Original releases remain in `recovery/original-artifacts/`.

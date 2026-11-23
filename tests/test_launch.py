@@ -32,7 +32,7 @@ def test_spec_migration_and_status(client):
     assert h['schema_tables']>=61 and h['publishing_enabled'] is False
     with db.connect() as con:
         versions={x[0] for x in con.execute('SELECT version FROM schema_migrations')}
-        assert versions=={'001','002','003','004','005','006','007','008','009'}
+        assert versions=={'001','002','003','004','005','006','007','008','009','010','011'}
     db.initialize()  # idempotent
     assert client.get('/api/capabilities').json()['gpu']['enabled'] is False
     assert client.get('/').status_code==200

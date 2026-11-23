@@ -366,3 +366,14 @@ register_youtube_private(app)
 
 from .m24_routes import register_m24_audio
 register_m24_audio(app)
+
+from .domain_adapters import register_domain_adapters
+register_domain_adapters(app)
+from .localization_review import register_localization
+register_localization(app)
+from .editorial_evidence import register_editorial
+register_editorial(app)
+from .compute_capabilities import register_compute
+register_compute(app)
+from .audience_scene_audit import register_audience_scene_audit
+register_audience_scene_audit(app)

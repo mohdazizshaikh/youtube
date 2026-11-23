@@ -4,7 +4,7 @@ from pathlib import Path
 from contextlib import contextmanager
 ROOT=Path(__file__).resolve().parent.parent
 DEFAULT_DB=ROOT/'data'/'viral.db'
-MIGRATIONS=[('001', '001_schema.sql'), ('002', '002_controls.sql'), ('003', '003_creative.sql'), ('004', '004_m1_m3.sql'), ('005', '005_studio.sql'), ('006','006_m21_director.sql'),('007','007_m22_creative.sql'),('008','008_m3_publishing.sql'),('009','009_m24_alignment.sql')]
+MIGRATIONS=[('001', '001_schema.sql'), ('002', '002_controls.sql'), ('003', '003_creative.sql'), ('004', '004_m1_m3.sql'), ('005', '005_studio.sql'), ('006','006_m21_director.sql'),('007','007_m22_creative.sql'),('008','008_m3_publishing.sql'),('009','009_m24_alignment.sql'),('010','010_localization_review.sql'),('011','011_editorial_evidence.sql')]
 
 def path():
     return Path(os.environ.get('VIRALOS_DB', str(DEFAULT_DB))).resolve()

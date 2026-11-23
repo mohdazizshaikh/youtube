@@ -206,3 +206,24 @@ def test_private_metadata_disclosure_changes_are_not_silent(client):
           'tags':[],'altered_content':False,'made_for_kids':False,'owner_confirmed_metadata_rights':True}
     post(client,'/api/m3/private-upload/intents',data)
     assert client.post('/api/m3/private-upload/intents',json={**data,'altered_content':True}).status_code==409
+
+def test_m26_editorial_attestation_reuses_real_final_fingerprint(client):
+    """Additional editorial signoff cannot rescue a stale or changed export."""
+    if not shutil.which('ffmpeg') or not shutil.which('ffprobe'):
+        pytest.skip('FFmpeg required for original CPU render')
+    _,pid,_=setup_draft(client)
+    eid=review_and_export(client,pid,make_render(client,pid))['export_id']
+    audit=client.get(f'/api/projects/{pid}/m26/editorial-audit')
+    assert audit.status_code==200 and audit.json()['blockers']==[]
+    owner={'final_export_id':eid,'auditor':'Owner','notes':'Independently watched full original video, checked all sources and rights for this mock.',
+           'checked_full_final_video':True,'checked_every_material_claim_and_original_source':True,
+           'independently_checked_asset_and_music_rights':True,'reviewed_originality_and_transformative_value':True,
+           'reviewed_ai_disclosure_and_sensitive_subjects':True}
+    path=f'/api/projects/{pid}/m26/editorial-owner-review'
+    review=client.post(path,json=owner)
+    assert review.status_code==200,review.text
+    assert review.json()['status']=='OWNER_REVIEWED_NOT_LEGALLY_CERTIFIED'
+    assert review.json()['auto_publish_enabled'] is False
+    assert client.post(path,json=owner).status_code==409
+    post(client,f'/api/projects/{pid}/script',{'text':'The original reviewed video is no longer current after this script revision. Another new script should invalidate everything.', 'claim_links':[]})
+    assert client.post(path,json=owner).status_code==409

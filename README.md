@@ -1,3 +1,11 @@
+# ViralOS — Phase 14T full-film reassembly and proxy review
+
+192 verified scoped operations across 48 silent review proxies, decoded-frame checks, receipts and revision templates. Both full films losslessly reassembled: 21,038 exact decoded frames and 32,875 exact AAC packet signatures matched; corrected streaming audit passed. Two automated revision notes and stale rejection tested. 12 new tests passed against final verifier; 197 combined passed before optimization. All 48 human tasks and 42 motion flags remain open. No real speech, creative revision, browser acceptance or publication authority. Main stays Phase 13.
+
+See [project status](docs/PROJECT_STATUS.md), [Phase 14T priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE14T.md) and [owner acceptance checklist](docs/OWNER_ACCEPTANCE_2026-11-25_PHASE14J.md).
+
+---
+
 # ViralOS — Phase 14S bilingual shot review batch
 
 Actual 48-shot parallel extraction and source-matched decoded-frame validation across both synthetic full films: 21,038 frames, 192 scoped verified operations, 48 midpoint PNGs and task-bound receipts. Static local index and non-destructive Hindi shot recovery verified. All 48 human tasks remain OPEN, including 42 motion flags. 10 new/185 combined local tests passed. Intermediate CI passed; latest manifest CI pending. No new creative motion, real speech, human acceptance or publication authority. Main stays Phase 13.

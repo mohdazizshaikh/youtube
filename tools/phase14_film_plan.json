@@ -1,0 +1,140 @@
+{
+  "schema": 1,
+  "title": "One Character Changes Everything: SHA-256 Explained",
+  "locale": "en-US",
+  "status": "DRAFT_SYNTHETIC_ONLY",
+  "target_minutes": [
+    6,
+    8
+  ],
+  "sources": {
+    "nist": "https://www.nist.gov/publications/secure-hash-standard",
+    "python": "https://docs.python.org/3/library/hashlib.html",
+    "powershell": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-filehash",
+    "signatures": "https://csrc.nist.gov/projects/digital-signatures"
+  },
+  "scenes": [
+    {
+      "id": "01",
+      "title": "The one-character mystery",
+      "layout": "compare",
+      "beats": [
+        "hello",
+        "Hello",
+        "Same length. Different bytes."
+      ],
+      "sources": [
+        "nist",
+        "python"
+      ],
+      "narration": "Imagine that you have downloaded a file. Its name looks right, its size looks right, and it opens normally. But one character inside has changed. Would you notice? Probably not by looking at the file name. Today we will build a tiny experiment that makes an invisible change visible. We will compare the exact five bytes in the word hello with the exact five bytes in Hello, starting with a capital H. Then we will use a widely used hash algorithm called SHA-256 to make a digital fingerprint of each input. By the end, you will know what a matching fingerprint can tell you, what it cannot tell you, and how to check a download yourself."
+    },
+    {
+      "id": "02",
+      "title": "Bytes in, fingerprint out",
+      "layout": "flow",
+      "beats": [
+        "Input bytes",
+        "SHA-256 algorithm",
+        "256-bit output"
+      ],
+      "sources": [
+        "nist",
+        "python"
+      ],
+      "narration": "A file is a sequence of bytes. The same text can be represented by different bytes if its encoding or line endings change. SHA-256 works on those bytes, not on how the text looks on your screen. It produces a fixed length output of two hundred fifty six bits, commonly written as sixty four hexadecimal characters. Hexadecimal is just a convenient way of writing binary data. One hex digit represents four bits. So a short message and a very large file both produce a hash with the same output length. That does not mean their contents are equally large, or that you can reconstruct either file from its hash. The output is a fingerprint, not a compressed copy of the original."
+    },
+    {
+      "id": "03",
+      "title": "Run the experiment",
+      "layout": "code",
+      "beats": [
+        "hashlib.sha256(b'hello')",
+        "hashlib.sha256(b'Hello')",
+        "Read the full hexadecimal digests"
+      ],
+      "sources": [
+        "python",
+        "nist"
+      ],
+      "narration": "Here is our reproducible experiment. In Python, import the standard library module hashlib. Pass the byte string hello to the function sha256, and call hexdigest on the result. Repeat the same operation with capital H. We are deliberately using byte strings so there is no ambiguity about text encoding or a newline. The two fingerprints on screen are calculated from those exact inputs by the renderer, not invented for this demonstration. Notice that they have the same length but very different characters. Run the first command again, with exactly the same bytes. You will get the same fingerprint again. That repeatability makes hashes useful when you want to compare copies of data without reading each byte yourself."
+    },
+    {
+      "id": "04",
+      "title": "How much changed?",
+      "layout": "bits",
+      "beats": [
+        "256 output bits",
+        "Amber cells: different bits",
+        "125 changed in this experiment"
+      ],
+      "sources": [
+        "nist",
+        "python"
+      ],
+      "narration": "Now convert both hexadecimal strings into binary and compare the bits at corresponding positions. Every amber square means those two bits differ. Every teal square means they agree. For this particular pair of inputs, one hundred twenty five of the two hundred fifty six output bits are different. That is an observation from this experiment, not a promise that every one-character edit changes exactly one hundred twenty five bits. A good cryptographic hash is designed so that small changes to the input are reflected in an unpredictable way in the output. You cannot infer which character changed simply by reading the two fingerprints. And the number of differing bits is not a security score for a file."
+    },
+    {
+      "id": "05",
+      "title": "Check a downloaded file",
+      "layout": "flow",
+      "beats": [
+        "Get a trusted reference hash",
+        "Compute the downloaded file hash",
+        "Compare every character"
+      ],
+      "sources": [
+        "nist",
+        "python",
+        "powershell"
+      ],
+      "narration": "Suppose a software publisher provides a SHA-256 checksum for an installer. Obtain that reference through a channel you already trust. Compute the hash of the installer you actually downloaded. On Windows, PowerShell has a command named Get-FileHash, which can calculate SHA-256. In Python, you can also read a file in chunks and feed the bytes into a hashlib hash object. Compare the complete output to the complete reference, allowing for the harmless difference between uppercase and lowercase hexadecimal letters. If they do not match, stop and investigate rather than assuming the file is safe. A different download, a corrupted transfer, or an incorrect reference could all explain the difference. The comparison tells you about bytes, not intent."
+    },
+    {
+      "id": "06",
+      "title": "Hashing is not encryption",
+      "layout": "compare",
+      "beats": [
+        "Hash: fixed-length fingerprint",
+        "Encryption: reversible with the right key",
+        "Different tools. Different goals."
+      ],
+      "sources": [
+        "nist",
+        "python"
+      ],
+      "narration": "There is an important distinction. Hashing is not encryption. Encryption is designed so that an authorized party can recover the original message using the appropriate key. A cryptographic hash is not designed to be reversed into its input. It is also not a guarantee that every possible input has a unique hash. There are more possible files than possible two hundred fifty six bit outputs, so different inputs must sometimes share an output. Such a pair is called a collision. Cryptographic hash algorithms are designed to make finding useful collisions computationally difficult. Do not confuse a mathematically possible collision with an easy practical way of producing one."
+    },
+    {
+      "id": "07",
+      "title": "Integrity is not authenticity",
+      "layout": "compare",
+      "beats": [
+        "Matching hash: evidence about bytes",
+        "Trusted source: separate evidence",
+        "A checksum is not a signature"
+      ],
+      "sources": [
+        "nist",
+        "python",
+        "signatures"
+      ],
+      "narration": "Here is the most important limitation of our entire lesson. Imagine an untrusted website gives you a file and publishes a matching checksum for that very file. You could calculate the hash perfectly and obtain a match, even if the file is something you should never install. The attacker could simply calculate a new checksum for the changed file. A hash does not identify the author or certify the contents are harmless. Authenticity needs a trusted reference, and in many distribution systems a digital signature provides additional evidence when verified against a trusted public key. Think of the hash comparison as one useful check in a larger process, not a replacement for trust, signatures, or careful judgment."
+    },
+    {
+      "id": "08",
+      "title": "Your three-step takeaway",
+      "layout": "flow",
+      "beats": [
+        "Hash the exact bytes",
+        "Compare with a trusted reference",
+        "Verify origin separately"
+      ],
+      "sources": [
+        "nist",
+        "python"
+      ],
+      "narration": "Let's return to our original mystery. One capital letter changed the exact input bytes. Our Python experiment produced two different SHA-256 fingerprints, and we counted the changed bits. We then connected the experiment to a practical download integrity check. Remember three steps. First, hash the exact bytes you intend to inspect. Second, compare the complete result with a trusted reference. Third, verify origin and authenticity separately when they matter. You can repeat the tiny experiment using your own harmless text, and try changing a space or adding a newline. Watch what happens to the fingerprint. The goal is not to memorize a long string of hexadecimal digits. It is to understand what a fingerprint proves, and where its evidence ends."
+    }
+  ]
+}

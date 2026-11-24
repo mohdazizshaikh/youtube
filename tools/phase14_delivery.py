@@ -66,6 +66,40 @@ def proxy(output,d,r,receipt_pin):
     return rec
 
 
+
+def frame_hashes_fast(path,count):
+    """Exact CFR frame timestamps, followed by streaming SHA256 of decoded YUV bytes.
+
+    Avoid FFmpeg's software framehash throughput bottleneck and large rawvideo files.
+    The subprocess timer covers blocked pipe reads; keep only one frame in memory.
+    """
+    from threading import Timer
+    import tempfile
+    b.probe(path,count)
+    meta=json.loads(b.ff(['ffprobe','-v','error','-select_streams','v:0','-show_streams','-show_frames','-show_entries','stream=time_base:frame=best_effort_timestamp,width,height,pix_fmt','-of','json',str(path)],120))
+    from fractions import Fraction
+    tb=Fraction(meta['streams'][0]['time_base']);frames=meta['frames']
+    if len(frames)!=count or any(type(x.get('best_effort_timestamp')) is not int or x['best_effort_timestamp']*tb!=Fraction(i,30) or (x.get('width'),x.get('height'),x.get('pix_fmt'))!=(1920,1080,'yuv420p') for i,x in enumerate(frames)):raise ValueError('decoded timestamps/format')
+    size=3110400;buf=bytearray(size);view=memoryview(buf);hashes=[]
+    with tempfile.TemporaryFile() as err:
+        proc=subprocess.Popen(['ffmpeg','-v','error','-xerror','-nostdin','-threads','2','-i',str(path),'-map','0:v:0','-an','-c:v','rawvideo','-threads','1','-pix_fmt','yuv420p','-fps_mode','passthrough','-f','rawvideo','-'],stdout=subprocess.PIPE,stderr=err)
+        timer=Timer(300,lambda:proc.kill() if proc.poll() is None else None);timer.daemon=True;timer.start()
+        try:
+            for _ in range(count):
+                n=0
+                while n<size:
+                    k=proc.stdout.readinto(view[n:])
+                    if not k:raise ValueError('truncated raw frame stream')
+                    n+=k
+                hashes.append(hashlib.sha256(view).hexdigest())
+            if proc.stdout.read(1) or proc.wait(timeout=10)!=0:raise ValueError('extra frames or decode failure')
+        finally:
+            timer.cancel()
+            if proc.poll() is None:proc.kill();proc.wait()
+            proc.stdout.close()
+    return hashes
+
+
 def reassemble(output,video,vp,frames,shots):
     out=Path(output);out.mkdir();(out/'INCOMPLETE').touch()
     # Fixed relative names avoid concat manifest path injection. Hardlinks preserve input bytes.
@@ -76,7 +110,7 @@ def reassemble(output,video,vp,frames,shots):
     b.ff(['ffmpeg','-v','error','-xerror','-nostdin','-n','-f','concat','-safe','1','-i',str(manifest),'-map','0:v:0','-an','-c:v','copy','-bsf:v','setts=pts=N*512:dts=N*512:duration=512:time_base=1/15360','-video_track_timescale','15360',str(out/'silent.mp4')],180)
     final=out/'reassembled.mp4'
     b.ff(['ffmpeg','-v','error','-xerror','-nostdin','-n','-i',str(out/'silent.mp4'),'-i',str(video),'-map','0:v:0','-map','1:a:0','-c','copy','-movflags','+faststart',str(final)],180)
-    b.probe(final,frames);actual=b.frame_hashes(final,frames)
+    actual=frame_hashes_fast(final,frames)
     for d,r,_ in shots:
         t=r['task'];part=actual[t['start_frame']:t['end_frame']]
         if s.sha(s.encoded(part))!=r['decoded_frame_sequence_sha256'] or digest(d/'shot.mp4')!=r['clip_sha256']:raise ValueError('reassembled frame/shot mismatch')

@@ -1,3 +1,11 @@
+# ViralOS — Phase 14D narration-driven motion review checkpoint
+
+Chapter-one motion prototype: 42.8s native 1080p/30fps, 1284 verified video frames, three PCM-duration-driven shots, moving focus markers and fades. Mastering numeric gate passed (-16.72 LUFS/-1.45 dBTP). Synthetic English narration, English-specific boards, no acoustic word alignment or publishing authority. Main remains Phase 13.
+
+Start with [project status](docs/PROJECT_STATUS.md) and [Phase 14D tracker and reproduction guide](docs/PRIORITY_TRACKER_2026-11-24_PHASE14D.md). The Phase 14C long-form rough cut remains intact. Full professional bilingual film, independent review, owner Windows and authorized YouTube acceptance remain open.
+
+---
+
 # ViralOS — Phase 14C creative quality review branch
 
 **Current review checkpoint (2026-11-24):** original eight-chapter, 932-word English SHA-256 technical rough cut (375.8s, 1080p/30fps, full decode passed). Long-form numeric audio gate passed (-16.74 LUFS, -1.40 dBTP). Synthetic eSpeak English narration, progressive boards and scene transcript only; no publication authorization. Main remains Phase 13.

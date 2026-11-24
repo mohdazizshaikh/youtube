@@ -1,3 +1,9 @@
+# ViralOS — Phase 13: production-readiness candidate
+
+Start with the [Windows setup and pilot guide](docs/PHASE13_DEPLOYMENT_AND_PILOT_2026-11-24.md). Assisted setup and pilot launch wrappers require trusted Python 3.12, FFmpeg and owner approval for dependency installation. One source-linked technical pilot is rendered and queued for review; no publishing permission. See [exit gates](docs/PRIORITY_TRACKER_2026-11-24_PHASE13.md).
+
+---
+
 # ViralOS — Phase 12: local editorial browser console
 
 Opt-in loopback-only browser interface for configured drafts, fresh technical audit, verified MP4 bytes, scene checklist submission and durable review history. No arbitrary path API or publishing permission. See [operator guide](docs/PHASE12_LOCAL_REVIEW_CONSOLE_2026-11-24.md) and [remaining gates](docs/PRIORITY_TRACKER_2026-11-24_PHASE12.md).

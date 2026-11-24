@@ -1,6 +1,6 @@
 # Owner-run LOCAL Windows acceptance bundle. No OAuth, remote access, push or installation.
 # Example: .\tools\run_windows_local_acceptance.ps1 -ReportDirectory C:\Private\ViralOS-Acceptance-20261124
-param([Parameter(Mandatory=$true)][string]$ReportDirectory)
+param([Parameter(Mandatory=$true)][string]$ReportDirectory, [string]$PythonExecutable="")
 $ErrorActionPreference='Stop'
 if (-not $IsWindows -and $PSVersionTable.PSEdition -eq 'Core') { throw 'Windows owner PC required' }
 $root=(Resolve-Path (Join-Path $PSScriptRoot '..')).Path
@@ -15,22 +15,27 @@ $env:VIRALOS_DB=Join-Path $out 'pytest-only-synthetic.sqlite'
 $env:VIRALOS_ENABLE_PRIVATE_UPLOAD='0'
 $env:HF_HUB_OFFLINE='1'
 $env:TRANSFORMERS_OFFLINE='1'
-$py=Get-Command py -ErrorAction SilentlyContinue
-if (-not $py) { throw 'Python launcher py missing; install Python 3.12 manually and rerun' }
+if ($PythonExecutable) {
+  $py=(Resolve-Path -LiteralPath $PythonExecutable).Path
+  $pythonArgs=@()
+} else {
+  $py=Get-Command py -ErrorAction Stop
+  $pythonArgs=@('-3.12')
+}
 $results=[ordered]@{}
 Push-Location $root
 try {
-  & (Join-Path $PSScriptRoot 'windows_acceptance.ps1') -ReportPath (Join-Path $out 'hardware-preflight.json') *> (Join-Path $out 'hardware-preflight.log')
-  $results['windows_preflight_exit']=if ($?) { 0 } else { 2 }
-  & py -3.12 tools/offline_acceptance_drill.py --json-out (Join-Path $out 'synthetic-backup-restore.json') *> (Join-Path $out 'synthetic-backup-restore.log')
+  & powershell.exe -NoProfile -File (Join-Path $PSScriptRoot 'windows_acceptance.ps1') -ReportPath (Join-Path $out 'hardware-preflight.json') *> (Join-Path $out 'hardware-preflight.log')
+  $results['windows_preflight_exit']=$LASTEXITCODE
+  & $py @pythonArgs tools/offline_acceptance_drill.py --json-out (Join-Path $out 'synthetic-backup-restore.json') *> (Join-Path $out 'synthetic-backup-restore.log')
   $results['synthetic_recovery_exit']=$LASTEXITCODE
-  & py -3.12 -m pytest -q *> (Join-Path $out 'pytest.log')
+  & $py @pythonArgs -m pytest -q *> (Join-Path $out 'pytest.log')
   $results['pytest_exit']=$LASTEXITCODE
-  & py -3.12 tools/verify_package.py *> (Join-Path $out 'package-hashes.log')
+  & $py @pythonArgs tools/verify_package.py *> (Join-Path $out 'package-hashes.log')
   $results['integrity_exit']=$LASTEXITCODE
-  & py -3.12 tools/studio_smoke.py *> (Join-Path $out 'cpu-studio-smoke.log')
+  & $py @pythonArgs tools/studio_smoke.py *> (Join-Path $out 'cpu-studio-smoke.log')
   $results['cpu_render_exit']=$LASTEXITCODE
-  & py -3.12 -m compileall -q app tools tests *> (Join-Path $out 'python-compile.log')
+  & $py @pythonArgs -m compileall -q app tools tests *> (Join-Path $out 'python-compile.log')
   $results['python_compile_exit']=$LASTEXITCODE
   $node=Get-Command node -ErrorAction SilentlyContinue
   if ($node) {

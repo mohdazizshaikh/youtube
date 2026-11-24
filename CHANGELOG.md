@@ -1,3 +1,10 @@
+# Phase 13 — production readiness candidate (2026-11-24)
+
+- Added private pilot composer-to-review workflow with staged hash-checked inputs, fresh technical audit, persistent queue, catalog and incomplete-run marker.
+- Added assisted Windows setup, start/resume and isolated acceptance wrappers; trusted prerequisites/manual installation approval, no account access.
+- Added a single source-linked technology pilot with original hash experiment and provisional eSpeak narration; no release authority.
+- Phase 12 remains stable fallback; owner Windows, licensed voices and live YouTube acceptance pending.
+
 # Phase 12 — private local review console (2026-11-24)
 
 - Added standalone opt-in localhost FastAPI console and browser UI for fixed owner-configured drafts, registration, pinned video review, scene checklist and revision history.

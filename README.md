@@ -1,3 +1,11 @@
+# ViralOS — Phase 14O semantic motion and resumable review checkpoint
+
+English chapter-one 42.733s/1282-frame semantic motion prototype with real SHA-256 byte/digest comparison, 960x540 source upscaled to 1080p. Raw peak gate failed after audio re-encoding; corrected master freshly decoded and passed -16.30 LUFS/-1.44 dBTP. Scene-aware QC mapped existing full-film observations to 48 shots without suppressing review flags. Two-locale fixed report orchestration and exact-byte resume tested. 18 new/126 combined local tests passed; Phase 14N integrated CI passed. No natural voice, actual alignment, full-film semantic motion, human acceptance or release authority. Main stays Phase 13.
+
+See [project status](docs/PROJECT_STATUS.md), [Phase 14O priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE14O.md) and [owner acceptance checklist](docs/OWNER_ACCEPTANCE_2026-11-25_PHASE14J.md).
+
+---
+
 # ViralOS — Phase 14N integrated caption and signal QC checkpoint
 
 Pinned bilingual owner-caption burn-in implemented; Hindi 72.8s/2184-frame artificial-tone fixture with 772 cues decoded, encoded AAC payload unchanged, numeric audio gate failed. Both existing long-form synthetic films freshly scanned: numeric mastering passed, no detected black intervals/2s quiet intervals/near-full-scale samples; static/freeze review flags remain. Pinned readiness reports explicitly deny production acceptance. 20 new/108 combined local tests passed. Phase 14M integrated CI passed. Actual speech, alignment, human acceptance and release authority remain pending. Main stays Phase 13.

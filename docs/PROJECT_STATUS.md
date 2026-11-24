@@ -29,6 +29,8 @@ Owner-only, offline-first production of one genuinely professional, original bil
 
 - [Phase 14K](PRIORITY_TRACKER_2026-11-25_PHASE14K.md): unified bilingual review workspace; fresh parallel media audits and actual ASGI video bytes, two automated notes, stale revision rejection and 12-file backup/restore with revision 2 verified. English manual-boundary PCM retiming fixture tested; no actual owner speech or alignment. 16 new/53 combined local tests passed. Phase 14J CI 45479373876 succeeded.
 
+- [Phase 14L](PRIORITY_TRACKER_2026-11-25_PHASE14L.md): English owner assembly exact PCM verification, 24-shot artificial-tone 24.8s/744-frame Full HD render decoded; numeric audio gate failed, captions omitted. Pinned local Piper runtime contract tested without actual inference. 16 new/69 combined local tests passed. Phase 14K CI 45481721345 passed.
+
 ## Decision log
 
 Retain one technology subject to make the pilot iterations comparable. Use original programmatic visuals and locally generated placeholder audio only. New phase work stays on the draft review branch; no production database migration. Local git checkout remains DNS-blocked; standalone checks cannot substitute for integrated regression, package manifest refresh and review. New docs are versioned in Git, not a replacement for prior checkpoint history. No separate accessible ChatGPT Space project page was found.
@@ -60,3 +62,7 @@ Phase 14J: bilingual synthetic full-film technical drafts now exist; prioritize 
 ## Latest checkpoint and open gates — Phase 14K
 
 Both synthetic films now share a versioned private review workspace with actual media and revision persistence tested, and isolated backup/restore verified. Explicit English owner chapter retiming is implemented but tested only with artificial PCM. Natural licensed bilingual voices, actual CTC inference and independently annotated references, real narration film assembly, differentiated motion, native editorial review, actual browser/Windows acceptance, owner production restore, authorized private YouTube and historical backup recovery remain open. Latest integrated CI pending; full local checkout previously DNS-blocked. Main preserved and release blocked. Latest detailed tracker: [Phase 14K](PRIORITY_TRACKER_2026-11-25_PHASE14K.md).
+
+## Latest checkpoint and open gates — Phase 14L
+
+English retimed owner narration assembly and explicit local voice runtime adapter implemented. Fixture uses artificial tones, no real owner speech; actual licensed model/inference, native listening, Hindi owner render, actual acoustic word timing, global captions, differentiated visual motion and owner Windows/browser/restore remain open. Latest integrated CI pending after manifest refresh; full local checkout previously DNS-blocked, not re-tested. Main preserved, no release authority. See [Phase 14L tracker](PRIORITY_TRACKER_2026-11-25_PHASE14L.md).

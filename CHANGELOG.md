@@ -1,3 +1,10 @@
+# Phase 14H — parallel editorial studio, visual polish and alignment benchmark (2026-11-25)
+
+- Verified Phase 14G integrated CI run 45459133731 passed.
+- Regenerated all 24 shots into V6 full-film review with disjoint graphics, progress and caption regions; two parallel encoders, 11209 frames, 373.633s, fresh full decode and -16.73 LUFS/-1.39 dBTP numeric gate passed, original AAC payload preserved. Eight sampled frames inspected. Not semantic motion or professional visual acceptance.
+- Implemented separate versioned private editorial workspace, immutable staged media identity, time-coded SQLite notes, revision CAS and local review UI. Actual V5 and V6 ASGI API media hash and note persistence tests passed; real Chromium navigation blocked by environment. Legacy queue unchanged, no publishing.
+- Implemented declared manual-reference versus CTC candidate benchmark. Synthetic 28-word fixture 30ms median/p95; not real acoustic alignment. 17 new isolated tests passed, four code/test blobs matched local bytes. Updated project status, priority tracker and integrity manifest; latest CI pending. Main preserved.
+
 # Phase 14G — full captioned synthetic review render (2026-11-24)
 
 - Verified Phase 14F CI run 45457839998 succeeded.

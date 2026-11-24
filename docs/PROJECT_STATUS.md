@@ -41,6 +41,8 @@ Owner-only, offline-first production of one genuinely professional, original bil
 
 - [Phase 14Q](PRIORITY_TRACKER_2026-11-25_PHASE14Q.md): fresh semantic film QC, exact AAC packet signatures, resumable media staging and actual non-destructive restaging drill; 21/24 motion-expected shots flagged per language. 13 new/156 combined tests passed. Phase 14P CI 45489348083 succeeded.
 
+- [Phase 14R](PRIORITY_TRACKER_2026-11-25_PHASE14R.md): four native 1080p bilingual chapter 3/4 excerpts; all decode/numeric audio gates passed; chapter 3 flags remain, 42 full-film motion flags open. Completed-shot resume exercised twice, 48 pinned editorial tasks generated. 19 new/175 combined local tests passed. Phase 14Q CI 45491752092 succeeded.
+
 ## Decision log
 
 Retain one technology subject to make the pilot iterations comparable. Use original programmatic visuals and locally generated placeholder audio only. New phase work stays on the draft review branch; no production database migration. Local git checkout remains DNS-blocked; standalone checks cannot substitute for integrated regression, package manifest refresh and review. New docs are versioned in Git, not a replacement for prior checkpoint history. No separate accessible ChatGPT Space project page was found.
@@ -96,3 +98,7 @@ Both synthetic full-length films now have eight chapter-specific stepped diagram
 ## Latest checkpoint and open gates — Phase 14Q
 
 Fresh bilingual full-film signal and variable-shot QC completed. Extensive freeze-detector review flags remain (85.7614% English and 90.294% Hindi coverage); continuous native-resolution animation was not implemented this increment. Exact compressed audio packet signatures matched source; staged media recovery and semantic draft handoff tested. Licensed natural speech, genuine acoustic alignment/captions, continuous creative motion, media render-stage recovery, actual owner review, Windows/browser/restore and authorized private upload remain open. Latest integrated CI pending; local checkout previously DNS-blocked, not re-tested. Main preserved; no publication authority. See [Phase 14Q tracker](PRIORITY_TRACKER_2026-11-25_PHASE14Q.md).
+
+## Latest checkpoint and open gates — Phase 14R
+
+Native chapter 3/4 motion and shot checkpoint resume implemented. Four excerpts decoded and numeric audio passed; chapter 3 six flags remain and original full films unchanged. Editorial backlog preserves 42 motion flags and 48 open tasks. Actual licensed bilingual speech, genuine acoustic timing/captions, continuous differentiated motion, full-film checkpoint integration, real owner review and physical Windows/browser/restore, authorized private upload remain open. Latest CI pending; previous local checkout DNS blocker not retested. Main preserved; no publication authority. See [Phase 14R tracker](PRIORITY_TRACKER_2026-11-25_PHASE14R.md).

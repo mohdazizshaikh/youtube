@@ -1,3 +1,9 @@
+# ViralOS — Phase 14: stopped pilot-run integrity candidate
+
+New read-only preflight checks pinned pilot artifacts, review packet/template/catalog and queue consistency; default mode re-runs the existing media audit. No publication authority or owner-machine acceptance. See [operator guide](docs/PHASE14_PILOT_RUN_INTEGRITY_2026-11-25.md) and [priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE14.md). Phase 13 launcher remains unchanged pending integration verification.
+
+---
+
 # ViralOS — Phase 13: production-readiness candidate
 
 Start with the [Windows setup and pilot guide](docs/PHASE13_DEPLOYMENT_AND_PILOT_2026-11-24.md). Assisted setup and pilot launch wrappers require trusted Python 3.12, FFmpeg and owner approval for dependency installation. One source-linked technical pilot is rendered and queued for review; no publishing permission. See [exit gates](docs/PRIORITY_TRACKER_2026-11-24_PHASE13.md).

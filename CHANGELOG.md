@@ -1,3 +1,9 @@
+# Phase 14 — stopped pilot-run integrity candidate (2026-11-25)
+
+- Added offline read-only pilot preflight with independently supplied manifest pin, strict JSON, exact inventories and bounded file hashing.
+- Added review packet/template/catalog and SQLite queue/revision/history consistency checks; optional metadata-only mode, default fresh media re-audit.
+- Added synthetic adversarial regression matrix and Windows CI collection; runtime CI pending at authoring. No publication authority or real device acceptance.
+
 # Phase 13 — production readiness candidate (2026-11-24)
 
 - Added private pilot composer-to-review workflow with staged hash-checked inputs, fresh technical audit, persistent queue, catalog and incomplete-run marker.

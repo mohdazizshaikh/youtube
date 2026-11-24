@@ -1,3 +1,9 @@
+# ViralOS — Phase 12: local editorial browser console
+
+Opt-in loopback-only browser interface for configured drafts, fresh technical audit, verified MP4 bytes, scene checklist submission and durable review history. No arbitrary path API or publishing permission. See [operator guide](docs/PHASE12_LOCAL_REVIEW_CONSOLE_2026-11-24.md) and [remaining gates](docs/PRIORITY_TRACKER_2026-11-24_PHASE12.md).
+
+---
+
 # ViralOS — Phase 11: durable private editorial review queue
 
 Offline SQLite review queue with fresh media audits, immutable draft pins, transactional review revisions, duplicate/stale submission rejection, and privacy-minimized history. Synthetic demos remain blocked; the queue never authorizes publication. See [operator guide](docs/PHASE11_DURABLE_REVIEW_QUEUE_2026-11-24.md) and [remaining gates](docs/PRIORITY_TRACKER_2026-11-24_PHASE11.md).

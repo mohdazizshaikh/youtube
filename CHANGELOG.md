@@ -1,3 +1,9 @@
+# Phase 12 — private local review console (2026-11-24)
+
+- Added standalone opt-in localhost FastAPI console and browser UI for fixed owner-configured drafts, registration, pinned video review, scene checklist and revision history.
+- Added session header, local-origin guard, private catalog scope, bounded request/media handling and no-store/CSP headers; no publication authority.
+- Added API tests including real media audit/tamper rejection, and Node syntax validation. Live Chromium navigation blocked by environment policy; no browser or owner hardware acceptance claimed.
+
 # Phase 11 — durable local review operations (2026-11-24)
 
 - Added separate SQLite review ledger and CLI; optimistic revisions, atomic submission history and duplicate detection.

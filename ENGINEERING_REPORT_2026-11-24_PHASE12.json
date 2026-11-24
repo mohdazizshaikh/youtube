@@ -1,0 +1,22 @@
+{
+  "phase": 12,
+  "date": "2026-11-24",
+  "base_commit": "64fa4f4a9c7bf51d2378089c2a41dcf275aeb96b",
+  "destination": "mohdazizshaikh/youtube",
+  "base_remote_ci": "success",
+  "local_full_pytest_exit": 0,
+  "local_full_pytest_summary": "276 passed, 1 warning in 76.62s",
+  "new_focused_tests_passed": 14,
+  "node_syntax_passed": true,
+  "compileall_passed": true,
+  "native_loopback_http_smoke_passed": true,
+  "live_chromium_smoke": "BLOCKED_BY_ADMINISTRATOR at localhost navigation; not passed",
+  "human_reviews_completed": 0,
+  "publication_eligible": false,
+  "real_youtube_accessed": false,
+  "suspended_account_accessed": false,
+  "physical_owner_windows_tested": false,
+  "real_licensed_voice_acceptance_tested": false,
+  "source_files_deleted": 0,
+  "limitations": "Standalone loopback review console only; no authenticated reviewer identity or legal/factual verification. No interactive browser acceptance or external production acceptance."
+}

@@ -1,3 +1,11 @@
+# Phase 14T — full-film reassembly, proxy review and revision intake (2026-11-25)
+
+- Verified Phase 14S final CI run 45495919895 passed.
+- Generated 48 640x360 constrained-baseline silent proxies, validated actual decoded counts and pinned receipts; built static local index and 48 revision templates. 192 scoped operations verified, all human review tasks remain OPEN.
+- Added private append-only revision notes with exact task/video/proxy identity, absolute frame boundaries, global revision check and local hash chain. Actual two fixture notes and stale rejection tested; not human feedback.
+- Reassembled both full films from verified lossless shots. Initial hash audit stopped for throughput; corrected bounded streaming SHA256 and exact timestamps validated all 21038 decoded frames and 32875 AAC packet signatures. Final bytes match initial candidates, fresh audio decode passed. No new creative motion or speech.
+- 12 new tests passed on final verifier, 197 combined before optimization; three final source/test Git blobs matched. Updated project status, tracker and manifest; final CI pending. Main preserved; release blocked.
+
 # Phase 14S — 192-operation bilingual shot review batch (2026-11-25)
 
 - Verified prior Phase 14R CI and intermediate Phase 14S CI run 45495097669 succeeded.

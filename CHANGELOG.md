@@ -1,3 +1,11 @@
+# Phase 14M — Hindi owner assembly, declared timing and dependency preflight (2026-11-25)
+
+- Verified Phase 14L integrated CI run 45482666390 succeeded.
+- Added pinned Hindi owner narration assembly and two parallel encoders, exact per-shot PCM validation and frame rounding; 72.8s/2184-frame Full HD artificial-tone fixture decoded. Audio numeric gate failed; no speech or real alignment claim.
+- Added bilingual declared reviewed word timing compiler with exact source/script/WAV pins, sample-boundary validation, global frame offsets and width-bounded cue groups. 772 artificial Hindi cues compiled; six-second overlay decoded and sampled. Full-film integrated real caption burn-in and independent alignment remain pending.
+- Added read-only environment preflight for FFmpeg, encoders, ASS, RAQM, local font loading and package versions. Linux dependencies detected; Piper unavailable; owner hardware not tested.
+- 19 new/88 combined local tests passed; four local/Git blobs matched. Updated project status, tracker and integrity manifest; latest CI pending. Main preserved and release blocked.
+
 # Phase 14L — English owner narration assembly and local voice runtime (2026-11-25)
 
 - Verified Phase 14K CI run 45481721345 succeeded.

@@ -17,6 +17,8 @@ Owner-only, offline-first production of one genuinely professional, original bil
 
 - [Phase 14E](PRIORITY_TRACKER_2026-11-24_PHASE14E.md): eight-chapter 24-shot motion film, 373.633s native Full HD/30fps, 11209 frames, complete decode, fresh mastered technical audit passed (-16.73 LUFS/-1.39 dBTP). 22/22 new and 60/60 combined isolated tests passed. Animated original boards and synthetic English only; segment transcript, no genuine alignment or voice acceptance.
 
+- [Phase 14F](PRIORITY_TRACKER_2026-11-24_PHASE14F.md): 932-word global synthetic timing timeline across 24 shots; exact PCM assembly and padding checked; 21/21 local tests; 12-second native 1080p/30fps caption strip sample decoded. Real alignment, full-film burn-in and natural voices remain open. Phase 14E CI run 45452478092 passed.
+
 ## Decision log
 
 Retain one technology subject to make the pilot iterations comparable. Use original programmatic visuals and locally generated placeholder audio only. New phase work stays on the draft review branch; no production database migration. Local git checkout remains DNS-blocked; standalone checks cannot substitute for integrated regression, package manifest refresh and review. New docs are versioned in Git, not a replacement for prior checkpoint history. No separate accessible ChatGPT Space project page was found.
@@ -34,3 +36,5 @@ The long-form rough cut and all-eight-chapter animated-board motion film with fr
 Phase 14C run [45448757508](https://github.com/mohdazizshaikh/youtube/actions/runs/45448757508): 308 Linux unit/integration tests passed (2 warnings), Windows contract job passed; workflow failed at archived package hash verification for README.md and CHANGELOG.md; syntax step skipped. Phase 14D updates will refresh the integrity manifest for all changed/new files, retain prior unchanged entries and verify the new workflow before merge. This is not a release or full fresh checkout audit. Main remains Phase 13.
 
 Phase 14D repair verified: [CI run 45450166899](https://github.com/mohdazizshaikh/youtube/actions/runs/45450166899) passed Linux tests, package validation, syntax and Windows contracts at 39f20f3. Phase 14E code and docs will receive updated manifest; latest CI still pending. No native Windows hardware or professional content acceptance implied.
+
+Phase 14F continuation: global caption compiler and synthetic fixture now implemented and locally tested. Next complete full-film synthetic review burn-in, review handoff, safe visual indicators, and actual owner-licensed bilingual audio/CTC benchmark. Current work remains a technical review branch, not release-ready. Phase 14F integrated CI and package review pending; full local Git checkout DNS blocked.

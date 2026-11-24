@@ -26,3 +26,7 @@ Owner-held 13–20 November missing source backup; licensed English/Hindi models
 ## Working order
 
 The long-form rough cut, chapter-one narration-driven motion and numeric mastering audits passed. Next expand motion across the remaining seven chapters, integrate actual licensed bilingual speech and reviewed word-level captions, then fresh editorial queue integration and owner acceptance. Full repository checkout remains DNS-blocked; preserve main and do not authorize publication. Integrate reviewed assets into the existing Phase 13 queue, close Windows and editorial acceptance, and only then seek supervised private upload. Keep every new checkpoint, measured report, and blocker in the tracker and changelog; preserve original history. No public publishing authority.
+
+## CI and integrity follow-up
+
+Phase 14C run [45448757508](https://github.com/mohdazizshaikh/youtube/actions/runs/45448757508): 308 Linux unit/integration tests passed (2 warnings), Windows contract job passed; workflow failed at archived package hash verification for README.md and CHANGELOG.md; syntax step skipped. Phase 14D updates will refresh the integrity manifest for all changed/new files, retain prior unchanged entries and verify the new workflow before merge. This is not a release or full fresh checkout audit. Main remains Phase 13.

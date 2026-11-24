@@ -1,3 +1,9 @@
+## 2026-11-24 Phase 7 — reconstructed domain storyboard drafts
+
+- Source-linked, fail-closed ASCII storyboard contracts for all 12 domains and both formats; original illustrative PNGs and optional silent 3-second FFmpeg animatics.
+- 24 synthetic demonstration pairs, source declarations and hash-bound manifests; no factual, rights or publication acceptance.
+- Operator CLI, adversarial tests, Windows portable test coverage and updated recovery tracker. No account access, owner-data changes or automatic publishing.
+
 ## 2026-11-24 Phase 6 — MP4 narration conformance and localhost browser isolation
 
 - Added bounded first-audio-track FFmpeg decode + distributed sampled PCM correlation against owner-reviewed narration WAV; wrong-track swaps now block bilingual delivery, even if MP4 hash and FFprobe metadata were updated. This is a conservative signal comparison, not speech recognition or professional review.

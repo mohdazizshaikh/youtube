@@ -1,0 +1,31 @@
+{
+  "phase": 7,
+  "date": "2026-11-24",
+  "base_commit": "db1f527a6372ada41871ddbe73dd41865c33ae7d",
+  "repository": "mohdazizshaikh/youtube",
+  "source": "reconstructed from Phase 6 verified source and available Phase 7 notes; original interrupted patch unavailable",
+  "local_validation": {
+    "pytest_passed": 203,
+    "pytest_failed": 0,
+    "pytest_warnings": 1,
+    "new_tests_passed": 37,
+    "demo_count": 24,
+    "demo_png_count": 24,
+    "demo_mp4_count": 24,
+    "demo_file_count": 97,
+    "demo_duration_seconds": 3,
+    "demo_audio_present": false
+  },
+  "acceptance": {
+    "synthetic_demo_only": true,
+    "claim_truth_verified": false,
+    "copyright_cleared": false,
+    "publication_eligible": false,
+    "full_domain_engines_completed": false,
+    "real_voice_models_tested": false,
+    "real_youtube_upload_performed": false,
+    "owner_windows_hardware_tested": false,
+    "suspended_account_accessed": false
+  },
+  "demo_index_sha256": "8d6de0b6eb2d74402b4053f65aecb40a9a904f993bb9c6693de3d559dbd32b1f"
+}

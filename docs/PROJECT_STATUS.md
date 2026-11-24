@@ -31,6 +31,8 @@ Owner-only, offline-first production of one genuinely professional, original bil
 
 - [Phase 14L](PRIORITY_TRACKER_2026-11-25_PHASE14L.md): English owner assembly exact PCM verification, 24-shot artificial-tone 24.8s/744-frame Full HD render decoded; numeric audio gate failed, captions omitted. Pinned local Piper runtime contract tested without actual inference. 16 new/69 combined local tests passed. Phase 14K CI 45481721345 passed.
 
+- [Phase 14M](PRIORITY_TRACKER_2026-11-25_PHASE14M.md): Hindi owner-path 72.8s/2184-frame artificial-tone render decoded; numeric audio gate failed. Bilingual declared reviewed timing compiler tested, 772 artificial Hindi word cues and 6-second overlay decoded; Linux dependency preflight detected RAQM/ASS/encoders, no Piper. 19 new/88 combined local tests passed. Phase 14L CI 45482666390 succeeded.
+
 ## Decision log
 
 Retain one technology subject to make the pilot iterations comparable. Use original programmatic visuals and locally generated placeholder audio only. New phase work stays on the draft review branch; no production database migration. Local git checkout remains DNS-blocked; standalone checks cannot substitute for integrated regression, package manifest refresh and review. New docs are versioned in Git, not a replacement for prior checkpoint history. No separate accessible ChatGPT Space project page was found.
@@ -66,3 +68,7 @@ Both synthetic films now share a versioned private review workspace with actual 
 ## Latest checkpoint and open gates — Phase 14L
 
 English retimed owner narration assembly and explicit local voice runtime adapter implemented. Fixture uses artificial tones, no real owner speech; actual licensed model/inference, native listening, Hindi owner render, actual acoustic word timing, global captions, differentiated visual motion and owner Windows/browser/restore remain open. Latest integrated CI pending after manifest refresh; full local checkout previously DNS-blocked, not re-tested. Main preserved, no release authority. See [Phase 14L tracker](PRIORITY_TRACKER_2026-11-25_PHASE14L.md).
+
+## Latest checkpoint and open gates — Phase 14M
+
+Both owner narration assembly paths are fixture-tested. Declared reviewed timing compiler and read-only dependency preflight implemented. Actual licensed voice, real acoustic alignment and independent annotation, full-film caption integration, semantic cinematic motion, independent native/editorial review, actual Windows/browser/restore and separately authorized private YouTube remain open. No new production audio or human acceptance. Warning/progress lane spacing requires refinement. Latest integrated CI pending after manifest refresh; full local checkout previously DNS-blocked, not re-tested. Main preserved, no release authority. See [Phase 14M tracker](PRIORITY_TRACKER_2026-11-25_PHASE14M.md).

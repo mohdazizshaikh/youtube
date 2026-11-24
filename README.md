@@ -1,3 +1,11 @@
+# ViralOS — Phase 14N integrated caption and signal QC checkpoint
+
+Pinned bilingual owner-caption burn-in implemented; Hindi 72.8s/2184-frame artificial-tone fixture with 772 cues decoded, encoded AAC payload unchanged, numeric audio gate failed. Both existing long-form synthetic films freshly scanned: numeric mastering passed, no detected black intervals/2s quiet intervals/near-full-scale samples; static/freeze review flags remain. Pinned readiness reports explicitly deny production acceptance. 20 new/108 combined local tests passed. Phase 14M integrated CI passed. Actual speech, alignment, human acceptance and release authority remain pending. Main stays Phase 13.
+
+See [project status](docs/PROJECT_STATUS.md), [Phase 14N priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE14N.md) and [owner acceptance checklist](docs/OWNER_ACCEPTANCE_2026-11-25_PHASE14J.md).
+
+---
+
 # ViralOS — Phase 14M bilingual owner assembly and timing checkpoint
 
 Both owner assembly paths now fixture-tested; Hindi 72.8s/2184-frame artificial-tone render decoded, audio numeric gate failed. Declared reviewed word timing compiler accepts pinned English/Hindi inputs; 772 artificial Hindi cues compiled and six-second overlay decoded. Read-only Linux preflight detected RAQM/libass/H.264/AAC, no Piper. 19 new/88 combined local tests passed; Phase 14L integrated CI passed. Actual licensed speech, acoustic inference, full-film real captions, human acceptance and release authority remain pending. Main stays Phase 13.

@@ -112,6 +112,10 @@ def payload(path):
     if not value.startswith('SHA256='):raise ValueError('audio hash')
     return b.pin(value[7:])
 
+def mux(visual,audio,dest):
+    # Do not use -frames:v or -shortest during mux: they can truncate AAC packets.
+    subprocess.run(['ffmpeg','-v','error','-nostdin','-xerror','-n','-i',str(visual),'-i',str(audio),'-map','0:v:0','-map','1:a:0','-c','copy','-movflags','+faststart',str(dest)],check=True,timeout=120)
+
 def render(locale,plan,video,timeline,timeline_sha,receipt,receipt_sha,font,output,master=None,master_sha=None):
     start=time.monotonic();video=Path(video).resolve(strict=True);chap,rows,frames,pin=inputs(locale,plan,video,timeline,timeline_sha,receipt,receipt_sha,master,master_sha);fs=fonts(font)
     out=Path(output).resolve();out.mkdir(exist_ok=False);(out/'INCOMPLETE').touch();work=out/'frames';work.mkdir()
@@ -122,9 +126,10 @@ def render(locale,plan,video,timeline,timeline_sha,receipt,receipt_sha,font,outp
             name=f'{i:02d}-{j:02d}.png';frame(locale,i//3,i%3,j,c['title'],c['beats'][i%3],fs).save(work/name)
             last='frames/'+name;lines.extend([f"file '{last}'",'option framerate 30',f'duration {f/30:.12f}'])
     lines.extend([f"file '{last}'",'option framerate 30']);(out/'frames.ffconcat').write_text('\n'.join(lines)+'\n',encoding='ascii')
-    dest=out/'semantic_review.mp4'
-    cmd=['ffmpeg','-v','error','-nostdin','-xerror','-n','-f','concat','-safe','0','-i','frames.ffconcat','-i',str(video),'-map','0:v:0','-map','1:a:0','-vf','fps=30,scale=1920:1080:flags=lanczos','-frames:v',str(frames),'-c:v','libx264','-threads','2','-filter_threads','1','-preset','ultrafast','-crf','23','-pix_fmt','yuv420p','-c:a','copy','-movflags','+faststart',str(dest)]
+    dest=out/'semantic_review.mp4';silent=out/'visual_only.mp4'
+    cmd=['ffmpeg','-v','error','-nostdin','-xerror','-n','-f','concat','-safe','0','-i','frames.ffconcat','-map','0:v:0','-an','-vf','fps=30,scale=1920:1080:flags=lanczos','-frames:v',str(frames),'-c:v','libx264','-threads','2','-filter_threads','1','-preset','ultrafast','-crf','23','-pix_fmt','yuv420p',str(silent)]
     subprocess.run(cmd,cwd=out,check=True,timeout=300)
+    mux(silent,video,dest)
     audit=b.audit(dest,frames);original=payload(video);final=payload(dest)
     if original!=final or b.q.sha(video)!=pin:raise ValueError('audio payload or source changed')
     report=dict(schema='VIRALOS_SEMANTIC_FILM_REVIEW_V1',locale=locale,plan_sha256=PLAN[locale],source_video_sha256=pin,source_receipt_sha256=receipt_sha,master_receipt_sha256=master_sha,timeline_sha256=timeline_sha,frames=frames,shots=rows,source_raster=[960,540],states_per_shot=12,differing_bits=DIFFER,audio_payload_sha256=final,audio_payload_match=True,audit=audit,elapsed_seconds=round(time.monotonic()-start,2),caption_basis='omitted_no_verified_alignment',acoustic_alignment_verified=False,publication_authorized=False,human_review_required=True)

@@ -1,3 +1,11 @@
+# Phase 14N — integrated captions, signal QC and acceptance status (2026-11-25)
+
+- Verified Phase 14M CI run 45483722897 succeeded.
+- Added pinned bilingual caption burn-in with local ASS regeneration and audio payload equality. Hindi 72.8s/2184-frame artificial fixture with 772 cues fully decoded; numeric audio gate failed. Separate caption/warning/progress regions sampled. English contract tested only; no actual acoustic alignment.
+- Added decoded PCM sample peak/near-full-scale and sustained quiet checks, downscaled black/freeze detection and fresh media audit. Actual long-form English/Hindi scans in parallel both passed numeric audio and decode; zero detected black/long quiet/full-scale flags, static/freeze review events remain.
+- Added pinned readiness summaries using prior Linux preflight; production acceptance and publication always false. No physical owner deployment or real human acceptance.
+- 20 new/108 combined local tests passed; both local/Git source blobs matched. Updated project status, tracker and manifest; latest CI pending. Main preserved.
+
 # Phase 14M — Hindi owner assembly, declared timing and dependency preflight (2026-11-25)
 
 - Verified Phase 14L integrated CI run 45482666390 succeeded.

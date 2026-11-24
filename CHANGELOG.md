@@ -1,3 +1,143 @@
+# Phase 14T — full-film reassembly, proxy review and revision intake (2026-11-25)
+
+- Verified Phase 14S final CI run 45495919895 passed.
+- Generated 48 640x360 constrained-baseline silent proxies, validated actual decoded counts and pinned receipts; built static local index and 48 revision templates. 192 scoped operations verified, all human review tasks remain OPEN.
+- Added private append-only revision notes with exact task/video/proxy identity, absolute frame boundaries, global revision check and local hash chain. Actual two fixture notes and stale rejection tested; not human feedback.
+- Reassembled both full films from verified lossless shots. Initial hash audit stopped for throughput; corrected bounded streaming SHA256 and exact timestamps validated all 21038 decoded frames and 32875 AAC packet signatures. Final bytes match initial candidates, fresh audio decode passed. No new creative motion or speech.
+- 12 new tests passed on final verifier, 197 combined before optimization; three final source/test Git blobs matched. Updated project status, tracker and manifest; final CI pending. Main preserved; release blocked.
+
+# Phase 14S — 192-operation bilingual shot review batch (2026-11-25)
+
+- Verified prior Phase 14R CI and intermediate Phase 14S CI run 45495097669 succeeded.
+- Added parallel lossless silent shot extraction, independent source and shot decoded-frame SHA256 comparisons and exact task/receipt binding. 48/48 shots, 21038 frames and 192 scoped operations passed. All 48 human tasks remain open; no new motion or film reassembly.
+- Added static local review index with 48 cards and verified image/link targets, and actual non-destructive Hindi 470-frame shot recovery. Decoded sequence, clip and midpoint matched; interrupted copy unchanged. Private ZIP integrity verified; not browser acceptance or owner restore.
+- 10 new/185 combined local tests passed; five source/test Git blobs matched. Updated project status, tracker and manifest; final CI pending. Main preserved; release blocked.
+
+# Phase 14R — native chapter motion, render checkpoints and editorial tasks (2026-11-25)
+
+- Verified Phase 14Q CI run 45491752092 succeeded.
+- Rendered native 1080p/30fps English/Hindi chapter 3/4 previews, exact hex digest reveal and 256-bit comparison. Four fresh decode/numeric audio passes; excerpt audio re-encoded, captions omitted. Chapter 3 detector coverage modestly reduced, all six targeted flags remain. Chapter 4 zero before/after. No full-film replacement, continuous cinematic motion or real speech claim.
+- Added separate silent-shot encoding, pinned run identity and fresh checkpoint decode; two actual first-then-all resume exercises reused completed shots. Reject mismatched and partial checkpoints. No mid-frame recovery or owner filesystem acceptance.
+- Added pinned 48-task editorial backlog preserving all 42 original motion review flags. 19 new/175 combined local tests passed; initial/final renderer and other source/test blobs matched. Updated project status, tracker and manifest; latest CI pending. Main preserved, release blocked.
+
+# Phase 14Q — fresh bilingual QC, packet integrity and media recovery (2026-11-25)
+
+- Verified Phase 14P CI run 45489348083 succeeded.
+- Added pinned media staging and parallel fresh QC/scene/handoff stages. Actual eight staged artifacts reused; six fresh reports generated. Both full semantic films decoded and numeric audio passed. Freeze coverage 9613/11209 English frames and 8875/9829 Hindi frames; 21/24 motion-expected shots flagged each. No creative acceptance or new animation.
+- Compared exact compressed packet hashes, reported integer timestamps/durations and exposed side data. Source and final audio signatures matched 17516/15359 packets. Semantic synchronization remains unverified.
+- Rebound draft metadata to new films; actual deliberately damaged English video and missing Hindi thumbnail reconstructed from trusted pinned inputs in fresh folder; original interrupted files/lock unchanged. Not mid-render recovery or actual owner data restore.
+- 13 new/156 combined tests passed; both local/Git blobs matched. Updated project status, tracker and manifest; latest integrated CI pending. Main preserved, release blocked.
+
+# Phase 14P — bilingual semantic films, variable scene QC and recovery (2026-11-25)
+
+- Verified Phase 14O CI run 45487497752 succeeded.
+- Rendered both full synthetic diagram films, 24 shots/288 scheduled graphic states per language, 960x540 source upscaled to 1080p/30fps. Corrected encryption diagram wording. Detected trailing AAC packet truncation despite decode pass; repaired by separate silent video encode and full stream-copy mux. Both final films fully decoded and exact AAC payload matched source, numeric audio passed (EN -16.73 LUFS/-1.39 dBTP; HI -16.85 LUFS/-1.38 dBTP). No new real speech or captions.
+- Added 1–240 shot QC with exact video identity; prior three-shot semantic clip flagged 906/1282 frames and all three motion-expected shots for review. No freeze suppression or creative acceptance.
+- Added non-destructive interrupted report recovery. Actual corrupted/missing report copy reconstructed in new location; original lock and bytes unchanged. 17 new/143 combined local tests passed; all three final source/test Git blobs match local bytes.
+- Updated project status, tracker and manifest; latest integrated CI pending. Main preserved; release blocked.
+
+# Phase 14O — semantic motion, scene-aware QC and resumable review (2026-11-25)
+
+- Verified Phase 14N CI run 45484729596 succeeded.
+- Added original English three-shot semantic preview with character/hex-byte comparison and real digest XOR reveal (125/256 bits), 42.733s/1282 frames, source 960x540 upscaled to 1080p/30fps. Raw decode passed but true peak failed; corrected master freshly decoded and passed -16.30 LUFS/-1.44 dBTP. Synthetic source narration, no aligned captions; static review flags remain.
+- Added explicit scene-motion policy and freeze interval triage, including EOF handling and exact shot accounting. Existing 48 static-board shots reviewed under declared policy; original flags retained, not artistic approval.
+- Added fixed two-locale report orchestration, pinned config and inputs, deterministic exact-byte stage reuse and lock/tamper checks. Actual scene-only then resume-all run verified; not full render orchestration or automatic crash recovery.
+- 18 new/126 combined local tests passed; all three Git blobs matched local bytes. Updated project status, tracker and integrity manifest; latest CI pending. Main preserved and release blocked.
+
+# Phase 14N — integrated captions, signal QC and acceptance status (2026-11-25)
+
+- Verified Phase 14M CI run 45483722897 succeeded.
+- Added pinned bilingual caption burn-in with local ASS regeneration and audio payload equality. Hindi 72.8s/2184-frame artificial fixture with 772 cues fully decoded; numeric audio gate failed. Separate caption/warning/progress regions sampled. English contract tested only; no actual acoustic alignment.
+- Added decoded PCM sample peak/near-full-scale and sustained quiet checks, downscaled black/freeze detection and fresh media audit. Actual long-form English/Hindi scans in parallel both passed numeric audio and decode; zero detected black/long quiet/full-scale flags, static/freeze review events remain.
+- Added pinned readiness summaries using prior Linux preflight; production acceptance and publication always false. No physical owner deployment or real human acceptance.
+- 20 new/108 combined local tests passed; both local/Git source blobs matched. Updated project status, tracker and manifest; latest CI pending. Main preserved.
+
+# Phase 14M — Hindi owner assembly, declared timing and dependency preflight (2026-11-25)
+
+- Verified Phase 14L integrated CI run 45482666390 succeeded.
+- Added pinned Hindi owner narration assembly and two parallel encoders, exact per-shot PCM validation and frame rounding; 72.8s/2184-frame Full HD artificial-tone fixture decoded. Audio numeric gate failed; no speech or real alignment claim.
+- Added bilingual declared reviewed word timing compiler with exact source/script/WAV pins, sample-boundary validation, global frame offsets and width-bounded cue groups. 772 artificial Hindi cues compiled; six-second overlay decoded and sampled. Full-film integrated real caption burn-in and independent alignment remain pending.
+- Added read-only environment preflight for FFmpeg, encoders, ASS, RAQM, local font loading and package versions. Linux dependencies detected; Piper unavailable; owner hardware not tested.
+- 19 new/88 combined local tests passed; four local/Git blobs matched. Updated project status, tracker and integrity manifest; latest CI pending. Main preserved and release blocked.
+
+# Phase 14L — English owner narration assembly and local voice runtime (2026-11-25)
+
+- Verified Phase 14K CI run 45481721345 succeeded.
+- Added pinned retime/shot/script/WAV validation and byte-exact assembled PCM verification; two parallel encoders rendered 24.8s/744-frame artificial-tone fixture with 24 shots and full decode. Numeric audio gate failed; no mastering or word captions claimed. Real narration and continuous semantic motion remain pending.
+- Added explicit opt-in local Piper adapter with executable/model/config/script hashes, rights declarations, timeout and PCM normalization path. Contract tests passed; no real model execution or voice certification, no automatic downloads.
+- 16 new/69 combined local tests passed; all three new Git blobs matched local bytes. Updated project status, tracker and integrity manifest; latest CI pending. Main preserved; release blocked.
+
+# Phase 14K — bilingual review workspace, recovery and explicit owner retiming (2026-11-25)
+
+- Verified Phase 14J CI run 45479373876 succeeded.
+- Added versioned bilingual private workspace, exact pinned media/metadata/thumbnail inventory, two parallel fresh technical audits, local-only review UI/API and shared frame-specific revision ledger. Actual media-byte retrieval and two automated language-specific notes tested; stale revision rejected, no approval route. Real browser playback remains pending.
+- Added fixed-inventory pinned snapshot, SQLite backup and fresh-directory restore; restored actual 12-file synthetic workspace, revision 2 and note equality. Tamper and overwrite rejection tests passed. No physical owner recovery claim.
+- Added explicit English owner chapter-to-shot PCM splitter and exact token/sample boundary contract; 24-shot fixture tested, no real speech, actual alignment, captions or reassembly. Local Piper not available.
+- 16 new and 53 combined local tests passed; three Git blobs matched. Updated project status, tracker, README and integrity manifest; latest integrated CI pending. Main preserved; synthetic release blocked.
+
+# Phase 14J — bilingual film review, owner intake and acceptance handoff (2026-11-25)
+
+- Verified Phase 14I integrated CI run 45464050233 succeeded.
+- Restored 24 pinned Hindi boards; two parallel encoders produced 327.633s/9829-frame Full HD/30fps video with 772 artificial word cues and persistent warning. Full decode passed; 116.49s isolated render+audit. Eight chapter samples inspected. Static boards, not natural narration or acoustic alignment.
+- Hindi mastering first candidate passed (-16.85 LUFS/-1.38 dBTP); fresh final audit passed. Bilingual metadata V2 binds Hindi mastered SHA and eight timestamps, inherits English metadata. No publication authority.
+- Added English owner eight-chapter request/intake, intentionally incomplete manifest and owner acceptance checklist. Real recordings, shot segmentation, actual inference, native editorial review and physical Windows/browser acceptance remain open. 19 new and 37 combined local tests passed; source/test Git blobs matched.
+- Updated project status, tracker and integrity manifest; latest CI pending. Main preserved.
+
+# Phase 14I — Hindi localization, owner WAV intake and bilingual packaging (2026-11-25)
+
+- Verified Phase 14H integrated CI run 45462466461 passed.
+- Added original 772-word Hindi draft, 24 hash-bound narration segments, actual local synthetic Hindi PCM timeline (327.633s) and 24 shaped 1080p boards. Chapter-one 43.6s/1308-frame preview decoded. Full Hindi video, mastering, native review and genuine alignment pending.
+- Added owner WAV intake and 24-script request kit with deliberately invalid placeholder manifest; no actual licensed speech or model certification. Added two original 1280x720 thumbnail concepts based on computed 125-bit example and draft English V6/Hindi metadata. Hindi video/chapter binding intentionally unset.
+- 18 isolated tests passed; four local/Git source blobs matched. Updated project status, priority tracker, README and integrity manifest; latest CI pending. Main preserved and no upload authority.
+
+# Phase 14H — parallel editorial studio, visual polish and alignment benchmark (2026-11-25)
+
+- Verified Phase 14G integrated CI run 45459133731 passed.
+- Regenerated all 24 shots into V6 full-film review with disjoint graphics, progress and caption regions; two parallel encoders, 11209 frames, 373.633s, fresh full decode and -16.73 LUFS/-1.39 dBTP numeric gate passed, original AAC payload preserved. Eight sampled frames inspected. Not semantic motion or professional visual acceptance.
+- Implemented separate versioned private editorial workspace, immutable staged media identity, time-coded SQLite notes, revision CAS and local review UI. Actual V5 and V6 ASGI API media hash and note persistence tests passed; real Chromium navigation blocked by environment. Legacy queue unchanged, no publishing.
+- Implemented declared manual-reference versus CTC candidate benchmark. Synthetic 28-word fixture 30ms median/p95; not real acoustic alignment. 17 new isolated tests passed, four code/test blobs matched local bytes. Updated project status, priority tracker and integrity manifest; latest CI pending. Main preserved.
+
+# Phase 14G — full captioned synthetic review render (2026-11-24)
+
+- Verified Phase 14F CI run 45457839998 succeeded.
+- Added complete captioned review renderer with input receipt/hash checks, recomputed 932-word synthetic timeline, 108px separate caption strip and persistent timing warning. 373.633s, native 1080p/30fps, 11209 frames, full decode and fresh numeric audio gate passed; encoded AAC payload hash preserved. 46.18s isolated Linux render+audit, 11 isolated tests passed.
+- Inspected eight decoded chapter midpoints and Phase 13 review console contract. Focus marker collisions remain; no true alignment, licensed speech, legacy queue registration or publication authority. Updated project status, tracker and package manifest; latest integrated CI pending. Main preserved.
+
+# Phase 14F — global word timeline and caption-safe sample (2026-11-24)
+
+- Verified Phase 14E CI run 45452478092 succeeded.
+- Added hash-bound 24-shot narration/word manifest intake and 932-word global synthetic ASS timeline; exact PCM assembly and padding verified. No acoustic alignment or genuine Hindi speech claim.
+- Added reproducible timing fixture and 21 passing isolated tests; 12s Full HD sample with separate 108px caption strip decoded; sampled frame inspected. Full-film burn-in and all-scene review pending.
+- Updated project status, priority tracker, README and integrity manifest. Main preserved; latest CI pending. No publication authority.
+
+# Phase 14E — complete motion-film assembly and integrated technical audit (2026-11-24)
+
+- Prior Phase 14D CI run 45450166899 passed including package integrity and Windows contracts.
+- Added pinned English script segmentation, 24 PCM-driven shots across eight chapters, native 1080p/30fps 373.633s film, 11209 frames, complete decode, segment transcript and chapter timing. 123.58s isolated render+audit; original boards with moving indicators/fades, not a professional cinematic film.
+- Reused mastering, final -16.73 LUFS/-1.39 dBTP; fresh final-media hash, stream, duration, frame-count, decode and audio audit passed. 22 new and 60 combined local tests passed. Source/test blobs match. No speech alignment, natural voice, rights/editorial or release authorization.
+- Updated consolidated project status, priority tracker, README and integrity manifest; latest integrated CI pending. Main preserved.
+
+# Phase 14D — narration-driven motion and precision editing (2026-11-24)
+
+- Added hash-bound three-shot narration input contract, exact script token coverage, PCM frame rounding and fail-closed checks; English/Hindi input declarations supported, actual licensed voice and word alignment not demonstrated.
+- Rendered chapter-one 42.8s, 1920x1080/30fps, 1284 frames with original moving focus graphics and fades; both stream durations matched and full decode passed. Six sampled frames inspected. 14.07s isolated host benchmark; no owner Windows measurement.
+- Reused mastering: -16.72 LUFS/-1.45 dBTP final numeric gate passed. 14/14 new, 38/38 combined local tests passed. Added reproducible fixture and tracker. No release authority; complete cinematic long-form and integrated regression/manifest refresh pending.
+
+# Phase 14C — long-form technical rough cut (2026-11-24)
+
+- Added original eight-chapter source-linked 932-word English draft, 24 progressive board beats, native 1080p/30fps 375.8s H.264/AAC render, chapter timestamps and scene transcript, plus draft thumbnail. Full decode passed; 62.23s isolated host benchmark.
+- Reused Phase 14B mastering on the complete film: -20.93 to -16.74 LUFS, final -1.40 dBTP; numeric gate and full decode passed, listening review pending.
+- Added 12 portable tests (all local pass) and synced the three code/plan/test files. Updated project status, priority tracker and README; PR #7 remains draft, main Phase 13. Full local checkout DNS-blocked; latest integrated CI and release manifest refresh pending.
+- No natural bilingual voice, word-level alignment, continuous cinematic motion, independent editorial signoff, Windows owner acceptance or real YouTube integration claimed. No upload authorization.
+
+# Phase 14B — mastering and captions (2026-11-24)
+
+- Added hash-bound numerical mastering and reviewed-word ASS generation; 12 isolated tests passed, synthetic bilingual 1080p caption fixture decoded; CI run 45445134977 passed. No acoustic alignment or voice quality claim.
+
+# Phase 14A — creative preview (2026-11-24)
+
+- Four-scene animated synthetic SHA-256 technical preview, bilingual draft scripts, measured audio quality and four portable checks. CI run 45438729656 passed. No production acceptance.
+
 # Phase 13 — production readiness candidate (2026-11-24)
 
 - Added private pilot composer-to-review workflow with staged hash-checked inputs, fresh technical audit, persistent queue, catalog and incomplete-run marker.

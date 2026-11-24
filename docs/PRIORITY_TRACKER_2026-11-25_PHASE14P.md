@@ -1,0 +1,46 @@
+# Phase 14P — bilingual semantic films, variable scene QC and recovery (2026-11-25)
+
+Base 782fcc938269281408cfa730b8e61088e015beaa; [Phase 14O integrated CI run 45487497752](https://github.com/mohdazizshaikh/youtube/actions/runs/45487497752) succeeded. Draft PR #7; main remains Phase 13. Three workstreams executed without account access, external model downloads, real speech inference, production database changes or release authority.
+
+## Actual executed evidence
+
+- Full English and Hindi semantic review films rendered using existing pinned Phase 14H English and Phase 14J Hindi mastered synthetic audio, respective original plan and 24-shot timeline. Eight distinct chapter layouts per language; 12 scheduled graphic states per shot (288 PNGs per film), original byte/digest comparison, fixed-length flow, code/digest reveal, bit grid, verification checklist, hash/encryption distinction, authenticity and final checklist. Actual SHA-256 of hello/Hello gives 125/256 differing bits. Text-width checks and RAQM local mixed-script font; 48 layout checks before rendering. Source 960x540 upscaled to 1920x1080/30fps. Stepped reveals, repeated layout/animation patterns within chapters and mixed Hindi/English labels; not continuous cinematic motion or verified narration-word synchronization. Captions omitted rather than reuse artificial timings. 16 decoded final chapter samples captured; native review and all-scene watch-through remain open. Exact total frame count verified, individual decoded shot boundary timing not independently audited.
+- Initial render stopped and preserved to correct misleading encryption diagram wording (data/ciphertext with correct key, not data/key). Second attempts decoded but failed exact AAC payload equality: single-pass -frames:v limited mux truncated trailing AAC packets despite duration tolerance passing. Preserved both INCOMPLETE directories. Corrected two-stage silent video encode followed by full video/audio stream-copy mux without -frames:v, -shortest or -t on mux; added regression check. Final rerenders executed concurrently and both passed full decode, source AAC payload equality and numeric audio gate. No audio re-encoding or new mastering.
+- English: 11209 frames, 373.633333s video, 373.653s audio; -16.73 LUFS/-1.39 dBTP, LRA 1.8 LU. 85.34s isolated render and audit (concurrent pair); 21051249 bytes. Final SHA256 61f2464fecb88f69794d8a69faef7cc6c9f0b1318bf58fa642b3d42fb4a98bf2; receipt 4df9f0588a8caff054ce9684ce9e404954784f499c1a172afb3885108906e52a; AAC payload 052a7cfecabcd2bb1ddeb7a33b2c78e3a70839117621aadccd6d942d612d8448.
+- Hindi: 9829 frames, 327.633333s video, 327.637s audio; -16.85 LUFS/-1.38 dBTP, LRA 1.6 LU. 79.27s isolated render and audit (concurrent pair); 17872897 bytes. Final SHA256 168b1544d94913b542a10b2917f50095cc1da29ea1a26293f7885bb089c00d09; receipt 6074b1cf55d722077843fafde3a87967e43524137b523ecfefdd45d8315bdb59; AAC payload 9dddf8ced7934754f79495c006ecd9f827b0126205de08e6a453dcf256b81e36. Shorter than original 6–8 minute target. Payload equality does not prove per-packet timestamp equality or semantic sync. Fresh mastering/decode audits passed; new full-film signal freeze scans and full human listening not executed.
+- Variable-length QC accepts 1–240 contiguous shots (30–27000 frames total), explicit video SHA identity and per-shot expected-motion policy. Retains detector flags, validates intervals and frame accounting. Actual Phase 14O corrected 3-shot clip: 906/1282 frames covered by freeze detector intervals (70.6708%), all 3 motion-expected shots flagged for review. Existing Phase 14O QC reused, not a new scan. Report SHA256 d1c0791a6d712dde419565d876927044e06751a9ce2b224cf5cee7a02ad629d4. Intentional holds may trigger; no semantic acceptance or suppression.
+- Non-destructive report recovery: matching pinned run and stale lock identity required, recomputes all four report stages in fresh directory, compares only expected report files and classifies exact/missing/mismatched. Actual deliberately interrupted copy of Phase 14O reports had matching English scene/readiness, corrupted Hindi scene and missing Hindi readiness. Recomputed two exact matches, one mismatch flagged and one missing reconstructed; old source and lock hashes unchanged. Recovery receipt SHA256 14d2d3f40b048f7d7291e13c395cb5362af2fb65168b2aeb33e89a7704bed221. Not automatic in-place lock clearing, media-render checkpoint recovery or recovery of owner production data. Keep trusted config and source media privately; do not assume stale lock means process stopped.
+- 17 new tests / 143 combined Phase 14I–P tests passed locally. Corrected source and test bytes plus recovery module matched Git blobs. Five Library copies used to transfer initial and corrected code/test files to Git; no private media committed. Full local Git checkout previously DNS-blocked, not re-tested. Latest Phase 14P CI pending after integrity refresh. Actual licensed models/recordings and independent acoustic references still unavailable; owner hardware/browser and release acceptance not performed.
+
+## Reproduce
+
+Use trusted local Python/Pillow RAQM, FFmpeg/ffprobe and owner-controlled paths. Do not commit private media/fonts/rights records. Fresh output directories; keep INCOMPLETE failures. All outputs are private synthetic review only.
+
+    python -m tools.phase14_semantic_film --locale en --plan tools/phase14_film_plan.json --video <english-v6.mp4> --timeline <phase14e-receipt> --timeline-sha <pinned-sha> --receipt <v6-receipt> --receipt-sha <pinned-sha> --font <local-font> --output <new-english-output>
+    python -m tools.phase14_semantic_film --locale hi --plan tools/phase14_hi_plan.json --video <hindi-mastered.mp4> --timeline <phase14i-receipt> --timeline-sha <pinned-sha> --receipt <phase14j-hindi-render-receipt> --receipt-sha <pinned-sha> --master <mastering-receipt> --master-sha <pinned-sha> --font <local-mixed-script-font> --output <new-hindi-output>
+    python -m tools.phase14_recovery_qc assess --qc <signal-qc.json> --qc-sha <pin> --timeline <video-bound-timeline.json> --timeline-sha <pin> --policy <policy.json> --policy-sha <pin> --output <new-report.json>
+    python -m tools.phase14_recovery_qc recover --config <phase14o-config.json> --expected <config-pin> --source <interrupted-report-run> --output <new-recovery-folder>
+    python -m pytest -q tests/test_phase14_semantic_film.py tests/test_phase14_scene_review.py tests/test_phase14_integrated_qc.py tests/test_phase14_reviewed_timing.py tests/test_phase14_owner_assembly.py tests/test_phase14_workspace.py tests/test_phase14_bilingual.py tests/test_phase14_localize.py
+
+Variable QC timeline requires video_sha256 matching audited video, frames, publication_authorized=false and shots with contiguous integer start_frame/end_frame. Policy exact keys video_sha256 and shots (one intentional_static_review or semantic_motion_expected per shot). Pins must come from independent trusted records. Do not relabel freeze observations to claim acceptance.
+
+## Consolidated priorities
+
+| Priority | Gate | Current status / next proof |
+|---|---|---|
+| P0 | CI/package | Phase 14O green; Phase 14P refresh/latest CI pending |
+| P0 | Natural bilingual voice | BLOCKED_OWNER_MODEL_OR_RECORDING; actual licensed models or recordings, inference and native listening |
+| P0 | Real alignment | Actual CTC inference and independent representative annotations |
+| P0 | Owner films/captions | Both assembly paths fixture-tested; real speech, timings and actual full renders pending |
+| P0 | Creative | Full bilingual stepped semantic diagrams rendered; native raster, continuous differentiated scene motion, reading speed, native terminology, full watch-through and factual review pending |
+| P0 | QC | Variable-length assessment tested on existing 3-shot clip; fresh signal scans for new full films, actual scene evidence and perceptual QA pending |
+| P0 | Audio | AAC truncation regression fixed; both synthetic final numeric gates pass; actual speech mastering/listening pending |
+| P1 | Orchestration | Non-destructive report recovery tested; full media stage orchestration and interruption recovery pending |
+| P1 | Editorial/packaging | Native/factual/rights review; real-media workspace and revised packaging pending |
+| P1 | Windows/browser/recovery | Physical owner install/playback/restore and measured performance pending |
+| P1 | YouTube | BLOCKED_OWNER_AUTHORIZATION; no live upload or analytics |
+| P2 | Optimization | Concurrent isolated timings 85.34s/79.27s; owner resource/cost unmeasured |
+| Recovery | 13–20 Nov source | BLOCKED_OWNER_BACKUP |
+| Release | Merge | OPEN; latest CI and owner/editorial acceptance required; main preserved |
+
+Next: fresh QC on both new full-length films and shot-specific animation refinements, real licensed speech/independent acoustic reference, genuine captions and owner review; integrate actual media stages into resumable workflow, then physical Windows/browser/restore and authorized private account acceptance. No synthetic release, public publishing or expansion across 12 domains. See [project status](PROJECT_STATUS.md) and [owner acceptance checklist](OWNER_ACCEPTANCE_2026-11-25_PHASE14J.md).

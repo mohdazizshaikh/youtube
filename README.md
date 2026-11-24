@@ -1,3 +1,147 @@
+# ViralOS — Phase 14T full-film reassembly and proxy review
+
+192 verified scoped operations across 48 silent review proxies, decoded-frame checks, receipts and revision templates. Both full films losslessly reassembled: 21,038 exact decoded frames and 32,875 exact AAC packet signatures matched; corrected streaming audit passed. Two automated revision notes and stale rejection tested. 12 new tests passed against final verifier; 197 combined passed before optimization. All 48 human tasks and 42 motion flags remain open. No real speech, creative revision, browser acceptance or publication authority. Main stays Phase 13.
+
+See [project status](docs/PROJECT_STATUS.md), [Phase 14T priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE14T.md) and [owner acceptance checklist](docs/OWNER_ACCEPTANCE_2026-11-25_PHASE14J.md).
+
+---
+
+# ViralOS — Phase 14S bilingual shot review batch
+
+Actual 48-shot parallel extraction and source-matched decoded-frame validation across both synthetic full films: 21,038 frames, 192 scoped verified operations, 48 midpoint PNGs and task-bound receipts. Static local index and non-destructive Hindi shot recovery verified. All 48 human tasks remain OPEN, including 42 motion flags. 10 new/185 combined local tests passed. Intermediate CI passed; latest manifest CI pending. No new creative motion, real speech, human acceptance or publication authority. Main stays Phase 13.
+
+See [project status](docs/PROJECT_STATUS.md), [Phase 14S priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE14S.md) and [owner acceptance checklist](docs/OWNER_ACCEPTANCE_2026-11-25_PHASE14J.md).
+
+---
+
+# ViralOS — Phase 14R native chapter motion and render checkpoints
+
+Four native 1080p/30fps English/Hindi chapter 3/4 previews rendered, 12 shot clips and two completed-shot resume exercises. Fresh decode and numeric audio passed all four; chapter 3 freeze interval coverage 96.4485%/96.6438% (prior 100% each), all six flags remain. Chapter 4 zero before/after. Original full-film 42 motion flags remain open; 48 pinned editorial tasks generated. 19 new/175 combined local tests passed. Phase 14Q CI passed. Natural speech, real alignment, continuous cinematic motion, human acceptance and publication authority remain pending. Main stays Phase 13.
+
+See [project status](docs/PROJECT_STATUS.md), [Phase 14R priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE14R.md) and [owner acceptance checklist](docs/OWNER_ACCEPTANCE_2026-11-25_PHASE14J.md).
+
+---
+
+# ViralOS — Phase 14Q media review and packet integrity checkpoint
+
+Fresh bilingual semantic film scans passed decoding and numeric audio; freeze detector coverage 85.7614% English / 90.294% Hindi, 21 of 24 motion-expected shots flagged in each language. Exact AAC packet signatures matched source (17516/15359 packets). Resumable pinned media staging, QC and handoff executed; deliberately damaged/missing artifacts reconstructed in new folder without changing old lock. 13 new/156 combined local tests passed. Phase 14P CI passed. No new animation, licensed speech, real alignment, human acceptance or publication authority. Main stays Phase 13.
+
+See [project status](docs/PROJECT_STATUS.md), [Phase 14Q priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE14Q.md) and [owner acceptance checklist](docs/OWNER_ACCEPTANCE_2026-11-25_PHASE14J.md).
+
+---
+
+# ViralOS — Phase 14P bilingual semantic film and recovery checkpoint
+
+Full English/Hindi stepped semantic diagram reviews rendered: 373.633s/11209 frames and 327.633s/9829 frames at 1080p/30fps, 960x540 source raster. Corrected separate video/audio mux after AAC truncation detected; both final full decode, exact source AAC payload and numeric audio gates passed. Variable-shot QC flags all three Phase 14O motion-expected shots for review; non-destructive interrupted report recovery exercised. 17 new/143 combined local tests passed. Phase 14O CI passed. Synthetic voices, no actual alignment, native/editorial acceptance or publication authority. Main stays Phase 13.
+
+See [project status](docs/PROJECT_STATUS.md), [Phase 14P priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE14P.md) and [owner acceptance checklist](docs/OWNER_ACCEPTANCE_2026-11-25_PHASE14J.md).
+
+---
+
+# ViralOS — Phase 14O semantic motion and resumable review checkpoint
+
+English chapter-one 42.733s/1282-frame semantic motion prototype with real SHA-256 byte/digest comparison, 960x540 source upscaled to 1080p. Raw peak gate failed after audio re-encoding; corrected master freshly decoded and passed -16.30 LUFS/-1.44 dBTP. Scene-aware QC mapped existing full-film observations to 48 shots without suppressing review flags. Two-locale fixed report orchestration and exact-byte resume tested. 18 new/126 combined local tests passed; Phase 14N integrated CI passed. No natural voice, actual alignment, full-film semantic motion, human acceptance or release authority. Main stays Phase 13.
+
+See [project status](docs/PROJECT_STATUS.md), [Phase 14O priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE14O.md) and [owner acceptance checklist](docs/OWNER_ACCEPTANCE_2026-11-25_PHASE14J.md).
+
+---
+
+# ViralOS — Phase 14N integrated caption and signal QC checkpoint
+
+Pinned bilingual owner-caption burn-in implemented; Hindi 72.8s/2184-frame artificial-tone fixture with 772 cues decoded, encoded AAC payload unchanged, numeric audio gate failed. Both existing long-form synthetic films freshly scanned: numeric mastering passed, no detected black intervals/2s quiet intervals/near-full-scale samples; static/freeze review flags remain. Pinned readiness reports explicitly deny production acceptance. 20 new/108 combined local tests passed. Phase 14M integrated CI passed. Actual speech, alignment, human acceptance and release authority remain pending. Main stays Phase 13.
+
+See [project status](docs/PROJECT_STATUS.md), [Phase 14N priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE14N.md) and [owner acceptance checklist](docs/OWNER_ACCEPTANCE_2026-11-25_PHASE14J.md).
+
+---
+
+# ViralOS — Phase 14M bilingual owner assembly and timing checkpoint
+
+Both owner assembly paths now fixture-tested; Hindi 72.8s/2184-frame artificial-tone render decoded, audio numeric gate failed. Declared reviewed word timing compiler accepts pinned English/Hindi inputs; 772 artificial Hindi cues compiled and six-second overlay decoded. Read-only Linux preflight detected RAQM/libass/H.264/AAC, no Piper. 19 new/88 combined local tests passed; Phase 14L integrated CI passed. Actual licensed speech, acoustic inference, full-film real captions, human acceptance and release authority remain pending. Main stays Phase 13.
+
+See [project status](docs/PROJECT_STATUS.md), [Phase 14M priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE14M.md) and [owner acceptance checklist](docs/OWNER_ACCEPTANCE_2026-11-25_PHASE14J.md).
+
+---
+
+# ViralOS — Phase 14L owner narration assembly checkpoint
+
+English owner narration reassembly validates 24 retimed shot assets and complete PCM equality. Actual 24.8s/744-frame Full HD artificial-tone fixture decoded; audio numeric gate failed as expected for this non-speech test, no mastering or aligned captions. New opt-in pinned local Piper adapter contract tested; real inference unavailable. 16 new/69 combined local tests passed. Phase 14K integrated CI passed. No natural voice, actual alignment, human acceptance or release authority. Main stays Phase 13.
+
+See [project status](docs/PROJECT_STATUS.md), [Phase 14L priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE14L.md) and [owner acceptance checklist](docs/OWNER_ACCEPTANCE_2026-11-25_PHASE14J.md).
+
+---
+
+# ViralOS — Phase 14K unified bilingual review and recovery checkpoint
+
+Both existing review films freshly decoded and measured in parallel: English V6 373.633s (-16.73 LUFS/-1.39 dBTP), Hindi 327.633s (-16.85 LUFS/-1.38 dBTP). New bilingual private workspace, actual ASGI media and note tests, 12-file pinned backup/restore with revision preservation, and explicit English owner chapter-to-shot retiming (fixture only). 16 new and 53 combined local tests passed. Phase 14J integrated CI passed. No real browser, natural speech, acoustic alignment, human acceptance or release authority. Main stays Phase 13.
+
+See [project status](docs/PROJECT_STATUS.md), [Phase 14K priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE14K.md) and [owner acceptance checklist](docs/OWNER_ACCEPTANCE_2026-11-25_PHASE14J.md).
+
+---
+
+# ViralOS — Phase 14J bilingual film review checkpoint
+
+Complete synthetic English V6 and Hindi review films: 373.633s and 327.633s, both Full HD/30fps, full decode and numeric mastering passed. Hindi 24 static boards and 772 artificial word cues, separate caption area. Bilingual metadata V2 binds Hindi mastered video and chapter times. English owner eight-chapter WAV intake and owner acceptance checklist added. 19 new and 37 combined local tests passed. Phase 14I integrated CI passed. Natural voices, real alignment, human/editorial acceptance and release authority remain unavailable. Main remains Phase 13.
+
+See [project status](docs/PROJECT_STATUS.md), [Phase 14J priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE14J.md) and [owner acceptance checklist](docs/OWNER_ACCEPTANCE_2026-11-25_PHASE14J.md).
+
+---
+
+# ViralOS — Phase 14I bilingual localization and packaging checkpoint
+
+Hindi original adaptation: 772 words, eight chapters/24 segments, actual eSpeak Hindi narration 327.633s, 24 shaped Full HD static boards, 43.6s chapter-one preview decoded. Hash-bound owner WAV intake and deliberately incomplete 24-script request kit; bilingual 1280x720 packaging drafts use actual 125/256 differing SHA-256 bits. 18 isolated tests passed. Phase 14H integrated CI passed. No natural voice, real alignment, full Hindi film, independent review or release authority. Main remains Phase 13.
+
+See [project status](docs/PROJECT_STATUS.md) and [Phase 14I priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE14I.md) for reproduction and owner acceptance instructions.
+
+---
+
+# ViralOS — Phase 14H parallel editorial studio checkpoint
+
+Full 373.633s V6 synthetic review film: 24 shots with separate board, motion lane and captions, fresh decode/numeric mastering and copied AAC payload verified. Versioned private editorial workspace with durable time-coded notes and actual media ASGI API tests; real browser blocked by environment. Word-boundary benchmark tested using artificial 30ms shifts, not real acoustic inference. 17 isolated tests passed. Phase 14G integrated CI passed; main remains Phase 13.
+
+See [project status](docs/PROJECT_STATUS.md) and [Phase 14H priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE14H.md). Natural bilingual voice, independent editorial acceptance and publication authority remain unavailable.
+
+---
+
+# ViralOS — Phase 14G full captioned synthetic review checkpoint
+
+Complete 373.633s 1080p/30fps motion film with 932 artificial word cues across 24 shots, 108px caption strip, persistent warning and preserved encoded AAC payload. Fresh decode and numeric mastering (-16.73 LUFS/-1.39 dBTP) passed; 11 local tests passed. Phase 14F integrated CI passed; latest Phase 14G CI pending. No real word alignment, natural voice, queue registration or publication authority. Main remains Phase 13.
+
+See [project status](docs/PROJECT_STATUS.md) and [Phase 14G tracker](docs/PRIORITY_TRACKER_2026-11-24_PHASE14G.md) for reproducible commands, evidence and pending work.
+
+---
+
+# ViralOS — Phase 14F global caption timeline checkpoint
+
+Full-film 24-shot, 932-word synthetic timing fixture and hash-bound caption compiler tested. Exact assembled PCM/shot-byte and padding correspondence verified; 21 local tests passed. Dedicated 108px caption strip demonstrated on a 12-second 1080p/30fps sample. No real acoustic alignment, natural bilingual voice or release authority. Phase 14E integrated CI passed; main remains Phase 13.
+
+See [project status](docs/PROJECT_STATUS.md) and [Phase 14F tracker and reproduction guide](docs/PRIORITY_TRACKER_2026-11-24_PHASE14F.md). Full-film caption burn-in, owner voice, independent editorial review and deployment acceptance remain open.
+
+---
+
+# ViralOS — Phase 14E complete motion-film review checkpoint
+
+Eight chapters and 24 narration-segment-driven animated board shots assembled into a 373.633s native 1080p/30fps film (11209 reported frames). Full decode and fresh mastered audit passed: -16.73 LUFS/-1.39 dBTP. Synthetic English only, segment transcript only, no publication authority. Prior Phase 14D CI including repaired package manifest passed; main remains Phase 13.
+
+See [project status](docs/PROJECT_STATUS.md) and [Phase 14E tracker and reproduction guide](docs/PRIORITY_TRACKER_2026-11-24_PHASE14E.md). Natural bilingual voice, actual word alignment, differentiated motion polish, independent editorial review and owner deployment/upload remain open.
+
+---
+
+# ViralOS — Phase 14D narration-driven motion review checkpoint
+
+Chapter-one motion prototype: 42.8s native 1080p/30fps, 1284 verified video frames, three PCM-duration-driven shots, moving focus markers and fades. Mastering numeric gate passed (-16.72 LUFS/-1.45 dBTP). Synthetic English narration, English-specific boards, no acoustic word alignment or publishing authority. Main remains Phase 13.
+
+Start with [project status](docs/PROJECT_STATUS.md) and [Phase 14D tracker and reproduction guide](docs/PRIORITY_TRACKER_2026-11-24_PHASE14D.md). The Phase 14C long-form rough cut remains intact. Full professional bilingual film, independent review, owner Windows and authorized YouTube acceptance remain open.
+
+---
+
+# ViralOS — Phase 14C creative quality review branch
+
+**Current review checkpoint (2026-11-24):** original eight-chapter, 932-word English SHA-256 technical rough cut (375.8s, 1080p/30fps, full decode passed). Long-form numeric audio gate passed (-16.74 LUFS, -1.40 dBTP). Synthetic eSpeak English narration, progressive boards and scene transcript only; no publication authorization. Main remains Phase 13.
+
+Start with the [consolidated project status](docs/PROJECT_STATUS.md) and [Phase 14C priority tracker and reproduction guide](docs/PRIORITY_TRACKER_2026-11-24_PHASE14C.md). Review [Phase 14A](docs/PHASE14_CREATIVE_DIRECTOR_AND_TRACKER_2026-11-24.md) and [Phase 14B](docs/PHASE14B_QUALITY_TRACKER_2026-11-24.md). Existing Phase 13 installation documentation follows unchanged.
+
+---
+
 # ViralOS — Phase 13: production-readiness candidate
 
 Start with the [Windows setup and pilot guide](docs/PHASE13_DEPLOYMENT_AND_PILOT_2026-11-24.md). Assisted setup and pilot launch wrappers require trusted Python 3.12, FFmpeg and owner approval for dependency installation. One source-linked technical pilot is rendered and queued for review; no publishing permission. See [exit gates](docs/PRIORITY_TRACKER_2026-11-24_PHASE13.md).

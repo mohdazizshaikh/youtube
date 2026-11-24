@@ -1,3 +1,11 @@
+# Phase 14P — bilingual semantic films, variable scene QC and recovery (2026-11-25)
+
+- Verified Phase 14O CI run 45487497752 succeeded.
+- Rendered both full synthetic diagram films, 24 shots/288 scheduled graphic states per language, 960x540 source upscaled to 1080p/30fps. Corrected encryption diagram wording. Detected trailing AAC packet truncation despite decode pass; repaired by separate silent video encode and full stream-copy mux. Both final films fully decoded and exact AAC payload matched source, numeric audio passed (EN -16.73 LUFS/-1.39 dBTP; HI -16.85 LUFS/-1.38 dBTP). No new real speech or captions.
+- Added 1–240 shot QC with exact video identity; prior three-shot semantic clip flagged 906/1282 frames and all three motion-expected shots for review. No freeze suppression or creative acceptance.
+- Added non-destructive interrupted report recovery. Actual corrupted/missing report copy reconstructed in new location; original lock and bytes unchanged. 17 new/143 combined local tests passed; all three final source/test Git blobs match local bytes.
+- Updated project status, tracker and manifest; latest integrated CI pending. Main preserved; release blocked.
+
 # Phase 14O — semantic motion, scene-aware QC and resumable review (2026-11-25)
 
 - Verified Phase 14N CI run 45484729596 succeeded.

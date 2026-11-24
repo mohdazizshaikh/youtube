@@ -1,3 +1,10 @@
+# Phase 14S — 192-operation bilingual shot review batch (2026-11-25)
+
+- Verified prior Phase 14R CI and intermediate Phase 14S CI run 45495097669 succeeded.
+- Added parallel lossless silent shot extraction, independent source and shot decoded-frame SHA256 comparisons and exact task/receipt binding. 48/48 shots, 21038 frames and 192 scoped operations passed. All 48 human tasks remain open; no new motion or film reassembly.
+- Added static local review index with 48 cards and verified image/link targets, and actual non-destructive Hindi 470-frame shot recovery. Decoded sequence, clip and midpoint matched; interrupted copy unchanged. Private ZIP integrity verified; not browser acceptance or owner restore.
+- 10 new/185 combined local tests passed; five source/test Git blobs matched. Updated project status, tracker and manifest; final CI pending. Main preserved; release blocked.
+
 # Phase 14R — native chapter motion, render checkpoints and editorial tasks (2026-11-25)
 
 - Verified Phase 14Q CI run 45491752092 succeeded.

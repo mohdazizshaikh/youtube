@@ -1,3 +1,11 @@
+# ViralOS — Phase 14I bilingual localization and packaging checkpoint
+
+Hindi original adaptation: 772 words, eight chapters/24 segments, actual eSpeak Hindi narration 327.633s, 24 shaped Full HD static boards, 43.6s chapter-one preview decoded. Hash-bound owner WAV intake and deliberately incomplete 24-script request kit; bilingual 1280x720 packaging drafts use actual 125/256 differing SHA-256 bits. 18 isolated tests passed. Phase 14H integrated CI passed. No natural voice, real alignment, full Hindi film, independent review or release authority. Main remains Phase 13.
+
+See [project status](docs/PROJECT_STATUS.md) and [Phase 14I priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE14I.md) for reproduction and owner acceptance instructions.
+
+---
+
 # ViralOS — Phase 14H parallel editorial studio checkpoint
 
 Full 373.633s V6 synthetic review film: 24 shots with separate board, motion lane and captions, fresh decode/numeric mastering and copied AAC payload verified. Versioned private editorial workspace with durable time-coded notes and actual media ASGI API tests; real browser blocked by environment. Word-boundary benchmark tested using artificial 30ms shifts, not real acoustic inference. 17 isolated tests passed. Phase 14G integrated CI passed; main remains Phase 13.

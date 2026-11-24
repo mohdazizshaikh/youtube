@@ -1,3 +1,11 @@
+# ViralOS — Phase 14C creative quality review branch
+
+**Current review checkpoint (2026-11-24):** original eight-chapter, 932-word English SHA-256 technical rough cut (375.8s, 1080p/30fps, full decode passed). Long-form numeric audio gate passed (-16.74 LUFS, -1.40 dBTP). Synthetic eSpeak English narration, progressive boards and scene transcript only; no publication authorization. Main remains Phase 13.
+
+Start with the [consolidated project status](docs/PROJECT_STATUS.md) and [Phase 14C priority tracker and reproduction guide](docs/PRIORITY_TRACKER_2026-11-24_PHASE14C.md). Review [Phase 14A](docs/PHASE14_CREATIVE_DIRECTOR_AND_TRACKER_2026-11-24.md) and [Phase 14B](docs/PHASE14B_QUALITY_TRACKER_2026-11-24.md). Existing Phase 13 installation documentation follows unchanged.
+
+---
+
 # ViralOS — Phase 13: production-readiness candidate
 
 Start with the [Windows setup and pilot guide](docs/PHASE13_DEPLOYMENT_AND_PILOT_2026-11-24.md). Assisted setup and pilot launch wrappers require trusted Python 3.12, FFmpeg and owner approval for dependency installation. One source-linked technical pilot is rendered and queued for review; no publishing permission. See [exit gates](docs/PRIORITY_TRACKER_2026-11-24_PHASE13.md).

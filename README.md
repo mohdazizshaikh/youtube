@@ -1,3 +1,9 @@
+# ViralOS — Phase 10: editorial review handoff
+
+Offline hash-bound review packets and per-scene source, narration, visual, rights, originality and caption self-attestations. Synthetic demos cannot complete the editorial checklist; no publication permission or independent reviewer verification is implied. See [operator guide](docs/PHASE10_DOMAIN_EDITORIAL_HANDOFF_2026-11-24.md) and [remaining gates](docs/PRIORITY_TRACKER_2026-11-24_PHASE10.md).
+
+---
+
 # ViralOS — Phase 9: independent domain draft media audit
 
 Phase 9 fixes short-scene AAC truncation and adds a local pinned-manifest auditor that reconstructs narration and captions and checks sampled decoded audio/visual conformance. **No publishing permission, factual clearance or professional voice acceptance is implied.** See [Phase 9 operator guide](docs/PHASE9_DRAFT_MEDIA_AUDIT_2026-11-24.md) and [remaining gates](docs/PRIORITY_TRACKER_2026-11-24_PHASE9.md).

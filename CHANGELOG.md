@@ -1,3 +1,9 @@
+## 2026-11-24 Phase 10 — domain editorial handoff
+
+- Added offline fresh-audit, hash-bound scene review packets and explicit human self-attestation checklists; reject stale, missing and duplicate scene records.
+- Added 24-domain-format batch review packet preparation; synthetic demos remain blocked from checklist completion, and no output grants publishing permission.
+- Added CLI, portable and media tests, operator instructions and preserved prior package manifest. No owner or suspended account access.
+
 ## 2026-11-24 Phase 9 — independent draft audit and AAC timing fix
 
 - Corrected fixed-rate scene timestamps and duration-based termination so short narration is not truncated by a video-frame stop. Tightened stream timing QC.

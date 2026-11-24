@@ -1,0 +1,21 @@
+{
+  "phase": 10,
+  "date": "2026-11-24",
+  "base_commit": "3788a65cb92d345bc7fec90de16e4cf2c255a4c1",
+  "destination": "mohdazizshaikh/youtube",
+  "local_final_pytest_exit": 0,
+  "local_final_pytest_summary": "249 passed, 1 warning in 62.02s (0:01:02)",
+  "new_focused_tests_passed": 21,
+  "synthetic_domain_drafts_reaudited": 24,
+  "review_packets_generated": 24,
+  "scene_checklists": 48,
+  "checklist_items_unreviewed": 288,
+  "human_reviews_completed": 0,
+  "publication_eligible": false,
+  "real_youtube_accessed": false,
+  "suspended_account_accessed": false,
+  "physical_owner_windows_tested": false,
+  "real_licensed_voice_acceptance_tested": false,
+  "source_files_deleted": 0,
+  "limitations": "Synthetic demo technical re-audit and local declared human-review contracts only; no factual, licensing, identity or publication certification."
+}

@@ -42,3 +42,7 @@ Owner input: schema 1, locale en-US/en-IN/hi-IN, basis owner_reviewed_recording 
 | Release | Integration and package | OPEN; full repo regression, CI verification, manifest refresh, review and explicit merge required |
 
 Next: expand motion renderer to remaining seven chapters, prepare owner-reviewed bilingual narration, benchmark actual alignment and integrate captions and private review without bypass. No general autonomous creative director, professional voice, GPU generation, real revenue or complete 12-domain platform claimed. See [project status](PROJECT_STATUS.md).
+
+## CI and integrity follow-up
+
+Phase 14C run [45448757508](https://github.com/mohdazizshaikh/youtube/actions/runs/45448757508): 308 Linux unit/integration tests passed (2 warnings), Windows contract job passed; workflow failed at archived package hash verification for README.md and CHANGELOG.md; syntax step skipped. Phase 14D updates will refresh the integrity manifest for all changed/new files, retain prior unchanged entries and verify the new workflow before merge. This is not a release or full fresh checkout audit. Main remains Phase 13.

@@ -56,3 +56,10 @@ def test_recovery(tmp_path):
 def test_bad_lock(tmp_path):
     c=config(tmp_path);src=tmp_path/'old';s.run(c['path'],c['sha256'],src,'scene');(src/'RUNNING').write_text('bad')
     with pytest.raises(ValueError):r.recover(c['path'],c['sha256'],src,tmp_path/'new')
+
+def test_mux_keeps_all_audio_packets(monkeypatch):
+    calls=[]
+    monkeypatch.setattr(f.subprocess,'run',lambda cmd,**kw:calls.append((cmd,kw)))
+    f.mux('visual.mp4','source.mp4','final.mp4');cmd,kw=calls[0]
+    assert '-frames:v' not in cmd and '-shortest' not in cmd and '-t' not in cmd
+    assert cmd[cmd.index('-c')+1]=='copy' and cmd.count('-map')==2 and kw['check'] is True

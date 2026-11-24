@@ -1,3 +1,11 @@
+# ViralOS — Phase 14Q media review and packet integrity checkpoint
+
+Fresh bilingual semantic film scans passed decoding and numeric audio; freeze detector coverage 85.7614% English / 90.294% Hindi, 21 of 24 motion-expected shots flagged in each language. Exact AAC packet signatures matched source (17516/15359 packets). Resumable pinned media staging, QC and handoff executed; deliberately damaged/missing artifacts reconstructed in new folder without changing old lock. 13 new/156 combined local tests passed. Phase 14P CI passed. No new animation, licensed speech, real alignment, human acceptance or publication authority. Main stays Phase 13.
+
+See [project status](docs/PROJECT_STATUS.md), [Phase 14Q priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE14Q.md) and [owner acceptance checklist](docs/OWNER_ACCEPTANCE_2026-11-25_PHASE14J.md).
+
+---
+
 # ViralOS — Phase 14P bilingual semantic film and recovery checkpoint
 
 Full English/Hindi stepped semantic diagram reviews rendered: 373.633s/11209 frames and 327.633s/9829 frames at 1080p/30fps, 960x540 source raster. Corrected separate video/audio mux after AAC truncation detected; both final full decode, exact source AAC payload and numeric audio gates passed. Variable-shot QC flags all three Phase 14O motion-expected shots for review; non-destructive interrupted report recovery exercised. 17 new/143 combined local tests passed. Phase 14O CI passed. Synthetic voices, no actual alignment, native/editorial acceptance or publication authority. Main stays Phase 13.

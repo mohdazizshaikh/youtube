@@ -1,3 +1,10 @@
+# Phase 11 — durable local review operations (2026-11-24)
+
+- Added separate SQLite review ledger and CLI; optimistic revisions, atomic submission history and duplicate detection.
+- Fresh media re-audit before registering or submitting a review; synthetic demos cannot be accepted, no publishing authority.
+- Keep private database outside repository; no raw reviewer text or media paths stored.
+- Added portable queue contract tests and real FFmpeg re-audit regression.
+
 ## 2026-11-24 Phase 10 — domain editorial handoff
 
 - Added offline fresh-audit, hash-bound scene review packets and explicit human self-attestation checklists; reject stale, missing and duplicate scene records.

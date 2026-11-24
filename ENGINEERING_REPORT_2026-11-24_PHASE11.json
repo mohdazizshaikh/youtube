@@ -1,0 +1,22 @@
+{
+  "phase": 11,
+  "date": "2026-11-24",
+  "base_commit": "23f4fa850f047844836599f1e9c053aafbe6c15d",
+  "destination": "mohdazizshaikh/youtube",
+  "local_full_pytest_exit": 0,
+  "local_full_pytest_summary": "262 passed, 1 warning in 83.68s",
+  "new_focused_tests_passed": 13,
+  "synthetic_drafts_reaudited_and_registered": 24,
+  "separate_process_queue_status_verified": true,
+  "pending_queue_entries": 24,
+  "human_reviews_completed": 0,
+  "submission_history_entries_in_demo": 0,
+  "publication_eligible": false,
+  "private_queue_database_included_in_public_source": false,
+  "real_youtube_accessed": false,
+  "suspended_account_accessed": false,
+  "physical_owner_windows_tested": false,
+  "real_licensed_voice_acceptance_tested": false,
+  "source_files_deleted": 0,
+  "limitations": "Local SQLite review progress only, not independent source, legal, human identity or publication verification. No external production acceptance."
+}

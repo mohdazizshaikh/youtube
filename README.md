@@ -1,3 +1,9 @@
+# ViralOS — Phase 11: durable private editorial review queue
+
+Offline SQLite review queue with fresh media audits, immutable draft pins, transactional review revisions, duplicate/stale submission rejection, and privacy-minimized history. Synthetic demos remain blocked; the queue never authorizes publication. See [operator guide](docs/PHASE11_DURABLE_REVIEW_QUEUE_2026-11-24.md) and [remaining gates](docs/PRIORITY_TRACKER_2026-11-24_PHASE11.md).
+
+---
+
 # ViralOS — Phase 10: editorial review handoff
 
 Offline hash-bound review packets and per-scene source, narration, visual, rights, originality and caption self-attestations. Synthetic demos cannot complete the editorial checklist; no publication permission or independent reviewer verification is implied. See [operator guide](docs/PHASE10_DOMAIN_EDITORIAL_HANDOFF_2026-11-24.md) and [remaining gates](docs/PRIORITY_TRACKER_2026-11-24_PHASE10.md).

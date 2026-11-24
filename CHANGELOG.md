@@ -1,3 +1,11 @@
+# Phase 14O — semantic motion, scene-aware QC and resumable review (2026-11-25)
+
+- Verified Phase 14N CI run 45484729596 succeeded.
+- Added original English three-shot semantic preview with character/hex-byte comparison and real digest XOR reveal (125/256 bits), 42.733s/1282 frames, source 960x540 upscaled to 1080p/30fps. Raw decode passed but true peak failed; corrected master freshly decoded and passed -16.30 LUFS/-1.44 dBTP. Synthetic source narration, no aligned captions; static review flags remain.
+- Added explicit scene-motion policy and freeze interval triage, including EOF handling and exact shot accounting. Existing 48 static-board shots reviewed under declared policy; original flags retained, not artistic approval.
+- Added fixed two-locale report orchestration, pinned config and inputs, deterministic exact-byte stage reuse and lock/tamper checks. Actual scene-only then resume-all run verified; not full render orchestration or automatic crash recovery.
+- 18 new/126 combined local tests passed; all three Git blobs matched local bytes. Updated project status, tracker and integrity manifest; latest CI pending. Main preserved and release blocked.
+
 # Phase 14N — integrated captions, signal QC and acceptance status (2026-11-25)
 
 - Verified Phase 14M CI run 45483722897 succeeded.

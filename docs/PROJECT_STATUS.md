@@ -13,6 +13,8 @@ Owner-only, offline-first production of one genuinely professional, original bil
 - [Phase 14B](PHASE14B_QUALITY_TRACKER_2026-11-24.md): numeric mastering pass, reviewed timing contract and synthetic Full-HD caption fixture; CI run 45445134977 passed for commit 476d3f7cc7566a153f7b5be41ac899d12f125453.
 - Phase 14C: actual 375.8-second native 1080p/30fps rough cut, eight chapters and 24 progressive boards; 932-word English synthetic narration; full decode and long-form numerical mastering passed (-16.74 LUFS/-1.40 dBTP). 12 isolated tests passed; code and plan synced. See [current tracker](PRIORITY_TRACKER_2026-11-24_PHASE14C.md) for actual measured media evidence and limitations.
 
+- [Phase 14D](PRIORITY_TRACKER_2026-11-24_PHASE14D.md): actual 42.8s chapter-one native Full-HD/30fps motion preview, 1284 video frames, three PCM-driven shot boundaries, numeric mastering -16.72 LUFS/-1.45 dBTP. 14/14 new and 38/38 combined isolated tests passed. Owner-reviewed English/Hindi input contract only; synthetic English rendered, no real alignment or bilingual graphics.
+
 ## Decision log
 
 Retain one technology subject to make the pilot iterations comparable. Use original programmatic visuals and locally generated placeholder audio only. New phase work stays on the draft review branch; no production database migration. Local git checkout remains DNS-blocked; standalone checks cannot substitute for integrated regression, package manifest refresh and review. New docs are versioned in Git, not a replacement for prior checkpoint history. No separate accessible ChatGPT Space project page was found.
@@ -23,4 +25,4 @@ Owner-held 13–20 November missing source backup; licensed English/Hindi models
 
 ## Working order
 
-The long-form rough cut and numeric mastering audit passed. Next improve visual timing and natural bilingual voice; actual word-level alignment and full editorial review remain open. Integrate reviewed assets into the existing Phase 13 queue, close Windows and editorial acceptance, and only then seek supervised private upload. Keep every new checkpoint, measured report, and blocker in the tracker and changelog; preserve original history. No public publishing authority.
+The long-form rough cut, chapter-one narration-driven motion and numeric mastering audits passed. Next expand motion across the remaining seven chapters, integrate actual licensed bilingual speech and reviewed word-level captions, then fresh editorial queue integration and owner acceptance. Full repository checkout remains DNS-blocked; preserve main and do not authorize publication. Integrate reviewed assets into the existing Phase 13 queue, close Windows and editorial acceptance, and only then seek supervised private upload. Keep every new checkpoint, measured report, and blocker in the tracker and changelog; preserve original history. No public publishing authority.

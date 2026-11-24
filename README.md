@@ -1,3 +1,9 @@
+# ViralOS — Phase 9: independent domain draft media audit
+
+Phase 9 fixes short-scene AAC truncation and adds a local pinned-manifest auditor that reconstructs narration and captions and checks sampled decoded audio/visual conformance. **No publishing permission, factual clearance or professional voice acceptance is implied.** See [Phase 9 operator guide](docs/PHASE9_DRAFT_MEDIA_AUDIT_2026-11-24.md) and [remaining gates](docs/PRIORITY_TRACKER_2026-11-24_PHASE9.md).
+
+---
+
 # ViralOS — Phase 6: offline narration-in-render integrity & localhost browser boundary
 
 The bilingual owner-delivery audit now compares decoded MP4 audio with each **hash-bound, reviewed source WAV** using bounded correlation, and fails closed if audio is absent or inconsistent. AAC/mixing may cause false negatives: **this does not recognize speech, certify a speaker, prove every word, or replace human listening**. The local-only FastAPI UI also rejects DNS-rebound Host headers and foreign browser Origin/Fetch-Metadata requests. These are safety controls, not a password/authentication system against local malware.

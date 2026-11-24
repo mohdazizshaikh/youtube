@@ -1,3 +1,10 @@
+## 2026-11-24 Phase 9 — independent draft audit and AAC timing fix
+
+- Corrected fixed-rate scene timestamps and duration-based termination so short narration is not truncated by a video-frame stop. Tightened stream timing QC.
+- Added trusted-pin, inventory, PCM reconstruction, caption and scene timing audit; decoded per-scene audio and sampled visual checks; explicit no-publication result.
+- Added offline CLI, automated demo audit receipts and 11 regression/adversarial cases; all 228 tests passed locally.
+- No owner-account, old suspended remote, licensed voice model or owner PC access.
+
 ## 2026-11-24 Phase 8 — narrated domain draft composition
 
 - Added source-linked two-to-eight-scene CPU composition from hash-bound owner-local PCM narration, exact frame-boundary padding, original board rendering, H.264/AAC MP4, scene-level WebVTT and output manifests.

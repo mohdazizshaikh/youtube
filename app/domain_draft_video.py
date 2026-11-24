@@ -129,13 +129,13 @@ def compose(plan: DraftPlan, assets: Path, output: Path) -> dict:
         cmd += ['-protocol_whitelist','file,pipe','-i',str(wav)]
         video=output/'draft.mp4'; count=len(inputs)
         # Filter only generated images, never untrusted media or filter strings.
-        graph=''.join(f'[{i}:v]setsar=1,setpts=PTS-STARTPTS[v{i}];' for i in range(count)) + ''.join(f'[v{i}]' for i in range(count))+f'concat=n={count}:v=1:a=0[v]'
-        cmd += ['-filter_complex_threads','1','-filter_complex',graph,'-map','[v]','-map',f'{count}:a:0','-frames:v',str(frames),'-c:v','libx264','-threads','2','-preset','veryfast','-pix_fmt','yuv420p','-c:a','aac','-b:a','64k','-movflags','+faststart',str(video)]
+        graph=''.join(f'[{i}:v]setsar=1,setpts=PTS-STARTPTS[v{i}];' for i in range(count)) + ''.join(f'[v{i}]' for i in range(count))+f'concat=n={count}:v=1:a=0,setpts=N/({FPS}*TB)[v]'
+        cmd += ['-filter_complex_threads','1','-filter_complex',graph,'-map','[v]','-map',f'{count}:a:0','-r',str(FPS),'-fps_mode','cfr','-t',f'{frames/FPS:.3f}','-c:v','libx264','-threads','2','-preset','veryfast','-pix_fmt','yuv420p','-c:a','aac','-b:a','64k','-movflags','+faststart',str(video)]
         subprocess.run(cmd,check=True,timeout=300,stdin=subprocess.DEVNULL,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
         probe=json.loads(subprocess.check_output([ffprobe,'-v','error','-protocol_whitelist','file,pipe','-show_streams','-show_format','-of','json',str(video)],timeout=30))
         vs=[x for x in probe['streams'] if x['codec_type']=='video']; audio=[x for x in probe['streams'] if x['codec_type']=='audio']
         dims=(720,1280) if plan.scenes[0].board.format=='SHORT' else (1280,720)
-        if len(vs)!=1 or len(audio)!=1 or (vs[0]['width'],vs[0]['height'])!=dims or int(vs[0].get('nb_frames','0'))!=frames or abs(float(probe['format']['duration'])-frames/FPS)>.15 or abs(float(audio[0]['duration'])-frames/FPS)>.15:
+        if len(vs)!=1 or len(audio)!=1 or (vs[0]['width'],vs[0]['height'])!=dims or int(vs[0].get('nb_frames','0'))!=frames or abs(float(probe['format']['duration'])-frames/FPS)>.04 or abs(float(vs[0]['duration'])-frames/FPS)>.04 or abs(float(audio[0]['duration'])-frames/FPS)>.04 or vs[0]['avg_frame_rate']!='25/1':
             raise ValueError('render failed stream/frame/duration QC')
         manifest={'schema':'VIRALOS_DOMAIN_NARRATED_DRAFT_V1','domain':plan.scenes[0].board.domain,'format':plan.scenes[0].board.format,'synthetic_demo':plan.scenes[0].board.synthetic_demo,'frames':frames,'fps':FPS,'duration_ms':frames*40,'scenes':records,'files_sha256':{p.name:digest(p.read_bytes()) for p in sorted(output.iterdir()) if p.is_file()},'stream_qc_passed':True,'caption_word_alignment_verified':False,'speech_content_verified':False,'claim_truth_verified':False,'rights_cleared':False,'publication_eligible':False}
         (output/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf8')

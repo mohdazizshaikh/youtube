@@ -1,0 +1,26 @@
+{
+  "phase": 9,
+  "date": "2026-11-24",
+  "repository": "mohdazizshaikh/youtube",
+  "base_commit": "dd3e2cc74e70b977fc87a118bd34a2e8698b51cf",
+  "validation": {
+    "full_local_tests_passed": 228,
+    "new_tests": 11,
+    "full_suite_single_clean_run": true,
+    "synthetic_drafts_rendered_and_technically_audited": 24,
+    "scene_count": 48,
+    "demo_duration_ms": 164240,
+    "demo_files": 241,
+    "demo_index_sha256": "d229462b518f7f1ac19b9cb4f7a8a3e795596ec3fd55cfb931f58a1f494998a7"
+  },
+  "acceptance": {
+    "synthetic_demo_only": true,
+    "publication_eligible": false,
+    "real_voice_models_tested": false,
+    "real_youtube_upload_performed": false,
+    "owner_windows_hardware_tested": false,
+    "claim_truth_verified": false,
+    "rights_cleared": false,
+    "suspended_account_accessed": false
+  }
+}

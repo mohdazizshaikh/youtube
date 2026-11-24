@@ -9,6 +9,7 @@ import shutil
 import subprocess
 from app.domain_adapters import POLICIES
 from app.domain_draft_video import DraftPlan, compose
+from app.domain_draft_audit import audit
 from tools.domain_storyboard import demo_spec
 
 
@@ -35,7 +36,11 @@ def main():
                 board.title=f'{domain.title()}: '+('Illustrative example' if i==1 else 'Review evidence')
                 scenes.append({'board':board.model_dump(),'narration_file':voice.name,'narration_sha256':hashlib.sha256(voice.read_bytes()).hexdigest(),'narration_text':text,'rights_attested':True})
             result=compose(DraftPlan.model_validate({'scenes':scenes}),assets,folder/'draft')
-            records.append({'folder':folder.name,'duration_ms':result['duration_ms'],'manifest_sha256':hashlib.sha256((folder/'draft'/'manifest.json').read_bytes()).hexdigest(),'video_sha256':result['files_sha256']['draft.mp4']})
+            pin=hashlib.sha256((folder/'draft'/'manifest.json').read_bytes()).hexdigest()
+            report=audit(folder/'draft',assets,pin)
+            receipt=folder/'audit.json'
+            receipt.write_text(json.dumps(report,indent=2)+'\n',encoding='utf8')
+            records.append({'folder':folder.name,'duration_ms':result['duration_ms'],'manifest_sha256':pin,'video_sha256':result['files_sha256']['draft.mp4'],'audit_sha256':hashlib.sha256(receipt.read_bytes()).hexdigest(),'technical_audit_passed':report['technical_audit_passed']})
             print(folder.name,flush=True)
     (a.output_dir/'index.json').write_text(json.dumps({'synthetic_demo':True,'voice':'installed eSpeak synthetic English','publication_eligible':False,'records':records},indent=2)+'\n',encoding='utf8')
 

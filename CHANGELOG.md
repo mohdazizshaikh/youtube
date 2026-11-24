@@ -1,3 +1,10 @@
+## 2026-11-24 Phase 8 — narrated domain draft composition
+
+- Added source-linked two-to-eight-scene CPU composition from hash-bound owner-local PCM narration, exact frame-boundary padding, original board rendering, H.264/AAC MP4, scene-level WebVTT and output manifests.
+- 24 synthetic two-scene English eSpeak demonstrations for the 12 domains and two formats; explicit nonpublication status, no factual or professional voice acceptance.
+- Explicit boolean rights self-attestation, unsafe path/tamper/format checks, duration limits, output no-overwrite and caught-failure cleanup. Added focused tests and operator CLI/guide.
+- No owner account, suspended remote, external models or production data accessed.
+
 ## 2026-11-24 Phase 7 — reconstructed domain storyboard drafts
 
 - Source-linked, fail-closed ASCII storyboard contracts for all 12 domains and both formats; original illustrative PNGs and optional silent 3-second FFmpeg animatics.

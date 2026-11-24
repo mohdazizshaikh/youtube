@@ -1,0 +1,30 @@
+{
+  "phase": 8,
+  "date": "2026-11-24",
+  "base_commit": "0319199a378e4d8f8e47053e03f4f9ca0bf29b51",
+  "repository": "mohdazizshaikh/youtube",
+  "validation": {
+    "full_regression_first_run_passed": 215,
+    "full_regression_first_run_failed": 1,
+    "failure": "existing Piper operator CLI fixture timed out after 30s",
+    "isolated_failed_test_rerun_passed": 1,
+    "final_phase8_focused_passed": 14,
+    "full_suite_single_clean_run": false,
+    "demo_count": 24,
+    "scene_count": 48,
+    "demo_duration_ms": 164240,
+    "demo_files": 217,
+    "demo_index_sha256": "024fbef870a3c3690f222cadd5e407621fc7bcf944d1917863e2a109a9d9dca8"
+  },
+  "acceptance": {
+    "synthetic_demo_only": true,
+    "voice": "installed eSpeak synthetic English",
+    "publication_eligible": false,
+    "real_voice_models_tested": false,
+    "claim_truth_verified": false,
+    "rights_cleared": false,
+    "real_youtube_upload_performed": false,
+    "owner_windows_hardware_tested": false,
+    "suspended_account_accessed": false
+  }
+}

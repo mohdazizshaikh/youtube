@@ -113,3 +113,7 @@ See `docs/PHASE4_PIPER_AND_SCENE_RETIME_2026-11-24.md` for the new licensed loca
 ## Phase 7: source-linked specialist storyboard drafts
 
 Use `python -m tools.domain_storyboard --demo-all --animatics --output-dir outputs/domain-demo-v1` for 24 synthetic domain/format draft pairs. See [Phase 7 operator guide](docs/PHASE7_DOMAIN_STORYBOARDS_2026-11-24.md). The diagrams are illustrative, the MP4s are silent three-second previews, and none is accepted for publication.
+
+## Phase 8: narrated domain draft composition
+
+See [Phase 8 operator guide](docs/PHASE8_NARRATED_DOMAIN_DRAFTS_2026-11-24.md). Use `python -m tools.domain_draft_demo --output-dir outputs/narrated-demo-v1` for 24 synthetic English two-scene drafts, or `python -m tools.domain_draft_video` with local hashed WAV assets and a plan. These are watermarked nonpublication drafts, not complete accepted films.

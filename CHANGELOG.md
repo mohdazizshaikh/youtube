@@ -1,3 +1,10 @@
+# Phase 14E — complete motion-film assembly and integrated technical audit (2026-11-24)
+
+- Prior Phase 14D CI run 45450166899 passed including package integrity and Windows contracts.
+- Added pinned English script segmentation, 24 PCM-driven shots across eight chapters, native 1080p/30fps 373.633s film, 11209 frames, complete decode, segment transcript and chapter timing. 123.58s isolated render+audit; original boards with moving indicators/fades, not a professional cinematic film.
+- Reused mastering, final -16.73 LUFS/-1.39 dBTP; fresh final-media hash, stream, duration, frame-count, decode and audio audit passed. 22 new and 60 combined local tests passed. Source/test blobs match. No speech alignment, natural voice, rights/editorial or release authorization.
+- Updated consolidated project status, priority tracker, README and integrity manifest; latest integrated CI pending. Main preserved.
+
 # Phase 14D — narration-driven motion and precision editing (2026-11-24)
 
 - Added hash-bound three-shot narration input contract, exact script token coverage, PCM frame rounding and fail-closed checks; English/Hindi input declarations supported, actual licensed voice and word alignment not demonstrated.

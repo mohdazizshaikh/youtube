@@ -1,3 +1,18 @@
+# Phase 14C — long-form technical rough cut (2026-11-24)
+
+- Added original eight-chapter source-linked 932-word English draft, 24 progressive board beats, native 1080p/30fps 375.8s H.264/AAC render, chapter timestamps and scene transcript, plus draft thumbnail. Full decode passed; 62.23s isolated host benchmark.
+- Reused Phase 14B mastering on the complete film: -20.93 to -16.74 LUFS, final -1.40 dBTP; numeric gate and full decode passed, listening review pending.
+- Added 12 portable tests (all local pass) and synced the three code/plan/test files. Updated project status, priority tracker and README; PR #7 remains draft, main Phase 13. Full local checkout DNS-blocked; latest integrated CI and release manifest refresh pending.
+- No natural bilingual voice, word-level alignment, continuous cinematic motion, independent editorial signoff, Windows owner acceptance or real YouTube integration claimed. No upload authorization.
+
+# Phase 14B — mastering and captions (2026-11-24)
+
+- Added hash-bound numerical mastering and reviewed-word ASS generation; 12 isolated tests passed, synthetic bilingual 1080p caption fixture decoded; CI run 45445134977 passed. No acoustic alignment or voice quality claim.
+
+# Phase 14A — creative preview (2026-11-24)
+
+- Four-scene animated synthetic SHA-256 technical preview, bilingual draft scripts, measured audio quality and four portable checks. CI run 45438729656 passed. No production acceptance.
+
 # Phase 13 — production readiness candidate (2026-11-24)
 
 - Added private pilot composer-to-review workflow with staged hash-checked inputs, fresh technical audit, persistent queue, catalog and incomplete-run marker.

@@ -1,3 +1,11 @@
+# ViralOS — Phase 14S bilingual shot review batch
+
+Actual 48-shot parallel extraction and source-matched decoded-frame validation across both synthetic full films: 21,038 frames, 192 scoped verified operations, 48 midpoint PNGs and task-bound receipts. Static local index and non-destructive Hindi shot recovery verified. All 48 human tasks remain OPEN, including 42 motion flags. 10 new/185 combined local tests passed. Intermediate CI passed; latest manifest CI pending. No new creative motion, real speech, human acceptance or publication authority. Main stays Phase 13.
+
+See [project status](docs/PROJECT_STATUS.md), [Phase 14S priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE14S.md) and [owner acceptance checklist](docs/OWNER_ACCEPTANCE_2026-11-25_PHASE14J.md).
+
+---
+
 # ViralOS — Phase 14R native chapter motion and render checkpoints
 
 Four native 1080p/30fps English/Hindi chapter 3/4 previews rendered, 12 shot clips and two completed-shot resume exercises. Fresh decode and numeric audio passed all four; chapter 3 freeze interval coverage 96.4485%/96.6438% (prior 100% each), all six flags remain. Chapter 4 zero before/after. Original full-film 42 motion flags remain open; 48 pinned editorial tasks generated. 19 new/175 combined local tests passed. Phase 14Q CI passed. Natural speech, real alignment, continuous cinematic motion, human acceptance and publication authority remain pending. Main stays Phase 13.

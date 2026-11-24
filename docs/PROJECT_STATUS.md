@@ -21,6 +21,8 @@ Owner-only, offline-first production of one genuinely professional, original bil
 
 - [Phase 14G](PRIORITY_TRACKER_2026-11-24_PHASE14G.md): complete synthetic captioned review film, 373.633s/1080p/30fps, 932 artificial word cues, 108px strip, preserved AAC payload hash and fresh mastering audit passed; 11 local tests passed. Phase 14F CI 45457839998 succeeded. Actual alignment, voice, visual overlap corrections and queue integration remain open.
 
+- [Phase 14H](PRIORITY_TRACKER_2026-11-25_PHASE14H.md): full V6 visual recomposition with separate motion lane/captions, 373.633s native Full HD/30fps, 11209 frames; original AAC payload preserved and fresh mastering gate passed. Separate versioned editorial workspace/API tested against actual V5/V6, time-coded revisions persisted; browser navigation blocked. Synthetic 28-word benchmark 30ms median/p95, not acoustic alignment. 17 local tests passed. Phase 14G CI run 45459133731 passed.
+
 ## Decision log
 
 Retain one technology subject to make the pilot iterations comparable. Use original programmatic visuals and locally generated placeholder audio only. New phase work stays on the draft review branch; no production database migration. Local git checkout remains DNS-blocked; standalone checks cannot substitute for integrated regression, package manifest refresh and review. New docs are versioned in Git, not a replacement for prior checkpoint history. No separate accessible ChatGPT Space project page was found.
@@ -42,3 +44,5 @@ Phase 14D repair verified: [CI run 45450166899](https://github.com/mohdazizshaik
 Phase 14F continuation: global caption compiler and synthetic fixture now implemented and locally tested. Next complete full-film synthetic review burn-in, review handoff, safe visual indicators, and actual owner-licensed bilingual audio/CTC benchmark. Current work remains a technical review branch, not release-ready. Phase 14F integrated CI and package review pending; full local Git checkout DNS blocked.
 
 Phase 14G: full synthetic captioned render and fresh audit passed; existing legacy review schema inspected but not bypassed. Next implement explicit safe review adapter, text-safe motion and actual licensed voice/alignment. Latest integrated CI pending after manifest refresh; local full checkout DNS blocked; main preserved.
+
+Phase 14H: three workstreams executed in one increment. Source focus-marker overlap removed via separate progress lane, versioned private editorial workspace and declared reference/candidate benchmark implemented. Next prioritize licensed bilingual speech, real model inference and independent word annotations, differentiated visual design and final packaging, actual owner browser/Windows and editorial review. Local full Git checkout DNS blocked from previous increments; latest integrated CI pending; main preserved. No production release or upload authority.

@@ -1,3 +1,10 @@
+# Phase 14R — native chapter motion, render checkpoints and editorial tasks (2026-11-25)
+
+- Verified Phase 14Q CI run 45491752092 succeeded.
+- Rendered native 1080p/30fps English/Hindi chapter 3/4 previews, exact hex digest reveal and 256-bit comparison. Four fresh decode/numeric audio passes; excerpt audio re-encoded, captions omitted. Chapter 3 detector coverage modestly reduced, all six targeted flags remain. Chapter 4 zero before/after. No full-film replacement, continuous cinematic motion or real speech claim.
+- Added separate silent-shot encoding, pinned run identity and fresh checkpoint decode; two actual first-then-all resume exercises reused completed shots. Reject mismatched and partial checkpoints. No mid-frame recovery or owner filesystem acceptance.
+- Added pinned 48-task editorial backlog preserving all 42 original motion review flags. 19 new/175 combined local tests passed; initial/final renderer and other source/test blobs matched. Updated project status, tracker and manifest; latest CI pending. Main preserved, release blocked.
+
 # Phase 14Q — fresh bilingual QC, packet integrity and media recovery (2026-11-25)
 
 - Verified Phase 14P CI run 45489348083 succeeded.

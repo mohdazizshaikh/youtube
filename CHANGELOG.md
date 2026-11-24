@@ -1,3 +1,11 @@
+# Phase 14K — bilingual review workspace, recovery and explicit owner retiming (2026-11-25)
+
+- Verified Phase 14J CI run 45479373876 succeeded.
+- Added versioned bilingual private workspace, exact pinned media/metadata/thumbnail inventory, two parallel fresh technical audits, local-only review UI/API and shared frame-specific revision ledger. Actual media-byte retrieval and two automated language-specific notes tested; stale revision rejected, no approval route. Real browser playback remains pending.
+- Added fixed-inventory pinned snapshot, SQLite backup and fresh-directory restore; restored actual 12-file synthetic workspace, revision 2 and note equality. Tamper and overwrite rejection tests passed. No physical owner recovery claim.
+- Added explicit English owner chapter-to-shot PCM splitter and exact token/sample boundary contract; 24-shot fixture tested, no real speech, actual alignment, captions or reassembly. Local Piper not available.
+- 16 new and 53 combined local tests passed; three Git blobs matched. Updated project status, tracker, README and integrity manifest; latest integrated CI pending. Main preserved; synthetic release blocked.
+
 # Phase 14J — bilingual film review, owner intake and acceptance handoff (2026-11-25)
 
 - Verified Phase 14I integrated CI run 45464050233 succeeded.

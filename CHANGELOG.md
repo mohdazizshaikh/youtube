@@ -1,3 +1,9 @@
+# Phase 14D — narration-driven motion and precision editing (2026-11-24)
+
+- Added hash-bound three-shot narration input contract, exact script token coverage, PCM frame rounding and fail-closed checks; English/Hindi input declarations supported, actual licensed voice and word alignment not demonstrated.
+- Rendered chapter-one 42.8s, 1920x1080/30fps, 1284 frames with original moving focus graphics and fades; both stream durations matched and full decode passed. Six sampled frames inspected. 14.07s isolated host benchmark; no owner Windows measurement.
+- Reused mastering: -16.72 LUFS/-1.45 dBTP final numeric gate passed. 14/14 new, 38/38 combined local tests passed. Added reproducible fixture and tracker. No release authority; complete cinematic long-form and integrated regression/manifest refresh pending.
+
 # Phase 14C — long-form technical rough cut (2026-11-24)
 
 - Added original eight-chapter source-linked 932-word English draft, 24 progressive board beats, native 1080p/30fps 375.8s H.264/AAC render, chapter timestamps and scene transcript, plus draft thumbnail. Full decode passed; 62.23s isolated host benchmark.

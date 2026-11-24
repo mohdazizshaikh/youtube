@@ -1,3 +1,11 @@
+# ViralOS — Phase 14G full captioned synthetic review checkpoint
+
+Complete 373.633s 1080p/30fps motion film with 932 artificial word cues across 24 shots, 108px caption strip, persistent warning and preserved encoded AAC payload. Fresh decode and numeric mastering (-16.73 LUFS/-1.39 dBTP) passed; 11 local tests passed. Phase 14F integrated CI passed; latest Phase 14G CI pending. No real word alignment, natural voice, queue registration or publication authority. Main remains Phase 13.
+
+See [project status](docs/PROJECT_STATUS.md) and [Phase 14G tracker](docs/PRIORITY_TRACKER_2026-11-24_PHASE14G.md) for reproducible commands, evidence and pending work.
+
+---
+
 # ViralOS — Phase 14F global caption timeline checkpoint
 
 Full-film 24-shot, 932-word synthetic timing fixture and hash-bound caption compiler tested. Exact assembled PCM/shot-byte and padding correspondence verified; 21 local tests passed. Dedicated 108px caption strip demonstrated on a 12-second 1080p/30fps sample. No real acoustic alignment, natural bilingual voice or release authority. Phase 14E integrated CI passed; main remains Phase 13.

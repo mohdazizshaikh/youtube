@@ -33,6 +33,8 @@ Owner-only, offline-first production of one genuinely professional, original bil
 
 - [Phase 14M](PRIORITY_TRACKER_2026-11-25_PHASE14M.md): Hindi owner-path 72.8s/2184-frame artificial-tone render decoded; numeric audio gate failed. Bilingual declared reviewed timing compiler tested, 772 artificial Hindi word cues and 6-second overlay decoded; Linux dependency preflight detected RAQM/ASS/encoders, no Piper. 19 new/88 combined local tests passed. Phase 14L CI 45482666390 succeeded.
 
+- [Phase 14N](PRIORITY_TRACKER_2026-11-25_PHASE14N.md): full Hindi artificial caption fixture 72.8s/2184 frames/772 cues, exact AAC payload preserved, decode pass/numeric audio fail. Fresh existing bilingual long-form scans passed numeric mastering and decode, with static/freeze review flags. Pinned readiness reports deny acceptance. 20 new/108 combined tests passed. Phase 14M CI 45483722897 succeeded.
+
 ## Decision log
 
 Retain one technology subject to make the pilot iterations comparable. Use original programmatic visuals and locally generated placeholder audio only. New phase work stays on the draft review branch; no production database migration. Local git checkout remains DNS-blocked; standalone checks cannot substitute for integrated regression, package manifest refresh and review. New docs are versioned in Git, not a replacement for prior checkpoint history. No separate accessible ChatGPT Space project page was found.
@@ -72,3 +74,7 @@ English retimed owner narration assembly and explicit local voice runtime adapte
 ## Latest checkpoint and open gates — Phase 14M
 
 Both owner narration assembly paths are fixture-tested. Declared reviewed timing compiler and read-only dependency preflight implemented. Actual licensed voice, real acoustic alignment and independent annotation, full-film caption integration, semantic cinematic motion, independent native/editorial review, actual Windows/browser/restore and separately authorized private YouTube remain open. No new production audio or human acceptance. Warning/progress lane spacing requires refinement. Latest integrated CI pending after manifest refresh; full local checkout previously DNS-blocked, not re-tested. Main preserved, no release authority. See [Phase 14M tracker](PRIORITY_TRACKER_2026-11-25_PHASE14M.md).
+
+## Latest checkpoint and open gates — Phase 14N
+
+Integrated bilingual caption path implemented and Hindi artificial fixture fully rendered; English contract tested only. Signal QC and readiness reporting executed on both existing full-length synthetic films; static-board flags require creative review. Actual licensed bilingual speech, real acoustic inference, independent annotations, semantic motion, actual owner film reassembly and real captions, native/editorial review, physical Windows/browser/restore and authorized private upload remain open. Latest integrated CI pending after manifest refresh; local checkout previously DNS-blocked, not re-tested. Main preserved; no release authority. See [Phase 14N tracker](PRIORITY_TRACKER_2026-11-25_PHASE14N.md).

@@ -1,3 +1,10 @@
+# Phase 14L — English owner narration assembly and local voice runtime (2026-11-25)
+
+- Verified Phase 14K CI run 45481721345 succeeded.
+- Added pinned retime/shot/script/WAV validation and byte-exact assembled PCM verification; two parallel encoders rendered 24.8s/744-frame artificial-tone fixture with 24 shots and full decode. Numeric audio gate failed; no mastering or word captions claimed. Real narration and continuous semantic motion remain pending.
+- Added explicit opt-in local Piper adapter with executable/model/config/script hashes, rights declarations, timeout and PCM normalization path. Contract tests passed; no real model execution or voice certification, no automatic downloads.
+- 16 new/69 combined local tests passed; all three new Git blobs matched local bytes. Updated project status, tracker and integrity manifest; latest CI pending. Main preserved; release blocked.
+
 # Phase 14K — bilingual review workspace, recovery and explicit owner retiming (2026-11-25)
 
 - Verified Phase 14J CI run 45479373876 succeeded.

@@ -1,3 +1,11 @@
+# ViralOS — Phase 14R native chapter motion and render checkpoints
+
+Four native 1080p/30fps English/Hindi chapter 3/4 previews rendered, 12 shot clips and two completed-shot resume exercises. Fresh decode and numeric audio passed all four; chapter 3 freeze interval coverage 96.4485%/96.6438% (prior 100% each), all six flags remain. Chapter 4 zero before/after. Original full-film 42 motion flags remain open; 48 pinned editorial tasks generated. 19 new/175 combined local tests passed. Phase 14Q CI passed. Natural speech, real alignment, continuous cinematic motion, human acceptance and publication authority remain pending. Main stays Phase 13.
+
+See [project status](docs/PROJECT_STATUS.md), [Phase 14R priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE14R.md) and [owner acceptance checklist](docs/OWNER_ACCEPTANCE_2026-11-25_PHASE14J.md).
+
+---
+
 # ViralOS — Phase 14Q media review and packet integrity checkpoint
 
 Fresh bilingual semantic film scans passed decoding and numeric audio; freeze detector coverage 85.7614% English / 90.294% Hindi, 21 of 24 motion-expected shots flagged in each language. Exact AAC packet signatures matched source (17516/15359 packets). Resumable pinned media staging, QC and handoff executed; deliberately damaged/missing artifacts reconstructed in new folder without changing old lock. 13 new/156 combined local tests passed. Phase 14P CI passed. No new animation, licensed speech, real alignment, human acceptance or publication authority. Main stays Phase 13.

@@ -1,3 +1,11 @@
+# Phase 14Q — fresh bilingual QC, packet integrity and media recovery (2026-11-25)
+
+- Verified Phase 14P CI run 45489348083 succeeded.
+- Added pinned media staging and parallel fresh QC/scene/handoff stages. Actual eight staged artifacts reused; six fresh reports generated. Both full semantic films decoded and numeric audio passed. Freeze coverage 9613/11209 English frames and 8875/9829 Hindi frames; 21/24 motion-expected shots flagged each. No creative acceptance or new animation.
+- Compared exact compressed packet hashes, reported integer timestamps/durations and exposed side data. Source and final audio signatures matched 17516/15359 packets. Semantic synchronization remains unverified.
+- Rebound draft metadata to new films; actual deliberately damaged English video and missing Hindi thumbnail reconstructed from trusted pinned inputs in fresh folder; original interrupted files/lock unchanged. Not mid-render recovery or actual owner data restore.
+- 13 new/156 combined tests passed; both local/Git blobs matched. Updated project status, tracker and manifest; latest integrated CI pending. Main preserved, release blocked.
+
 # Phase 14P — bilingual semantic films, variable scene QC and recovery (2026-11-25)
 
 - Verified Phase 14O CI run 45487497752 succeeded.

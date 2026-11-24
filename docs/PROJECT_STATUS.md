@@ -35,6 +35,8 @@ Owner-only, offline-first production of one genuinely professional, original bil
 
 - [Phase 14N](PRIORITY_TRACKER_2026-11-25_PHASE14N.md): full Hindi artificial caption fixture 72.8s/2184 frames/772 cues, exact AAC payload preserved, decode pass/numeric audio fail. Fresh existing bilingual long-form scans passed numeric mastering and decode, with static/freeze review flags. Pinned readiness reports deny acceptance. 20 new/108 combined tests passed. Phase 14M CI 45483722897 succeeded.
 
+- [Phase 14O](PRIORITY_TRACKER_2026-11-25_PHASE14O.md): English 42.733s/1282-frame three-shot semantic motion prototype, raw peak gate failed then corrected master passed (-16.30 LUFS/-1.44 dBTP). Scene-aware QC mapped existing detector intervals to 48 declared static shots, flags retained. Parallel fixed report stages and exact-byte resume verified. 18 new/126 combined local tests passed. Phase 14N CI 45484729596 succeeded.
+
 ## Decision log
 
 Retain one technology subject to make the pilot iterations comparable. Use original programmatic visuals and locally generated placeholder audio only. New phase work stays on the draft review branch; no production database migration. Local git checkout remains DNS-blocked; standalone checks cannot substitute for integrated regression, package manifest refresh and review. New docs are versioned in Git, not a replacement for prior checkpoint history. No separate accessible ChatGPT Space project page was found.
@@ -78,3 +80,7 @@ Both owner narration assembly paths are fixture-tested. Declared reviewed timing
 ## Latest checkpoint and open gates — Phase 14N
 
 Integrated bilingual caption path implemented and Hindi artificial fixture fully rendered; English contract tested only. Signal QC and readiness reporting executed on both existing full-length synthetic films; static-board flags require creative review. Actual licensed bilingual speech, real acoustic inference, independent annotations, semantic motion, actual owner film reassembly and real captions, native/editorial review, physical Windows/browser/restore and authorized private upload remain open. Latest integrated CI pending after manifest refresh; local checkout previously DNS-blocked, not re-tested. Main preserved; no release authority. See [Phase 14N tracker](PRIORITY_TRACKER_2026-11-25_PHASE14N.md).
+
+## Latest checkpoint and open gates — Phase 14O
+
+Semantic chapter-one animation, shot-aware QC and resumable bilingual review report stages implemented. Full-film English/Hindi semantic animation, actual licensed speech, real acoustic inference, independent annotations, genuine captions, integrated real media orchestration, human editorial review, physical Windows/browser/restore and authorized private upload remain open. Static review flags remain; no semantic acceptance. Latest integrated CI pending after manifest refresh; local checkout previously DNS-blocked, not re-tested. Main preserved; no release authority. See [Phase 14O tracker](PRIORITY_TRACKER_2026-11-25_PHASE14O.md).

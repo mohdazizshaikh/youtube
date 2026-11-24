@@ -1,3 +1,10 @@
+# Phase 14I — Hindi localization, owner WAV intake and bilingual packaging (2026-11-25)
+
+- Verified Phase 14H integrated CI run 45462466461 passed.
+- Added original 772-word Hindi draft, 24 hash-bound narration segments, actual local synthetic Hindi PCM timeline (327.633s) and 24 shaped 1080p boards. Chapter-one 43.6s/1308-frame preview decoded. Full Hindi video, mastering, native review and genuine alignment pending.
+- Added owner WAV intake and 24-script request kit with deliberately invalid placeholder manifest; no actual licensed speech or model certification. Added two original 1280x720 thumbnail concepts based on computed 125-bit example and draft English V6/Hindi metadata. Hindi video/chapter binding intentionally unset.
+- 18 isolated tests passed; four local/Git source blobs matched. Updated project status, priority tracker, README and integrity manifest; latest CI pending. Main preserved and no upload authority.
+
 # Phase 14H — parallel editorial studio, visual polish and alignment benchmark (2026-11-25)
 
 - Verified Phase 14G integrated CI run 45459133731 passed.

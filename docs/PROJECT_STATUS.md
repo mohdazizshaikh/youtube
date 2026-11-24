@@ -1,0 +1,26 @@
+# ViralOS project status — 24 November 2026
+
+Canonical branch under review: `phase14/creative-director-pilot`, [PR #7](https://github.com/mohdazizshaikh/youtube/pull/7). Main remains Phase 13 commit e01f1b7e6e40f61cd2ed3553b0daa923a7a04cc5. Active repository only: mohdazizshaikh/youtube. Do not access the old suspended account.
+
+## Mission and release policy
+
+Owner-only, offline-first production of one genuinely professional, original bilingual educational film before expansion across 12 domains. Content quality over feature count. Synthetic previews, green CI, declarations and a valid video container are not editorial acceptance. No automatic external model downloads, publication or owner OAuth operations. Existing private-review and owner-authorized export gates remain authoritative.
+
+## Checkpoint index
+
+- [Phase 13 installation and pilot](PHASE13_DEPLOYMENT_AND_PILOT_2026-11-24.md) and [tracker](PRIORITY_TRACKER_2026-11-24_PHASE13.md): assisted Windows workflow, private review queue; physical owner PC and authorized private upload unverified.
+- [Phase 14A](PHASE14_CREATIVE_DIRECTOR_AND_TRACKER_2026-11-24.md): 33.5s four-scene 800x450 animated synthetic draft; CI run 45438729656 passed.
+- [Phase 14B](PHASE14B_QUALITY_TRACKER_2026-11-24.md): numeric mastering pass, reviewed timing contract and synthetic Full-HD caption fixture; CI run 45445134977 passed for commit 476d3f7cc7566a153f7b5be41ac899d12f125453.
+- Phase 14C: original 932-word eight-chapter SHA-256 English draft and Full-HD progressive-board renderer; 12 isolated tests passed; code and plan synced. See [current tracker](PRIORITY_TRACKER_2026-11-24_PHASE14C.md) for actual measured media evidence and limitations.
+
+## Decision log
+
+Retain one technology subject to make the pilot iterations comparable. Use original programmatic visuals and locally generated placeholder audio only. New phase work stays on the draft review branch; no production database migration. Local git checkout remains DNS-blocked; standalone checks cannot substitute for integrated regression, package manifest refresh and review. New docs are versioned in Git, not a replacement for prior checkpoint history. No separate accessible ChatGPT Space project page was found.
+
+## Unclosed dependencies
+
+Owner-held 13–20 November missing source backup; licensed English/Hindi models or recordings; native speaker audition and true word alignment; actual Windows setup/restore/browser playback; complete factual/rights/editorial signoff; approved real private YouTube export and authenticated Analytics; actual cost/latency evidence. Do not claim production-ready, natural dubbing, 12 autonomous directors, real revenue or GPU generation until proved.
+
+## Working order
+
+Complete the current long-form rough cut and technical mastering audit, then improve visual timing and natural bilingual voice. Integrate reviewed assets into the existing Phase 13 queue, close Windows and editorial acceptance, and only then seek supervised private upload. Keep every new checkpoint, measured report, and blocker in the tracker and changelog; preserve original history. No public publishing authority.

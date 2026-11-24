@@ -1,4 +1,4 @@
-# ViralOS project status — 24 November 2026
+# ViralOS project status — 25 November 2026
 
 Canonical branch under review: `phase14/creative-director-pilot`, [PR #7](https://github.com/mohdazizshaikh/youtube/pull/7). Main remains Phase 13 commit e01f1b7e6e40f61cd2ed3553b0daa923a7a04cc5. Active repository only: mohdazizshaikh/youtube. Do not access the old suspended account.
 
@@ -27,6 +27,8 @@ Owner-only, offline-first production of one genuinely professional, original bil
 
 - [Phase 14J](PRIORITY_TRACKER_2026-11-25_PHASE14J.md): complete 327.633s Hindi synthetic captioned review film, 9829 frames, 772 artificial word cues, full decode and fresh mastering gate passed (-16.85 LUFS/-1.38 dBTP). English eight-chapter WAV owner intake, bilingual metadata V2 and [owner acceptance checklist](OWNER_ACCEPTANCE_2026-11-25_PHASE14J.md) implemented. 19 new/37 combined local tests passed. Phase 14I CI 45464050233 passed. Real voice, timing, Hindi review adapter, owner acceptance and release remain open.
 
+- [Phase 14K](PRIORITY_TRACKER_2026-11-25_PHASE14K.md): unified bilingual review workspace; fresh parallel media audits and actual ASGI video bytes, two automated notes, stale revision rejection and 12-file backup/restore with revision 2 verified. English manual-boundary PCM retiming fixture tested; no actual owner speech or alignment. 16 new/53 combined local tests passed. Phase 14J CI 45479373876 succeeded.
+
 ## Decision log
 
 Retain one technology subject to make the pilot iterations comparable. Use original programmatic visuals and locally generated placeholder audio only. New phase work stays on the draft review branch; no production database migration. Local git checkout remains DNS-blocked; standalone checks cannot substitute for integrated regression, package manifest refresh and review. New docs are versioned in Git, not a replacement for prior checkpoint history. No separate accessible ChatGPT Space project page was found.
@@ -54,3 +56,7 @@ Phase 14H: three workstreams executed in one increment. Source focus-marker over
 Phase 14I: parallel batch of Hindi adaptation, owner recording intake and bilingual packaging executed. Next full localized video and mastering, actual licensed bilingual voice, real alignment and independent reviews; real Windows/browser and authorized account acceptance remain external blockers. English V6 remains synthetic. Local full checkout previously DNS-blocked, current integrated CI pending; main preserved. No release authority.
 
 Phase 14J: bilingual synthetic full-film technical drafts now exist; prioritize real owner speech and acoustic alignment, differentiated visual storytelling, Hindi/bilingual editorial adapter and physical acceptance. Full local checkout DNS failure reproduced; latest integrated CI pending after manifest refresh. Main remains Phase 13; no upload or release authority.
+
+## Latest checkpoint and open gates — Phase 14K
+
+Both synthetic films now share a versioned private review workspace with actual media and revision persistence tested, and isolated backup/restore verified. Explicit English owner chapter retiming is implemented but tested only with artificial PCM. Natural licensed bilingual voices, actual CTC inference and independently annotated references, real narration film assembly, differentiated motion, native editorial review, actual browser/Windows acceptance, owner production restore, authorized private YouTube and historical backup recovery remain open. Latest integrated CI pending; full local checkout previously DNS-blocked. Main preserved and release blocked. Latest detailed tracker: [Phase 14K](PRIORITY_TRACKER_2026-11-25_PHASE14K.md).

@@ -1,3 +1,11 @@
+# ViralOS — Phase 14H parallel editorial studio checkpoint
+
+Full 373.633s V6 synthetic review film: 24 shots with separate board, motion lane and captions, fresh decode/numeric mastering and copied AAC payload verified. Versioned private editorial workspace with durable time-coded notes and actual media ASGI API tests; real browser blocked by environment. Word-boundary benchmark tested using artificial 30ms shifts, not real acoustic inference. 17 isolated tests passed. Phase 14G integrated CI passed; main remains Phase 13.
+
+See [project status](docs/PROJECT_STATUS.md) and [Phase 14H priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE14H.md). Natural bilingual voice, independent editorial acceptance and publication authority remain unavailable.
+
+---
+
 # ViralOS — Phase 14G full captioned synthetic review checkpoint
 
 Complete 373.633s 1080p/30fps motion film with 932 artificial word cues across 24 shots, 108px caption strip, persistent warning and preserved encoded AAC payload. Fresh decode and numeric mastering (-16.73 LUFS/-1.39 dBTP) passed; 11 local tests passed. Phase 14F integrated CI passed; latest Phase 14G CI pending. No real word alignment, natural voice, queue registration or publication authority. Main remains Phase 13.

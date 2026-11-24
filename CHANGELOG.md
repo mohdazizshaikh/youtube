@@ -1,3 +1,10 @@
+# Phase 14F — global word timeline and caption-safe sample (2026-11-24)
+
+- Verified Phase 14E CI run 45452478092 succeeded.
+- Added hash-bound 24-shot narration/word manifest intake and 932-word global synthetic ASS timeline; exact PCM assembly and padding verified. No acoustic alignment or genuine Hindi speech claim.
+- Added reproducible timing fixture and 21 passing isolated tests; 12s Full HD sample with separate 108px caption strip decoded; sampled frame inspected. Full-film burn-in and all-scene review pending.
+- Updated project status, priority tracker, README and integrity manifest. Main preserved; latest CI pending. No publication authority.
+
 # Phase 14E — complete motion-film assembly and integrated technical audit (2026-11-24)
 
 - Prior Phase 14D CI run 45450166899 passed including package integrity and Windows contracts.

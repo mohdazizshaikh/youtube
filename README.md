@@ -1,3 +1,11 @@
+# ViralOS — Phase 14K unified bilingual review and recovery checkpoint
+
+Both existing review films freshly decoded and measured in parallel: English V6 373.633s (-16.73 LUFS/-1.39 dBTP), Hindi 327.633s (-16.85 LUFS/-1.38 dBTP). New bilingual private workspace, actual ASGI media and note tests, 12-file pinned backup/restore with revision preservation, and explicit English owner chapter-to-shot retiming (fixture only). 16 new and 53 combined local tests passed. Phase 14J integrated CI passed. No real browser, natural speech, acoustic alignment, human acceptance or release authority. Main stays Phase 13.
+
+See [project status](docs/PROJECT_STATUS.md), [Phase 14K priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE14K.md) and [owner acceptance checklist](docs/OWNER_ACCEPTANCE_2026-11-25_PHASE14J.md).
+
+---
+
 # ViralOS — Phase 14J bilingual film review checkpoint
 
 Complete synthetic English V6 and Hindi review films: 373.633s and 327.633s, both Full HD/30fps, full decode and numeric mastering passed. Hindi 24 static boards and 772 artificial word cues, separate caption area. Bilingual metadata V2 binds Hindi mastered video and chapter times. English owner eight-chapter WAV intake and owner acceptance checklist added. 19 new and 37 combined local tests passed. Phase 14I integrated CI passed. Natural voices, real alignment, human/editorial acceptance and release authority remain unavailable. Main remains Phase 13.

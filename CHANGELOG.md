@@ -1,3 +1,11 @@
+# Phase 14J — bilingual film review, owner intake and acceptance handoff (2026-11-25)
+
+- Verified Phase 14I integrated CI run 45464050233 succeeded.
+- Restored 24 pinned Hindi boards; two parallel encoders produced 327.633s/9829-frame Full HD/30fps video with 772 artificial word cues and persistent warning. Full decode passed; 116.49s isolated render+audit. Eight chapter samples inspected. Static boards, not natural narration or acoustic alignment.
+- Hindi mastering first candidate passed (-16.85 LUFS/-1.38 dBTP); fresh final audit passed. Bilingual metadata V2 binds Hindi mastered SHA and eight timestamps, inherits English metadata. No publication authority.
+- Added English owner eight-chapter request/intake, intentionally incomplete manifest and owner acceptance checklist. Real recordings, shot segmentation, actual inference, native editorial review and physical Windows/browser acceptance remain open. 19 new and 37 combined local tests passed; source/test Git blobs matched.
+- Updated project status, tracker and integrity manifest; latest CI pending. Main preserved.
+
 # Phase 14I — Hindi localization, owner WAV intake and bilingual packaging (2026-11-25)
 
 - Verified Phase 14H integrated CI run 45462466461 passed.

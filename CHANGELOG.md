@@ -1,3 +1,9 @@
+# Phase 14G — full captioned synthetic review render (2026-11-24)
+
+- Verified Phase 14F CI run 45457839998 succeeded.
+- Added complete captioned review renderer with input receipt/hash checks, recomputed 932-word synthetic timeline, 108px separate caption strip and persistent timing warning. 373.633s, native 1080p/30fps, 11209 frames, full decode and fresh numeric audio gate passed; encoded AAC payload hash preserved. 46.18s isolated Linux render+audit, 11 isolated tests passed.
+- Inspected eight decoded chapter midpoints and Phase 13 review console contract. Focus marker collisions remain; no true alignment, licensed speech, legacy queue registration or publication authority. Updated project status, tracker and package manifest; latest integrated CI pending. Main preserved.
+
 # Phase 14F — global word timeline and caption-safe sample (2026-11-24)
 
 - Verified Phase 14E CI run 45452478092 succeeded.

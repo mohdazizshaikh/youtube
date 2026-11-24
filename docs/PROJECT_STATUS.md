@@ -45,6 +45,8 @@ Owner-only, offline-first production of one genuinely professional, original bil
 
 - [Phase 14S](PRIORITY_TRACKER_2026-11-25_PHASE14S.md): 48/48 silent source-matched review shots, 21038 decoded frames, 192 verified scoped operations, static index and non-destructive Hindi shot recovery. 10 new/185 combined local tests passed. All 48 human tasks remain open (42 motion flags). Intermediate CI 45495097669 succeeded.
 
+- [Phase 14T](PRIORITY_TRACKER_2026-11-25_PHASE14T.md): 48 review proxies, 192 scoped operations, revision intake, both exact full-film reassemblies (21038 decoded frames, 32875 AAC packets). 12 new tests passed on final verifier; 197 combined passed before optimization. Phase 14S final CI passed. All human tasks remain OPEN.
+
 ## Decision log
 
 Retain one technology subject to make the pilot iterations comparable. Use original programmatic visuals and locally generated placeholder audio only. New phase work stays on the draft review branch; no production database migration. Local git checkout remains DNS-blocked; standalone checks cannot substitute for integrated regression, package manifest refresh and review. New docs are versioned in Git, not a replacement for prior checkpoint history. No separate accessible ChatGPT Space project page was found.
@@ -108,3 +110,7 @@ Native chapter 3/4 motion and shot checkpoint resume implemented. Four excerpts 
 ## Latest checkpoint and open gates — Phase 14S
 
 All 48 existing full-film shot ranges extracted to lossless silent clips and exact decoded-frame sequences verified. 192 scoped operations completed (four per shot), not 192 independent features or closed human tasks. Static review index, midpoint images, private ZIP and non-destructive recovery exercised. All 42 motion flags and 48 human tasks remain open. No full-film reassembly, new motion or natural speech. Real licensed bilingual audio and alignment, scene revisions, browser-compatible playback, physical Windows/owner acceptance and authorized private upload remain pending. Intermediate CI passed; latest manifest CI pending. Main preserved; no publication authority. See [Phase 14S tracker](PRIORITY_TRACKER_2026-11-25_PHASE14S.md).
+
+## Latest checkpoint and open gates — Phase 14T
+
+Both full synthetic films reassembled from lossless shot checkpoints with exact decoded sequence and AAC packet signatures verified after streaming hash correction. 48 silent lower-resolution proxies, 192 scoped operations, offline review index and two automated revision notes verified. All 42 motion flags and 48 human tasks remain open. No actual creative replacement, real speech, independent timing, browser playback or owner review. Licensed bilingual voices and acoustic evidence, creative replacement-shot contract, physical Windows/restore and authorized private upload remain pending. Final CI pending after manifest refresh; previous local checkout DNS blocker not retested. Main preserved; no release authority. See [Phase 14T tracker](PRIORITY_TRACKER_2026-11-25_PHASE14T.md).

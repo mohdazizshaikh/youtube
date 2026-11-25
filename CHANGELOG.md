@@ -1,3 +1,8 @@
+# Phase 15T — bilingual chart motion (2026-11-26)
+
+- Added separate bilingual chart value-row highlighting; preserves data, plot and text pixels before encoding, equal-stage frame timing, copied parent AAC and caption bytes.
+- Reused all-frame 96x96 motion audit and original chart input verification, added independent paired receipt and tamper tests. New CI pending. No smooth transitions, numeric interpolation or inherited review authority.
+
 # Phase 15S — chart editorial transactions and CI consolidation (2026-11-26)
 
 - Recorded Phase 15P verified hosted CI (1379 Linux/819 hashes, 1246 Windows/67 skipped), Phase 15Q Windows 1276 passed/68 skipped. Q Linux/R pending at authoring.

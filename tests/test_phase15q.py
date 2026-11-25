@@ -177,6 +177,17 @@ def test_real_chart_pair(pair_inputs,tmp_path):
     assert ct.apply(*txargs)["completed"]
     assert ct.reconcile(*txargs)=={"hindi":"RECORDED","english":"RECORDED"}
     assert ct.apply(*txargs)["cross_database_atomic"] is False
+    from tools import chart_pair_motion as motion
+    motion_raw=c.json_bytes({"schema":motion.REQUEST,"chart_pair_sha256":pair_pin,
+                             "effect":"VALUE_ROW_HIGHLIGHT_V1"})
+    motion_dest=tmp_path/"chart-motion"
+    motion_args=(inputs,out,pair_pin,motion_raw,c.sha(motion_raw),motion_dest)
+    motion_report=motion.build(*motion_args)
+    motion_check=motion.verify(*motion_args,motion_report["motion_pair_sha256"])
+    assert motion_check["frames_compared"]=={"hindi":52,"english":52}
+    assert motion_check["fresh_media_audit"] and not motion_check["publication_eligible"]
+    (motion_dest/"english"/"captions.vtt").write_bytes(b"tamper")
+    with pytest.raises(ValueError):motion.verify(*motion_args,motion_report["motion_pair_sha256"])
     (snapshot/"english"/"payload"/"draft"/"draft.mp4").write_bytes(b"tamper")
     with pytest.raises(ValueError):snap.inspect(snapshot,saved["snapshot_sha256"],pair_pin)
     (root/"scene_01"/"source.bin").write_bytes(b"changed")

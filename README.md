@@ -1,3 +1,9 @@
+# ViralOS — Phase 15G: private bilingual dashboard and loudness QC
+
+Phase 15F verified CI: Linux 806 passed/771 hashes; Windows 689 passed/51 skipped. Phase 15G adds a read-only loopback bilingual comparison dashboard and FFmpeg loudness/true-peak measurement with bounded gain-only mastering. See [operator guide](docs/PHASE15G_EDITORIAL_AND_LOUDNESS_2026-11-26.md) and [priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE15.md). New CI pending; main preserved. No publication authorization.
+
+---
+
 # ViralOS — Phase 15F: native Hindi video derivative
 
 Phase 15E verified CI: Linux 761 passed/767 hashes; Windows 645 passed/50 skipped. Phase 15F adds explicit pinned-font native Hindi text-card MP4 rendering with a new review queue, preserved parent pair, and fresh derivative verification. See [operator guide](docs/PHASE15F_NATIVE_HINDI_DERIVATIVE_2026-11-26.md) and [priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE15.md). New CI pending; stable main preserved. Native reader review and actual voices still required.

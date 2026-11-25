@@ -1,3 +1,10 @@
+# Phase 15G — bilingual editorial dashboard and loudness QC (2026-11-26)
+
+- Recorded Phase 15F CI green: Linux 806 passed/771 hashes; Windows 689 passed/51 skipped.
+- Added token-protected read-only loopback comparison dashboard for original or native Hindi variant and English, pinned video playback, per-scene declarations and queue states.
+- Added FFmpeg input LUFS/true-peak/LRA measurement and bounded constant-gain mastering with output remeasurement and no timing change. No full mix certification or publication authority.
+- Added portable and real media regression cases; project tracking updated. New CI pending. Native derivative paired backup and combined submissions pending.
+
 # Phase 15F — native Hindi video derivative (2026-11-26)
 
 - Recorded Phase 15E hosted CI: Linux 761 passed/767 hashes; Windows 645 passed/50 skipped.

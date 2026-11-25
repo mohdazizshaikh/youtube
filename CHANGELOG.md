@@ -1,3 +1,9 @@
+# Phase 15P — bilingual data visualization (2026-11-26)
+
+- Recorded Phase 15N verified hosted CI and Phase 15O Windows result; Linux pending at authoring.
+- Added separately pinned source/data/request/fonts, signed BAR and numeric-X LINE previews, exact fixed-point display, shared bilingual geometry and deterministic PNG receipt verification.
+- Added regression contracts and real font render tests for both formats/chart kinds. Source truth/transcription, translation and actual visual acceptance remain unverified. MP4 chart integration and transitions pending. New CI pending.
+
 # Phase 15O — motion editorial handoff and recovery (2026-11-26)
 
 - Recorded verified Phase 15M CI and Phase 15N Windows CI; Phase 15N Linux pending at authoring.

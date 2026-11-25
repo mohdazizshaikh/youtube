@@ -1,3 +1,9 @@
+# ViralOS — Phase 15P: bilingual data visualization
+
+Phase 15N verified CI: Linux 1252 passed/810 hashes; Windows 1123 passed/63 skipped. Phase 15O Windows 1169 passed/63 skipped; Linux in progress at authoring. Phase 15P adds standalone pinned bilingual BAR/LINE previews with fixed-point values, numeric X geometry, signed zero-baseline bars, source pin and exact rerender verification. See [operator guide](docs/PHASE15P_BILINGUAL_DATA_VISUALIZATION_2026-11-26.md). New CI pending; no release authority.
+
+---
+
 # ViralOS — Phase 15O: motion editorial handoff and recovery
 
 Phase 15M verified CI: Linux 1209 passed/805 hashes; Windows 1080 passed/63 skipped. Phase 15N Windows 1123 passed/63 skipped; Linux in progress at authoring. Phase 15O adds independent pinned motion editorial handoff, explicit checklist evaluation and candidate/handoff snapshot restore. See [operator guide](docs/PHASE15O_MOTION_EDITORIAL_AND_RECOVERY_2026-11-26.md). New CI pending; stable main preserved. No publication authority.

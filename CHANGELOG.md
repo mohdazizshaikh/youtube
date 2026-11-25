@@ -1,3 +1,9 @@
+# Phase 15Z — paired mastered video candidate (2026-11-26)
+
+- Recorded Phase 15T full hosted CI and U/V/W/X Windows results; Linux and Y pending at authoring.
+- Added source-bound paired mastering-to-video derivatives, exact original PNG/caption/timing preservation, new queues, decoded AAC peak diagnostic, immutable paired audio/video receipts and fresh verification.
+- Added portable contract and real synthetic paired video integration tests. New CI pending; no combined chart/motion orchestration, owner acceptance or publishing.
+
 # Phase 15Y — paired narration mastering and CI warning correction (2026-11-26)
 
 - Recorded Phase 15V Windows result and investigated 50 Windows warnings; replaced deprecated Pillow getdata with exact byte-triplet test comparison (48 warnings targeted, runtime verification pending). Starlette dependency and intentional ZIP warning remain.

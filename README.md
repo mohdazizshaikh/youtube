@@ -1,3 +1,9 @@
+# ViralOS — Phase 15Z: paired mastered video candidate
+
+Phase 15T verified hosted CI: Linux 1547 passed/836 hashes; Windows 1413 passed/68 skipped. U/V/W/X Windows passed; Linux and Y pending at authoring. Phase 15Z adds separate paired mastered-narration MP4 derivatives from pinned original bilingual pilots. See [operator guide](docs/PHASE15Z_MASTERED_VIDEO_2026-11-26.md). New CI pending; no release authority.
+
+---
+
 # ViralOS — Phase 15Y: bilingual narration dynamics bundle
 
 Phase 15V Windows 1494 passed/68 skipped; T/U/V Linux running at authoring. Phase 15Y adds paired scene-frame-bound narration mastering using independent source pins and shared loudness targets, exact PCM reassembly and receipt verification. Corrected Pillow test deprecation without warning suppression. See [operator guide](docs/PHASE15Y_BILINGUAL_DYNAMICS_2026-11-26.md). New CI pending; no release authority.

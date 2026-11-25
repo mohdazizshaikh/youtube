@@ -49,3 +49,5 @@ Phase 15S VERIFIED_HOSTED_CI run 45716301815 (1503 Linux/832 hashes; 1369 Window
 Phase 15X narration dynamics candidate; T/U Windows passed, Linux and V/W pending at authoring. No owner acceptance.
 
 Phase 15Y paired audio dynamics candidate and Pillow warning correction; V Windows 1494 passed/68 skips; pending Linux gates and owner acceptance.
+
+Phase 15T VERIFIED_HOSTED_CI run 45716580945 (1547 Linux/836 hashes; 1413 Windows/68 skips). Phase 15Z mastered video candidate; U–Y full CI and owner acceptance pending.

@@ -153,6 +153,8 @@ def _diagram(d, box, kind):
 def render_board(spec: Storyboard, output: Path) -> dict:
     """Create a PNG and bind it to the complete source declaration; never overwrite."""
     spec=Storyboard.model_validate(spec.model_dump())
+    if any(k.startswith('mastered_pilot_') for k in spec.specialist_facts):
+        raise ValueError('mastered pilot declaration requires pinned parent renderer')
     if any(k.startswith('chart_pilot_') for k in spec.specialist_facts):
         raise ValueError('chart declaration requires explicit pinned chart renderer')
     if any(k.startswith('production_mix_') for k in spec.specialist_facts):

@@ -153,6 +153,8 @@ def _diagram(d, box, kind):
 def render_board(spec: Storyboard, output: Path) -> dict:
     """Create a PNG and bind it to the complete source declaration; never overwrite."""
     spec=Storyboard.model_validate(spec.model_dump())
+    if any(k.startswith('production_mix_') for k in spec.specialist_facts):
+        raise ValueError('production mix declaration requires pinned parent renderer')
     if any(k.startswith('native_hi_') for k in spec.specialist_facts):
         raise ValueError('native Hindi declaration requires explicit native renderer')
     w,h=(720,1280) if spec.format=='SHORT' else (1280,720)

@@ -1,3 +1,9 @@
+# Phase 15J — production mix derivative (2026-11-26)
+
+- Recorded Phase 15I verified hosted CI: Linux 999 passed/788 hashes; Windows 876 passed/57 skipped.
+- Added single-pilot static/ducked audio mix derivative, exact scene split, pinned parent visual reuse, unchanged captions/timing, independent review queue and fresh re-audit including decoded AAC diagnostics.
+- Added regression cases, operator guide and trackers; no combined bilingual mixed recovery or localized motion graphics yet. New CI pending. No production merge.
+
 # Phase 15I — dynamic ducking and review transaction recovery (2026-11-26)
 
 - Recorded Phase 15H verified CI: Linux 940 passed/783 hashes; Windows 819 passed/55 skipped.

@@ -5,7 +5,7 @@
 | Critical | Stopped-run integrity | Phase 14B Linux 414 passed and 744 hashes verified (run 45579392913); Windows initially failed; Phase 14C CI run 45640671172 green |
 | Critical | Resume integration | Phase 14C repairs malformed launcher tail; hosted parser passed; native Windows acceptance pending |
 | Critical | Historical 13–20 Nov source | Owner offline backup required; preserve archives |
-| Critical | Licensed Hindi/English natural narration | Phase 15 offline signal and bilingual diagnostics CI green; Phase 15B hosted CI green; Phase 15C hosted CI green; Phase 15D hosted CI green; Phase 15E hosted CI green; Phase 15F hosted CI green; Phase 15G hosted CI green; Phase 15H native recovery/review preflight/mix candidate; owner model/license, listening and genuine CPU timings required |
+| Critical | Licensed Hindi/English natural narration | Phase 15 offline signal and bilingual diagnostics CI green; Phase 15B hosted CI green; Phase 15C hosted CI green; Phase 15D hosted CI green; Phase 15E hosted CI green; Phase 15F hosted CI green; Phase 15G hosted CI green; Phase 15H hosted CI green; Phase 15I hosted CI green; Phase 15J mixed derivative candidate; owner model/license, listening and genuine CPU timings required |
 | Critical | Real CTC and bilingual film | Real acoustic models, reference timings, human-reviewed Hindi/English exports pending |
 | Critical | YouTube M3.2 | Authorized channel, supervised PRIVATE upload, Studio/Analytics verification absent |
 | Critical | Pilot disaster recovery | Phase 14B synthetic FFmpeg roundtrip passed on Linux; actual owner restore still pending |
@@ -16,4 +16,6 @@
 
 A test case is not a separate production feature; do not count unexecuted tests as completed tasks. No owner acceptance was performed. Existing Phase 13 tracker remains historical.
 
-Phase 15H hosted CI verified (45695488829); Phase 15I resumable independent review writes and ducking candidate, CI pending.
+Phase 15H hosted CI verified (45695488829); Phase 15I resumable independent review writes and ducking VERIFIED_HOSTED_CI run 45697364882.
+
+Phase 15J single-pilot mixed derivative candidate; Phase 15I verified hosted CI run 45697364882: Linux 999 passed/788 hashes; Windows 876 passed/57 skipped. No production merge.

@@ -1,3 +1,9 @@
+# ViralOS — Phase 15J: production audio mix derivative
+
+Phase 15I verified CI: Linux 999 passed/788 hashes; Windows 876 passed/57 skipped (run 45697364882). Phase 15J integrates static or dynamic ducked music into a separate pinned MP4 pilot with identical scene timings, boards and captions, a fresh queue, and decoded-audio QC. See [operator guide](docs/PHASE15J_PRODUCTION_MIX_PILOT_2026-11-26.md) and [priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE15.md). New CI pending; main preserved. No publication authority.
+
+---
+
 # ViralOS — Phase 15I: dynamic ducking and recoverable editorial transactions
 
 Phase 15H verified CI: Linux 940 passed/783 hashes; Windows 819 passed/55 skipped. Phase 15I adds immutable dual-review transaction planning/reconciliation and explicit resumable independent writes, plus bounded RMS-driven music ducking. See [operator guide](docs/PHASE15I_DUCKING_AND_REVIEW_TRANSACTION_2026-11-26.md) and [priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE15.md). New CI pending; main preserved. No atomic cross-database claim or publication authority.

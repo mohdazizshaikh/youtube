@@ -1,5 +1,5 @@
 """M2.4 real acoustic timing primitive, localization and rights regression tests."""
-import io, math, struct, wave, hashlib
+import io, math, struct, wave, hashlib, shutil
 from pathlib import Path
 from types import SimpleNamespace
 import pytest
@@ -131,6 +131,7 @@ def m24_project(client):
     return pid,plan
 
 
+@pytest.mark.skipif(not shutil.which('ffmpeg') or not shutil.which('ffprobe'), reason='real local audio normalization requires FFmpeg and ffprobe')
 def test_m24_owner_review_bridge_is_project_and_voice_bound(app_client):
     from app import db
     client=app_client

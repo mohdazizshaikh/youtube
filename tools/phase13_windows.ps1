@@ -53,10 +53,16 @@ try {
     $run=Join-Path $homeDir ('pilot-'+[guid]::NewGuid().ToString('N'))
     Run-Python -m tools.pilot_pipeline build --plan (Join-Path $inputDir 'plan.json') --assets (Join-Path $inputDir 'assets') --output $run
     Write-Host "Private pilot run: $run"
+    $receipt=Get-Content -LiteralPath (Join-Path $run 'run.json') -Raw | ConvertFrom-Json
+    $pin=[string]$receipt.manifest_sha256
+    Write-Host "Record this trusted new-run manifest SHA-256 separately: $pin"
   } else {
     $run=(Resolve-Path -LiteralPath (Read-Host 'Absolute path to an existing completed private pilot run')).Path
+    $pin=Read-Host 'Enter the independently recorded trusted manifest SHA-256 (not from the run being resumed)'
   }
   if ((Test-Path -LiteralPath (Join-Path $run 'INCOMPLETE')) -or -not (Test-Path -LiteralPath (Join-Path $run 'run.json'))) { throw 'Incomplete or missing pilot run' }
+  if ($pin -cnotmatch '^[0-9a-f]{64}$') { throw 'Trusted lowercase SHA-256 required' }
+  Run-Python -m tools.pilot_run_verify --run $run --manifest-sha256 $pin
   Write-Host 'Open http://127.0.0.1:8765/ after server starts. Ctrl+C stops it. Never expose via LAN/tunnel.'
   Run-Python -m tools.domain_review_web --db (Join-Path $run 'reviews.sqlite') --catalog (Join-Path $run 'catalog.json') --port 8765
 } finally { Pop-Location }

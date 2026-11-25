@@ -1,3 +1,195 @@
+# ViralOS — Phase 16D: mandatory workflow policy and pair audits
+
+Phase 16B verified CI: Linux 1909 passed/869 hashes; Windows 1770 passed/73 skipped. Phase 16C Windows 1821 passed/73 skipped, Linux pending at authoring. Phase 16D adds V2 plan-bound resource admission and original/mastered bilingual read-only audit adapters. See [operator guide](docs/PHASE16D_POLICY_AND_PAIR_ADAPTERS_2026-11-26.md) and [Phase 16 tracker](docs/PRIORITY_TRACKER_2026-11-26_PHASE16.md). New CI pending; no release authority.
+
+---
+
+# ViralOS — Phase 16C: pinned resource admission
+
+Phase 16A verified hosted CI: Linux 1869 passed/865 hashes; Windows 1731 passed/72 skipped; two warnings each. 16B CI running at authoring. 16C adds opt-in pinned CPU/RAM/disk and artifact-budget admission for local workflow steps, before intent and before dispatch. See [operator guide](docs/PHASE16C_RESOURCE_ADMISSION_2026-11-26.md) and [Phase 16 tracker](docs/PRIORITY_TRACKER_2026-11-26_PHASE16.md). New CI pending; no hard quotas or release authority.
+
+---
+
+# ViralOS — Phase 16B: typed restore and explicit workflow recovery
+
+Phase 15Z verified hosted CI: Linux 1816 passed/860 hashes, Windows 1679 passed/71 skipped; two warnings each. Phase 16A Windows 1731 passed/72 skipped; Linux pending at authoring. Phase 16B adds typed snapshot restore and independently pinned interrupted-job reconciliation, without repeating production writes. See [operator guide](docs/PHASE16B_WORKFLOW_RECOVERY_2026-11-26.md) and [Phase 16 tracker](docs/PRIORITY_TRACKER_2026-11-26_PHASE16.md). New CI pending; no release authority.
+
+---
+
+# ViralOS — Phase 16A: local production workflow foundation
+
+Phase 15U/V verified Linux 1587/1628 passed and Windows 1453/1494 passed. Phase 15Y Windows 1660 passed/70 skipped, warnings reduced 50 to 2. W–Z full CI pending at authoring. Phase 16A adds a bounded typed audit/backup DAG with explicit checkpointed execution and fresh prerequisite verification. See [operator guide](docs/PHASE16A_LOCAL_PRODUCTION_WORKFLOW_2026-11-26.md) and [Phase 16 tracker](docs/PRIORITY_TRACKER_2026-11-26_PHASE16.md). New CI pending; no release authority.
+
+---
+
+# ViralOS — Phase 15Z: paired mastered video candidate
+
+Phase 15T verified hosted CI: Linux 1547 passed/836 hashes; Windows 1413 passed/68 skipped. U/V/W/X Windows passed; Linux and Y pending at authoring. Phase 15Z adds separate paired mastered-narration MP4 derivatives from pinned original bilingual pilots. See [operator guide](docs/PHASE15Z_MASTERED_VIDEO_2026-11-26.md). New CI pending; no release authority.
+
+---
+
+# ViralOS — Phase 15Y: bilingual narration dynamics bundle
+
+Phase 15V Windows 1494 passed/68 skipped; T/U/V Linux running at authoring. Phase 15Y adds paired scene-frame-bound narration mastering using independent source pins and shared loudness targets, exact PCM reassembly and receipt verification. Corrected Pillow test deprecation without warning suppression. See [operator guide](docs/PHASE15Y_BILINGUAL_DYNAMICS_2026-11-26.md). New CI pending; no release authority.
+
+---
+
+# ViralOS — Phase 15X: bounded narration dynamics
+
+Phase 15S verified CI: Linux 1503 passed/832 hashes; Windows 1369 passed/68 skipped. T/U Windows 1413/1453 passed (68 skipped each); Linux and V/W pending at authoring. Phase 15X adds separate pinned offline compressor, bounded makeup gain, lookahead sample-peak limiter and true-peak remeasurement. See [operator guide](docs/PHASE15X_NARRATION_DYNAMICS_2026-11-26.md). New CI pending; no publication authority.
+
+---
+
+# ViralOS — Phase 15W: chart scene transitions
+
+Phase 15S verified CI: Linux 1503 passed/832 hashes; Windows 1369 passed/68 skipped. T/U/V CI pending at authoring. Phase 15W adds separate chart-pair fade-through-dark transitions with original audio/captions, all-frame 96x96 diagnostic and exact presentation timestamp grid checks. See [operator guide](docs/PHASE15W_CHART_TRANSITIONS_2026-11-26.md). New CI pending. No release authority.
+
+---
+
+# ViralOS — Phase 15V: chart-motion recovery
+
+Phase 15R verified CI: Linux 1458 passed/828 hashes; Windows 1324 passed/68 skipped. Phase 15S Windows 1369 passed/68 skipped; Linux and T/U pending at authoring. Phase 15V adds independently pinned chart-motion and editorial handoff snapshots and fresh restore. See [operator guide](docs/PHASE15V_CHART_MOTION_RECOVERY_2026-11-26.md). New CI pending; no release authority.
+
+---
+
+# ViralOS — Phase 15U: chart motion editorial handoff
+
+Phase 15Q verified hosted CI: Linux 1410 passed/823 hashes; Windows 1276 passed/68 skipped. Phase 15R Windows 1324 passed, Phase 15S Windows 1369 passed (68 skipped each); Linux pending at authoring. Phase 15U adds independent bilingual chart-motion review packets and explicit 13-check scene evaluation. See [operator guide](docs/PHASE15U_CHART_MOTION_EDITORIAL_2026-11-26.md). New CI pending; no publishing or merge.
+
+---
+
+# ViralOS — Phase 15T: bilingual chart value-row motion
+
+Phase 15P verified CI: Linux 1379 passed/819 hashes; Windows 1246 passed/67 skipped. Phase 15Q Windows 1276 passed/68 skipped; Q Linux/R/S full CI pending at authoring. Phase 15T adds separate paired value-row highlight motion candidates, all-frame reduced-resolution diagnostics and unchanged parent decoded audio/captions. See [operator guide](docs/PHASE15T_CHART_MOTION_2026-11-26.md). New CI pending; stable main preserved. No publishing.
+
+---
+
+# ViralOS — Phase 15S: source-verified chart editorial transactions
+
+Phase 15P verified CI: Linux 1379 passed/819 hashes; Windows 1246 passed/67 skipped. Phase 15Q Windows 1276 passed/68 skipped; Linux and 15R pending at authoring. Phase 15S adds distinct source-verified chart review transaction plans, explicit independent writes and resumable reconciliation. See [operator guide](docs/PHASE15S_CHART_TRANSACTIONS_2026-11-26.md). New CI pending; main preserved. No release authority.
+
+---
+
+# ViralOS — Phase 15R: chart recovery and editorial comparison
+
+Phase 15P Windows 1246 passed/67 skipped; Linux and Phase 15Q pending at authoring. Phase 15R adds paired chart snapshot/restore and a read-only chart editorial dashboard, with original inputs independently retained. See [operator guide](docs/PHASE15R_CHART_RECOVERY_AND_REVIEW_2026-11-26.md). New CI pending. Main preserved; no release authority.
+
+---
+
+# ViralOS — Phase 15Q: bilingual chart-to-video derivatives
+
+Phase 15O verified CI: Linux 1298 passed/815 hashes; Windows 1169 passed/63 skipped. Phase 15P Windows 1246 passed/67 skipped; Linux in progress at authoring. Phase 15Q adds separately pinned bilingual static chart pilot children preserving original narration, source declarations and timing with fresh editorial queues. See [operator guide](docs/PHASE15Q_CHART_VIDEO_2026-11-26.md). New CI pending; no release authority.
+
+---
+
+# ViralOS — Phase 15P: bilingual data visualization
+
+Phase 15N verified CI: Linux 1252 passed/810 hashes; Windows 1123 passed/63 skipped. Phase 15O Windows 1169 passed/63 skipped; Linux in progress at authoring. Phase 15P adds standalone pinned bilingual BAR/LINE previews with fixed-point values, numeric X geometry, signed zero-baseline bars, source pin and exact rerender verification. See [operator guide](docs/PHASE15P_BILINGUAL_DATA_VISUALIZATION_2026-11-26.md). New CI pending; no release authority.
+
+---
+
+# ViralOS — Phase 15O: motion editorial handoff and recovery
+
+Phase 15M verified CI: Linux 1209 passed/805 hashes; Windows 1080 passed/63 skipped. Phase 15N Windows 1123 passed/63 skipped; Linux in progress at authoring. Phase 15O adds independent pinned motion editorial handoff, explicit checklist evaluation and candidate/handoff snapshot restore. See [operator guide](docs/PHASE15O_MOTION_EDITORIAL_AND_RECOVERY_2026-11-26.md). New CI pending; stable main preserved. No publication authority.
+
+---
+
+# ViralOS — Phase 15N: native flow motion and mixed editorial transactions
+
+Phase 15M CI pending at authoring. Phase 15N adds a separate step-highlight motion preview with all-frame low-resolution comparison and parent audio equality, plus distinct mixed-review resumable transaction CLI. See [operator guide](docs/PHASE15N_MOTION_AND_MIXED_TRANSACTIONS_2026-11-26.md). New CI pending; main preserved. No publishing.
+
+---
+
+# ViralOS — Phase 15M: native flow MP4 and mixed editorial review
+
+Phase 15L verified CI: Linux 1156 passed/801 hashes; Windows 1028 passed/62 skipped. Phase 15M integrates pinned native Hindi flow diagrams into a separate native pilot and adds read-only mixed-production editorial dashboard. See [operator guide](docs/PHASE15M_NATIVE_FLOW_VIDEO_AND_MIX_REVIEW_2026-11-26.md) and [priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE15.md). New CI pending; main preserved. No release authority.
+
+---
+
+# ViralOS — Phase 15L: paired mixed recovery and native flow preview
+
+Phase 15K verified CI: Linux 1103 passed/796 hashes; Windows 977 passed/60 skipped. Phase 15L adds paired mixed-production snapshot/restore and a standalone pinned Devanagari three-step flow diagram preview. See [operator guide](docs/PHASE15L_MIX_RECOVERY_AND_NATIVE_FLOW_2026-11-26.md) and [priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE15.md). New CI pending; main preserved. No publication authorization.
+
+---
+
+# ViralOS — Phase 15K: paired mixed production and scene-sync correction
+
+Phase 15J CI had one Linux STATIC acoustic audit failure (1052 passed); Windows 928 passed/59 skipped. Phase 15K adds narrowly bounded periodic-lag ambiguity handling and paired mixed production build/verify. See [operator guide](docs/PHASE15K_PAIRED_MIX_AND_SYNC_2026-11-26.md) and [priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE15.md). New CI pending; do not merge until green. No publication authority.
+
+---
+
+# ViralOS — Phase 15J: production audio mix derivative
+
+Phase 15I verified CI: Linux 999 passed/788 hashes; Windows 876 passed/57 skipped (run 45697364882). Phase 15J integrates static or dynamic ducked music into a separate pinned MP4 pilot with identical scene timings, boards and captions, a fresh queue, and decoded-audio QC. See [operator guide](docs/PHASE15J_PRODUCTION_MIX_PILOT_2026-11-26.md) and [priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE15.md). New CI pending; main preserved. No publication authority.
+
+---
+
+# ViralOS — Phase 15I: dynamic ducking and recoverable editorial transactions
+
+Phase 15H verified CI: Linux 940 passed/783 hashes; Windows 819 passed/55 skipped. Phase 15I adds immutable dual-review transaction planning/reconciliation and explicit resumable independent writes, plus bounded RMS-driven music ducking. See [operator guide](docs/PHASE15I_DUCKING_AND_REVIEW_TRANSACTION_2026-11-26.md) and [priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE15.md). New CI pending; main preserved. No atomic cross-database claim or publication authority.
+
+---
+
+# ViralOS — Phase 15H: native pilot recovery, review preflight and audio mix
+
+Phase 15G verified CI: Linux 878 passed/777 hashes; Windows 759 passed/53 skipped. Phase 15H adds three-child native production snapshot/restore, dual editorial preflight (read-only), and pinned narration/music mixing with measured peak QC. See [operator guide](docs/PHASE15H_NATIVE_RECOVERY_AND_MIX_2026-11-26.md) and [priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE15.md). New CI pending; main preserved. No publication authorization.
+
+---
+
+# ViralOS — Phase 15G: private bilingual dashboard and loudness QC
+
+Phase 15F verified CI: Linux 806 passed/771 hashes; Windows 689 passed/51 skipped. Phase 15G adds a read-only loopback bilingual comparison dashboard and FFmpeg loudness/true-peak measurement with bounded gain-only mastering. See [operator guide](docs/PHASE15G_EDITORIAL_AND_LOUDNESS_2026-11-26.md) and [priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE15.md). New CI pending; main preserved. No publication authorization.
+
+---
+
+# ViralOS — Phase 15F: native Hindi video derivative
+
+Phase 15E verified CI: Linux 761 passed/767 hashes; Windows 645 passed/50 skipped. Phase 15F adds explicit pinned-font native Hindi text-card MP4 rendering with a new review queue, preserved parent pair, and fresh derivative verification. See [operator guide](docs/PHASE15F_NATIVE_HINDI_DERIVATIVE_2026-11-26.md) and [priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE15.md). New CI pending; stable main preserved. Native reader review and actual voices still required.
+
+---
+
+# ViralOS — Phase 15E: paired recovery and Hindi typography preview
+
+Phase 15D verified hosted CI: Linux 694 passed/761 hashes; Windows 581 passed/47 skipped. Added paired snapshot/restore and standalone pinned-font Devanagari RAQM preview; existing video storyboard remains ASCII-only. See [operator guide](docs/PHASE15E_VISUAL_PREFLIGHT_AND_PAIR_RECOVERY_2026-11-25.md) and [priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE15.md). New CI pending; stable main preserved; no publication authority.
+
+---
+
+# ViralOS — Phase 15D: automated bilingual pilot candidate
+
+Phase 15C CI verified: Linux 636 passed, 757 hashes; Windows 524 passed, 46 skipped. Phase 15D connects pinned bilingual audio and scene captions to two private CPU pilot renders and independent editorial queues, with pair-level fresh audits. Existing visual text renderer remains ASCII-only. See [operator guide](docs/PHASE15D_BILINGUAL_PILOT_2026-11-25.md) and [priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE15.md). New CI pending; stable main preserved. No publication authority.
+
+---
+
+# ViralOS — Phase 15C: synchronized bilingual audio candidate
+
+Phase 15B CI verified: Linux 563 passed, 753 hashes; Windows 451 passed, 46 skipped. Phase 15C creates two equal-duration PCM masters, padded scene WAVs, scene-level WebVTT and deterministic fresh-verifiable bundle. No actual speech/translation/word alignment verification or automatic video rendering. See [operator guide](docs/PHASE15C_BILINGUAL_COMPOSITION_2026-11-25.md) and [priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE15.md). New CI pending; main preserved.
+
+---
+
+# ViralOS — Phase 15B: offline narration preparation candidate
+
+Phase 14C/15 CI green: Linux 486 passed, 749 package hashes; Windows 374 passed, 46 skipped. Added gain-only PCM mastering, owner-declared pronunciation glossary coverage, and hash-bound bilingual scene timing proposal. No TTS, ASR, true-peak/LUFS mastering, automatic dubbing or publishing authority. See [operator guide](docs/PHASE15B_NARRATION_PREPARATION_2026-11-25.md) and [priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE15.md). New CI pending; stable main preserved.
+
+---
+
+# ViralOS — Phase 14C / 15: recovery stabilization and offline narration QC
+
+Phase 14B Linux: 414 tests passed and 744 package hashes verified; Windows failed. Phase 14C repairs launcher syntax and CI exit propagation. Phase 15 adds hash-bound offline Hindi/English narration diagnostics (not professional voice certification). See [implementation guide](docs/PHASE15_NARRATION_QC_2026-11-25.md), [recovery tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE14.md) and [Phase 15 tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE15.md). New CI pending; main preserved.
+
+---
+
+# ViralOS — Phase 14B: pilot recovery candidate
+
+Phase 14 Linux and Windows CI passed (run 45500025508). New bounded offline pilot snapshot and restore with separate trusted pins, fresh media audits and Windows resume preflight; no overwrite or publication authority. See [snapshot operator guide](docs/PHASE14B_PILOT_SNAPSHOT_RECOVERY_2026-11-25.md) and [priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE14.md). New CI and physical Windows acceptance pending.
+
+---
+
+# ViralOS — Phase 14: stopped pilot-run integrity candidate
+
+New read-only preflight checks pinned pilot artifacts, review packet/template/catalog and queue consistency; default mode re-runs the existing media audit. No publication authority or owner-machine acceptance. See [operator guide](docs/PHASE14_PILOT_RUN_INTEGRITY_2026-11-25.md) and [priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE14.md). Phase 13 launcher remains unchanged pending integration verification.
+
+---
+
 # ViralOS — Phase 13: production-readiness candidate
 
 Start with the [Windows setup and pilot guide](docs/PHASE13_DEPLOYMENT_AND_PILOT_2026-11-24.md). Assisted setup and pilot launch wrappers require trusted Python 3.12, FFmpeg and owner approval for dependency installation. One source-linked technical pilot is rendered and queued for review; no publishing permission. See [exit gates](docs/PRIORITY_TRACKER_2026-11-24_PHASE13.md).

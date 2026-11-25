@@ -61,7 +61,7 @@ def make_example(folder):
     return folder/'plan.json', assets
 
 
-def build(plan_path, assets, output):
+def build(plan_path, assets, output, *, board_renderer=None):
     plan_path, assets = Path(plan_path), Path(assets).resolve(strict=True)
     if plan_path.is_symlink() or not plan_path.is_file() or not assets.is_dir():
         raise ValueError('regular plan and assets directory required')
@@ -79,7 +79,8 @@ def build(plan_path, assets, output):
         with src.open('rb') as f: data=f.read(1_100_000)
         if digest(data)!=scene.narration_sha256: raise ValueError('narration changed during staging')
         with (staged/src.name).open('xb') as f: f.write(data)
-    draft=output/'draft'; manifest=compose(plan,staged,draft)
+    draft=output/'draft'
+    manifest=compose(plan,staged,draft) if board_renderer is None else compose(plan,staged,draft,board_renderer=board_renderer)
     pin=digest((draft/'manifest.json').read_bytes())
     packet=review_packet(draft,staged,pin)
     write_json(output/'review_packet.json',packet)

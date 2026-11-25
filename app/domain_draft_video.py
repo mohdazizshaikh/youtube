@@ -89,7 +89,7 @@ def _vtt(ms):
     return f'{h:02}:{m:02}:{s:02}.{ms:03}'
 
 
-def compose(plan: DraftPlan, assets: Path, output: Path) -> dict:
+def compose(plan: DraftPlan, assets: Path, output: Path, *, board_renderer=None) -> dict:
     """Compose a bounded 25 fps draft, with exact PCM/frame boundaries and VTT.
     Never overwrites a directory. Failed renders remove their incomplete outputs.
     """
@@ -110,7 +110,9 @@ def compose(plan: DraftPlan, assets: Path, output: Path) -> dict:
         cmd=[ffmpeg,'-nostdin','-hide_banner','-loglevel','error','-n']
         for i,(scene,(pcm,n)) in enumerate(zip(plan.scenes,inputs)):
             board=output/f'scene_{i+1:02}.png'
-            report=render_board(scene.board,board)
+            report=(board_renderer or render_board)(scene.board,board)
+            if report['board_sha256'] != digest(board.read_bytes()) or report['input_sha256'] != digest(json.dumps(scene.board.model_dump(),sort_keys=True,ensure_ascii=False).encode()):
+                raise ValueError('board renderer declaration or file hash mismatch')
             end=start+n
             captions += [f'{_vtt(start*40)} --> {_vtt(end*40)}',html.escape(scene.narration_text,quote=False),'']
             records.append({'scene':i+1,'start_ms':start*40,'end_ms':end*40,'frames':n,

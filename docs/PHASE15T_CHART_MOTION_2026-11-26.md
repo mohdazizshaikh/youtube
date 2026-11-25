@@ -1,0 +1,14 @@
+# Phase 15T — bilingual chart value-row motion candidate
+
+Phase 15P verified hosted CI 45715211323: Linux 1379 passed/819 hashes; Windows 1246 passed/67 skipped. Phase 15Q Windows 1276 passed/68 skipped; Linux and 15R/15S full CI pending at authoring. New phase candidate; no release authority.
+
+## Scope and operator workflow
+A separate two-language preview derived from a verified static chart pair. No numerical animation, interpolation, changed axis, hidden values or invented speech timing. In each scene highlight each exact value-table row in order, changing only exact background-color pixels inside its own row. All plot markers, chart text, data labels, warning and other pixels remain unchanged before lossy MP4 encoding. 3–5 rows, at least five frames per stage, at most 24 stages per video, maximum 60 seconds, 25 fps. Equal stages preserve original frame count and synchronized bilingual timing. Native flow motion FFmpeg renderer and all-frame 96x96 RGB auditor reused; original AAC stream copied, decoded 16 kHz PCM equality verified, caption bytes preserved. Comparison is diagnostic, not full-resolution or exact timestamp-per-frame certification. No continuous transitions, animated bar growth, word alignment or inherited review approval.
+
+Stop all consoles; retain original pair, per-scene source/data/chart requests and fonts, outer chart request and chart pair pin. New request fields: schema VIRALOS_CHART_PAIR_MOTION_REQUEST_V1, chart_pair_sha256, effect VALUE_ROW_HIGHLIGHT_V1.
+```
+python -m tools.chart_pair_motion build --pair PATH --pair-sha256 PIN --root PATH --chart-request PATH --chart-request-sha256 PIN --hindi-font PATH --hindi-font-sha256 PIN --english-font PATH --english-font-sha256 PIN --chart-pair PATH --chart-pair-sha256 PIN --request PATH --request-sha256 PIN --output NEW_PATH
+```
+Verify with same flags using verify plus --motion-pair-sha256 PIN. Output root contains hindi/ and english/ (motion.mp4, captions.vtt), plus motion_pair.json. Independent receipt binds parent and request pins, stage frame counts, PNG hashes, motion media/caption hashes and diagnostic results. Full static parent source rerender/media audit before and after both tracks. No overwrite; incomplete marker until completed. No mutable review queue or recovery wrapper for chart motion yet. Keep original input directories quiescent. Actual source transcription, translation, visual acceptance and professional owner review still required. No publication or production merge.
+
+Tests cover 3–5 rows and both formats, unchanged non-background pixels, exact frame budget, wrong-stage detection, invalid layouts/requests, and real paired media integration extended with caption tamper rejection. New CI pending. Smooth transitions deferred; existing CI must pass before further dependent integration.

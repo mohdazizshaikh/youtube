@@ -1,0 +1,13 @@
+# Phase 15Q — bilingual chart-to-video derivative
+
+Phase 15O verified hosted CI run 45714585243: Linux 1298 passed/815 hashes, Windows 1169 passed/63 skipped. Phase 15P run 45715211323 Windows 1246 passed/67 skipped, Linux pending at authoring. New CI pending.
+
+## Operator workflow
+Stop original pair consoles; preserve independently trusted original pair pin, owner-local source/data/request inputs and fonts. Original ASCII storyboard pair only; native/mixed/chart parents rejected. One chart per scene, same dataset and geometry in Hindi/English. Source reference must exactly match the URL of a declared supporting source in each original board; bytes supplied by owner, not retrieved or authenticated from URL. Source transcription and narrative correspondence are still human review obligations.
+
+Private root contains exactly scene_01 through scene_NN, each with source.bin (original source bytes), data.json (Phase 15P data), request.json (Phase 15P bilingual chart request). Outer request schema VIRALOS_BILINGUAL_CHART_PILOT_REQUEST_V1, pair_sha256, font_sha256 {hindi,english}, scenes ordered rows {scene,source_id,source_sha256,data_sha256,request_sha256,board_sha256:{hindi,english}}. board_sha256 is the original manifest scene source_declaration_sha256, not PNG SHA. Fonts separately pinned. Both language charts are rerendered from original inputs. Existing parent claims, source declarations, narration assets, PCM, scene timings and captions remain unchanged; chart declaration stored as reserved specialist evidence, default renderer refuses it. New independent PENDING queues; no inherited review or release authority.
+
+```
+python -m tools.bilingual_chart_pilot build --pair /private/pair --pair-sha256 PIN --root /private/chart-inputs --request /private/chart-pilot.json --request-sha256 PIN --hindi-font /private/hi.ttf --hindi-font-sha256 PIN --english-font /private/en.ttf --english-font-sha256 PIN --output /private/chart-video
+```
+Verify using same flags with verify and --chart-pair-sha256 PIN. Output hindi/ and english/ normal static pilot children plus chart_pair.json; use individual child console/snapshot with separate manifest pin. Combined chart snapshot/dashboard and mix/motion orchestration are NOT yet supported. Exact rerender PNG, original asset, timeline and caption verification plus existing fresh media audit (midpoint sample, not all frames). No overwritten production, no automatic publication. Keep original data, font, source and request separately. Advanced transitions and animations intentionally deferred until chart integration CI. No factual, translation, font rights or actual owner acceptance.

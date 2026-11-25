@@ -1,0 +1,13 @@
+# Phase 16C — resource admission for local workflow
+
+Phase 16A VERIFIED_HOSTED_CI run 45719449499: Linux 1869 passed/865 hashes; Windows 1731 passed/72 skipped; two warnings each. Phase 16B run 45721154072 in progress at authoring. 16C source candidate; new CI pending.
+
+## Resource policy
+Optional guarded local execution, not a full scheduler or hard OS quota. No new dependencies. Linux MemAvailable and Windows GlobalMemoryStatusEx physical available memory, logical CPU count and workspace/temp free disk are point-in-time host observations, not container/cgroup quotas or GPU capacity. Unsupported memory probe fails closed. Disk estimates use verified source/snapshot payload logical bytes plus 8 MiB per artifact allowance; cumulative committed artifact estimates include restored runs. Temp reserve counted conservatively against workspace free space even if separate volumes. Actual filesystem allocation, transient audit scratch, memory peaks and OS contention are not guaranteed. No preallocation, parallelism, process limits or automatic retry.
+
+Policy schema VIRALOS_LOCAL_WORKFLOW_RESOURCE_POLICY_V1; plan_sha256; min_cpu_count integer 1–256; min_available_memory_mib 128–262144; min_workspace_free_mib and min_temp_free_mib 64–1048576; max_job_artifact_mib 8–2048; max_total_artifact_mib 8–65536 (at least job cap). Pin exact policy bytes separately.
+```
+python -m tools.workflow_resources preflight --source-root PATH --workspace PATH --plan-sha256 PIN --policy PATH --policy-sha256 PIN
+python -m tools.workflow_resources step --source-root PATH --workspace PATH --plan-sha256 PIN --policy PATH --policy-sha256 PIN
+```
+Add --checkpoint-sha256 LAST_PIN after first job. Preflight probes before costly replay, then verifies all prerequisites and estimates next/cumulative artifacts; denied preflight returns exit 2, never modifies workspace. Guarded step checks initially, immediately before exclusive intent and after acquiring intent/replaying prerequisites. If resources deteriorate after intent, marker stays blocked; use stopped recovery workflow, never delete it to retry. Existing unguarded CLI and prior receipts remain compatible; resource policy is opt-in, not persisted as a mandatory workflow constraint and not part of job receipt chain. Use same independent policy pin for every guarded step. If workflow is already complete, no new job is dispatched. No resource policy applies to separate recovery CLI. No hard enforcement, worker leases, attempt scheduling, GPU benchmarking or owner acceptance. Portable tests cover bounds, exact estimates, resource changes, mocked observations, real file fixtures and native host probe. New CI pending. No publication or merge.

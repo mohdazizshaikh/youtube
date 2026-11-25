@@ -110,5 +110,16 @@ def test_real_mastered_pair(inputs,tmp_path):
             assert (pair/lang/"draft"/name).read_bytes()==(out/lang/"draft"/name).read_bytes()
         assert result["runs"][lang]["decoded_16khz_audio"]["true_peak_dbtp"]<=-3
     with pytest.raises(ValueError):p.build(*common,out)
+    from tools import workflow_pair_adapters as adapters
+    parent_job={"input":{"run":pair.name,"pair_sha256":built["pair_sha256"]}}
+    parent=adapters.audit(tmp_path,parent_job)
+    assert parent["fresh_media_audit"] and not parent["original_input_recomposition_verified"]
+    (tmp_path/"master-request").write_bytes(raw)
+    job={"input":{"run":out.name,"request":"master-request","request_sha256":p.sha(raw),
+                  "mastered_pair_sha256":result["mastered_pair_sha256"]}}
+    audited=adapters.mastered(tmp_path,job,parent)
+    assert audited["parent_bound_mastering_recomposition_verified"]
+    assert audited["review_states"]==checked["review_states"]
     (out/"pair_dynamics.json").write_bytes(b"tamper")
+    with pytest.raises(ValueError):adapters.mastered(tmp_path,job,parent)
     with pytest.raises(ValueError):p.verify(*common,out,result["mastered_pair_sha256"])

@@ -65,3 +65,5 @@ Phase 15U/V VERIFIED_HOSTED_CI runs 45717115545/45717470328 (1587/1628 Linux, 84
 Phase 15W/X/Y/Z VERIFIED_HOSTED_CI (Linux 1683/1751/1796/1816; Windows 1549/1616/1660/1679). Y/Z 2 warnings on both OSes. 16A Windows 1731/72 skips, Linux pending at authoring. 16B typed restore/recovery source candidate; see Phase 16 tracker. Owner acceptance pending.
 
 16A VERIFIED_HOSTED_CI run 45719449499 (1869 Linux/865 hashes; 1731 Windows/72 skips). 16B CI in progress at authoring; 16C resource admission candidate. See Phase 16 tracker.
+
+16B VERIFIED_HOSTED_CI (1909 Linux/869 hashes, 1770 Windows/73 skips); 16C Windows 1821/73 skips; 16D mandatory plan policy and pair audit candidate. See Phase 16 tracker.

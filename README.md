@@ -1,3 +1,9 @@
+# ViralOS — Phase 16D: mandatory workflow policy and pair audits
+
+Phase 16B verified CI: Linux 1909 passed/869 hashes; Windows 1770 passed/73 skipped. Phase 16C Windows 1821 passed/73 skipped, Linux pending at authoring. Phase 16D adds V2 plan-bound resource admission and original/mastered bilingual read-only audit adapters. See [operator guide](docs/PHASE16D_POLICY_AND_PAIR_ADAPTERS_2026-11-26.md) and [Phase 16 tracker](docs/PRIORITY_TRACKER_2026-11-26_PHASE16.md). New CI pending; no release authority.
+
+---
+
 # ViralOS — Phase 16C: pinned resource admission
 
 Phase 16A verified hosted CI: Linux 1869 passed/865 hashes; Windows 1731 passed/72 skipped; two warnings each. 16B CI running at authoring. 16C adds opt-in pinned CPU/RAM/disk and artifact-budget admission for local workflow steps, before intent and before dispatch. See [operator guide](docs/PHASE16C_RESOURCE_ADMISSION_2026-11-26.md) and [Phase 16 tracker](docs/PRIORITY_TRACKER_2026-11-26_PHASE16.md). New CI pending; no hard quotas or release authority.

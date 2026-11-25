@@ -1,3 +1,9 @@
+# Phase 16D — plan-bound resource policy and bilingual audit adapters (2026-11-26)
+
+- Recorded fully verified 16B hosted CI and 16C Windows result.
+- Added V2 plan-embedded mandatory thresholds, initial/replay/dispatch and recovery admission; V1 behavior preserved.
+- Added typed read-only original bilingual and source-bound mastered pair audits with independent receipt pins, exact inventory and queue binding. Added portable contract/recovery tests and extended real mastered media integration. New CI pending. No full scheduler, render adapters or publication.
+
 # Phase 16C — resource admission (2026-11-26)
 
 - Recorded fully verified 16A hosted CI (1869 Linux/865 hashes; 1731 Windows/72 skips). 16B pending at authoring.

@@ -17,6 +17,8 @@ from tools.narration_qc import private_file
 from tools.bilingual_pilot import json_bytes
 
 PLAN="VIRALOS_LOCAL_PRODUCTION_WORKFLOW_V1"
+PLAN_V2="VIRALOS_LOCAL_PRODUCTION_WORKFLOW_V2"
+PAIR_KINDS={"BILINGUAL_AUDIT","MASTERED_PAIR_AUDIT"}
 RECEIPT="VIRALOS_LOCAL_PRODUCTION_JOB_RECEIPT_V1"
 INTENT="VIRALOS_LOCAL_PRODUCTION_JOB_INTENT_V1"
 MAX_PLAN=128000
@@ -31,9 +33,20 @@ def leaf(value):
     return value
 
 
-def validate(raw,plan_pin):
+def envelope(raw,plan_pin):
     obj=pv.decode(pinned(raw,plan_pin,MAX_PLAN))
-    pv.require(type(obj) is dict and set(obj)=={"schema","jobs"} and obj["schema"]==PLAN,"PLAN_FIELDS")
+    pv.require(type(obj) is dict,"PLAN_FIELDS")
+    if obj.get("schema")==PLAN_V2:
+        pv.require(set(obj)=={"schema","jobs","resources"},"PLAN_FIELDS")
+        from tools import workflow_resources as r
+        r.embedded_policy(obj["resources"],plan_pin)
+    else:
+        pv.require(set(obj)=={"schema","jobs"} and obj["schema"]==PLAN,"PLAN_FIELDS")
+    return obj
+
+
+def validate(raw,plan_pin):
+    obj=envelope(raw,plan_pin)
     jobs=obj["jobs"]
     pv.require(type(jobs) is list and 1<=len(jobs)<=MAX_JOBS,"JOB_COUNT")
     by={}
@@ -42,7 +55,8 @@ def validate(raw,plan_pin):
         name=leaf(row["id"])
         pv.require(name not in by,"DUPLICATE_JOB")
         kind=row["kind"]
-        pv.require(type(kind) is str and kind in KINDS,"JOB_KIND")
+        allowed=KINDS|PAIR_KINDS if obj["schema"]==PLAN_V2 else KINDS
+        pv.require(type(kind) is str and kind in allowed,"JOB_KIND")
         deps=row["depends_on"]
         pv.require(type(deps) is list and len(deps)<MAX_JOBS,"DEPENDENCIES")
         for dep in deps:leaf(dep)
@@ -52,13 +66,27 @@ def validate(raw,plan_pin):
             pv.require(type(arg) is dict and set(arg)=={"run","manifest_sha256"},"AUDIT_INPUT")
             leaf(arg["run"])
             pv.pin(arg["manifest_sha256"])
+        elif kind=="BILINGUAL_AUDIT":
+            pv.require(type(arg) is dict and set(arg)=={"run","pair_sha256"},"PAIR_INPUT")
+            leaf(arg["run"])
+            pv.pin(arg["pair_sha256"])
+        elif kind=="MASTERED_PAIR_AUDIT":
+            pv.require(type(arg) is dict and set(arg)=={"job","run","request","request_sha256",
+                       "mastered_pair_sha256"},"MASTERED_INPUT")
+            for key in ("job","run","request"):leaf(arg[key])
+            pv.require(arg["job"] in deps,"INPUT_DEPENDENCY_REQUIRED")
+            for key in ("request_sha256","mastered_pair_sha256"):pv.pin(arg[key])
         else:
             pv.require(type(arg) is dict and set(arg)=={"job"},"DEPENDENT_INPUT")
             pv.require(leaf(arg["job"]) in deps,"INPUT_DEPENDENCY_REQUIRED")
         by[name]=row
     for row in jobs:
         pv.require(all(d in by for d in row["depends_on"]),"UNKNOWN_DEPENDENCY")
-        if row["kind"]!="PILOT_AUDIT":
+        if row["kind"]=="MASTERED_PAIR_AUDIT":
+            parent=by[row["input"]["job"]]
+            pv.require(parent["kind"]=="BILINGUAL_AUDIT" and parent["input"]["run"]!=row["input"]["run"],
+                       "MASTERED_DEPENDENCY_KIND")
+        elif row["kind"] not in {"PILOT_AUDIT","BILINGUAL_AUDIT"}:
             parent=by[row["input"]["job"]]
             expected="PILOT_AUDIT" if row["kind"]=="PILOT_BACKUP" else "PILOT_BACKUP"
             pv.require(parent["kind"]==expected,"DEPENDENCY_KIND")
@@ -98,8 +126,10 @@ def initialize(source,workspace,raw,plan_pin):
     # Resolve all original run paths before writing anything. Never traverse
     # a user-specified multi-component path or a symlink/reparse leaf.
     for job in jobs:
-        if job["kind"]=="PILOT_AUDIT":
+        if job["kind"] in {"PILOT_AUDIT"}|PAIR_KINDS:
             ps.local_dir(source/job["input"]["run"])
+        if job["kind"]=="MASTERED_PAIR_AUDIT":
+            pv.plain(source/job["input"]["request"])
     workspace.mkdir(mode=0o700)
     marker=workspace/"INCOMPLETE"
     marker.touch(exist_ok=False)
@@ -177,6 +207,10 @@ def recheck(source,workspace,job,completed,stored=None):
     kind=job["kind"]
     if kind=="PILOT_AUDIT":
         return audit(source,job)
+    if kind in PAIR_KINDS:
+        from tools import workflow_pair_adapters as pair
+        return pair.audit(source,job) if kind=="BILINGUAL_AUDIT" else pair.mastered(
+            source,job,completed[job["input"]["job"]][1])
     parent=completed[job["input"]["job"]][1]
     if kind=="PILOT_BACKUP":
         if stored is None:
@@ -207,7 +241,14 @@ def load(source,workspace,plan_pin,checkpoint,*,intent=False,recovery=False):
     if intent:expected.add("ACTIVE_JOB.json")
     pv.require({x.name for x in workspace.iterdir()}==expected,"WORKSPACE_INCOMPLETE_OR_ACTIVE")
     if intent:pv.plain(workspace/"ACTIVE_JOB.json")
-    jobs=validate(pv.read(workspace/"plan.json",MAX_PLAN),plan_pin)
+    plan_raw=pv.read(workspace/"plan.json",MAX_PLAN)
+    jobs=validate(plan_raw,plan_pin)
+    # V2 applies its embedded policy before any expensive replay, including
+    # status and recovery. V1 retains its existing unguarded behavior.
+    from tools import workflow_resources as resources
+    policy=resources.plan_policy(plan_raw,plan_pin)
+    if policy is not None:
+        resources.require_admitted(resources.evaluate(policy,resources.observe(workspace),0,0))
     for name in ("receipts","artifacts"):pv.plain(workspace/name,True)
     entries={p.name for p in (workspace/"receipts").iterdir()}
     count=len(entries)
@@ -276,12 +317,15 @@ def step(source,workspace,plan_pin,checkpoint=None,*,admission=None):
     index=len(completed)+1
     if index>len(jobs):return summary(jobs,completed,checkpoint)
     job=jobs[index-1]
+    from tools import workflow_resources as resources
+    resources.enforce_plan(source,workspace,plan_pin,jobs,completed)
     if admission is not None:admission(source,workspace,jobs,completed)
     marker=workspace/"ACTIVE_JOB.json"
     write(marker,intent_bytes(plan_pin,job,checkpoint))
     # Recheck after exclusive intent acquisition. Any failure leaves the
     # intent and any partial output; never retry an ambiguous side effect.
     source,workspace,jobs,completed=load(source,workspace,plan_pin,checkpoint,intent=True)
+    resources.enforce_plan(source,workspace,plan_pin,jobs,completed)
     if admission is not None:admission(source,workspace,jobs,completed)
     report=recheck(source,workspace,job,completed)
     if job["kind"]=="PILOT_BACKUP":

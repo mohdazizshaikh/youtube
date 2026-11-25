@@ -42,6 +42,26 @@ def validate(raw,policy_pin,plan_pin):
     return obj
 
 
+def embedded_policy(thresholds,plan_pin):
+    pv.require(type(thresholds) is dict and set(thresholds)=={
+        "min_cpu_count","min_available_memory_mib","min_workspace_free_mib",
+        "min_temp_free_mib","max_job_artifact_mib","max_total_artifact_mib"},"EMBEDDED_POLICY_FIELDS")
+    obj={"schema":SCHEMA,"plan_sha256":plan_pin,**thresholds}
+    raw=w.json_bytes(obj)
+    return validate(raw,sha(raw),plan_pin)
+
+
+def plan_policy(raw,plan_pin):
+    obj=pv.decode(pinned(raw,plan_pin,w.MAX_PLAN))
+    if obj.get("schema")==w.PLAN_V2:return embedded_policy(obj["resources"],plan_pin)
+    return None
+
+
+def enforce_plan(source,workspace,plan_pin,jobs,completed):
+    policy=plan_policy(pv.read(workspace/"plan.json",w.MAX_PLAN),plan_pin)
+    if policy is not None:require_admitted(assessment(source,workspace,jobs,completed,policy))
+
+
 def linux_available(raw):
     pv.require(type(raw) is str and len(raw)<=128000,"MEMORY_REPORT")
     rows=re.findall(r"(?m)^MemAvailable:\s+([0-9]+) kB$",raw)

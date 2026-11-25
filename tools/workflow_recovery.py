@@ -19,6 +19,8 @@ MAX_RECOVERY=16000
 
 def candidate(source,workspace,plan_pin,checkpoint,snapshot_pin=None):
     source,workspace,jobs,completed=w.load(source,workspace,plan_pin,checkpoint,intent=True,recovery=True)
+    from tools import workflow_resources as resources
+    resources.enforce_plan(source,workspace,plan_pin,jobs,completed)
     index=len(completed)+1
     job=jobs[index-1]
     marker=workspace/"ACTIVE_JOB.json"

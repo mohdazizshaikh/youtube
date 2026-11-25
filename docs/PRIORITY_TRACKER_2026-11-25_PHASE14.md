@@ -31,3 +31,5 @@ Phase 15N native motion preview and mixed independent transaction candidate; Pha
 Phase 15M VERIFIED_HOSTED_CI run 45713389120: Linux 1209 passed/805 hashes; Windows 1080 passed/63 skipped. Phase 15N Windows 1123 passed/63 skipped, Linux pending at authoring. Phase 15O motion handoff and recovery candidate.
 
 Phase 15N VERIFIED_HOSTED_CI run 45713882064: Linux 1252 passed/810 hashes; Windows 1123 passed/63 skipped. Phase 15O Windows 1169 passed/63 skipped, Linux pending at authoring. Phase 15P bilingual chart preview candidate, no owner acceptance.
+
+Phase 15O VERIFIED_HOSTED_CI run 45714585243: Linux 1298 passed/815 hashes, Windows 1169 passed/63 skipped. Phase 15P Windows 1246 passed/67 skipped, Linux pending at authoring; Phase 15Q chart MP4 derivative candidate. No owner acceptance.

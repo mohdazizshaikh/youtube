@@ -1,3 +1,9 @@
+# ViralOS — Phase 15Q: bilingual chart-to-video derivatives
+
+Phase 15O verified CI: Linux 1298 passed/815 hashes; Windows 1169 passed/63 skipped. Phase 15P Windows 1246 passed/67 skipped; Linux in progress at authoring. Phase 15Q adds separately pinned bilingual static chart pilot children preserving original narration, source declarations and timing with fresh editorial queues. See [operator guide](docs/PHASE15Q_CHART_VIDEO_2026-11-26.md). New CI pending; no release authority.
+
+---
+
 # ViralOS — Phase 15P: bilingual data visualization
 
 Phase 15N verified CI: Linux 1252 passed/810 hashes; Windows 1123 passed/63 skipped. Phase 15O Windows 1169 passed/63 skipped; Linux in progress at authoring. Phase 15P adds standalone pinned bilingual BAR/LINE previews with fixed-point values, numeric X geometry, signed zero-baseline bars, source pin and exact rerender verification. See [operator guide](docs/PHASE15P_BILINGUAL_DATA_VISUALIZATION_2026-11-26.md). New CI pending; no release authority.

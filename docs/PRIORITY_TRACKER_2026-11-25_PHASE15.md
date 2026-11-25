@@ -36,6 +36,8 @@ Phase 15M read-only mixed dashboard VERIFIED_HOSTED_CI run 45713389120; coordina
 
 Phase 15N VERIFIED_HOSTED_CI run 45713882064: standalone native flow motion (all frames compared at 96x96, not full resolution), mixed review transaction, original input re-audit prerequisite. Full motion pilot queue, advanced transitions, owner acceptance and CI pending.
 
-Phase 15N VERIFIED_HOSTED_CI run 45713882064; Phase 15O Windows 1169 passed/63 skipped, Linux pending at authoring. Phase 15O motion review handoff and snapshot/restore candidates; mutable motion review queue, advanced transitions, charts and owner acceptance pending.
+Phase 15N VERIFIED_HOSTED_CI run 45713882064; Phase 15O VERIFIED_HOSTED_CI run 45714585243; Phase 15P Windows 1246 passed/67 skipped, Linux pending at authoring. Phase 15O motion review handoff and snapshot/restore candidates; mutable motion review queue, advanced transitions, charts and owner acceptance pending.
 
 Phase 15P bilingual quantitative BAR/LINE preview candidate; scientific/financial chart-to-MP4 integration, advanced transitions, persistent motion queue, source transcription and owner acceptance pending.
+
+Phase 15O VERIFIED_HOSTED_CI run 45714585243 (1298 Linux/815 hashes, 1169 Windows/63 skips). Phase 15Q paired chart-to-MP4 candidate; combined chart dashboard/recovery, animated charts, transitions and owner acceptance pending.

@@ -1,0 +1,124 @@
+import os
+import shutil
+from pathlib import Path
+import pytest
+from PIL import features
+from tools import bilingual_chart_pilot as c,bilingual_pilot as bp
+from tools.domain_storyboard import demo_spec
+from app.domain_storyboards import render_board
+from app.domain_draft_video import DraftPlan
+from test_phase15p import SOURCE,SP,data,request
+from test_bilingual_compose import inputs
+from test_bilingual_pilot import pair_inputs,values
+
+PIN="a"*64
+FONTS={"hindi":"b"*64,"english":"c"*64}
+
+
+def req():
+    return {"schema":c.REQUEST,"pair_sha256":PIN,"font_sha256":FONTS.copy(),
+            "scenes":[{"scene":i,"source_id":"A","source_sha256":"d"*64,
+                       "data_sha256":"e"*64,"request_sha256":"f"*64,
+                       "board_sha256":{"hindi":"1"*64,"english":"2"*64}} for i in (1,2)]}
+
+
+def validate(obj):
+    raw=c.json_bytes(obj)
+    return c.validate(raw,c.sha(raw),PIN,2)
+
+
+@pytest.mark.parametrize("field,value",[("schema","bad"),("pair_sha256","0"*64),
+    ("pair_sha256",None),("font_sha256",None),("font_sha256",{}),("font_sha256",[]),
+    ("scenes",None),("scenes",[]),("scenes",{}),("extra",1)])
+def test_request_fields(field,value):
+    obj=req()
+    obj[field]=value
+    with pytest.raises(ValueError):validate(obj)
+
+
+@pytest.mark.parametrize("field,value",[("scene",0),("scene",True),("scene",1.0),("scene",2),
+    ("source_id",""),("source_id","lowercase"),("source_id","A/"),("source_id",None),
+    ("source_sha256","bad"),("data_sha256","bad"),("request_sha256","bad"),
+    ("board_sha256",{}),("board_sha256",[]),("board_sha256",None),
+    ("board_sha256",{"hindi":"a"*64,"english":"bad"}),("extra",1)])
+def test_scene_fields(field,value):
+    obj=req()
+    obj["scenes"][0][field]=value
+    with pytest.raises(ValueError):validate(obj)
+
+
+def test_valid():
+    assert validate(req())==req()
+
+
+def test_binding():
+    board=demo_spec("technology","SHORT")
+    row=req()["scenes"][0]
+    source=board.sources[0]
+    row["source_id"]=source.source_id
+    row["board_sha256"]["hindi"]=c.board_pin(board)
+    c.source_binding(board,row,"hindi",str(source.url))
+    with pytest.raises(ValueError,match="SOURCE_REFERENCE_BINDING"):
+        c.source_binding(board,row,"hindi","https://different.invalid/")
+    with pytest.raises(ValueError,match="BOARD_BINDING"):
+        c.source_binding(board,row,"english",str(source.url))
+    board.specialist_facts[c.KEY]="collision"
+    with pytest.raises(ValueError,match="DERIVATIVE_PARENT"):
+        c.source_binding(board,row,"hindi",str(source.url))
+
+
+def test_default_renderer(tmp_path):
+    board=demo_spec("technology","SHORT")
+    board.specialist_facts[c.KEY]="chart"
+    with pytest.raises(ValueError,match="explicit pinned chart renderer"):
+        render_board(board,tmp_path/"board.png")
+
+
+def test_incomplete(tmp_path):
+    (tmp_path/"INCOMPLETE").touch()
+    with pytest.raises(ValueError,match="CHART_PAIR_INVENTORY"):c.verify((),tmp_path,PIN)
+
+
+@pytest.mark.skipif(not shutil.which("ffmpeg") or not shutil.which("ffprobe"),reason="local media required")
+def test_real_chart_pair(pair_inputs,tmp_path):
+    hi=Path(os.environ.get("VIRALOS_CI_HINDI_FONT","/usr/share/fonts/truetype/noto/NotoSansDevanagari-Regular.ttf"))
+    en=Path(os.environ.get("VIRALOS_CI_ENGLISH_FONT","/usr/share/fonts/truetype/noto/NotoSans-Regular.ttf"))
+    if not hi.is_file() or not en.is_file() or not features.check_feature("raqm"):
+        if os.environ.get("VIRALOS_REQUIRE_HINDI_PREVIEW")=="1":pytest.fail("required fonts or RAQM missing")
+        pytest.skip("owner fonts and RAQM required")
+    fonts={"hindi":hi.read_bytes(),"english":en.read_bytes()}
+    pins={l:c.sha(v) for l,v in fonts.items()}
+    v=values(pair_inputs)
+    parent=bp.build(*v)
+    pair=v[-1]
+    original={l:DraftPlan.model_validate(c.pv.document(pair/l/"draft"/"plan.json")) for l in c.LANGS}
+    root=tmp_path/"chart-inputs"
+    root.mkdir()
+    obj={"schema":c.REQUEST,"pair_sha256":parent["pair_sha256"],"font_sha256":pins,"scenes":[]}
+    for i,kind in enumerate(("BAR","LINE"),1):
+        folder=root/f"scene_{i:02}"
+        folder.mkdir()
+        source=original["hindi"].scenes[i-1].board.sources[0]
+        ds=data(kind)
+        ds["source_reference"]=str(source.url)
+        raw=c.json_bytes(ds)
+        visual=c.json_bytes(request(c.sha(raw),pins,"SHORT"))
+        for name,b in (("source.bin",SOURCE),("data.json",raw),("request.json",visual)):
+            (folder/name).write_bytes(b)
+        obj["scenes"].append({"scene":i,"source_id":source.source_id,"source_sha256":SP,
+            "data_sha256":c.sha(raw),"request_sha256":c.sha(visual),
+            "board_sha256":{l:c.board_pin(original[l].scenes[i-1].board) for l in c.LANGS}})
+    raw=c.json_bytes(obj)
+    inputs=(pair,parent["pair_sha256"],root,raw,c.sha(raw),fonts,pins)
+    before={l:c.ps.inventory(pair/l) for l in c.LANGS}
+    out=tmp_path/"chart-video"
+    result=c.build(inputs,out)
+    checked=c.verify(inputs,out,result["chart_pair_sha256"])
+    assert checked["duration_ms"]==2080
+    assert all(x=={"revision":0,"state":"PENDING"} for x in checked["review_states"].values())
+    assert before=={l:c.ps.inventory(pair/l) for l in c.LANGS}
+    for lang in c.LANGS:
+        assert (out/lang/"draft"/"narration.wav").read_bytes()==(pair/lang/"draft"/"narration.wav").read_bytes()
+    with pytest.raises(ValueError):c.build(inputs,out)
+    (root/"scene_01"/"source.bin").write_bytes(b"changed")
+    with pytest.raises(ValueError):c.verify(inputs,out,result["chart_pair_sha256"])

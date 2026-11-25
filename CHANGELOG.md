@@ -1,3 +1,9 @@
+# Phase 15Q — bilingual chart-to-video derivatives (2026-11-26)
+
+- Recorded Phase 15O full hosted CI and Phase 15P Windows results; Linux pending at authoring.
+- Added pinned per-scene source/data/chart request, original supporting source and board declaration binding, separate Hindi/English static chart MP4s, unchanged narration and timing, independent queues, fresh rerender/media verification.
+- Added regression contracts and real bilingual chart video integration. Combined chart recovery/dashboard, animation and owner acceptance pending. No release or merge.
+
 # Phase 15P — bilingual data visualization (2026-11-26)
 
 - Recorded Phase 15N verified hosted CI and Phase 15O Windows result; Linux pending at authoring.

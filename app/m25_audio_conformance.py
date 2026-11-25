@@ -62,7 +62,7 @@ def _decoded_track(video: Path, ffmpeg: str | None) -> array:
     return audio
 
 
-def _waveform_score(original: array, output: array) -> tuple[float, int, float]:
+def _waveform_score(original: array, output: array, *, scene_sync: bool = False) -> tuple[float, int, float]:
     """Pearson correlation over 12 distributed 120 ms windows, +/- 400 ms lag.
 
     Each lag is sampled every 2 ms at 1 kHz. Exact AAC byte equality is
@@ -81,6 +81,7 @@ def _waveform_score(original: array, output: array) -> tuple[float, int, float]:
     if ref_sq - (ref_sum * ref_sum / count_expected) < 1000:
         return 0.0, 0, 0.0
     best = (0.0, 0, 0.0)
+    near = (0.0, 0, 0.0)
     for lag in range(-400, 401, 2):
         pairs = [(i, i + lag) for i in indices if 0 <= i + lag < len(got)]
         coverage = len(pairs) / count_expected
@@ -98,6 +99,16 @@ def _waveform_score(original: array, output: array) -> tuple[float, int, float]:
         score = (sxy - sx * sy / count) / math.sqrt(vx * vy)
         if score > best[0]:
             best = (score, lag, coverage)
+        # Prefer higher coverage and smaller absolute lag only on exact ties.
+        if abs(lag) <= 100 and (score, coverage, -abs(lag)) > (near[0], near[2], -abs(near[1])):
+            near = (score, lag, coverage)
+    # A periodic signal can have essentially indistinguishable peaks at many
+    # lags. For scene QC only, accept an in-window peak if it is independently
+    # strong and within 0.001 of the global best. This does not prove exact lag.
+    # Retain the broad best for other conformance callers and distinct delays.
+    if (scene_sync and abs(best[1]) > 100 and near[0] >= MATCH_THRESHOLD
+            and near[2] >= MIN_COVERAGE and best[0] - near[0] <= 0.001):
+        return near
     return best
 
 

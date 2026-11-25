@@ -12,7 +12,7 @@
 | P0 | Native Hindi on-screen graphics | Phase 15E hosted CI green; Phase 15F VERIFIED_HOSTED_CI run 45688445729; native reader acceptance pending |
 | P1 | Pair disaster recovery | VERIFIED_HOSTED_CI run 45675859895; physical owner restore pending; Phase 15H VERIFIED_HOSTED_CI run 45695488829 |
 | P1 | Unified bilingual editorial dashboard | VERIFIED_HOSTED_CI run 45693600947; Phase 15H VERIFIED_HOSTED_CI run 45695488829; Phase 15I VERIFIED_HOSTED_CI run 45697364882; not atomic |
-| P1 | Loudness and true peak | VERIFIED_HOSTED_CI run 45693600947; Phase 15H VERIFIED_HOSTED_CI run 45695488829; Phase 15I VERIFIED_HOSTED_CI run 45697364882; Phase 15J single-pilot mixed derivative candidate; owner listening pending |
+| P1 | Loudness and true peak | VERIFIED_HOSTED_CI run 45693600947; Phase 15H VERIFIED_HOSTED_CI run 45695488829; Phase 15I VERIFIED_HOSTED_CI run 45697364882; Phase 15J Linux CI failed one STATIC acoustic audit (run 45698039280); Phase 15K scene-sync ambiguity correction and paired mix candidate; owner listening pending |
 | P0 | Real Hindi/English licensed TTS | BLOCKED on owner model, license, native listening and CPU measurement |
 | P0 | Real CTC alignment | BLOCKED on acoustic models/reference corpus |
 | P0 | Gold-standard pilot | Non-demo narration, graphics, human source/rights review and integration pending |
@@ -25,4 +25,4 @@
 
 No test count is a count of production features. No production release or actual model acceptance.
 
-Phase 15J: localized diagrams/motion graphics and paired mixed-derivative recovery remain pending.
+Phase 15K: paired mixed-production build/verify candidate; localized diagrams, motion graphics and paired mixed-derivative recovery remain pending. Full CI must pass.

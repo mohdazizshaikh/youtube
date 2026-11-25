@@ -1,3 +1,9 @@
+# ViralOS — Phase 15K: paired mixed production and scene-sync correction
+
+Phase 15J CI had one Linux STATIC acoustic audit failure (1052 passed); Windows 928 passed/59 skipped. Phase 15K adds narrowly bounded periodic-lag ambiguity handling and paired mixed production build/verify. See [operator guide](docs/PHASE15K_PAIRED_MIX_AND_SYNC_2026-11-26.md) and [priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE15.md). New CI pending; do not merge until green. No publication authority.
+
+---
+
 # ViralOS — Phase 15J: production audio mix derivative
 
 Phase 15I verified CI: Linux 999 passed/788 hashes; Windows 876 passed/57 skipped (run 45697364882). Phase 15J integrates static or dynamic ducked music into a separate pinned MP4 pilot with identical scene timings, boards and captions, a fresh queue, and decoded-audio QC. See [operator guide](docs/PHASE15J_PRODUCTION_MIX_PILOT_2026-11-26.md) and [priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE15.md). New CI pending; main preserved. No publication authority.

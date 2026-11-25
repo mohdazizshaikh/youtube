@@ -1,0 +1,14 @@
+# Phase 15K — scene-sync ambiguity correction and paired mixed production
+
+Phase 15J run 45698039280 failed on Linux (1052 passed, one STATIC real-mix acoustic mismatch); Windows 928 passed, 59 skipped. Local reproduction of the periodic synthetic mix with AAC showed a 196 ms correlation 0.999687 vs zero lag 0.999505. A remote trace did not report scores, so this is a reproduced plausible failure mechanism, not proof of the hosted lag. The scene-only scorer retains the broad search and existing minimum correlation 0.65, coverage 0.80, and 100 ms accepted window. When global best is outside the window, an independently passing in-window peak may be selected only within 0.001 correlation of global best; exact periodic lag is ambiguous. No global conformance API behavior change or threshold bypass. Tests cover periodic ambiguity, distinct delayed signals, wrong signal, unchanged real STATIC and DUCK regressions. New CI pending; do not release before green.
+
+## Paired mixed production
+
+Stop all consoles; retain trusted pair and optional native receipt pins. Request schema VIRALOS_PAIRED_PRODUCTION_MIX_REQUEST_V1 with pair_sha256, native_sha256 (null or separately trusted native pin), tracks object with hindi and english; each is a complete Phase 15J production mix request, including correct parent manifest and source/music pins. Both child media are freshly audited, requests validated, duration 3–120s common, and outputs separate. Music can be shared if rights allow; no music is downloaded. Builds both independent children with fresh PENDING queues, preserves parent queues and receipt; verifies both from original inputs. Incomplete marker remains if a child fails. No automatic rollback/reuse of partial output. New private root contains hindi/ and english/ Phase 15J derivatives plus pair_mix.json. Pin receipt independently. Native source provenance is checked separately with original font/request via native_hindi_pilot verify. This is not combined paired backup or coordinated submission support for mixed outputs yet.
+
+```
+python -m tools.paired_production_mix build --pair /private/pair --pair-sha256 PIN --request /private/paired-mix.json --request-sha256 PIN --hindi-music /private/hi.wav --english-music /private/en.wav --output /private/mixed-pair
+python -m tools.paired_production_mix verify --pair /private/pair --pair-sha256 PIN --request /private/paired-mix.json --request-sha256 PIN --hindi-music /private/hi.wav --english-music /private/en.wav --output /private/mixed-pair --pair-mix-sha256 PIN
+```
+
+Optional --native and --native-sha256 select native Hindi. Preserve private parent, music, requests and receipts separately; use existing single child snapshot with child manifest pins. Neither actual word alignment, intelligibility, music rights, professional mix acceptance nor publication is verified. Localized diagrams and motion graphics deferred until audio CI is green.

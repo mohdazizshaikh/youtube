@@ -101,7 +101,7 @@ def audit(draft: Path, assets: Path, manifest_pin: str) -> dict:
         if observed_fraction<.9: raise ValueError('scene decoded audio coverage too low')
         # AAC may trim a small final partial frame. Report actual coverage before zero padding.
         segment.extend(array('h',[0])*(hi-lo-len(segment)))
-        score,lag,coverage=_waveform_score(ref[lo:hi],segment)
+        score,lag,coverage=_waveform_score(ref[lo:hi],segment,scene_sync=True)
         if score<.65 or coverage<.8 or abs(lag)>100: raise ValueError('scene narration acoustic mismatch')
         # Midpoint visual sample. Compare 64x64 RGB to declared PNG; not frame exhaustive.
         middle=(r['start_ms']+r['end_ms'])/2000

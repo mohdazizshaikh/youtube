@@ -19,3 +19,5 @@ A test case is not a separate production feature; do not count unexecuted tests 
 Phase 15H hosted CI verified (45695488829); Phase 15I resumable independent review writes and ducking VERIFIED_HOSTED_CI run 45697364882.
 
 Phase 15J single-pilot mixed derivative candidate; Phase 15I verified hosted CI run 45697364882: Linux 999 passed/788 hashes; Windows 876 passed/57 skipped. No production merge.
+
+Phase 15J CI 45698039280: Linux 1052 passed, one STATIC acoustic mismatch; Windows 928 passed, 59 skipped. Phase 15K scene-sync correction and paired mixed build/verify candidate; CI pending.

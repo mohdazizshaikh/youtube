@@ -1,3 +1,9 @@
+# Phase 15K — paired mixed production and scene-sync correction (2026-11-26)
+
+- Recorded Phase 15J Linux 1052 passed/1 failed (STATIC scene acoustic mismatch); Windows 928 passed/59 skipped.
+- Added bounded scene-only ambiguity resolution for nearly equivalent periodic correlation peaks; retained thresholds, broad search, existing real regression and independent delayed/wrong-signal tests.
+- Added paired mixed-production build/verify, independent child receipts and queues, parent preservation and incomplete marker. New CI pending; combined recovery and localized visuals pending.
+
 # Phase 15J — production mix derivative (2026-11-26)
 
 - Recorded Phase 15I verified hosted CI: Linux 999 passed/788 hashes; Windows 876 passed/57 skipped.

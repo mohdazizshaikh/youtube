@@ -52,3 +52,19 @@ def test_failed_render_marked_incomplete(tmp_path,monkeypatch):
     monkeypatch.setattr(p,'compose',fail)
     with pytest.raises(RuntimeError):p.build(plan,assets,tmp_path/'out')
     assert (tmp_path/'out'/'INCOMPLETE').exists() and not (tmp_path/'out'/'run.json').exists()
+
+
+@pytest.mark.skipif(not shutil.which('ffmpeg') or not shutil.which('ffprobe'),reason='local media tools required')
+def test_real_cpu_pilot_snapshot_roundtrip(tmp_path):
+    from tools.pilot_run_verify import verify
+    from tools.pilot_snapshot import backup, restore
+    plan, assets = inputs(tmp_path)
+    run = tmp_path/'run'
+    r = p.build(plan, assets, run)
+    pin = r['manifest_sha256']
+    assert verify(run, pin, fresh=True)['fresh_media_audit']
+    snap = tmp_path/'snapshot'
+    saved = backup(run, snap, pin)
+    result = restore(snap, tmp_path/'restored', saved['snapshot_sha256'], pin)
+    assert result['fresh_media_audit'] and not result['publication_eligible']
+    assert verify(tmp_path/'restored', pin, fresh=True)['queue_state'] == 'PENDING'

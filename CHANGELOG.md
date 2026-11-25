@@ -1,3 +1,10 @@
+# Phase 14B — pilot recovery candidate (2026-11-25)
+
+- Phase 14 CI confirmed successful (Linux and Windows contracts, run 45500025508).
+- Added stopped-pilot snapshot, verification and separate-destination restore with bounded hash-checked payloads, catalog relocation, revision preservation and incomplete markers.
+- Windows pilot start/resume now require fresh media preflight; resume requires independent trusted manifest pin.
+- Added portable adversarial tests and real synthetic CPU render roundtrip. New CI and owner acceptance pending.
+
 # Phase 14 — stopped pilot-run integrity candidate (2026-11-25)
 
 - Added offline read-only pilot preflight with independently supplied manifest pin, strict JSON, exact inventories and bounded file hashing.

@@ -96,7 +96,8 @@ def check_queue(path, expected, demo):
     # No live or uncheckpointed journal may be present. Never use immutable=1
     # on a database with possible pending journal changes.
     for suffix in ("-wal", "-shm", "-journal"):
-        require(not path.with_name(path.name + suffix).exists(), "QUEUE_ACTIVE")
+        journal = path.with_name(path.name + suffix)
+        require(not journal.exists() and not journal.is_symlink(), "QUEUE_ACTIVE")
     with closing(sqlite3.connect(path.resolve().as_uri() + "?mode=ro", uri=True, timeout=2)) as db:
         db.execute("PRAGMA query_only=ON")
         db.execute("PRAGMA trusted_schema=OFF")
@@ -113,7 +114,7 @@ def check_queue(path, expected, demo):
         require(state in {"PENDING", "DEMO_BLOCKED", "SELF_ATTESTED",
                           "NEEDS_REVISION", "INCOMPLETE"}, "QUEUE_STATE")
         require((revision == 0) == (state == "PENDING"), "QUEUE_STATE_REVISION")
-        require(not demo or state in {"PENDING", "DEMO_BLOCKED"}, "DEMO_STATE")
+        require(state == "PENDING" or (state == "DEMO_BLOCKED") == demo, "DEMO_STATE")
         history = db.execute("SELECT revision, state, review_sha256, blocker_count FROM submissions"
                              " WHERE manifest_sha256=? ORDER BY revision LIMIT 100001",
                              (expected[0],)).fetchall()
@@ -122,7 +123,7 @@ def check_queue(path, expected, demo):
         for i, (rev, status, review, blockers) in enumerate(history, 1):
             require(rev == i and status in {"DEMO_BLOCKED", "SELF_ATTESTED",
                                           "NEEDS_REVISION", "INCOMPLETE"}, "QUEUE_HISTORY")
-            require(not demo or status == "DEMO_BLOCKED", "DEMO_HISTORY")
+            require((status == "DEMO_BLOCKED") == demo, "DEMO_HISTORY")
             require(pin(review) not in seen and exact_int(blockers, 0, 10000), "QUEUE_HISTORY")
             seen.add(review)
         require(not history or history[-1][1] == state, "QUEUE_HISTORY_STATE")

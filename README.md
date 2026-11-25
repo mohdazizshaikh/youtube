@@ -1,3 +1,9 @@
+# ViralOS — Phase 15C: synchronized bilingual audio candidate
+
+Phase 15B CI verified: Linux 563 passed, 753 hashes; Windows 451 passed, 46 skipped. Phase 15C creates two equal-duration PCM masters, padded scene WAVs, scene-level WebVTT and deterministic fresh-verifiable bundle. No actual speech/translation/word alignment verification or automatic video rendering. See [operator guide](docs/PHASE15C_BILINGUAL_COMPOSITION_2026-11-25.md) and [priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE15.md). New CI pending; main preserved.
+
+---
+
 # ViralOS — Phase 15B: offline narration preparation candidate
 
 Phase 14C/15 CI green: Linux 486 passed, 749 package hashes; Windows 374 passed, 46 skipped. Added gain-only PCM mastering, owner-declared pronunciation glossary coverage, and hash-bound bilingual scene timing proposal. No TTS, ASR, true-peak/LUFS mastering, automatic dubbing or publishing authority. See [operator guide](docs/PHASE15B_NARRATION_PREPARATION_2026-11-25.md) and [priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE15.md). New CI pending; stable main preserved.

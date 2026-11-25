@@ -1,3 +1,9 @@
+# Phase 15C — bilingual audio composition (2026-11-25)
+
+- Recorded Phase 15B green hosted CI: Linux 563 passed/753 hashes, Windows 451 passed/46 skipped.
+- Added actual PCM composition with equal-length masters, frame-aligned padded scenes, scene-level escaped WebVTT, pinned manifest and exact fresh byte verification.
+- Added portable synthetic and adversarial regression coverage. No automatic video render, speech recognition, licensed-model acceptance or publication authority. New CI pending.
+
 # Phase 15B — offline narration preparation (2026-11-25)
 
 - Recorded Phase 14C/15 verified CI: Linux 486 passed, 749 package hashes; Windows 374 passed, 46 skipped, PowerShell syntax passed.

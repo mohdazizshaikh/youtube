@@ -4,9 +4,11 @@
 |---|---|---|
 | P0 | Phase 14C Windows fix | VERIFIED_HOSTED_CI: run 45640671172; actual Windows owner acceptance pending |
 | P0 | Offline bilingual voice QC | VERIFIED_HOSTED_CI: run 45640671172, owner voices pending |
-| P0 | Phase 15B gain-only master | Implemented candidate; test run and human listening pending |
-| P0 | Phase 15B pronunciation coverage | Implemented owner-declared glossary matching; phonetics and actual pronunciation pending |
-| P0 | Phase 15B shared scene timing | Implemented hash-bound frame schedule proposal; media integration and owner acceptance pending |
+| P0 | Phase 15B gain-only master | VERIFIED_HOSTED_CI run 45647974382; human listening pending |
+| P0 | Phase 15B pronunciation coverage | VERIFIED_HOSTED_CI run 45647974382; phonetics and actual pronunciation pending |
+| P0 | Phase 15B shared scene timing | VERIFIED_HOSTED_CI run 45647974382; Phase 15C composition candidate |
+| P0 | Phase 15C synchronized audio and captions | Actual PCM composition, scene VTT and fresh verification candidate; CI pending |
+| P0 | Pilot render integration | Manual localized plans using padded WAVs; automatic bilingual video render pending |
 | P0 | Real Hindi/English licensed TTS | BLOCKED on owner model, license, native listening and CPU measurement |
 | P0 | Real CTC alignment | BLOCKED on acoustic models/reference corpus |
 | P0 | Gold-standard pilot | Non-demo narration, graphics, human source/rights review and integration pending |

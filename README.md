@@ -1,3 +1,9 @@
+# ViralOS — Phase 15R: chart recovery and editorial comparison
+
+Phase 15P Windows 1246 passed/67 skipped; Linux and Phase 15Q pending at authoring. Phase 15R adds paired chart snapshot/restore and a read-only chart editorial dashboard, with original inputs independently retained. See [operator guide](docs/PHASE15R_CHART_RECOVERY_AND_REVIEW_2026-11-26.md). New CI pending. Main preserved; no release authority.
+
+---
+
 # ViralOS — Phase 15Q: bilingual chart-to-video derivatives
 
 Phase 15O verified CI: Linux 1298 passed/815 hashes; Windows 1169 passed/63 skipped. Phase 15P Windows 1246 passed/67 skipped; Linux in progress at authoring. Phase 15Q adds separately pinned bilingual static chart pilot children preserving original narration, source declarations and timing with fresh editorial queues. See [operator guide](docs/PHASE15Q_CHART_VIDEO_2026-11-26.md). New CI pending; no release authority.

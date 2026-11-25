@@ -1,3 +1,9 @@
+# Phase 15R — chart recovery and editorial comparison (2026-11-26)
+
+- Added strict chart receipt and scene declaration binding, local read-only chart comparison using shared browser guards and fresh child audit.
+- Added paired chart snapshot and non-destructive restore, exact child review DB preservation and full original-input rerender verification after restore.
+- Extended real chart pilot regression with submitted review, backup/restore, dashboard playback and tamper checks. New CI pending. Animated charts and transitions deferred pending static integration CI. No release authority.
+
 # Phase 15Q — bilingual chart-to-video derivatives (2026-11-26)
 
 - Recorded Phase 15O full hosted CI and Phase 15P Windows results; Linux pending at authoring.

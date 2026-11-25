@@ -41,3 +41,5 @@ Phase 15N VERIFIED_HOSTED_CI run 45713882064; Phase 15O VERIFIED_HOSTED_CI run 4
 Phase 15P bilingual quantitative BAR/LINE preview candidate; scientific/financial chart-to-MP4 integration, advanced transitions, persistent motion queue, source transcription and owner acceptance pending.
 
 Phase 15O VERIFIED_HOSTED_CI run 45714585243 (1298 Linux/815 hashes, 1169 Windows/63 skips). Phase 15Q paired chart-to-MP4 candidate; combined chart dashboard/recovery, animated charts, transitions and owner acceptance pending.
+
+Phase 15R chart-pair backup/restore and read-only chart dashboard candidates. Phase 15P Windows 1246/67 skips, Linux and 15Q pending at authoring. Animations/transitions, full chart review transaction and mix integration pending; owner acceptance blocked.

@@ -120,5 +120,40 @@ def test_real_chart_pair(pair_inputs,tmp_path):
     for lang in c.LANGS:
         assert (out/lang/"draft"/"narration.wav").read_bytes()==(pair/lang/"draft"/"narration.wav").read_bytes()
     with pytest.raises(ValueError):c.build(inputs,out)
+    from tools import chart_pair_snapshot as snap,chart_review_dashboard as dashboard
+    from app import domain_review_queue as queue
+    from fastapi.testclient import TestClient
+    import re
+    run=out/"hindi"
+    pin=result["runs"]["hindi"]["manifest_sha256"]
+    review=c.pv.document(run/"review_template.json")
+    queue.submit(run/"reviews.sqlite",run/"draft",run/"assets",pin,0,review)
+    pair_pin=result["chart_pair_sha256"]
+    snapshot=tmp_path/"chart-snapshot"
+    saved=snap.backup(inputs,out,pair_pin,snapshot)
+    assert saved["review_states"]["hindi"]=={"revision":1,"state":"DEMO_BLOCKED"}
+    restored=tmp_path/"chart-restored"
+    checked=snap.restore(inputs,snapshot,saved["snapshot_sha256"],pair_pin,restored)
+    assert checked["review_states"]==saved["review_states"]
+    for lang in c.LANGS:
+        assert (restored/lang/"reviews.sqlite").read_bytes()==(out/lang/"reviews.sqlite").read_bytes()
+    with TestClient(dashboard.create_app(restored,pair_pin)) as client:
+        page=client.get("/")
+        assert "Chart-production editorial review" in page.text
+        token=re.search(r'name="review-session" content="([0-9a-f]{64})"',page.text).group(1)
+        h={"X-Review-Session":token}
+        assert client.get("/api/status").status_code==403
+        response=client.get("/api/status",headers=h)
+        assert response.status_code==200
+        assert response.json()["languages"]["hindi"]["revision"]==1
+        assert all(s["chart_declaration"] for l in response.json()["languages"].values() for s in l["scenes"])
+        assert client.post("/api/submit",headers=h,json={}).status_code==404
+        for lang in c.LANGS:
+            video=client.get("/api/video/"+lang,headers=h)
+            assert video.status_code==200 and c.sha(video.content)==result["runs"][lang]["video_sha256"]
+        (restored/"chart_pair.json").write_bytes(b"tamper")
+        assert client.get("/api/status",headers=h).status_code==409
+    (snapshot/"english"/"payload"/"draft"/"draft.mp4").write_bytes(b"tamper")
+    with pytest.raises(ValueError):snap.inspect(snapshot,saved["snapshot_sha256"],pair_pin)
     (root/"scene_01"/"source.bin").write_bytes(b"changed")
     with pytest.raises(ValueError):c.verify(inputs,out,result["chart_pair_sha256"])

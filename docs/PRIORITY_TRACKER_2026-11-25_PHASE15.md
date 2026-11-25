@@ -53,3 +53,5 @@ Phase 15Q VERIFIED_HOSTED_CI run 45715678172 (1410 Linux/823 hashes, 1276 Window
 Phase 15R VERIFIED_HOSTED_CI run 45716028733 (1458 Linux/828 hashes; 1324 Windows/68 skips). Phase 15V paired chart-motion snapshot candidate; S Linux/T/U pending at authoring. Advanced transitions, persistent motion queue and owner acceptance pending.
 
 Phase 15S VERIFIED_HOSTED_CI run 45716301815 (1503 Linux/832 hashes; 1369 Windows/68 skips). Phase 15W separate chart fade-through-dark transition candidate with exact PTS checks. T/U/V/W CI pending at authoring; motion/transition combination, transition handoff/recovery, owner acceptance pending.
+
+Phase 15X standalone narration compressor/limiter candidate; T Windows 1413/68 skips, U Windows 1453/68 skips (50 warnings each), Linux and V/W pending at authoring. Audio pilot integration, unified motion/transitions and professional owner listening pending.

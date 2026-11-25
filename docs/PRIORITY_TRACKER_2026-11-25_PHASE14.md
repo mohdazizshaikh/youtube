@@ -45,3 +45,5 @@ Phase 15Q VERIFIED_HOSTED_CI run 45715678172 (1410 Linux/823 hashes, 1276 Window
 Phase 15R VERIFIED_HOSTED_CI run 45716028733 (1458 Linux/828 hashes; 1324 Windows/68 skips). Phase 15V paired motion recovery candidate; no owner acceptance.
 
 Phase 15S VERIFIED_HOSTED_CI run 45716301815 (1503 Linux/832 hashes; 1369 Windows/68 skips); Phase 15W chart transition candidate, no owner acceptance.
+
+Phase 15X narration dynamics candidate; T/U Windows passed, Linux and V/W pending at authoring. No owner acceptance.

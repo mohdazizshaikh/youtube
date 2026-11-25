@@ -1,3 +1,9 @@
+# Phase 15X — narration dynamics mastering (2026-11-26)
+
+- Recorded T/U Windows CI; Linux and V/W pending at authoring.
+- Added pinned offline RMS compressor, bounded makeup gain and lookahead sample-peak limiter, exact sample preservation, FFmpeg true-peak remeasurement and separate immutable output/receipt verification.
+- Added algorithm/request and real FFmpeg synthetic tone regression coverage. New CI pending. Motion combination and pilot mastering integration deferred; no professional acceptance or publication.
+
 # Phase 15W — chart scene transitions (2026-11-26)
 
 - Recorded Phase 15S verified hosted CI (1503 Linux/832 hashes, 1369 Windows/68 skipped).

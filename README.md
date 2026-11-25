@@ -1,3 +1,9 @@
+# ViralOS — Phase 15X: bounded narration dynamics
+
+Phase 15S verified CI: Linux 1503 passed/832 hashes; Windows 1369 passed/68 skipped. T/U Windows 1413/1453 passed (68 skipped each); Linux and V/W pending at authoring. Phase 15X adds separate pinned offline compressor, bounded makeup gain, lookahead sample-peak limiter and true-peak remeasurement. See [operator guide](docs/PHASE15X_NARRATION_DYNAMICS_2026-11-26.md). New CI pending; no publication authority.
+
+---
+
 # ViralOS — Phase 15W: chart scene transitions
 
 Phase 15S verified CI: Linux 1503 passed/832 hashes; Windows 1369 passed/68 skipped. T/U/V CI pending at authoring. Phase 15W adds separate chart-pair fade-through-dark transitions with original audio/captions, all-frame 96x96 diagnostic and exact presentation timestamp grid checks. See [operator guide](docs/PHASE15W_CHART_TRANSITIONS_2026-11-26.md). New CI pending. No release authority.

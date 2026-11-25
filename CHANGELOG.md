@@ -1,3 +1,10 @@
+# Phase 15I — dynamic ducking and review transaction recovery (2026-11-26)
+
+- Recorded Phase 15H verified CI: Linux 940 passed/783 hashes; Windows 819 passed/55 skipped.
+- Added immutable pinned transaction plan, read-only reconciliation, exact history-prefix and review digest checks, explicit independent ordered writes and idempotent interruption recovery.
+- Added RMS-driven music ducking with attack/release/hold, sample fades, bounded attenuation and output true peak measurement. Separate output; production integration remains pending.
+- Added portable and real media regression cases, docs and trackers. New CI pending; no cross-database atomicity or publication acceptance.
+
 # Phase 15H — native recovery, review preflight and mix (2026-11-26)
 
 - Recorded Phase 15G verified CI: Linux 878 passed/777 hashes; Windows 759 passed/53 skipped.

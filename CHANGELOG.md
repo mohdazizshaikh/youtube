@@ -1,3 +1,9 @@
+# Phase 16A — dependency-aware local workflow (2026-11-26)
+
+- Recorded full U/V hosted CI and W/X/Y Windows evidence; Y Windows warnings reduced from 50 to 2.
+- Added bounded typed audit/backup/snapshot audit DAG, deterministic topological selection, independently pinned receipt chain, fresh prior-job replay, exact workspace inventory and exclusive interruption intent. No arbitrary commands or automatic retry.
+- Added portable graph/filesystem/receipt tests and real CPU workflow integration. Created Phase 16 tracker. New CI pending; full production orchestration and owner acceptance pending.
+
 # Phase 15Z — paired mastered video candidate (2026-11-26)
 
 - Recorded Phase 15T full hosted CI and U/V/W/X Windows results; Linux and Y pending at authoring.

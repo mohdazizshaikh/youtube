@@ -59,3 +59,5 @@ Phase 15X standalone narration compressor/limiter candidate; T Windows 1413/68 s
 Phase 15Y paired narration dynamics and exact scene PCM bundle candidate. V Windows 1494 passed/68 skips; T/U/V Linux running, W/X pending at authoring. 48 Pillow deprecation warnings addressed in source; remaining Starlette/ZIP warnings tracked. Mastered-video derivative, combined motion/transitions, full CI and owner acceptance pending.
 
 Phase 15T VERIFIED_HOSTED_CI run 45716580945 (1547 Linux/836 hashes; 1413 Windows/68 skips). U/V/W/X Windows 1453/1494/1549/1616 passed; Linux and Y pending at authoring. Phase 15Z paired mastered MP4 candidate. Mastered review/recovery, unified motion/transition/audio orchestration, owner acceptance pending.
+
+Phase 15U/V VERIFIED_HOSTED_CI runs 45717115545/45717470328 (1587/1628 Linux, 840/844 hashes, 1453/1494 Windows). Y Windows 1660 passed/70 skips/2 warnings, Pillow warning fix verified. W–Z full CI pending at authoring. Phase 16A typed audit/backup DAG candidate; see Phase 16 tracker.

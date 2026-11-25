@@ -1,3 +1,9 @@
+# ViralOS — Phase 16A: local production workflow foundation
+
+Phase 15U/V verified Linux 1587/1628 passed and Windows 1453/1494 passed. Phase 15Y Windows 1660 passed/70 skipped, warnings reduced 50 to 2. W–Z full CI pending at authoring. Phase 16A adds a bounded typed audit/backup DAG with explicit checkpointed execution and fresh prerequisite verification. See [operator guide](docs/PHASE16A_LOCAL_PRODUCTION_WORKFLOW_2026-11-26.md) and [Phase 16 tracker](docs/PRIORITY_TRACKER_2026-11-26_PHASE16.md). New CI pending; no release authority.
+
+---
+
 # ViralOS — Phase 15Z: paired mastered video candidate
 
 Phase 15T verified hosted CI: Linux 1547 passed/836 hashes; Windows 1413 passed/68 skipped. U/V/W/X Windows passed; Linux and Y pending at authoring. Phase 15Z adds separate paired mastered-narration MP4 derivatives from pinned original bilingual pilots. See [operator guide](docs/PHASE15Z_MASTERED_VIDEO_2026-11-26.md). New CI pending; no release authority.

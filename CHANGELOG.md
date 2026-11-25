@@ -1,3 +1,9 @@
+# Phase 15S — chart editorial transactions and CI consolidation (2026-11-26)
+
+- Recorded Phase 15P verified hosted CI (1379 Linux/819 hashes, 1246 Windows/67 skipped), Phase 15Q Windows 1276 passed/68 skipped. Q Linux/R pending at authoring.
+- Added source-verified chart review transaction wrapper with unique request/plan schemas, private plan path, immutable selection and explicit independent writes/resume. Original inputs must remain stopped/quiescent.
+- Explicitly close read-only SQLite preflight connections; retain query-only and trusted-schema controls. Added contract cases and extended real chart integration with interruption and source tamper rejection. New CI pending. No publishing or merge.
+
 # Phase 15R — chart recovery and editorial comparison (2026-11-26)
 
 - Added strict chart receipt and scene declaration binding, local read-only chart comparison using shared browser guards and fresh child audit.

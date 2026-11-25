@@ -1,3 +1,9 @@
+# ViralOS — Phase 15S: source-verified chart editorial transactions
+
+Phase 15P verified CI: Linux 1379 passed/819 hashes; Windows 1246 passed/67 skipped. Phase 15Q Windows 1276 passed/68 skipped; Linux and 15R pending at authoring. Phase 15S adds distinct source-verified chart review transaction plans, explicit independent writes and resumable reconciliation. See [operator guide](docs/PHASE15S_CHART_TRANSACTIONS_2026-11-26.md). New CI pending; main preserved. No release authority.
+
+---
+
 # ViralOS — Phase 15R: chart recovery and editorial comparison
 
 Phase 15P Windows 1246 passed/67 skipped; Linux and Phase 15Q pending at authoring. Phase 15R adds paired chart snapshot/restore and a read-only chart editorial dashboard, with original inputs independently retained. See [operator guide](docs/PHASE15R_CHART_RECOVERY_AND_REVIEW_2026-11-26.md). New CI pending. Main preserved; no release authority.

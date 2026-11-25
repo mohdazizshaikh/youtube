@@ -153,7 +153,32 @@ def test_real_chart_pair(pair_inputs,tmp_path):
             assert video.status_code==200 and c.sha(video.content)==result["runs"][lang]["video_sha256"]
         (restored/"chart_pair.json").write_bytes(b"tamper")
         assert client.get("/api/status",headers=h).status_code==409
+    # Use a new review declaration for the previously reviewed Hindi child.
+    # Inject a failed second write, prove status/resume and idempotent retry.
+    from tools import chart_review_transaction as ct
+    obj={"schema":ct.REQUEST,"chart_pair_sha256":pair_pin,"reviews":{}}
+    for lang in c.LANGS:
+        review=c.pv.document(out/lang/"review_template.json")
+        review["reviewer"]="synthetic transaction reviewer"
+        obj["reviews"][lang]={"revision":saved["review_states"][lang]["revision"],"review":review}
+    request_raw=c.json_bytes(obj)
+    txbase=(inputs,out,pair_pin,request_raw,c.sha(request_raw))
+    plan=ct.prepare(*txbase)
+    txargs=(*txbase,plan,c.sha(plan))
+    assert ct.reconcile(*txargs)=={"hindi":"PENDING","english":"PENDING"}
+    submit=ct.tx.queue.submit
+    def fail_english(path,*a,**kw):
+        if path.parent.name=="english":raise RuntimeError("simulated interruption")
+        return submit(path,*a,**kw)
+    from unittest.mock import patch
+    with patch.object(ct.tx.queue,"submit",side_effect=fail_english):
+        with pytest.raises(RuntimeError,match="simulated interruption"):ct.apply(*txargs)
+    assert ct.reconcile(*txargs)=={"hindi":"RECORDED","english":"PENDING"}
+    assert ct.apply(*txargs)["completed"]
+    assert ct.reconcile(*txargs)=={"hindi":"RECORDED","english":"RECORDED"}
+    assert ct.apply(*txargs)["cross_database_atomic"] is False
     (snapshot/"english"/"payload"/"draft"/"draft.mp4").write_bytes(b"tamper")
     with pytest.raises(ValueError):snap.inspect(snapshot,saved["snapshot_sha256"],pair_pin)
     (root/"scene_01"/"source.bin").write_bytes(b"changed")
+    with pytest.raises(ValueError):ct.apply(*txargs)
     with pytest.raises(ValueError):c.verify(inputs,out,result["chart_pair_sha256"])

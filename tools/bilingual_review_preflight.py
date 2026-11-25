@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import json
 import sqlite3
+from contextlib import closing
 from pathlib import Path
 from app.domain_draft_review import evaluate
 from tools import bilingual_review_dashboard as dashboard, pilot_run_verify as pv
@@ -48,7 +49,9 @@ def preflight_selected(selector,reviews,request_pin):
         result=evaluate(run/"draft",run/"assets",pin,row["review"])
         review_pin=pv.pin(result["review_sha256"])
         # Read-only URI, never use queue.status which opens a writable connection.
-        with sqlite3.connect((run/"reviews.sqlite").resolve().as_uri()+"?mode=ro",uri=True) as db:
+        with closing(sqlite3.connect((run/"reviews.sqlite").resolve().as_uri()+"?mode=ro",uri=True,timeout=2)) as db:
+            db.execute("PRAGMA query_only=ON")
+            db.execute("PRAGMA trusted_schema=OFF")
             exists=db.execute("SELECT 1 FROM submissions WHERE manifest_sha256=? AND review_sha256=?",
                               (pin,review_pin)).fetchone()
         pv.require(exists is None,"REVIEW_ALREADY_RECORDED")

@@ -1,3 +1,9 @@
+# ViralOS — Phase 15H: native pilot recovery, review preflight and audio mix
+
+Phase 15G verified CI: Linux 878 passed/777 hashes; Windows 759 passed/53 skipped. Phase 15H adds three-child native production snapshot/restore, dual editorial preflight (read-only), and pinned narration/music mixing with measured peak QC. See [operator guide](docs/PHASE15H_NATIVE_RECOVERY_AND_MIX_2026-11-26.md) and [priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE15.md). New CI pending; main preserved. No publication authorization.
+
+---
+
 # ViralOS — Phase 15G: private bilingual dashboard and loudness QC
 
 Phase 15F verified CI: Linux 806 passed/771 hashes; Windows 689 passed/51 skipped. Phase 15G adds a read-only loopback bilingual comparison dashboard and FFmpeg loudness/true-peak measurement with bounded gain-only mastering. See [operator guide](docs/PHASE15G_EDITORIAL_AND_LOUDNESS_2026-11-26.md) and [priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE15.md). New CI pending; main preserved. No publication authorization.

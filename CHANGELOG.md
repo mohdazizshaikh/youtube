@@ -1,3 +1,10 @@
+# Phase 15H — native recovery, review preflight and mix (2026-11-26)
+
+- Recorded Phase 15G verified CI: Linux 878 passed/777 hashes; Windows 759 passed/53 skipped.
+- Added three-child native production snapshot/restore with receipt binding, independent queue preservation and full fresh native verification.
+- Added read-only dual review preflight and separate exact-length voice/music mix with owner rights declaration, bounded attenuation, fades and measured true peak.
+- Added regression cases and tracking updates; new CI pending. No atomic joint submission, automatic mix substitution, dynamic mastering, owner acceptance or publishing.
+
 # Phase 15G — bilingual editorial dashboard and loudness QC (2026-11-26)
 
 - Recorded Phase 15F CI green: Linux 806 passed/771 hashes; Windows 689 passed/51 skipped.

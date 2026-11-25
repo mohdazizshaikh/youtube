@@ -10,9 +10,9 @@
 | P0 | Phase 15C synchronized audio and captions | VERIFIED_HOSTED_CI run 45649764042; owner listening pending |
 | P0 | Pilot render integration | VERIFIED_HOSTED_CI run 45651019863; physical owner acceptance pending |
 | P0 | Native Hindi on-screen graphics | Phase 15E hosted CI green; Phase 15F VERIFIED_HOSTED_CI run 45688445729; native reader acceptance pending |
-| P1 | Pair disaster recovery | VERIFIED_HOSTED_CI run 45675859895; physical owner restore pending; native derivative not included |
-| P1 | Unified bilingual editorial dashboard | Phase 15G read-only browser dashboard candidate; coordinated submission pending |
-| P1 | Loudness and true peak | Phase 15G FFmpeg measurement and bounded gain-only mastering candidate; full mix and owner listening pending |
+| P1 | Pair disaster recovery | VERIFIED_HOSTED_CI run 45675859895; physical owner restore pending; Phase 15H three-child native snapshot candidate |
+| P1 | Unified bilingual editorial dashboard | VERIFIED_HOSTED_CI run 45693600947; Phase 15H dual review preflight candidate; joint write pending |
+| P1 | Loudness and true peak | VERIFIED_HOSTED_CI run 45693600947; Phase 15H bounded music mix candidate; dynamic processing and owner listening pending |
 | P0 | Real Hindi/English licensed TTS | BLOCKED on owner model, license, native listening and CPU measurement |
 | P0 | Real CTC alignment | BLOCKED on acoustic models/reference corpus |
 | P0 | Gold-standard pilot | Non-demo narration, graphics, human source/rights review and integration pending |

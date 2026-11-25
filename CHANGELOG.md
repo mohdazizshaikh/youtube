@@ -1,3 +1,9 @@
+# Phase 15W — chart scene transitions (2026-11-26)
+
+- Recorded Phase 15S verified hosted CI (1503 Linux/832 hashes, 1369 Windows/68 skipped).
+- Added separate bilingual static-chart fade-through-dark candidate with bounded stages, fixed timeline and bottom source date/warning preservation before encoding; no cross-chart blending or value interpolation.
+- Added exact presentation timestamp checks and all-frame stage diagnostics, parent audio/caption preservation and separate receipt; native motion audit default unchanged. Regression and real chart integration extended; new CI pending. No inherited review or production merge.
+
 # Phase 15V — paired chart-motion recovery (2026-11-26)
 
 - Recorded verified Phase 15R CI and Phase 15S Windows evidence.

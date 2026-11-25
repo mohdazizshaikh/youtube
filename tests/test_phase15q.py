@@ -177,6 +177,17 @@ def test_real_chart_pair(pair_inputs,tmp_path):
     assert ct.apply(*txargs)["completed"]
     assert ct.reconcile(*txargs)=={"hindi":"RECORDED","english":"RECORDED"}
     assert ct.apply(*txargs)["cross_database_atomic"] is False
+    from tools import chart_scene_transition as transition
+    transition_raw=c.json_bytes({"schema":transition.REQUEST,"chart_pair_sha256":pair_pin,
+                                 "effect":transition.EFFECT,"fade_frames":3})
+    transition_dest=tmp_path/"chart-transition"
+    transition_args=(inputs,out,pair_pin,transition_raw,c.sha(transition_raw),transition_dest)
+    transition_report=transition.build(*transition_args)
+    transition_check=transition.verify(*transition_args,transition_report["transition_pair_sha256"])
+    assert transition_check["frames_compared"]=={"hindi":52,"english":52}
+    assert transition_check["presentation_timestamps_verified"] and not transition_check["publication_eligible"]
+    (transition_dest/"hindi"/"captions.vtt").write_bytes(b"tamper")
+    with pytest.raises(ValueError):transition.verify(*transition_args,transition_report["transition_pair_sha256"])
     from tools import chart_pair_motion as motion
     motion_raw=c.json_bytes({"schema":motion.REQUEST,"chart_pair_sha256":pair_pin,
                              "effect":"VALUE_ROW_HIGHLIGHT_V1"})

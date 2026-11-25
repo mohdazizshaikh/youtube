@@ -115,7 +115,7 @@ def execute(cmd,timeout=120):
     return subprocess.check_output(cmd,timeout=timeout,stdin=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
 
 
-def media_audit(video,root,manifest,rendered):
+def media_audit(video,root,manifest,rendered,*,frame_checker=frame_check):
     exe,probe=shutil.which("ffmpeg"),shutil.which("ffprobe")
     pv.require(exe and probe,"LOCAL_MEDIA_REQUIRED")
     pv.file_hash(video,MAX_VIDEO)
@@ -137,7 +137,7 @@ def media_audit(video,root,manifest,rendered):
     raw=execute([exe,"-nostdin","-v","error","-protocol_whitelist","file,pipe","-i",str(video),
                  "-map","0:v:0","-frames:v",str(count+1),"-threads","1","-vf",f"scale={SIZE}:{SIZE}",
                  "-fps_mode","passthrough","-f","rawvideo","-pix_fmt","rgb24","pipe:1"])
-    return {**frame_check(raw,rendered),"decoded_parent_audio_equal":True}
+    return {**frame_checker(raw,rendered),"decoded_parent_audio_equal":True}
 
 
 def render_video(output,root,manifest,rendered):

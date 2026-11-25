@@ -51,3 +51,5 @@ Phase 15T separate bilingual chart value-row motion candidate, full reduced-reso
 Phase 15Q VERIFIED_HOSTED_CI run 45715678172 (1410 Linux/823 hashes, 1276 Windows/68 skips); R Windows 1324 and S Windows 1369 passed/68 skips each; Linux pending at authoring. Phase 15U paired chart motion editorial handoff candidate; T motion CI, transitions, motion recovery and owner acceptance pending.
 
 Phase 15R VERIFIED_HOSTED_CI run 45716028733 (1458 Linux/828 hashes; 1324 Windows/68 skips). Phase 15V paired chart-motion snapshot candidate; S Linux/T/U pending at authoring. Advanced transitions, persistent motion queue and owner acceptance pending.
+
+Phase 15S VERIFIED_HOSTED_CI run 45716301815 (1503 Linux/832 hashes; 1369 Windows/68 skips). Phase 15W separate chart fade-through-dark transition candidate with exact PTS checks. T/U/V/W CI pending at authoring; motion/transition combination, transition handoff/recovery, owner acceptance pending.

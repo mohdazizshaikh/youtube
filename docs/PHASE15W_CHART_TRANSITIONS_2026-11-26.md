@@ -1,0 +1,11 @@
+# Phase 15W — chart scene fade-through-dark transitions
+
+Phase 15S VERIFIED_HOSTED_CI run 45716301815: Linux 1503 passed/832 hashes; Windows 1369 passed/68 skipped. T/U/V CI pending at authoring. W source candidate, not released.
+
+Separate bilingual candidate derived from verified static chart pair (not the row-highlight motion output). At each internal scene boundary fade the current chart content toward dark over 3–8 frames, then fade the next chart from dark to full. Do not blend two charts, interpolate numbers or overlap timelines. Source date and warning bottom 104 pixels stay unchanged before lossy encoding. At least 13 unchanged frames in every scene; max 24 render stages, max 60 seconds, 25 fps. Reject excessively short scenes and low-contrast ambiguous visual stages. No guarantee of smooth perceptual playback or speech-aligned transition placement; operator review required. Native motion renderer copied AAC, preserved captions, exact decoded audio equality, reduced-resolution all-frame comparison and fresh ffprobe exact presentation timestamp grid (0, 40, 80 ms etc) added. Repeated identical fade levels in interior scenes allowed; check nearest distinct stage within scene. Full-resolution pixel equality is not claimed.
+
+Stop consoles and preserve original sources, fonts, chart requests, static chart pair and all independent pins. Request schema VIRALOS_CHART_TRANSITION_REQUEST_V1, chart_pair_sha256, effect DIP_TO_DARK_V1, fade_frames integer 3–8.
+```
+python -m tools.chart_scene_transition build --pair PATH --pair-sha256 PIN --root PATH --chart-request PATH --chart-request-sha256 PIN --hindi-font PATH --hindi-font-sha256 PIN --english-font PATH --english-font-sha256 PIN --chart-pair PATH --chart-pair-sha256 PIN --request PATH --request-sha256 PIN --output NEW_PATH
+```
+Verify with same flags using verify and --transition-pair-sha256 PIN. Output hindi/ and english/ each motion.mp4 and captions.vtt, transition_pair.json. Independent receipt binds fade numerators, stage hashes and exact frame count and PTS diagnostics, parent/video/caption pins. No overwrite, no inherited approval, no mutable queue or transition-specific snapshot. Original source integrity is not factual accuracy. Separate chart-row motion remains pending CI. No production merge or publication.

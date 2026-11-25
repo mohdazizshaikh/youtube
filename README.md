@@ -1,3 +1,9 @@
+# ViralOS — Phase 15V: chart-motion recovery
+
+Phase 15R verified CI: Linux 1458 passed/828 hashes; Windows 1324 passed/68 skipped. Phase 15S Windows 1369 passed/68 skipped; Linux and T/U pending at authoring. Phase 15V adds independently pinned chart-motion and editorial handoff snapshots and fresh restore. See [operator guide](docs/PHASE15V_CHART_MOTION_RECOVERY_2026-11-26.md). New CI pending; no release authority.
+
+---
+
 # ViralOS — Phase 15U: chart motion editorial handoff
 
 Phase 15Q verified hosted CI: Linux 1410 passed/823 hashes; Windows 1276 passed/68 skipped. Phase 15R Windows 1324 passed, Phase 15S Windows 1369 passed (68 skipped each); Linux pending at authoring. Phase 15U adds independent bilingual chart-motion review packets and explicit 13-check scene evaluation. See [operator guide](docs/PHASE15U_CHART_MOTION_EDITORIAL_2026-11-26.md). New CI pending; no publishing or merge.

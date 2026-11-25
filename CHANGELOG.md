@@ -1,3 +1,9 @@
+# Phase 15V — paired chart-motion recovery (2026-11-26)
+
+- Recorded verified Phase 15R CI and Phase 15S Windows evidence.
+- Added exact paired motion/handoff backup, metadata-only verification, internal receipt/packet consistency checks and non-destructive restore with original-input verification. Incomplete marker retained until success.
+- Added real filesystem regression tests and extended media integration. New CI pending. Reviews/results and original inputs separately retained; no publication or production merge.
+
 # Phase 15U — chart motion editorial handoff (2026-11-26)
 
 - Recorded verified Phase 15Q hosted CI and R/S Windows results. R/S Linux and T pending at authoring.

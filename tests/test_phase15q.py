@@ -199,6 +199,13 @@ def test_real_chart_pair(pair_inputs,tmp_path):
         reviews[lang]=c.json_bytes(review)
     assessed=cmr.evaluate_packets(packets,reviews,{l:c.sha(raw) for l,raw in reviews.items()},hand["handoff_sha256"])
     assert not assessed["both_self_attested_checklists_complete"] and not assessed["publication_eligible"]
+    from tools import chart_motion_snapshot as cms
+    motion_snapshot=tmp_path/"chart-motion-snapshot"
+    motion_saved=cms.backup(args,handoff,hand["handoff_sha256"],motion_snapshot)
+    motion_restored=tmp_path/"chart-motion-restored"
+    assert cms.restore((*args[:5],None,args[6]),motion_snapshot,motion_saved["snapshot_sha256"],
+                       hand["handoff_sha256"],motion_restored)["fresh_media_audit"]
+    assert cms.inventory(motion_restored/"motion",motion_restored/"handoff")==cms.inventory(motion_dest,handoff)
     (motion_dest/"english"/"captions.vtt").write_bytes(b"tamper")
     with pytest.raises(ValueError):motion.verify(*motion_args,motion_report["motion_pair_sha256"])
     (snapshot/"english"/"payload"/"draft"/"draft.mp4").write_bytes(b"tamper")

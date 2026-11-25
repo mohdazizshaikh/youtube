@@ -186,6 +186,19 @@ def test_real_chart_pair(pair_inputs,tmp_path):
     motion_check=motion.verify(*motion_args,motion_report["motion_pair_sha256"])
     assert motion_check["frames_compared"]=={"hindi":52,"english":52}
     assert motion_check["fresh_media_audit"] and not motion_check["publication_eligible"]
+    from tools import chart_motion_review as cmr
+    args=(*motion_args,motion_report["motion_pair_sha256"])
+    handoff=tmp_path/"chart-motion-handoff"
+    hand=cmr.prepare(args,handoff)
+    packets=cmr.verify(args,handoff,hand["handoff_sha256"])
+    reviews={}
+    for lang in c.LANGS:
+        review=cmr.template(packets[lang])
+        review["reviewer"]="synthetic motion reviewer"
+        for row in review["scenes"]:row["checks"]=dict.fromkeys(cmr.CHECKS,"PASS")
+        reviews[lang]=c.json_bytes(review)
+    assessed=cmr.evaluate_packets(packets,reviews,{l:c.sha(raw) for l,raw in reviews.items()},hand["handoff_sha256"])
+    assert not assessed["both_self_attested_checklists_complete"] and not assessed["publication_eligible"]
     (motion_dest/"english"/"captions.vtt").write_bytes(b"tamper")
     with pytest.raises(ValueError):motion.verify(*motion_args,motion_report["motion_pair_sha256"])
     (snapshot/"english"/"payload"/"draft"/"draft.mp4").write_bytes(b"tamper")

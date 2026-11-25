@@ -47,3 +47,5 @@ Phase 15R chart-pair backup/restore and read-only chart dashboard candidates. Ph
 Phase 15S source-verified chart review transaction candidate; explicit independent writes and resumable reconciliation. Phase 15P full CI verified; Phase 15Q Windows verified, Linux and 15R pending at authoring. Animation/advanced transitions and owner acceptance pending.
 
 Phase 15T separate bilingual chart value-row motion candidate, full reduced-resolution frame comparison, parent audio/caption preservation; Q Linux/R/S full CI pending at authoring. Advanced smooth transitions, motion editorial/recovery, music integration and owner acceptance pending.
+
+Phase 15Q VERIFIED_HOSTED_CI run 45715678172 (1410 Linux/823 hashes, 1276 Windows/68 skips); R Windows 1324 and S Windows 1369 passed/68 skips each; Linux pending at authoring. Phase 15U paired chart motion editorial handoff candidate; T motion CI, transitions, motion recovery and owner acceptance pending.

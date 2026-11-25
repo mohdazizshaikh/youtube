@@ -1,3 +1,9 @@
+# ViralOS — Phase 15U: chart motion editorial handoff
+
+Phase 15Q verified hosted CI: Linux 1410 passed/823 hashes; Windows 1276 passed/68 skipped. Phase 15R Windows 1324 passed, Phase 15S Windows 1369 passed (68 skipped each); Linux pending at authoring. Phase 15U adds independent bilingual chart-motion review packets and explicit 13-check scene evaluation. See [operator guide](docs/PHASE15U_CHART_MOTION_EDITORIAL_2026-11-26.md). New CI pending; no publishing or merge.
+
+---
+
 # ViralOS — Phase 15T: bilingual chart value-row motion
 
 Phase 15P verified CI: Linux 1379 passed/819 hashes; Windows 1246 passed/67 skipped. Phase 15Q Windows 1276 passed/68 skipped; Q Linux/R/S full CI pending at authoring. Phase 15T adds separate paired value-row highlight motion candidates, all-frame reduced-resolution diagnostics and unchanged parent decoded audio/captions. See [operator guide](docs/PHASE15T_CHART_MOTION_2026-11-26.md). New CI pending; stable main preserved. No publishing.

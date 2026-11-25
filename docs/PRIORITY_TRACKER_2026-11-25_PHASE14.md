@@ -39,3 +39,5 @@ Phase 15R chart recovery/dashboard candidate; 15P Windows 1246 passed/67 skipped
 Phase 15P VERIFIED_HOSTED_CI run 45715211323: Linux 1379 passed/819 hashes; Windows 1246 passed/67 skipped. Phase 15Q Windows 1276 passed/68 skipped. Q Linux/R pending at authoring. Phase 15S chart transaction candidate; no owner acceptance.
 
 Phase 15T chart motion candidate; Q Linux/R/S full CI pending at authoring; no owner acceptance.
+
+Phase 15Q VERIFIED_HOSTED_CI run 45715678172 (1410 Linux/823 hashes, 1276 Windows/68 skips); R/S Windows passed, Linux pending at authoring. Phase 15U chart motion handoff candidate, no owner acceptance.

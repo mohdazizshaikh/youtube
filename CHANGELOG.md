@@ -1,3 +1,9 @@
+# Phase 15U — chart motion editorial handoff (2026-11-26)
+
+- Recorded verified Phase 15Q hosted CI and R/S Windows results. R/S Linux and T pending at authoring.
+- Added paired chart-motion handoff, separate language packet binding, thirteen review checks, explicit source-transcription/axis/value review and synthetic block. Reused native motion review helpers with backward-compatible defaults.
+- Added immutable paired result and regression cases; real chart motion integration extended. New CI pending. No transitions, mutable queue, publication or merge.
+
 # Phase 15T — bilingual chart motion (2026-11-26)
 
 - Added separate bilingual chart value-row highlighting; preserves data, plot and text pixels before encoding, equal-stage frame timing, copied parent AAC and caption bytes.

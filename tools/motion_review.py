@@ -28,6 +28,11 @@ def packet_from(receipt,motion_pin,parent):
     pv.pin(motion_pin)
     pv.require(receipt["schema"]==motion.SCHEMA and receipt["publication_eligible"] is False
                and receipt["editorial_queue_created"] is False,"MOTION_RECEIPT")
+    return packet_track(receipt,motion_pin,parent)
+
+
+def packet_track(receipt,motion_pin,parent,*,stage_counts=(3,),checks=CHECKS,packet_schema=PACKET):
+    pv.pin(motion_pin)
     pv.require(parent["manifest_sha256"]==receipt["parent_manifest_sha256"]
                and parent["video_sha256"]==receipt["parent_video_sha256"]
                and parent["publication_eligible"] is False,"PARENT_PACKET")
@@ -39,7 +44,7 @@ def packet_from(receipt,motion_pin,parent):
     for i,(row,parts) in enumerate(zip(rows,stages),1):
         pv.require(type(row["scene"]) is int and row["scene"]==i
                    and row["start_ms"]==cursor and type(row["end_ms"]) is int,"SCENE_ORDER")
-        pv.require(type(parts) is list and len(parts)==3,"STAGES")
+        pv.require(type(parts) is list and len(parts) in stage_counts,"STAGES")
         sequence=[]
         for j,part in enumerate(parts,1):
             pv.require(type(part) is dict and set(part)=={"frames","png_sha256"}
@@ -55,12 +60,12 @@ def packet_from(receipt,motion_pin,parent):
         scenes.append(entry)
     pv.require(cursor==receipt["duration_ms"] and type(parent["synthetic_demo"]) is bool,
                "MOTION_DURATION")
-    return {"schema":PACKET,"motion_sha256":motion_pin,
+    return {"schema":packet_schema,"motion_sha256":motion_pin,
             "video_sha256":pv.pin(receipt["motion_video_sha256"]),
             "caption_sha256":pv.pin(receipt["caption_sha256"]),
             "parent_manifest_sha256":receipt["parent_manifest_sha256"],
             "duration_ms":cursor,"synthetic_demo":parent["synthetic_demo"],
-            "scenes":scenes,"checks":list(CHECKS),"timing_method":"EQUAL_STAGE_NOT_WORD_ALIGNED",
+            "scenes":scenes,"checks":list(checks),"timing_method":"EQUAL_STAGE_NOT_WORD_ALIGNED",
             "human_review_verified":False,"publication_eligible":False}
 
 
@@ -72,11 +77,11 @@ def packet(inputs,candidate,motion_pin):
     return packet_from(receipt,motion_pin,parent)
 
 
-def template(obj):
-    return {"schema":REVIEW,"motion_sha256":obj["motion_sha256"],
+def template(obj,*,checks=CHECKS,review_schema=REVIEW):
+    return {"schema":review_schema,"motion_sha256":obj["motion_sha256"],
             "packet_sha256":pv.canonical(obj),"reviewer":"","scenes":[
                 {"scene":r["scene"],"scene_sha256":r["scene_sha256"],
-                 "checks":dict.fromkeys(CHECKS,"NOT_REVIEWED"),"notes":""} for r in obj["scenes"]]}
+                 "checks":dict.fromkeys(checks,"NOT_REVIEWED"),"notes":""} for r in obj["scenes"]]}
 
 
 def clean_text(value,limit):
@@ -84,10 +89,10 @@ def clean_text(value,limit):
         unicodedata.category(c)[0]!="C" or c in "\n\t\u200c\u200d" for c in value)
 
 
-def evaluate_packet(obj,raw,review_pin):
+def evaluate_packet(obj,raw,review_pin,*,required_checks=CHECKS,review_schema=REVIEW,result_schema=RESULT):
     r=pv.decode(pinned(raw,review_pin,MAX_REVIEW))
     pv.require(type(r) is dict and set(r)=={"schema","motion_sha256","packet_sha256","reviewer","scenes"}
-               and r["schema"]==REVIEW and r["motion_sha256"]==obj["motion_sha256"]
+               and r["schema"]==review_schema and r["motion_sha256"]==obj["motion_sha256"]
                and r["packet_sha256"]==pv.canonical(obj),"REVIEW_BINDING")
     pv.require(clean_text(r["reviewer"],120),"REVIEWER")
     rows=r["scenes"]
@@ -99,15 +104,15 @@ def evaluate_packet(obj,raw,review_pin):
                    and type(actual["scene"]) is int and actual["scene"]==scene["scene"]
                    and actual["scene_sha256"]==scene["scene_sha256"],"REVIEW_SCENE")
         checks=actual["checks"]
-        pv.require(type(checks) is dict and set(checks)==set(CHECKS)
+        pv.require(type(checks) is dict and set(checks)==set(required_checks)
                    and all(v in VALUES for v in checks.values()),"REVIEW_CHECKS")
         pv.require(clean_text(actual["notes"],2000),"REVIEW_NOTES")
         pv.require("REVISE" not in checks.values() or bool(actual["notes"].strip()),"REVISION_NOTE")
         blockers.extend({"scene":scene["scene"],"check":k,"reason":checks[k]}
-                        for k in CHECKS if checks[k]!="PASS")
+                        for k in required_checks if checks[k]!="PASS")
     if not r["reviewer"].strip():blockers.append({"reason":"REVIEWER_DECLARATION_MISSING"})
     if obj["synthetic_demo"]:blockers.append({"reason":"SYNTHETIC_DEMO_NOT_ELIGIBLE"})
-    return {"schema":RESULT,"motion_sha256":obj["motion_sha256"],
+    return {"schema":result_schema,"motion_sha256":obj["motion_sha256"],
             "packet_sha256":r["packet_sha256"],"review_sha256":review_pin,
             "video_sha256":obj["video_sha256"],"blockers":blockers,
             "self_attested_checklist_complete":not blockers,"reviewer_identity_verified":False,

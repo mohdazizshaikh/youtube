@@ -138,5 +138,18 @@ def test_real_pair(inputs,tmp_path):
     checked=p.verify(*values,result["pair_mix_sha256"])
     assert all(row=={"revision":0,"state":"PENDING"} for row in checked["review_states"].values())
     assert before=={lang:p.ps.inventory(pair/lang) for lang in p.LANGS}
+    from tools import paired_mix_snapshot as snap
+    snapshot=tmp_path/"mix-snapshot"
+    pair_mix_pin=result["pair_mix_sha256"]
+    saved=snap.backup(values[:-1],out,pair_mix_pin,snapshot)
+    restored=tmp_path/"restored-mix"
+    report=snap.restore(values[:-1],snapshot,saved["snapshot_sha256"],pair_mix_pin,restored)
+    assert report["fresh_media_audit"] and report["review_states"]==saved["review_states"]
+    for lang in p.LANGS:
+        assert (out/lang/"run"/"reviews.sqlite").read_bytes()==(restored/lang/"run"/"reviews.sqlite").read_bytes()
+        assert (out/lang/"mix.json").read_bytes()==(restored/lang/"mix.json").read_bytes()
+    (snapshot/"english"/"run"/"payload"/"draft"/"draft.mp4").write_bytes(b"tamper")
+    with pytest.raises(ValueError):
+        snap.inspect(snapshot,saved["snapshot_sha256"],pair_mix_pin)
     (out/"english"/"mix.json").write_bytes(b"tamper")
     with pytest.raises(ValueError):p.verify(*values,result["pair_mix_sha256"])

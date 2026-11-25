@@ -1,3 +1,10 @@
+# Phase 15L — paired mixed recovery and native flow preview (2026-11-26)
+
+- Recorded Phase 15K verified CI: Linux 1103 passed/796 hashes; Windows 977 passed/60 skipped; static-mix regression resolved in CI.
+- Added paired mixed snapshots and restore with pinned outer/child receipts, exact queue bytes, child catalog relocation and fresh remix/media verification.
+- Added pinned-font RAQM Hindi three-step flow previews for SHORT/LONG, safe glyph bounds, deterministic output and explicit source-declaration pin. Video integration and motion remain pending.
+- Added regression cases, extended real paired integration with backup/restore/tamper verification, updated project tracking. New CI pending. No production merge.
+
 # Phase 15K — paired mixed production and scene-sync correction (2026-11-26)
 
 - Recorded Phase 15J Linux 1052 passed/1 failed (STATIC scene acoustic mismatch); Windows 928 passed/59 skipped.

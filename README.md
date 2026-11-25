@@ -1,3 +1,9 @@
+# ViralOS — Phase 15L: paired mixed recovery and native flow preview
+
+Phase 15K verified CI: Linux 1103 passed/796 hashes; Windows 977 passed/60 skipped. Phase 15L adds paired mixed-production snapshot/restore and a standalone pinned Devanagari three-step flow diagram preview. See [operator guide](docs/PHASE15L_MIX_RECOVERY_AND_NATIVE_FLOW_2026-11-26.md) and [priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE15.md). New CI pending; main preserved. No publication authorization.
+
+---
+
 # ViralOS — Phase 15K: paired mixed production and scene-sync correction
 
 Phase 15J CI had one Linux STATIC acoustic audit failure (1052 passed); Windows 928 passed/59 skipped. Phase 15K adds narrowly bounded periodic-lag ambiguity handling and paired mixed production build/verify. See [operator guide](docs/PHASE15K_PAIRED_MIX_AND_SYNC_2026-11-26.md) and [priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE15.md). New CI pending; do not merge until green. No publication authority.

@@ -12,7 +12,7 @@
 | P0 | Native Hindi on-screen graphics | Phase 15E hosted CI green; Phase 15F VERIFIED_HOSTED_CI run 45688445729; native reader acceptance pending |
 | P1 | Pair disaster recovery | VERIFIED_HOSTED_CI run 45675859895; physical owner restore pending; Phase 15H VERIFIED_HOSTED_CI run 45695488829 |
 | P1 | Unified bilingual editorial dashboard | VERIFIED_HOSTED_CI run 45693600947; Phase 15H VERIFIED_HOSTED_CI run 45695488829; Phase 15I VERIFIED_HOSTED_CI run 45697364882; not atomic |
-| P1 | Loudness and true peak | VERIFIED_HOSTED_CI run 45693600947; Phase 15H VERIFIED_HOSTED_CI run 45695488829; Phase 15I VERIFIED_HOSTED_CI run 45697364882; Phase 15J Linux CI failed one STATIC acoustic audit (run 45698039280); Phase 15K scene-sync ambiguity correction and paired mix candidate; owner listening pending |
+| P1 | Loudness and true peak | VERIFIED_HOSTED_CI run 45693600947; Phase 15H VERIFIED_HOSTED_CI run 45695488829; Phase 15I VERIFIED_HOSTED_CI run 45697364882; Phase 15K VERIFIED_HOSTED_CI run 45699538573 (including Phase 15J STATIC regression); owner listening pending |
 | P0 | Real Hindi/English licensed TTS | BLOCKED on owner model, license, native listening and CPU measurement |
 | P0 | Real CTC alignment | BLOCKED on acoustic models/reference corpus |
 | P0 | Gold-standard pilot | Non-demo narration, graphics, human source/rights review and integration pending |
@@ -25,4 +25,9 @@
 
 No test count is a count of production features. No production release or actual model acceptance.
 
-Phase 15K: paired mixed-production build/verify candidate; localized diagrams, motion graphics and paired mixed-derivative recovery remain pending. Full CI must pass.
+Phase 15K paired mix VERIFIED_HOSTED_CI run 45699538573; Phase 15L paired mixed snapshot and native flow preview candidates; motion and diagram-to-video integration pending.
+
+| Gate | Phase 15L status |
+|---|---|
+| Mixed-production recovery | Candidate; parent and original inputs separately retained |
+| Native flow diagram | Preview candidate; native reader acceptance and MP4 integration pending |

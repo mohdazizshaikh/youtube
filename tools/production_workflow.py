@@ -271,16 +271,18 @@ def status(source,workspace,plan_pin,checkpoint=None):
     return summary(jobs,completed,checkpoint)
 
 
-def step(source,workspace,plan_pin,checkpoint=None):
+def step(source,workspace,plan_pin,checkpoint=None,*,admission=None):
     source,workspace,jobs,completed=load(source,workspace,plan_pin,checkpoint)
     index=len(completed)+1
     if index>len(jobs):return summary(jobs,completed,checkpoint)
     job=jobs[index-1]
+    if admission is not None:admission(source,workspace,jobs,completed)
     marker=workspace/"ACTIVE_JOB.json"
     write(marker,intent_bytes(plan_pin,job,checkpoint))
     # Recheck after exclusive intent acquisition. Any failure leaves the
     # intent and any partial output; never retry an ambiguous side effect.
     source,workspace,jobs,completed=load(source,workspace,plan_pin,checkpoint,intent=True)
+    if admission is not None:admission(source,workspace,jobs,completed)
     report=recheck(source,workspace,job,completed)
     if job["kind"]=="PILOT_BACKUP":
         audit_job=next(j for j in jobs if j["id"]==job["input"]["job"])

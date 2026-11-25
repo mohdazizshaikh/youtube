@@ -1,3 +1,9 @@
+# Phase 16C — resource admission (2026-11-26)
+
+- Recorded fully verified 16A hosted CI (1869 Linux/865 hashes; 1731 Windows/72 skips). 16B pending at authoring.
+- Added opt-in independently pinned resource policy, native Linux/Windows memory observations, logical CPU and disk headroom checks, verified artifact-size estimation and cumulative budgets. Guarded steps recheck before and after intent; no dispatch on denial.
+- Added resource contract, native probe and filesystem regression tests. No hard OS limits or full scheduler; legacy CLI unchanged. New CI pending.
+
 # Phase 16B — typed restore and explicit workflow recovery (2026-11-26)
 
 - Recorded verified Phase 15W–Z hosted CI, including warning reduction on Linux and Windows. 16A Windows passed; Linux pending at authoring.

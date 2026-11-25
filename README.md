@@ -1,3 +1,9 @@
+# ViralOS — Phase 16C: pinned resource admission
+
+Phase 16A verified hosted CI: Linux 1869 passed/865 hashes; Windows 1731 passed/72 skipped; two warnings each. 16B CI running at authoring. 16C adds opt-in pinned CPU/RAM/disk and artifact-budget admission for local workflow steps, before intent and before dispatch. See [operator guide](docs/PHASE16C_RESOURCE_ADMISSION_2026-11-26.md) and [Phase 16 tracker](docs/PRIORITY_TRACKER_2026-11-26_PHASE16.md). New CI pending; no hard quotas or release authority.
+
+---
+
 # ViralOS — Phase 16B: typed restore and explicit workflow recovery
 
 Phase 15Z verified hosted CI: Linux 1816 passed/860 hashes, Windows 1679 passed/71 skipped; two warnings each. Phase 16A Windows 1731 passed/72 skipped; Linux pending at authoring. Phase 16B adds typed snapshot restore and independently pinned interrupted-job reconciliation, without repeating production writes. See [operator guide](docs/PHASE16B_WORKFLOW_RECOVERY_2026-11-26.md) and [Phase 16 tracker](docs/PRIORITY_TRACKER_2026-11-26_PHASE16.md). New CI pending; no release authority.

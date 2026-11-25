@@ -55,3 +55,5 @@ Phase 15T VERIFIED_HOSTED_CI run 45716580945 (1547 Linux/836 hashes; 1413 Window
 Phase 15U/V VERIFIED_HOSTED_CI; Phase 16A local typed audit/backup DAG candidate, 16 tracker created. No owner acceptance or merge.
 
 Phase 15W–Z VERIFIED_HOSTED_CI; 16A Windows passed, Linux pending at authoring. 16B typed restore and explicit recovery candidate. Stable main preserved; no owner acceptance.
+
+16A VERIFIED_HOSTED_CI; 16C opt-in resource admission candidate; 16B/16C CI pending at authoring. No owner acceptance or production merge.

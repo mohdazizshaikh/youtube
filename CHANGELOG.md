@@ -1,3 +1,10 @@
+# Phase 15E — paired recovery and typography preview (2026-11-25)
+
+- Recorded verified Phase 15D hosted CI: Linux 694 passed, 761 hashes; Windows 581 passed, 47 skipped.
+- Added stopped paired snapshot and restore, child queue preservation and fresh pair audit, separate snapshot pin, no overwrite and incomplete marker.
+- Added standalone native-script PNG preview with pinned owner font, RAQM shaping, cmap/GSUB checks, safe bounds and explicit human review. FontTools dependency; CI font fixture only.
+- Added regression coverage and tracking updates. Existing ASCII storyboard unchanged; new CI and owner acceptance pending.
+
 # Phase 15D — bilingual pilot orchestration (2026-11-25)
 
 - Recorded Phase 15C hosted CI: Linux 636 passed/757 hashes; Windows 524 passed/46 skipped.

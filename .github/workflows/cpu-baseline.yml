@@ -27,10 +27,12 @@ jobs:
       - name: Install local CPU media dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y ffmpeg espeak-ng
+          sudo apt-get install -y ffmpeg espeak-ng fonts-noto-core
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
       - name: Execute unit and integration tests
+        env:
+          VIRALOS_REQUIRE_HINDI_PREVIEW: '1'
         run: python -m pytest -q
       - name: Validate archived package manifest
         run: python tools/verify_package.py
@@ -57,7 +59,7 @@ jobs:
         run: python -m pip install -r requirements.txt
       - name: Validate local-only portable contracts (not owner Windows hardware)
         run: |
-          python -m pytest -q tests/test_m24_audio.py tests/test_m24_provenance_benchmark.py tests/test_m24_piper_runtime.py tests/test_m24_voice_acceptance.py tests/test_m25_dub_retime.py tests/test_m25_bilingual_delivery.py tests/test_local_http_guard.py tests/test_m32_owner_signoff.py tests/test_m32_reconciliation.py tests/test_domain_adapters.py tests/test_domain_storyboards.py tests/test_domain_draft_video.py tests/test_domain_draft_audit.py tests/test_domain_draft_review.py tests/test_domain_review_batch.py tests/test_domain_review_queue.py tests/test_domain_review_web.py tests/test_domain_release_gate.py tests/test_localization_review.py tests/test_offline_recovery.py tests/test_offline_acceptance_drill.py tests/test_owner_backup_reconcile.py tests/test_compute_router.py tests/test_pilot_pipeline.py tests/test_pilot_run_verify.py tests/test_pilot_snapshot.py tests/test_narration_qc.py tests/test_narration_prepare.py tests/test_bilingual_compose.py tests/test_bilingual_pilot.py
+          python -m pytest -q tests/test_m24_audio.py tests/test_m24_provenance_benchmark.py tests/test_m24_piper_runtime.py tests/test_m24_voice_acceptance.py tests/test_m25_dub_retime.py tests/test_m25_bilingual_delivery.py tests/test_local_http_guard.py tests/test_m32_owner_signoff.py tests/test_m32_reconciliation.py tests/test_domain_adapters.py tests/test_domain_storyboards.py tests/test_domain_draft_video.py tests/test_domain_draft_audit.py tests/test_domain_draft_review.py tests/test_domain_review_batch.py tests/test_domain_review_queue.py tests/test_domain_review_web.py tests/test_domain_release_gate.py tests/test_localization_review.py tests/test_offline_recovery.py tests/test_offline_acceptance_drill.py tests/test_owner_backup_reconcile.py tests/test_compute_router.py tests/test_pilot_pipeline.py tests/test_pilot_run_verify.py tests/test_pilot_snapshot.py tests/test_narration_qc.py tests/test_narration_prepare.py tests/test_bilingual_compose.py tests/test_bilingual_pilot.py tests/test_bilingual_snapshot.py tests/test_hindi_typography.py
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           python -m compileall -q app tools tests
       - name: Validate Windows PowerShell script presence

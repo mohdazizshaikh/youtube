@@ -1,3 +1,9 @@
+# ViralOS — Phase 15E: paired recovery and Hindi typography preview
+
+Phase 15D verified hosted CI: Linux 694 passed/761 hashes; Windows 581 passed/47 skipped. Added paired snapshot/restore and standalone pinned-font Devanagari RAQM preview; existing video storyboard remains ASCII-only. See [operator guide](docs/PHASE15E_VISUAL_PREFLIGHT_AND_PAIR_RECOVERY_2026-11-25.md) and [priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE15.md). New CI pending; stable main preserved; no publication authority.
+
+---
+
 # ViralOS — Phase 15D: automated bilingual pilot candidate
 
 Phase 15C CI verified: Linux 636 passed, 757 hashes; Windows 524 passed, 46 skipped. Phase 15D connects pinned bilingual audio and scene captions to two private CPU pilot renders and independent editorial queues, with pair-level fresh audits. Existing visual text renderer remains ASCII-only. See [operator guide](docs/PHASE15D_BILINGUAL_PILOT_2026-11-25.md) and [priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE15.md). New CI pending; stable main preserved. No publication authority.

@@ -1,3 +1,10 @@
+# Phase 16B — typed restore and explicit workflow recovery (2026-11-26)
+
+- Recorded verified Phase 15W–Z hosted CI, including warning reduction on Linux and Windows. 16A Windows passed; Linux pending at authoring.
+- Added typed PILOT_RESTORE job requiring matching audited backup; exact restored payload and fresh queue/media verification, with catalog relocation only.
+- Added explicit recovery prepare/apply, prior checkpoint and active intent binding, one uncommitted receipt reconciliation, read-only recheck and verified backup/restore adoption. Incomplete write artifacts remain blocked, no automatic replay.
+- Added portable recovery and real restore integration tests; updated Phase 14–16 trackers. New CI pending. No full resource scheduler, publication or owner acceptance.
+
 # Phase 16A — dependency-aware local workflow (2026-11-26)
 
 - Recorded full U/V hosted CI and W/X/Y Windows evidence; Y Windows warnings reduced from 50 to 2.

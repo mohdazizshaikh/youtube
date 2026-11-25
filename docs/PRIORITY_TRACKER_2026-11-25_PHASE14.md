@@ -53,3 +53,5 @@ Phase 15Y paired audio dynamics candidate and Pillow warning correction; V Windo
 Phase 15T VERIFIED_HOSTED_CI run 45716580945 (1547 Linux/836 hashes; 1413 Windows/68 skips). Phase 15Z mastered video candidate; U–Y full CI and owner acceptance pending.
 
 Phase 15U/V VERIFIED_HOSTED_CI; Phase 16A local typed audit/backup DAG candidate, 16 tracker created. No owner acceptance or merge.
+
+Phase 15W–Z VERIFIED_HOSTED_CI; 16A Windows passed, Linux pending at authoring. 16B typed restore and explicit recovery candidate. Stable main preserved; no owner acceptance.

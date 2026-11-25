@@ -1,3 +1,9 @@
+# ViralOS — Phase 16B: typed restore and explicit workflow recovery
+
+Phase 15Z verified hosted CI: Linux 1816 passed/860 hashes, Windows 1679 passed/71 skipped; two warnings each. Phase 16A Windows 1731 passed/72 skipped; Linux pending at authoring. Phase 16B adds typed snapshot restore and independently pinned interrupted-job reconciliation, without repeating production writes. See [operator guide](docs/PHASE16B_WORKFLOW_RECOVERY_2026-11-26.md) and [Phase 16 tracker](docs/PRIORITY_TRACKER_2026-11-26_PHASE16.md). New CI pending; no release authority.
+
+---
+
 # ViralOS — Phase 16A: local production workflow foundation
 
 Phase 15U/V verified Linux 1587/1628 passed and Windows 1453/1494 passed. Phase 15Y Windows 1660 passed/70 skipped, warnings reduced 50 to 2. W–Z full CI pending at authoring. Phase 16A adds a bounded typed audit/backup DAG with explicit checkpointed execution and fresh prerequisite verification. See [operator guide](docs/PHASE16A_LOCAL_PRODUCTION_WORKFLOW_2026-11-26.md) and [Phase 16 tracker](docs/PRIORITY_TRACKER_2026-11-26_PHASE16.md). New CI pending; no release authority.

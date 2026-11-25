@@ -1,3 +1,9 @@
+# Phase 15M — native flow MP4 and mixed editorial review (2026-11-26)
+
+- Recorded Phase 15L verified CI: Linux 1156 passed/801 hashes; Windows 1028 passed/62 skipped.
+- Added native flow request mode, original board declaration pin, deterministic diagram rendering through existing native MP4 pipeline, distinct receipt visual mode, compatible snapshot/dashboard selection.
+- Added read-only mixed dashboard with receipt/scene binding, fresh child audit and existing local browser guards. Original input recomposition remains separate. Extended real native and paired integration tests; new CI pending. Motion and coordinated mixed review writes pending.
+
 # Phase 15L — paired mixed recovery and native flow preview (2026-11-26)
 
 - Recorded Phase 15K verified CI: Linux 1103 passed/796 hashes; Windows 977 passed/60 skipped; static-mix regression resolved in CI.

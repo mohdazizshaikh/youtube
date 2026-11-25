@@ -128,7 +128,8 @@ def test_incomplete_derivative(tmp_path):
 
 
 @pytest.mark.skipif(not shutil.which("ffmpeg") or not shutil.which("ffprobe"),reason="local media tools required")
-def test_real_native_derivative(pair_inputs,tmp_path):
+@pytest.mark.parametrize("mode",[n.TEXT_MODE,n.FLOW_MODE])
+def test_real_native_derivative(pair_inputs,tmp_path,mode):
     font=Path(os.environ.get("VIRALOS_CI_HINDI_FONT","/usr/share/fonts/truetype/noto/NotoSansDevanagari-Regular.ttf"))
     if not font.is_file() or not features.check_feature("raqm"):
         if os.environ.get("VIRALOS_REQUIRE_HINDI_PREVIEW")=="1":
@@ -143,7 +144,14 @@ def test_real_native_derivative(pair_inputs,tmp_path):
     original=DraftPlan.model_validate(n.pv.document(pair/"hindi"/"draft"/"plan.json"))
     obj.update(pair_sha256=parent["pair_sha256"],font_sha256=n.sha(data))
     for row,scene in zip(obj["scenes"],original.scenes):
-        row["claims"]=["यह एक परीक्षण है"]*len(scene.board.claims)
+        if mode==n.FLOW_MODE:
+            obj["schema"]=n.FLOW_REQUEST
+            del row["claims"]
+            import json
+            row["source_declaration_sha256"]=n.sha(json.dumps(scene.board.model_dump(),sort_keys=True,ensure_ascii=False).encode())
+            row["nodes"]=[{"step":1,"label":"जानकारी एकत्र करें"},{"step":2,"label":"तथ्य जाँच करें"},{"step":3,"label":"परिणाम समझाएँ"}]
+        else:
+            row["claims"]=["यह एक परीक्षण है"]*len(scene.board.claims)
     raw=p.json_bytes(obj)
     out=tmp_path/"native"
     args=(pair,parent["pair_sha256"],data,n.sha(data),raw,n.sha(raw),out)
@@ -155,6 +163,10 @@ def test_real_native_derivative(pair_inputs,tmp_path):
     checked=n.verify(*args,result["native_sha256"])
     assert checked["fresh_media_audit"] and not checked["publication_eligible"]
     assert checked["review_states"]["hindi"]=={"revision":0,"state":"PENDING"}
+    assert n.pv.document(out/"native.json")["visual_mode"]==mode
+    from tools import bilingual_review_dashboard as dash, native_pilot_snapshot as ns
+    assert dash.select_runs(pair,parent["pair_sha256"],out,result["native_sha256"])[0]["hindi"][1]==result["manifest_sha256"]
+    assert ns.receipt_records((pair/"pair.json").read_bytes(),parent["pair_sha256"],(out/"native.json").read_bytes(),result["native_sha256"])["native_hindi"]==result["manifest_sha256"]
     with pytest.raises(ValueError):
         n.verify(*args,"0"*64)
     (out/"hindi"/"draft"/"scene_01.png").write_bytes(b"tamper")

@@ -16,13 +16,17 @@ from pathlib import Path
 from fontTools.ttLib import TTLibError
 from app.domain_draft_video import DraftPlan
 from tools import bilingual_pilot as bp, hindi_typography as ht, pilot_pipeline as pp
-from tools import pilot_run_verify as pv
+from tools import pilot_run_verify as pv, native_flow_diagram as flow
 from tools.narration_prepare import pinned, private_root, sha
 from tools.narration_qc import private_file
 from tools.bilingual_snapshot import pair_records
 
 SCHEMA="VIRALOS_NATIVE_HINDI_DERIVATIVE_V1"
 REQUEST="VIRALOS_NATIVE_HINDI_REQUEST_V1"
+FLOW_REQUEST="VIRALOS_NATIVE_HINDI_FLOW_REQUEST_V1"
+TEXT_MODE="DEVANAGARI_RAQM_TEXT_CARDS"
+FLOW_MODE="DEVANAGARI_RAQM_FLOW_DIAGRAMS"
+VISUAL_MODES=(TEXT_MODE,FLOW_MODE)
 MAX_REQUEST=64000
 KEY="native_hi_visual_request_v1"
 
@@ -32,22 +36,34 @@ def request_rows(raw,request_pin,pair_pin,font_pin,plan):
     obj=pv.decode(raw)
     pv.require(type(obj) is dict and set(obj)=={"schema","pair_sha256","font_sha256",
                "font_rights_attested","license_reference","scenes"},"REQUEST_FIELDS")
-    pv.require(obj["schema"]==REQUEST and obj["pair_sha256"]==pair_pin
+    pv.require(obj["schema"] in (REQUEST,FLOW_REQUEST) and obj["pair_sha256"]==pair_pin
                and obj["font_sha256"]==font_pin,"REQUEST_BINDING")
     pv.require(obj["font_rights_attested"] is True,"FONT_RIGHTS")
     rows=obj["scenes"]
     pv.require(type(rows) is list and len(rows)==len(plan.scenes),"SCENE_COUNT")
     result=[]
+    diagram=obj["schema"]==FLOW_REQUEST
     for i,(row,scene) in enumerate(zip(rows,plan.scenes),1):
-        pv.require(type(row) is dict and set(row)=={"scene","title","claims"}
+        fields={"scene","title","nodes","source_declaration_sha256"} if diagram else {"scene","title","claims"}
+        pv.require(type(row) is dict and set(row)==fields
                    and type(row["scene"]) is int and row["scene"]==i,"SCENE_FIELDS")
-        pv.require(type(row["claims"]) is list and len(row["claims"])==len(scene.board.claims),
-                   "CLAIM_COUNT")
-        visual={"schema":ht.SCHEMA,"locale":"hi-IN","format":scene.board.format,
+        visual={"schema":flow.SCHEMA if diagram else ht.SCHEMA,"locale":"hi-IN","format":scene.board.format,
                 "font_sha256":font_pin,"font_rights_attested":True,
-                "license_reference":obj["license_reference"],"title":row["title"],"lines":row["claims"]}
-        vraw=bp.json_bytes(visual)
-        ht.validate(vraw,sha(vraw),font_pin)
+                "license_reference":obj["license_reference"],"title":row["title"]}
+        if diagram:
+            # Bind the owner's translated diagram to the full original board declaration.
+            # This is provenance, not semantic/translation verification.
+            original=sha(json.dumps(scene.board.model_dump(),sort_keys=True,ensure_ascii=False).encode())
+            pv.require(row["source_declaration_sha256"]==original,"SOURCE_DECLARATION_PIN")
+            visual.update(nodes=row["nodes"],source_declaration_sha256=original)
+            vraw=bp.json_bytes(visual)
+            flow.validate(vraw,sha(vraw),font_pin)
+        else:
+            pv.require(type(row["claims"]) is list and len(row["claims"])==len(scene.board.claims),
+                       "CLAIM_COUNT")
+            visual["lines"]=row["claims"]
+            vraw=bp.json_bytes(visual)
+            ht.validate(vraw,sha(vraw),font_pin)
         result.append(vraw)
     return result
 
@@ -64,7 +80,9 @@ def plans_and_pngs(plan,visuals,font,font_pin,request_pin,pair_pin):
         facts[KEY]=raw.decode("utf8")
         facts["native_hi_request_sha256"]=request_pin
         facts["native_hi_parent_pair_sha256"]=pair_pin
-        png,report=ht.render(font,font_pin,raw,sha(raw))
+        schema=pv.decode(raw)["schema"]
+        pv.require(schema in (ht.SCHEMA,flow.SCHEMA),"VISUAL_SCHEMA")
+        png,report=(flow.render if schema==flow.SCHEMA else ht.render)(font,font_pin,raw,sha(raw))
         pv.require(report["raqm_used"] is True and report["publication_eligible"] is False,"TYPOGRAPHY_REPORT")
         images[sha(raw)]=png
     return DraftPlan.model_validate(data),images
@@ -131,13 +149,20 @@ def check_child(pair,output,plan,images,pin,parent):
     return result,manifest
 
 
-def receipt(parent,pair_pin,font_pin,request_pin,manifest,pin):
+def visual_mode(plan):
+    schemas={pv.decode(s.board.specialist_facts[KEY].encode("utf8"))["schema"] for s in plan.scenes}
+    pv.require(schemas in ({ht.SCHEMA},{flow.SCHEMA}),"MIXED_VISUAL_MODE")
+    return FLOW_MODE if schemas=={flow.SCHEMA} else TEXT_MODE
+
+
+def receipt(parent,pair_pin,font_pin,request_pin,manifest,pin,mode=TEXT_MODE):
+    pv.require(mode in VISUAL_MODES,"VISUAL_MODE")
     return {"schema":SCHEMA,"parent_pair_sha256":pair_pin,
             "parent_hindi_manifest_sha256":parent["runs"]["hindi"]["manifest_sha256"],
             "english_manifest_sha256":parent["runs"]["english"]["manifest_sha256"],
             "font_sha256":font_pin,"request_sha256":request_pin,"manifest_sha256":pin,
             "video_sha256":manifest["files_sha256"]["draft.mp4"],"duration_ms":manifest["duration_ms"],
-            "caption_timing":"SCENE_LEVEL_ONLY","visual_mode":"DEVANAGARI_RAQM_TEXT_CARDS",
+            "caption_timing":"SCENE_LEVEL_ONLY","visual_mode":mode,
             "source_evidence_preserved":True,"native_visual_accepted":False,
             "translation_verified":False,"human_review_verified":False,"publication_eligible":False}
 
@@ -157,7 +182,7 @@ def build(pair,pair_pin,font,font_pin,request,request_pin,output):
         report=pp.build(path,pair/"hindi"/"assets",output/"hindi",board_renderer=renderer(images))
     checked,manifest=check_child(pair,output/"hindi",plan,images,report["manifest_sha256"],parent)
     pv.require(checked["queue_state"]=="PENDING" and checked["queue_revision"]==0,"NEW_QUEUE")
-    obj=receipt(parent,pair_pin,font_pin,request_pin,manifest,report["manifest_sha256"])
+    obj=receipt(parent,pair_pin,font_pin,request_pin,manifest,report["manifest_sha256"],visual_mode(plan))
     raw=bp.json_bytes(obj)
     with (output/"native.json").open("xb") as f:
         f.write(raw)
@@ -175,7 +200,7 @@ def verify(pair,pair_pin,font,font_pin,request,request_pin,output,native_pin):
     pv.require(type(obj) is dict and obj.get("schema")==SCHEMA,"NATIVE_SCHEMA")
     parent,plan,images=prepare(pair,pair_pin,font,font_pin,request,request_pin)
     checked,manifest=check_child(pair,output/"hindi",plan,images,obj["manifest_sha256"],parent)
-    expected=receipt(parent,pair_pin,font_pin,request_pin,manifest,obj["manifest_sha256"])
+    expected=receipt(parent,pair_pin,font_pin,request_pin,manifest,obj["manifest_sha256"],visual_mode(plan))
     pv.require(raw==bp.json_bytes(expected),"NATIVE_RECEIPT")
     en=pv.verify(pair/"english",parent["runs"]["english"]["manifest_sha256"],fresh=False)
     return {"integrity_passed":True,"fresh_media_audit":True,"native_sha256":native_pin,

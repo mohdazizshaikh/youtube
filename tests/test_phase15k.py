@@ -151,5 +151,22 @@ def test_real_pair(inputs,tmp_path):
     (snapshot/"english"/"run"/"payload"/"draft"/"draft.mp4").write_bytes(b"tamper")
     with pytest.raises(ValueError):
         snap.inspect(snapshot,saved["snapshot_sha256"],pair_mix_pin)
+    import re
+    from fastapi.testclient import TestClient
+    from tools import mixed_review_dashboard as mixed_dash
+    client=TestClient(mixed_dash.create_app(restored,pair_mix_pin))
+    page=client.get("/")
+    token=re.search(r'name="review-session" content="([0-9a-f]{64})"',page.text).group(1)
+    headers={"X-Review-Session":token}
+    status=client.get("/api/status",headers=headers)
+    assert status.status_code==200
+    assert all(s["mixed_audio"] for row in status.json()["languages"].values() for s in row["scenes"])
+    assert client.get("/api/status").status_code==403
+    for lang in p.LANGS:
+        video=client.get("/api/video/"+lang,headers=headers)
+        assert video.status_code==200 and p.sha(video.content)==result["tracks"][lang]["video_sha256"]
+    assert client.post("/api/submit",headers=headers,json={}).status_code==404
+    (restored/"english"/"mix.json").write_bytes(b"tamper")
+    assert client.get("/api/status",headers=headers).status_code==409
     (out/"english"/"mix.json").write_bytes(b"tamper")
     with pytest.raises(ValueError):p.verify(*values,result["pair_mix_sha256"])

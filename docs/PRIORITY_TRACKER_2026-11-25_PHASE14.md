@@ -23,3 +23,5 @@ Phase 15J single-pilot mixed derivative candidate; Phase 15I verified hosted CI 
 Phase 15J CI 45698039280: Linux 1052 passed, one STATIC acoustic mismatch; Windows 928 passed, 59 skipped. Phase 15K scene-sync correction and paired mixed build/verify candidate; CI pending.
 
 Phase 15K VERIFIED_HOSTED_CI run 45699538573: Linux 1103 passed/796 hashes; Windows 977 passed/60 skipped. Phase 15L paired mixed snapshot and Hindi flow diagram preview candidate; no owner acceptance.
+
+Phase 15L VERIFIED_HOSTED_CI run 45706454592: Linux 1156 passed/801 hashes; Windows 1028 passed/62 skipped. Phase 15M native flow MP4 and mixed editorial dashboard candidate; no owner acceptance.

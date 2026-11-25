@@ -43,7 +43,7 @@ def select_runs(pair,pair_pin,native=None,native_pin=None):
                    and row.get("parent_hindi_manifest_sha256")==records["hindi"]["manifest_sha256"]
                    and row.get("english_manifest_sha256")==records["english"]["manifest_sha256"]
                    and row.get("duration_ms")==parent["duration_ms"]
-                   and row.get("visual_mode")=="DEVANAGARI_RAQM_TEXT_CARDS"
+                   and row.get("visual_mode") in nh.VISUAL_MODES
                    and row.get("publication_eligible") is False
                    and row.get("native_visual_accepted") is False,"NATIVE_BINDING")
         result["hindi"]=(native/"hindi",pv.pin(row["manifest_sha256"]),pv.pin(row["video_sha256"]))
@@ -66,7 +66,8 @@ def snapshot(runs,duration,fresh=False):
             scenes.append({"scene":row["scene"],"start_ms":row["start_ms"],"end_ms":row["end_ms"],
                            "title":row["title"],"narration_text":row["narration_text"],
                            "claims":[x["text"] for x in row["claims"]],
-                           "native_visual_declaration":row["specialist_facts"].get(nh.KEY)})
+                           "native_visual_declaration":row["specialist_facts"].get(nh.KEY),
+                           "mixed_audio":row["specialist_facts"].get("production_mix_audio_kind")=="MIXED_VOICE_AND_MUSIC"})
         rows[lang]={"manifest_sha256":pin,"video_sha256":video,
                     "revision":checked["queue_revision"],"state":checked["queue_state"],
                     "synthetic_demo":checked["synthetic_demo"],"scenes":scenes}
@@ -80,7 +81,12 @@ def snapshot(runs,duration,fresh=False):
 
 
 def create_app(pair,pair_pin,native=None,native_pin=None):
-    runs,duration=select_runs(pair,pair_pin,native,native_pin)
+    return create_selected_app(lambda:select_runs(pair,pair_pin,native,native_pin))
+
+
+def create_selected_app(selector, *, mixed=False):
+    """Internal trusted selector; never accept browser-supplied paths or pins."""
+    runs,duration=selector()
     snapshot(runs,duration,fresh=True)
     token=secrets.token_hex(32)
     gate=Lock()
@@ -107,7 +113,7 @@ def create_app(pair,pair_pin,native=None,native_pin=None):
         if not gate.acquire(blocking=False):
             raise HTTPException(429,"Another local operation is running")
         try:
-            current=select_runs(pair,pair_pin,native,native_pin)
+            current=selector()
             pv.require(current==(runs,duration),"DASHBOARD_CHANGED")
             return fn()
         except (ValueError,OSError,KeyError,TypeError,RuntimeError,sqlite3.Error):
@@ -117,7 +123,11 @@ def create_app(pair,pair_pin,native=None,native_pin=None):
 
     @app.get("/",response_class=HTMLResponse)
     def home():
-        return HTMLResponse(PAGE.replace("__TOKEN__",token))
+        page=PAGE.replace("__TOKEN__",token)
+        if mixed:
+            page=page.replace("Bilingual editorial review","Mixed-production editorial review").replace(
+                "Private, read-only comparison.","Private, read-only comparison of mixed audio candidates.")
+        return HTMLResponse(page)
 
     @app.get("/dashboard.js")
     def script():
@@ -168,7 +178,7 @@ function node(tag,text){const e=document.createElement(tag);e.textContent=text;r
 function clearVideo(lang){const v=document.querySelector('#'+lang+' video');v.removeAttribute('src');v.load();if(urls[lang]){URL.revokeObjectURL(urls[lang]);delete urls[lang];}}
 let busy=false;
 async function action(fn){if(busy)return;busy=true;document.querySelectorAll('button').forEach(b=>b.disabled=true);try{await fn();}catch(e){for(const l of ['hindi','english']){clearVideo(l);document.querySelector('#'+l+' .scenes').replaceChildren();document.querySelector('#'+l+' .state').textContent='Unavailable';}status.textContent='Local integrity or session check failed. Close and inspect inputs.';}finally{busy=false;document.querySelectorAll('button').forEach(b=>b.disabled=false);}}
-async function refresh(){await action(async()=>{const d=await(await api('/api/status')).json();for(const lang of ['hindi','english']){clearVideo(lang);const row=d.languages[lang],section=document.getElementById(lang);section.querySelector('.state').textContent=row.state+' · revision '+row.revision+(row.synthetic_demo?' · synthetic demo':'');const scenes=section.querySelector('.scenes');scenes.replaceChildren();for(const s of row.scenes){const a=document.createElement('article');a.append(node('h3','Scene '+s.scene+' · '+(s.start_ms/1000).toFixed(2)+'–'+(s.end_ms/1000).toFixed(2)+' s'),node('p',s.title),node('p',s.narration_text));for(const c of s.claims)a.append(node('p',c));if(s.native_visual_declaration)a.append(node('p',s.native_visual_declaration));scenes.append(a);}}status.textContent='Duration '+(d.duration_ms/1000).toFixed(2)+' s · metadata verified; startup media audit only.';});}
+async function refresh(){await action(async()=>{const d=await(await api('/api/status')).json();for(const lang of ['hindi','english']){clearVideo(lang);const row=d.languages[lang],section=document.getElementById(lang);section.querySelector('.state').textContent=row.state+' · revision '+row.revision+(row.synthetic_demo?' · synthetic demo':'');const scenes=section.querySelector('.scenes');scenes.replaceChildren();for(const s of row.scenes){const a=document.createElement('article');a.append(node('h3','Scene '+s.scene+' · '+(s.start_ms/1000).toFixed(2)+'–'+(s.end_ms/1000).toFixed(2)+' s'),node('p',s.title),node('p',s.narration_text));for(const c of s.claims)a.append(node('p',c));if(s.native_visual_declaration)a.append(node('p',s.native_visual_declaration));if(s.mixed_audio)a.append(node('p','Mixed narration and music — listening review required'));scenes.append(a);}}status.textContent='Duration '+(d.duration_ms/1000).toFixed(2)+' s · metadata verified; startup media audit only.';});}
 document.getElementById('refresh').addEventListener('click',refresh);
 for(const b of document.querySelectorAll('button[data-lang]'))b.addEventListener('click',()=>action(async()=>{const l=b.dataset.lang;clearVideo(l);urls[l]=URL.createObjectURL(await(await api('/api/video/'+l)).blob());document.querySelector('#'+l+' video').src=urls[l];}));
 window.addEventListener('pagehide',()=>{for(const l of Object.keys(urls))URL.revokeObjectURL(urls[l]);});

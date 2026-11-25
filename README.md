@@ -1,3 +1,9 @@
+# ViralOS — Phase 15M: native flow MP4 and mixed editorial review
+
+Phase 15L verified CI: Linux 1156 passed/801 hashes; Windows 1028 passed/62 skipped. Phase 15M integrates pinned native Hindi flow diagrams into a separate native pilot and adds read-only mixed-production editorial dashboard. See [operator guide](docs/PHASE15M_NATIVE_FLOW_VIDEO_AND_MIX_REVIEW_2026-11-26.md) and [priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE15.md). New CI pending; main preserved. No release authority.
+
+---
+
 # ViralOS — Phase 15L: paired mixed recovery and native flow preview
 
 Phase 15K verified CI: Linux 1103 passed/796 hashes; Windows 977 passed/60 skipped. Phase 15L adds paired mixed-production snapshot/restore and a standalone pinned Devanagari three-step flow diagram preview. See [operator guide](docs/PHASE15L_MIX_RECOVERY_AND_NATIVE_FLOW_2026-11-26.md) and [priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE15.md). New CI pending; main preserved. No publication authorization.

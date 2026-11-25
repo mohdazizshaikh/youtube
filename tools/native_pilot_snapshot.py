@@ -29,7 +29,7 @@ def receipt_records(pair_raw,pair_pin,native_raw,native_pin):
                and native.get("duration_ms")==runs["hindi"]["duration_ms"]==runs["english"]["duration_ms"]
                and native.get("publication_eligible") is False
                and native.get("native_visual_accepted") is False
-               and native.get("visual_mode")=="DEVANAGARI_RAQM_TEXT_CARDS","NATIVE_BINDING")
+               and native.get("visual_mode") in nh.VISUAL_MODES,"NATIVE_BINDING")
     pins={"original_hindi":runs["hindi"]["manifest_sha256"],
           "english":runs["english"]["manifest_sha256"],"native_hindi":pv.pin(native["manifest_sha256"])}
     pv.require(len(set(pins.values()))==3,"DUPLICATE_CHILD")

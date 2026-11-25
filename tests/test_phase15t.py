@@ -73,8 +73,12 @@ def test_visual_invariance(fmt,count):
         diff=ImageChops.difference(base,after)
         bound=diff.getbbox()
         assert bound and box[0]<=bound[0]<=bound[2]<=box[2] and box[1]<=bound[1]<=bound[3]<=box[3]
-        for old,new in zip(base.crop(box).getdata(),after.crop(box).getdata()):
-            assert new==old or (old==m.BACKGROUND and new==m.ACTIVE)
+        before_bytes=base.crop(box).tobytes()
+        after_bytes=after.crop(box).tobytes()
+        assert len(before_bytes)==len(after_bytes)
+        for p in range(0,len(before_bytes),3):
+            old,new=before_bytes[p:p+3],after_bytes[p:p+3]
+            assert new==old or (old==bytes(m.BACKGROUND) and new==bytes(m.ACTIVE))
     row=list(zip(m.stages(25,count),variants))
     data=b"".join(low(raw)*n for n,raw in row)
     assert m.motion.frame_check(data,[row])["frames_compared"]==25

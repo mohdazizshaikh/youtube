@@ -47,3 +47,5 @@ Phase 15R VERIFIED_HOSTED_CI run 45716028733 (1458 Linux/828 hashes; 1324 Window
 Phase 15S VERIFIED_HOSTED_CI run 45716301815 (1503 Linux/832 hashes; 1369 Windows/68 skips); Phase 15W chart transition candidate, no owner acceptance.
 
 Phase 15X narration dynamics candidate; T/U Windows passed, Linux and V/W pending at authoring. No owner acceptance.
+
+Phase 15Y paired audio dynamics candidate and Pillow warning correction; V Windows 1494 passed/68 skips; pending Linux gates and owner acceptance.

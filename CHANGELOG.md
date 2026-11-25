@@ -1,3 +1,9 @@
+# Phase 15Y — paired narration mastering and CI warning correction (2026-11-26)
+
+- Recorded Phase 15V Windows result and investigated 50 Windows warnings; replaced deprecated Pillow getdata with exact byte-triplet test comparison (48 warnings targeted, runtime verification pending). Starlette dependency and intentional ZIP warning remain.
+- Added synchronized bilingual dynamics bundle, independently pinned inputs, common target/ceiling, exact scene split/reassembly, per-scene QC flags, language loudness comparison and fresh receipt verification.
+- Added contract, PCM split and real FFmpeg tests; new CI pending. No video substitution, word alignment, professional acceptance or publishing.
+
 # Phase 15X — narration dynamics mastering (2026-11-26)
 
 - Recorded T/U Windows CI; Linux and V/W pending at authoring.

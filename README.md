@@ -1,3 +1,9 @@
+# ViralOS — Phase 15Y: bilingual narration dynamics bundle
+
+Phase 15V Windows 1494 passed/68 skipped; T/U/V Linux running at authoring. Phase 15Y adds paired scene-frame-bound narration mastering using independent source pins and shared loudness targets, exact PCM reassembly and receipt verification. Corrected Pillow test deprecation without warning suppression. See [operator guide](docs/PHASE15Y_BILINGUAL_DYNAMICS_2026-11-26.md). New CI pending; no release authority.
+
+---
+
 # ViralOS — Phase 15X: bounded narration dynamics
 
 Phase 15S verified CI: Linux 1503 passed/832 hashes; Windows 1369 passed/68 skipped. T/U Windows 1413/1453 passed (68 skipped each); Linux and V/W pending at authoring. Phase 15X adds separate pinned offline compressor, bounded makeup gain, lookahead sample-peak limiter and true-peak remeasurement. See [operator guide](docs/PHASE15X_NARRATION_DYNAMICS_2026-11-26.md). New CI pending; no publication authority.

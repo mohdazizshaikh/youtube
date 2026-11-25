@@ -1,3 +1,9 @@
+# ViralOS — Phase 15F: native Hindi video derivative
+
+Phase 15E verified CI: Linux 761 passed/767 hashes; Windows 645 passed/50 skipped. Phase 15F adds explicit pinned-font native Hindi text-card MP4 rendering with a new review queue, preserved parent pair, and fresh derivative verification. See [operator guide](docs/PHASE15F_NATIVE_HINDI_DERIVATIVE_2026-11-26.md) and [priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE15.md). New CI pending; stable main preserved. Native reader review and actual voices still required.
+
+---
+
 # ViralOS — Phase 15E: paired recovery and Hindi typography preview
 
 Phase 15D verified hosted CI: Linux 694 passed/761 hashes; Windows 581 passed/47 skipped. Added paired snapshot/restore and standalone pinned-font Devanagari RAQM preview; existing video storyboard remains ASCII-only. See [operator guide](docs/PHASE15E_VISUAL_PREFLIGHT_AND_PAIR_RECOVERY_2026-11-25.md) and [priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE15.md). New CI pending; stable main preserved; no publication authority.

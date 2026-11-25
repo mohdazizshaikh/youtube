@@ -1,3 +1,9 @@
+# Phase 15F — native Hindi video derivative (2026-11-26)
+
+- Recorded Phase 15E hosted CI: Linux 761 passed/767 hashes; Windows 645 passed/50 skipped.
+- Added opt-in native Hindi text-card render through existing CPU pipeline, independently pinned font/request, fresh parent/child audit, exact PNG regeneration, preserved scene audio/caption/timing, independent review queue and combined read-only review-state JSON.
+- Preserved historical schemas and ASCII default; native visual declarations cannot silently fall back. Added portable and real font/FFmpeg integration cases. Native reader review, browser dashboard and derivative pair snapshot pending. New CI pending.
+
 # Phase 15E — paired recovery and typography preview (2026-11-25)
 
 - Recorded verified Phase 15D hosted CI: Linux 694 passed, 761 hashes; Windows 581 passed, 47 skipped.

@@ -153,6 +153,8 @@ def _diagram(d, box, kind):
 def render_board(spec: Storyboard, output: Path) -> dict:
     """Create a PNG and bind it to the complete source declaration; never overwrite."""
     spec=Storyboard.model_validate(spec.model_dump())
+    if any(k.startswith('native_hi_') for k in spec.specialist_facts):
+        raise ValueError('native Hindi declaration requires explicit native renderer')
     w,h=(720,1280) if spec.format=='SHORT' else (1280,720)
     img=Image.new('RGB',(w,h),'#101e31');d=ImageDraw.Draw(img)
     accent='#74d9c6';fg='#ecf5ff'; muted='#b4c7dc'; margin=40

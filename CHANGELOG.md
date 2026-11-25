@@ -1,3 +1,9 @@
+# Phase 14C / 15 — recovery stabilization and narration QC (2026-11-25)
+
+- Recorded actual Phase 14B Linux 414-pass/744-hash evidence and Windows failure; repaired malformed PowerShell tail and explicit pytest failure propagation. FFmpeg-dependent owner bridge test is skipped on media-tool-less hosts only.
+- Added bounded hash-pinned single and bilingual narration diagnostics, signal metrics, script and pacing heuristics, distinct PCM and script guard, privacy-minimized CLI output.
+- Added portable synthetic diagnostics tests; no ASR, TTS, licensed model, professional acceptance or publication authority. New CI pending.
+
 # Phase 14B — pilot recovery candidate (2026-11-25)
 
 - Phase 14 CI confirmed successful (Linux and Windows contracts, run 45500025508).

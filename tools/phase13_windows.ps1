@@ -61,10 +61,7 @@ try {
     $pin=Read-Host 'Enter the independently recorded trusted manifest SHA-256 (not from the run being resumed)'
   }
   if ((Test-Path -LiteralPath (Join-Path $run 'INCOMPLETE')) -or -not (Test-Path -LiteralPath (Join-Path $run 'run.json'))) { throw 'Incomplete or missing pilot run' }
-  if ($pin -cnotmatch '^[0-9a-f]{64} after server starts. Ctrl+C stops it. Never expose via LAN/tunnel.'
-  Run-Python -m tools.domain_review_web --db (Join-Path $run 'reviews.sqlite') --catalog (Join-Path $run 'catalog.json') --port 8765
-} finally { Pop-Location }
-) { throw 'Trusted lowercase SHA-256 required' }
+  if ($pin -cnotmatch '^[0-9a-f]{64}$') { throw 'Trusted lowercase SHA-256 required' }
   Run-Python -m tools.pilot_run_verify --run $run --manifest-sha256 $pin
   Write-Host 'Open http://127.0.0.1:8765/ after server starts. Ctrl+C stops it. Never expose via LAN/tunnel.'
   Run-Python -m tools.domain_review_web --db (Join-Path $run 'reviews.sqlite') --catalog (Join-Path $run 'catalog.json') --port 8765

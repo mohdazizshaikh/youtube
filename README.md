@@ -1,3 +1,9 @@
+# ViralOS — Phase 15O: motion editorial handoff and recovery
+
+Phase 15M verified CI: Linux 1209 passed/805 hashes; Windows 1080 passed/63 skipped. Phase 15N Windows 1123 passed/63 skipped; Linux in progress at authoring. Phase 15O adds independent pinned motion editorial handoff, explicit checklist evaluation and candidate/handoff snapshot restore. See [operator guide](docs/PHASE15O_MOTION_EDITORIAL_AND_RECOVERY_2026-11-26.md). New CI pending; stable main preserved. No publication authority.
+
+---
+
 # ViralOS — Phase 15N: native flow motion and mixed editorial transactions
 
 Phase 15M CI pending at authoring. Phase 15N adds a separate step-highlight motion preview with all-frame low-resolution comparison and parent audio equality, plus distinct mixed-review resumable transaction CLI. See [operator guide](docs/PHASE15N_MOTION_AND_MIXED_TRANSACTIONS_2026-11-26.md). New CI pending; main preserved. No publishing.

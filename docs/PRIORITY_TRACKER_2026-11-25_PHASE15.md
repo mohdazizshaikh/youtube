@@ -25,13 +25,15 @@
 
 No test count is a count of production features. No production release or actual model acceptance.
 
-Phase 15K paired mix VERIFIED_HOSTED_CI run 45699538573; Phase 15L VERIFIED_HOSTED_CI run 45706454592; Phase 15M native flow MP4 and mixed dashboard candidates; motion pending.
+Phase 15K paired mix VERIFIED_HOSTED_CI run 45699538573; Phase 15L VERIFIED_HOSTED_CI run 45706454592; Phase 15M VERIFIED_HOSTED_CI run 45713389120; motion pending.
 
 | Gate | Phase 15L status |
 |---|---|
 | Mixed-production recovery | VERIFIED_HOSTED_CI run 45706454592; parent and original inputs separately retained |
-| Native flow diagram | Preview VERIFIED_HOSTED_CI run 45706454592; Phase 15M MP4 integration candidate; native reader acceptance pending |
+| Native flow diagram | Preview VERIFIED_HOSTED_CI run 45706454592; Phase 15M MP4 integration VERIFIED_HOSTED_CI run 45713389120; native reader acceptance pending |
 
-Phase 15M read-only mixed dashboard candidate; coordinated mixed submissions, motion and real owner acceptance pending.
+Phase 15M read-only mixed dashboard VERIFIED_HOSTED_CI run 45713389120; coordinated mixed submissions, motion and real owner acceptance pending.
 
 Phase 15N: standalone native flow motion candidate (all frames compared at 96x96, not full resolution), mixed review transaction candidate, original input re-audit prerequisite. Full motion pilot queue, advanced transitions, owner acceptance and CI pending.
+
+Phase 15N Windows 1123 passed/63 skipped, Linux pending at authoring. Phase 15O motion review handoff and snapshot/restore candidates; mutable motion review queue, advanced transitions, charts and owner acceptance pending.

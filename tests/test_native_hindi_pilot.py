@@ -177,6 +177,28 @@ def test_real_native_derivative(pair_inputs,tmp_path,mode):
         check=motion.verify(inputs,dest,report["motion_sha256"])
         assert check["frames_compared"]==52 and check["decoded_parent_audio_equal"]
         assert not check["publication_eligible"]
+        from tools import motion_review as mr,motion_snapshot as ms
+        handoff=tmp_path/"handoff"
+        motion_pin=report["motion_sha256"]
+        hand=mr.prepare(inputs,dest,motion_pin,handoff)
+        packet_pin=hand["packet_file_sha256"]
+        packet=mr.verify_handoff(inputs,dest,motion_pin,handoff,packet_pin)
+        review=mr.template(packet)
+        review["reviewer"]="synthetic reviewer"
+        for row in review["scenes"]:row["checks"]=dict.fromkeys(mr.CHECKS,"PASS")
+        raw=p.json_bytes(review)
+        assessed=mr.evaluate_packet(packet,raw,p.sha(raw))
+        assert not assessed["self_attested_checklist_complete"] and not assessed["publication_eligible"]
+        snapshot=tmp_path/"motion-snapshot"
+        saved=ms.backup(inputs,dest,motion_pin,handoff,packet_pin,snapshot)
+        restored=tmp_path/"motion-restored"
+        restored_report=ms.restore(inputs,snapshot,saved["snapshot_sha256"],motion_pin,packet_pin,restored)
+        assert restored_report["fresh_media_audit"]
+        assert (restored/"motion"/"motion.mp4").read_bytes()==(dest/"motion.mp4").read_bytes()
+        assert (restored/"handoff"/"packet.json").read_bytes()==(handoff/"packet.json").read_bytes()
+        (snapshot/"motion"/"captions.vtt").write_bytes(b"tamper")
+        with pytest.raises(ValueError):
+            ms.inspect(snapshot,saved["snapshot_sha256"],motion_pin,packet_pin)
         (dest/"captions.vtt").write_bytes(b"tamper")
         with pytest.raises(ValueError):
             motion.verify(inputs,dest,report["motion_sha256"])

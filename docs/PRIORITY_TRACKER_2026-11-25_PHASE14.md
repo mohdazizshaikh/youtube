@@ -27,3 +27,5 @@ Phase 15K VERIFIED_HOSTED_CI run 45699538573: Linux 1103 passed/796 hashes; Wind
 Phase 15L VERIFIED_HOSTED_CI run 45706454592: Linux 1156 passed/801 hashes; Windows 1028 passed/62 skipped. Phase 15M native flow MP4 and mixed editorial dashboard candidate; no owner acceptance.
 
 Phase 15N native motion preview and mixed independent transaction candidate; Phase 15M CI in progress at authoring. No owner acceptance.
+
+Phase 15M VERIFIED_HOSTED_CI run 45713389120: Linux 1209 passed/805 hashes; Windows 1080 passed/63 skipped. Phase 15N Windows 1123 passed/63 skipped, Linux pending at authoring. Phase 15O motion handoff and recovery candidate.

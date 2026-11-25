@@ -1,3 +1,9 @@
+# Phase 15O — motion editorial handoff and recovery (2026-11-26)
+
+- Recorded verified Phase 15M CI and Phase 15N Windows CI; Phase 15N Linux pending at authoring.
+- Added immutable motion review packet/template, stage and parent evidence binding, explicit scene-level evaluation with synthetic gate and separate result.
+- Added bounded motion candidate/handoff snapshot, exact copies, independent pins and fresh restore verification. Submitted reviews/results retained separately. Extended real motion integration and contract tests; new CI pending. No mutable motion review queue or publication.
+
 # Phase 15N — native flow motion and mixed transactions (2026-11-26)
 
 - Added separate step-highlight motion preview, exact stage frame budget, all-frame low-resolution diagnostic and decoded parent audio equality; no inherited editorial queue.

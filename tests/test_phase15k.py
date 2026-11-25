@@ -166,6 +166,21 @@ def test_real_pair(inputs,tmp_path):
         video=client.get("/api/video/"+lang,headers=headers)
         assert video.status_code==200 and p.sha(video.content)==result["tracks"][lang]["video_sha256"]
     assert client.post("/api/submit",headers=headers,json={}).status_code==404
+    client.close()
+    from tools import mixed_review_transaction as mt
+    obj={"schema":mt.REQUEST,"pair_mix_sha256":pair_mix_pin,"reviews":{
+        lang:{"revision":0,"review":p.pv.document(restored/lang/"run"/"review_template.json")}
+        for lang in p.LANGS}}
+    req=bp.json_bytes(obj)
+    plan=mt.prepare(restored,pair_mix_pin,req,p.sha(req))
+    txargs=(restored,pair_mix_pin,req,p.sha(req),plan,p.sha(plan))
+    assert mt.reconcile(*txargs)=={"hindi":"PENDING","english":"PENDING"}
+    assert mt.apply(*txargs)["completed"]
+    assert mt.apply(*txargs)["completed"]
+    assert mt.reconcile(*txargs)=={"hindi":"RECORDED","english":"RECORDED"}
+    client=TestClient(mixed_dash.create_app(restored,pair_mix_pin))
+    token=re.search(r'name="review-session" content="([0-9a-f]{64})"',client.get("/").text).group(1)
+    headers={"X-Review-Session":token}
     (restored/"english"/"mix.json").write_bytes(b"tamper")
     assert client.get("/api/status",headers=headers).status_code==409
     (out/"english"/"mix.json").write_bytes(b"tamper")

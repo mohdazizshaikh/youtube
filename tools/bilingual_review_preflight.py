@@ -19,16 +19,26 @@ def validate(raw,request_pin,pair_pin,native_pin):
                and obj["schema"]==SCHEMA and obj["pair_sha256"]==pair_pin
                and obj["native_sha256"]==native_pin,"REQUEST_BINDING")
     pv.require(type(obj["reviews"]) is dict and set(obj["reviews"])==set(dashboard.LANGS),"REVIEW_LANGUAGES")
-    for row in obj["reviews"].values():
+    return validate_reviews(obj["reviews"])
+
+
+def validate_reviews(reviews):
+    pv.require(type(reviews) is dict and set(reviews)==set(dashboard.LANGS),"REVIEW_LANGUAGES")
+    for row in reviews.values():
         pv.require(type(row) is dict and set(row)=={"revision","review"}
                    and type(row["revision"]) is int and 0<=row["revision"]<100000
                    and type(row["review"]) is dict,"REVIEW_ENVELOPE")
-    return obj["reviews"]
+    return reviews
 
 
 def preflight(pair,pair_pin,request,request_pin,native=None,native_pin=None):
     reviews=validate(request,request_pin,pair_pin,native_pin)
-    runs,duration=dashboard.select_runs(pair,pair_pin,native,native_pin)
+    return preflight_selected(lambda:dashboard.select_runs(pair,pair_pin,native,native_pin),reviews,request_pin)
+
+
+def preflight_selected(selector,reviews,request_pin):
+    reviews=validate_reviews(reviews)
+    runs,duration=selector()
     before=dashboard.snapshot(runs,duration,fresh=True)
     reports={}
     for lang in dashboard.LANGS:
@@ -48,7 +58,7 @@ def preflight(pair,pair_pin,request,request_pin,native=None,native_pin=None):
                "NEEDS_REVISION" if any(b["reason"]=="REVISE" for b in blockers) else "INCOMPLETE")
         reports[lang]={"manifest_sha256":pin,"expected_revision":row["revision"],
                        "review_sha256":review_pin,"proposed_state":state,"blocker_count":len(blockers)}
-    pv.require(dashboard.select_runs(pair,pair_pin,native,native_pin)==(runs,duration)
+    pv.require(selector()==(runs,duration)
                and dashboard.snapshot(runs,duration)=={**before,"fresh_media_audit":False},"REVIEW_CHANGED")
     return {"schema":"VIRALOS_BILINGUAL_REVIEW_PREFLIGHT_V1","request_sha256":request_pin,
             "languages":reports,"both_envelopes_valid":True,"queues_modified":False,

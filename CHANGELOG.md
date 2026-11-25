@@ -1,3 +1,9 @@
+# Phase 15N — native flow motion and mixed transactions (2026-11-26)
+
+- Added separate step-highlight motion preview, exact stage frame budget, all-frame low-resolution diagnostic and decoded parent audio equality; no inherited editorial queue.
+- Added distinct mixed review request/plan and resumable independent writes using shared transaction core; original request schemas preserved.
+- Extended real media tests and regression contracts, updated trackers. Phase 15M and new CI pending at authoring. No production merge.
+
 # Phase 15M — native flow MP4 and mixed editorial review (2026-11-26)
 
 - Recorded Phase 15L verified CI: Linux 1156 passed/801 hashes; Windows 1028 passed/62 skipped.

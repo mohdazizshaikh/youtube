@@ -1,3 +1,9 @@
+# ViralOS — Phase 15N: native flow motion and mixed editorial transactions
+
+Phase 15M CI pending at authoring. Phase 15N adds a separate step-highlight motion preview with all-frame low-resolution comparison and parent audio equality, plus distinct mixed-review resumable transaction CLI. See [operator guide](docs/PHASE15N_MOTION_AND_MIXED_TRANSACTIONS_2026-11-26.md). New CI pending; main preserved. No publishing.
+
+---
+
 # ViralOS — Phase 15M: native flow MP4 and mixed editorial review
 
 Phase 15L verified CI: Linux 1156 passed/801 hashes; Windows 1028 passed/62 skipped. Phase 15M integrates pinned native Hindi flow diagrams into a separate native pilot and adds read-only mixed-production editorial dashboard. See [operator guide](docs/PHASE15M_NATIVE_FLOW_VIDEO_AND_MIX_REVIEW_2026-11-26.md) and [priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE15.md). New CI pending; main preserved. No release authority.

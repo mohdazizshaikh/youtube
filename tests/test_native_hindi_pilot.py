@@ -167,6 +167,19 @@ def test_real_native_derivative(pair_inputs,tmp_path,mode):
     from tools import bilingual_review_dashboard as dash, native_pilot_snapshot as ns
     assert dash.select_runs(pair,parent["pair_sha256"],out,result["native_sha256"])[0]["hindi"][1]==result["manifest_sha256"]
     assert ns.receipt_records((pair/"pair.json").read_bytes(),parent["pair_sha256"],(out/"native.json").read_bytes(),result["native_sha256"])["native_hindi"]==result["manifest_sha256"]
+    if mode==n.FLOW_MODE:
+        from tools import native_flow_motion as motion
+        req=p.json_bytes({"schema":motion.REQUEST,"native_sha256":result["native_sha256"],
+                          "effect":"STEP_HIGHLIGHT_V1"})
+        inputs=(*args,result["native_sha256"],req,p.sha(req))
+        dest=tmp_path/"motion"
+        report=motion.build(inputs,dest)
+        check=motion.verify(inputs,dest,report["motion_sha256"])
+        assert check["frames_compared"]==52 and check["decoded_parent_audio_equal"]
+        assert not check["publication_eligible"]
+        (dest/"captions.vtt").write_bytes(b"tamper")
+        with pytest.raises(ValueError):
+            motion.verify(inputs,dest,report["motion_sha256"])
     with pytest.raises(ValueError):
         n.verify(*args,"0"*64)
     (out/"hindi"/"draft"/"scene_01.png").write_bytes(b"tamper")

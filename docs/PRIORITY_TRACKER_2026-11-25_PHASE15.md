@@ -33,3 +33,5 @@ Phase 15K paired mix VERIFIED_HOSTED_CI run 45699538573; Phase 15L VERIFIED_HOST
 | Native flow diagram | Preview VERIFIED_HOSTED_CI run 45706454592; Phase 15M MP4 integration candidate; native reader acceptance pending |
 
 Phase 15M read-only mixed dashboard candidate; coordinated mixed submissions, motion and real owner acceptance pending.
+
+Phase 15N: standalone native flow motion candidate (all frames compared at 96x96, not full resolution), mixed review transaction candidate, original input re-audit prerequisite. Full motion pilot queue, advanced transitions, owner acceptance and CI pending.

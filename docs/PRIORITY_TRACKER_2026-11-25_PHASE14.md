@@ -25,3 +25,5 @@ Phase 15J CI 45698039280: Linux 1052 passed, one STATIC acoustic mismatch; Windo
 Phase 15K VERIFIED_HOSTED_CI run 45699538573: Linux 1103 passed/796 hashes; Windows 977 passed/60 skipped. Phase 15L paired mixed snapshot and Hindi flow diagram preview candidate; no owner acceptance.
 
 Phase 15L VERIFIED_HOSTED_CI run 45706454592: Linux 1156 passed/801 hashes; Windows 1028 passed/62 skipped. Phase 15M native flow MP4 and mixed editorial dashboard candidate; no owner acceptance.
+
+Phase 15N native motion preview and mixed independent transaction candidate; Phase 15M CI in progress at authoring. No owner acceptance.

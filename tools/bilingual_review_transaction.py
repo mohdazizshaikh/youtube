@@ -44,12 +44,12 @@ def proposal(result):
             "blocker_count":len(blockers)}
 
 
-def validate_plan(raw,plan_pin,request_pin,pair_pin,native_pin):
+def validate_plan(raw,plan_pin,request_pin,pair_pin,native_pin,*,schema=SCHEMA,binding="pair_sha256"):
     obj=pv.decode(pinned(raw,plan_pin,MAX_PLAN))
-    pv.require(type(obj) is dict and set(obj)=={"schema","request_sha256","pair_sha256",
+    pv.require(type(obj) is dict and set(obj)=={"schema","request_sha256",binding,
                "native_sha256","languages","publication_eligible"},"PLAN_FIELDS")
-    pv.require(obj["schema"]==SCHEMA and obj["request_sha256"]==request_pin
-               and obj["pair_sha256"]==pair_pin and obj["native_sha256"]==native_pin
+    pv.require(obj["schema"]==schema and obj["request_sha256"]==request_pin
+               and obj[binding]==pair_pin and obj["native_sha256"]==native_pin
                and obj["publication_eligible"] is False,"PLAN_BINDING")
     pv.require(type(obj["languages"]) is dict and set(obj["languages"])==set(LANGS),"PLAN_LANGUAGES")
     for row in obj["languages"].values():
@@ -63,8 +63,14 @@ def validate_plan(raw,plan_pin,request_pin,pair_pin,native_pin):
 
 
 def prepare(pair,pair_pin,request,request_pin,native=None,native_pin=None):
-    result=pre.preflight(pair,pair_pin,request,request_pin,native,native_pin)
-    runs,duration=dash.select_runs(pair,pair_pin,native,native_pin)
+    reviews=pre.validate(request,request_pin,pair_pin,native_pin)
+    selector=lambda:dash.select_runs(pair,pair_pin,native,native_pin)
+    return prepare_selected(selector,reviews,request_pin,{"schema":SCHEMA,"pair_sha256":pair_pin,"native_sha256":native_pin})
+
+
+def prepare_selected(selector,reviews,request_pin,identity):
+    result=pre.preflight_selected(selector,reviews,request_pin)
+    runs,duration=selector()
     rows={}
     for lang in LANGS:
         row=result["languages"][lang]
@@ -73,11 +79,9 @@ def prepare(pair,pair_pin,request,request_pin,native=None,native_pin=None):
         pv.require(len(hist)==row["expected_revision"] and
                    all(x[1]!=row["review_sha256"] for x in hist),"HISTORY_CHANGED")
         rows[lang]={**row,"history_sha256":pv.canonical(hist)}
-    obj={"schema":SCHEMA,"request_sha256":request_pin,"pair_sha256":pair_pin,
-         "native_sha256":native_pin,"languages":rows,"publication_eligible":False}
-    raw=bp.json_bytes(obj)
-    reconcile(pair,pair_pin,request,request_pin,raw,sha(raw),native,native_pin)
-    return raw
+    obj={**identity,"request_sha256":request_pin,"languages":rows,"publication_eligible":False}
+    reconcile_selected(selector,reviews,obj)
+    return bp.json_bytes(obj)
 
 
 def classify(hist,current_revision,current_state,row):
@@ -96,7 +100,11 @@ def classify(hist,current_revision,current_state,row):
 def reconcile(pair,pair_pin,request,request_pin,plan,plan_pin,native=None,native_pin=None):
     reviews=pre.validate(request,request_pin,pair_pin,native_pin)
     obj=validate_plan(plan,plan_pin,request_pin,pair_pin,native_pin)
-    runs,duration=dash.select_runs(pair,pair_pin,native,native_pin)
+    return reconcile_selected(lambda:dash.select_runs(pair,pair_pin,native,native_pin),reviews,obj)
+
+
+def reconcile_selected(selector,reviews,obj):
+    runs,duration=selector()
     before=dash.snapshot(runs,duration,fresh=True)
     statuses={}
     for lang in LANGS:
@@ -110,7 +118,7 @@ def reconcile(pair,pair_pin,request,request_pin,plan,plan_pin,native=None,native
                    "PROPOSAL_CHANGED")
         current=before["languages"][lang]
         statuses[lang]=classify(history(run,pin),current["revision"],current["state"],row)
-    pv.require(dash.select_runs(pair,pair_pin,native,native_pin)==(runs,duration)
+    pv.require(selector()==(runs,duration)
                and dash.snapshot(runs,duration)=={**before,"fresh_media_audit":False},"STATE_CHANGED")
     # A legal interruption can only occur after Hindi, before English.
     pv.require(not(statuses["hindi"]=="PENDING" and statuses["english"]=="RECORDED"),"ORDER_CONFLICT")
@@ -118,17 +126,22 @@ def reconcile(pair,pair_pin,request,request_pin,plan,plan_pin,native=None,native
 
 
 def apply(pair,pair_pin,request,request_pin,plan,plan_pin,native=None,native_pin=None):
-    args=(pair,pair_pin,request,request_pin,plan,plan_pin,native,native_pin)
     reviews=pre.validate(request,request_pin,pair_pin,native_pin)
+    obj=validate_plan(plan,plan_pin,request_pin,pair_pin,native_pin)
+    return apply_selected(lambda:dash.select_runs(pair,pair_pin,native,native_pin),reviews,obj,plan_pin)
+
+
+def apply_selected(selector,reviews,obj,plan_pin):
     for lang in LANGS:
-        statuses=reconcile(*args)
+        statuses=reconcile_selected(selector,reviews,obj)
         if statuses[lang]=="RECORDED":
             continue
-        runs,_=dash.select_runs(pair,pair_pin,native,native_pin)
+        runs,_=selector()
         run,pin,_=runs[lang]
         row=reviews[lang]
+        pv.require(pin==obj["languages"][lang]["manifest_sha256"],"PLAN_REVIEW_BINDING")
         queue.submit(run/"reviews.sqlite",run/"draft",run/"assets",pin,row["revision"],row["review"])
-    statuses=reconcile(*args)
+    statuses=reconcile_selected(selector,reviews,obj)
     pv.require(all(x=="RECORDED" for x in statuses.values()),"PARTIAL_TRANSACTION")
     return {"transaction_sha256":plan_pin,"languages":statuses,"completed":True,
             "cross_database_atomic":False,"human_review_verified":False,"publication_eligible":False}

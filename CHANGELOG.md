@@ -1,3 +1,10 @@
+# Phase 15B — offline narration preparation (2026-11-25)
+
+- Recorded Phase 14C/15 verified CI: Linux 486 passed, 749 package hashes; Windows 374 passed, 46 skipped, PowerShell syntax passed.
+- Added bounded gain-only PCM16 master with source/output diagnostics, preserved sample count and exclusive output creation.
+- Added pinned owner-declared pronunciation coverage and bilingual 25 fps scene duration/padding proposals, with no speech or publication verification.
+- Added portable regression cases, CI coverage and updated tracking. New CI pending.
+
 # Phase 14C / 15 — recovery stabilization and narration QC (2026-11-25)
 
 - Recorded actual Phase 14B Linux 414-pass/744-hash evidence and Windows failure; repaired malformed PowerShell tail and explicit pytest failure propagation. FFmpeg-dependent owner bridge test is skipped on media-tool-less hosts only.

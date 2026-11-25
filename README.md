@@ -1,3 +1,9 @@
+# ViralOS — Phase 15B: offline narration preparation candidate
+
+Phase 14C/15 CI green: Linux 486 passed, 749 package hashes; Windows 374 passed, 46 skipped. Added gain-only PCM mastering, owner-declared pronunciation glossary coverage, and hash-bound bilingual scene timing proposal. No TTS, ASR, true-peak/LUFS mastering, automatic dubbing or publishing authority. See [operator guide](docs/PHASE15B_NARRATION_PREPARATION_2026-11-25.md) and [priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE15.md). New CI pending; stable main preserved.
+
+---
+
 # ViralOS — Phase 14C / 15: recovery stabilization and offline narration QC
 
 Phase 14B Linux: 414 tests passed and 744 package hashes verified; Windows failed. Phase 14C repairs launcher syntax and CI exit propagation. Phase 15 adds hash-bound offline Hindi/English narration diagnostics (not professional voice certification). See [implementation guide](docs/PHASE15_NARRATION_QC_2026-11-25.md), [recovery tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE14.md) and [Phase 15 tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE15.md). New CI pending; main preserved.

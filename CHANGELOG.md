@@ -1,3 +1,9 @@
+# Phase 15D — bilingual pilot orchestration (2026-11-25)
+
+- Recorded Phase 15C hosted CI: Linux 636 passed/757 hashes; Windows 524 passed/46 skipped.
+- Added paired CPU pilot orchestration, strict board/source binding, private child review queues, exact master PCM and caption checks and fresh pair receipt verification.
+- Added portable rejection tests and a real FFmpeg synthetic paired integration test. ASCII visual text only; no native Hindi visual, real voice, translation, alignment or publication acceptance. New CI pending.
+
 # Phase 15C — bilingual audio composition (2026-11-25)
 
 - Recorded Phase 15B green hosted CI: Linux 563 passed/753 hashes, Windows 451 passed/46 skipped.

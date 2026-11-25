@@ -1,3 +1,9 @@
+# ViralOS — Phase 15D: automated bilingual pilot candidate
+
+Phase 15C CI verified: Linux 636 passed, 757 hashes; Windows 524 passed, 46 skipped. Phase 15D connects pinned bilingual audio and scene captions to two private CPU pilot renders and independent editorial queues, with pair-level fresh audits. Existing visual text renderer remains ASCII-only. See [operator guide](docs/PHASE15D_BILINGUAL_PILOT_2026-11-25.md) and [priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE15.md). New CI pending; stable main preserved. No publication authority.
+
+---
+
 # ViralOS — Phase 15C: synchronized bilingual audio candidate
 
 Phase 15B CI verified: Linux 563 passed, 753 hashes; Windows 451 passed, 46 skipped. Phase 15C creates two equal-duration PCM masters, padded scene WAVs, scene-level WebVTT and deterministic fresh-verifiable bundle. No actual speech/translation/word alignment verification or automatic video rendering. See [operator guide](docs/PHASE15C_BILINGUAL_COMPOSITION_2026-11-25.md) and [priority tracker](docs/PRIORITY_TRACKER_2026-11-25_PHASE15.md). New CI pending; main preserved.

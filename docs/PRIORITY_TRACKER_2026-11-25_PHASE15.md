@@ -6,9 +6,11 @@
 | P0 | Offline bilingual voice QC | VERIFIED_HOSTED_CI: run 45640671172, owner voices pending |
 | P0 | Phase 15B gain-only master | VERIFIED_HOSTED_CI run 45647974382; human listening pending |
 | P0 | Phase 15B pronunciation coverage | VERIFIED_HOSTED_CI run 45647974382; phonetics and actual pronunciation pending |
-| P0 | Phase 15B shared scene timing | VERIFIED_HOSTED_CI run 45647974382; Phase 15C composition candidate |
-| P0 | Phase 15C synchronized audio and captions | Actual PCM composition, scene VTT and fresh verification candidate; CI pending |
-| P0 | Pilot render integration | Manual localized plans using padded WAVs; automatic bilingual video render pending |
+| P0 | Phase 15B shared scene timing | VERIFIED_HOSTED_CI run 45647974382; Phase 15C hosted CI green |
+| P0 | Phase 15C synchronized audio and captions | VERIFIED_HOSTED_CI run 45649764042; owner listening pending |
+| P0 | Pilot render integration | Phase 15D paired renderer and child queue integration candidate; CI pending |
+| P0 | Native Hindi on-screen graphics | Existing renderer ASCII-only; licensed fonts, complex-script shaping and visual acceptance required |
+| P1 | Pair disaster recovery | Child snapshots available; paired restore and rebinding pending |
 | P0 | Real Hindi/English licensed TTS | BLOCKED on owner model, license, native listening and CPU measurement |
 | P0 | Real CTC alignment | BLOCKED on acoustic models/reference corpus |
 | P0 | Gold-standard pilot | Non-demo narration, graphics, human source/rights review and integration pending |
